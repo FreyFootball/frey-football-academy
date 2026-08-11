@@ -7,15 +7,20 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Individualtraining | Frey Football Academy</title>
+    <title>Individualtraining anfragen | Frey Football Academy</title>
 
 
     <style>
 
+        * {
+            box-sizing: border-box;
+        }
+
+
         body {
             margin: 0;
             background: #111;
-            color: white;
+            color: #fff;
             font-family: Arial, Helvetica, sans-serif;
             line-height: 1.6;
         }
@@ -43,14 +48,15 @@
         h1 {
             text-align: center;
             font-size: 32px;
-            margin-bottom: 10px;
+            margin: 0 0 10px;
         }
 
 
         .intro {
             text-align: center;
             color: #bbb;
-            margin-bottom: 40px;
+            margin: 0 auto 40px;
+            max-width: 650px;
         }
 
 
@@ -69,7 +75,7 @@
         }
 
 
-        /* FELDER */
+        /* FELDER NEBENEINANDER */
 
         .form-row {
             display: flex;
@@ -83,6 +89,8 @@
         }
 
 
+        /* BESCHRIFTUNGEN */
+
         label {
             display: block;
             margin-bottom: 7px;
@@ -91,6 +99,8 @@
             font-weight: bold;
         }
 
+
+        /* EINGABEFELDER */
 
         input,
         select,
@@ -102,7 +112,7 @@
 
             background: #1c1c1c;
 
-            color: white;
+            color: #fff;
 
             border: 1px solid #444;
 
@@ -112,7 +122,12 @@
 
             font-family: Arial, Helvetica, sans-serif;
 
-            box-sizing: border-box;
+        }
+
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #888;
         }
 
 
@@ -123,14 +138,45 @@
             outline: none;
 
             border-color: #ff7a00;
+
         }
 
 
+        /* DATUM UND UHRZEIT */
+
+        input[type="date"],
+        input[type="time"] {
+
+            color-scheme: dark;
+
+            cursor: pointer;
+
+        }
+
+
+        /* TEXTFELD */
+
         textarea {
 
-            min-height: 120px;
+            min-height: 130px;
 
             resize: vertical;
+
+        }
+
+
+        /* HINWEIS */
+
+        .hint {
+
+            color: #888;
+
+            font-size: 13px;
+
+            margin-top: 6px;
+
+            margin-bottom: 20px;
+
         }
 
 
@@ -149,6 +195,7 @@
             color: #bbb;
 
             font-size: 14px;
+
         }
 
 
@@ -161,22 +208,25 @@
             margin-top: 3px;
 
             flex-shrink: 0;
+
         }
 
 
         .checkbox label {
 
+            margin: 0;
+
             color: #bbb;
 
             font-weight: normal;
 
-            margin: 0;
         }
 
 
         .checkbox a {
 
             color: #ff7a00;
+
         }
 
 
@@ -192,7 +242,7 @@
 
             background: #ff7a00;
 
-            color: white;
+            color: #fff;
 
             border: none;
 
@@ -203,12 +253,14 @@
             font-weight: bold;
 
             cursor: pointer;
+
         }
 
 
         .submit:hover {
 
             background: #ff9500;
+
         }
 
 
@@ -226,17 +278,19 @@
 
             background: #222;
 
-            color: white;
+            color: #fff;
 
             text-decoration: none;
 
             border-radius: 8px;
+
         }
 
 
         .back:hover {
 
             background: #333;
+
         }
 
 
@@ -251,6 +305,7 @@
             color: #777;
 
             font-size: 14px;
+
         }
 
 
@@ -303,78 +358,63 @@
     <!-- LOGO -->
 
     <img
-
         src="assets/logo.png"
-
         alt="Frey Football Academy Logo"
-
         class="logo"
-
     >
 
 
     <!-- ÜBERSCHRIFT -->
 
     <h1>
-
         Individualtraining anfragen
-
     </h1>
 
 
     <p class="intro">
 
-        Du möchtest dein Fußballspiel gezielt verbessern?
+        Du möchtest gezielt an deinem Fußballspiel arbeiten?
 
-        Fülle das Formular aus und wir melden uns zeitnah
+        Fülle das Formular aus und erzähl uns kurz etwas über
+        den Spieler und seine Ziele.
 
-        bei dir.
+        Wir melden uns anschließend persönlich bei dir.
 
     </p>
 
 
-    <!-- ================================= -->
+    <!-- ========================================= -->
     <!-- FORMULAR -->
-    <!-- ================================= -->
-
+    <!-- ========================================= -->
 
     <form
-
         action="https://formspree.io/f/xoeadwwq"
-
         method="POST"
-
     >
 
 
-        <!-- Betreff der E-Mail -->
+        <!-- BETREFF DER E-MAIL -->
 
         <input
-
             type="hidden"
-
             name="_subject"
-
-            value="Neue Anfrage – Individualtraining"
-
+            value="Neue Anfrage – Individualtraining | Frey Football Academy"
         >
 
 
-
-        <!-- =============================== -->
+        <!-- ========================================= -->
         <!-- SPIELER -->
-        <!-- =============================== -->
-
+        <!-- ========================================= -->
 
         <div class="section">
 
 
             <div class="section-title">
-
-                Spieler/in
-
+                Angaben zum Spieler
             </div>
 
+
+            <!-- VORNAME / NACHNAME -->
 
             <div class="form-row">
 
@@ -382,24 +422,15 @@
                 <div class="field">
 
                     <label for="vorname">
-
-                        Vorname des Kindes *
-
+                        Vorname *
                     </label>
 
-
                     <input
-
                         type="text"
-
                         id="vorname"
-
-                        name="Vorname des Kindes"
-
+                        name="Vorname Spieler"
                         autocomplete="given-name"
-
                         required
-
                     >
 
                 </div>
@@ -408,24 +439,15 @@
                 <div class="field">
 
                     <label for="nachname">
-
-                        Nachname des Kindes *
-
+                        Nachname *
                     </label>
 
-
                     <input
-
                         type="text"
-
                         id="nachname"
-
-                        name="Nachname des Kindes"
-
+                        name="Nachname Spieler"
                         autocomplete="family-name"
-
                         required
-
                     >
 
                 </div>
@@ -434,34 +456,25 @@
             </div>
 
 
+            <!-- JAHRGANG / VEREIN -->
+
             <div class="form-row">
 
 
                 <div class="field">
 
-                    <label for="geburtsjahr">
-
-                        Jahrgang / Geburtsjahr *
-
+                    <label for="jahrgang">
+                        Jahrgang *
                     </label>
 
-
                     <input
-
                         type="number"
-
-                        id="geburtsjahr"
-
-                        name="Geburtsjahr"
-
+                        id="jahrgang"
+                        name="Jahrgang"
                         placeholder="z. B. 2014"
-
                         min="2000"
-
                         max="2026"
-
                         required
-
                     >
 
                 </div>
@@ -469,57 +482,99 @@
 
                 <div class="field">
 
-                    <label for="spielniveau">
-
-                        Spielniveau *
-
+                    <label for="verein">
+                        Verein
                     </label>
 
+                    <input
+                        type="text"
+                        id="verein"
+                        name="Verein"
+                        placeholder="Aktueller Verein"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+            <!-- POSITION / SPIELNIVEAU -->
+
+            <div class="form-row">
+
+
+                <div class="field">
+
+                    <label for="position">
+                        Position
+                    </label>
 
                     <select
-
-                        id="spielniveau"
-
-                        name="Spielniveau"
-
-                        required
-
+                        id="position"
+                        name="Position"
                     >
 
                         <option value="">
-
                             Bitte wählen
-
                         </option>
 
+                        <option value="Torwart">
+                            Torwart
+                        </option>
+
+                        <option value="Abwehr">
+                            Abwehr
+                        </option>
+
+                        <option value="Mittelfeld">
+                            Mittelfeld
+                        </option>
+
+                        <option value="Flügel">
+                            Flügel
+                        </option>
+
+                        <option value="Sturm">
+                            Sturm
+                        </option>
+
+                        <option value="Mehrere Positionen">
+                            Mehrere Positionen
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="niveau">
+                        Spielniveau *
+                    </label>
+
+                    <select
+                        id="niveau"
+                        name="Spielniveau"
+                        required
+                    >
+
+                        <option value="">
+                            Bitte wählen
+                        </option>
 
                         <option value="Anfänger">
-
                             Anfänger
-
                         </option>
 
-
-                        <option value="Hobby">
-
-                            Hobby
-
+                        <option value="Fortgeschritten">
+                            Fortgeschritten
                         </option>
-
-
-                        <option value="Verein">
-
-                            Verein
-
-                        </option>
-
 
                         <option value="Leistungsbereich">
-
                             Leistungsbereich
-
                         </option>
-
 
                     </select>
 
@@ -529,82 +584,90 @@
             </div>
 
 
+            <!-- ========================================= -->
             <!-- TRAININGSFOKUS -->
+            <!-- ========================================= -->
 
             <div class="field">
 
                 <label for="trainingsfokus">
-
-                    Trainingsfokus / Ziele *
-
+                    Worauf soll der Trainingsfokus liegen? *
                 </label>
 
-
                 <textarea
-
                     id="trainingsfokus"
-
-                    name="Trainingsfokus / Ziele"
-
-                    placeholder="z. B. Dribbling, Abschluss, erster Kontakt, schwächerer Fuß ..."
-
+                    name="Trainingsfokus"
+                    placeholder="z. B. Technik, Dribbling, erster Kontakt, Abschluss, Geschwindigkeit, schwächerer Fuß ..."
                     required
-
                 ></textarea>
+
+                <div class="hint">
+
+                    Beschreibe kurz, woran im Training gezielt gearbeitet werden soll.
+
+                </div>
 
             </div>
 
 
-            <!-- STANDORT -->
+            <!-- ========================================= -->
+            <!-- WUNSCHTERMIN -->
+            <!-- ========================================= -->
 
-            <div class="field">
+            <div class="section">
 
-                <label for="standort">
-
-                    Standort *
-
-                </label>
-
-
-                <select
-
-                    id="standort"
-
-                    name="Standort"
-
-                    required
-
-                >
-
-                    <option value="">
-
-                        Bitte wählen
-
-                    </option>
+                <div class="section-title">
+                    Wunschtermin
+                </div>
 
 
-                    <option value="Mainz">
-
-                        Mainz
-
-                    </option>
+                <div class="form-row">
 
 
-                    <option value="Umgebung Mainz">
+                    <!-- DATUM -->
 
-                        Umgebung Mainz
+                    <div class="field">
 
-                    </option>
+                        <label for="trainingsdatum">
+                            Gewünschtes Trainingsdatum *
+                        </label>
+
+                        <input
+                            type="date"
+                            id="trainingsdatum"
+                            name="Gewünschtes Trainingsdatum"
+                            required
+                        >
+
+                    </div>
 
 
-                    <option value="Sonstiger Standort">
+                    <!-- UHRZEIT -->
 
-                        Sonstiger Standort
+                    <div class="field">
 
-                    </option>
+                        <label for="trainingszeit">
+                            Gewünschte Uhrzeit *
+                        </label>
+
+                        <input
+                            type="time"
+                            id="trainingszeit"
+                            name="Gewünschte Uhrzeit"
+                            required
+                        >
+
+                    </div>
 
 
-                </select>
+                </div>
+
+
+                <div class="hint">
+
+                    Bitte gib deinen Wunschtermin an. Wir prüfen anschließend die Verfügbarkeit und melden uns bei dir.
+
+                </div>
 
             </div>
 
@@ -612,48 +675,56 @@
         </div>
 
 
-
-        <!-- =============================== -->
-        <!-- ERZIEHUNGSBERECHTIGTE/R -->
-        <!-- =============================== -->
-
+        <!-- ========================================= -->
+        <!-- KONTAKT -->
+        <!-- ========================================= -->
 
         <div class="section">
 
 
             <div class="section-title">
+                Kontakt
+            </div>
 
-                Erziehungsberechtigte/r
+
+            <!-- NAME ERZIEHUNGSBERECHTIGTER -->
+
+            <div class="field">
+
+                <label for="elternname">
+                    Name des Erziehungsberechtigten *
+                </label>
+
+                <input
+                    type="text"
+                    id="elternname"
+                    name="Name Erziehungsberechtigter"
+                    placeholder="Vor- und Nachname"
+                    autocomplete="name"
+                    required
+                >
 
             </div>
 
+
+            <!-- TELEFON / E-MAIL -->
 
             <div class="form-row">
 
 
                 <div class="field">
 
-                    <label for="elternname">
-
-                        Name *
-
+                    <label for="telefon">
+                        Telefonnummer *
                     </label>
 
-
                     <input
-
-                        type="text"
-
-                        id="elternname"
-
-                        name="Name Erziehungsberechtigte/r"
-
-                        placeholder="Vor- und Nachname"
-
-                        autocomplete="name"
-
+                        type="tel"
+                        id="telefon"
+                        name="Telefon"
+                        placeholder="+49 ..."
+                        autocomplete="tel"
                         required
-
                     >
 
                 </div>
@@ -661,27 +732,17 @@
 
                 <div class="field">
 
-                    <label for="telefon">
-
-                        Telefon *
-
+                    <label for="email">
+                        E-Mail-Adresse *
                     </label>
 
-
                     <input
-
-                        type="tel"
-
-                        id="telefon"
-
-                        name="Telefon"
-
-                        placeholder="+49 ..."
-
-                        autocomplete="tel"
-
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="name@email.de"
+                        autocomplete="email"
                         required
-
                     >
 
                 </div>
@@ -690,58 +751,22 @@
             </div>
 
 
-            <div class="field">
-
-                <label for="email">
-
-                    E-Mail *
-
-                </label>
-
-
-                <input
-
-                    type="email"
-
-                    id="email"
-
-                    name="email"
-
-                    placeholder="name@email.de"
-
-                    autocomplete="email"
-
-                    required
-
-                >
-
-            </div>
-
-
         </div>
 
 
-
-        <!-- =============================== -->
+        <!-- ========================================= -->
         <!-- DATENSCHUTZ -->
-        <!-- =============================== -->
-
+        <!-- ========================================= -->
 
         <div class="checkbox">
 
 
             <input
-
                 type="checkbox"
-
                 id="datenschutz"
-
-                name="Datenschutz bestätigt"
-
+                name="Datenschutzerklärung bestätigt"
                 value="Ja"
-
                 required
-
             >
 
 
@@ -750,17 +775,11 @@
                 Ich habe die
 
                 <a
-
                     href="datenschutz.html"
-
                     target="_blank"
-
                     rel="noopener"
-
                 >
-
                     Datenschutzerklärung
-
                 </a>
 
                 gelesen und zur Kenntnis genommen.
@@ -771,18 +790,13 @@
         </div>
 
 
-
-        <!-- =============================== -->
+        <!-- ========================================= -->
         <!-- ABSENDEN -->
-        <!-- =============================== -->
-
+        <!-- ========================================= -->
 
         <button
-
             type="submit"
-
             class="submit"
-
         >
 
             INDIVIDUALTRAINING ANFRAGEN
@@ -793,15 +807,11 @@
     </form>
 
 
-
-    <!-- ZURÜCK ZU TRAINING -->
+    <!-- ZURÜCK -->
 
     <a
-
         class="back"
-
         href="training.html"
-
     >
 
         ← Zurück zu Training
