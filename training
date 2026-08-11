@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Training anfragen | Frey Football Academy</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            background: #111;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .logo {
+            width: 180px;
+            max-width: 70%;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .intro {
+            color: #bbb;
+            margin-bottom: 40px;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            padding: 18px 0;
+            margin: 18px 0;
+
+            background: #ff7a00;
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #ff9500;
+        }
+
+        .back {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding: 12px 22px;
+
+            background: #222;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+        }
+
+        .back:hover {
+            background: #333;
+        }
+
+        .footer {
+            margin-top: 40px;
+            color: #777;
+            font-size: 14px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <img
+        src="assets/logo.png"
+        alt="Frey Football Academy Logo"
+        class="logo"
+    >
+
+
+    <h1>
+        Training anfragen
+    </h1>
+
+
+    <p class="intro">
+
+        Wähle das passende Trainingsangebot aus.
+
+    </p>
+
+
+    <!-- INDIVIDUALTRAINING -->
+
+    <a
+        class="button"
+        href="individualtraining.html"
+    >
+
+        ⚽ Individualtraining
+
+    </a>
+
+
+    <!-- ZUKÜNFTIGE ANGEBOTE -->
+
+    <!--
+
+    <a class="button" href="gruppentraining.html">
+        👥 Gruppentraining
+    </a>
+
+    <a class="button" href="probetraining.html">
+        🏟️ Probetraining
+    </a>
+
+    -->
+
+
+    <a
+        class="back"
+        href="index.html"
+    >
+
+        ← Zurück zur Startseite
+
+    </a>
+
+
+    <div class="footer">
+
+        © 2026 Frey Football Academy
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>
