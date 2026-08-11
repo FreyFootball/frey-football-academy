@@ -6,21 +6,70 @@
     <title>Frey Football Academy</title>
 
     <style>
-        body {
-            margin: 0;
-            background: #111;
-            font-family: Arial, Helvetica, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            color: white;
-        }
+    
+     body {
+    margin: 0;
+    min-height: 100vh;
+
+    color: #fff;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    line-height: 1.6;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(255, 122, 0, 0.20),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #181818 0%,
+            #0d0d0d 45%,
+            #050505 100%
+        );
+         body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 35%,
+            rgba(255, 255, 255, 0.035) 45%,
+            transparent 55%
+        ),
+        linear-gradient(
+            65deg,
+            transparent 35%,
+            rgba(255, 255, 255, 0.025) 45%,
+            transparent 55%
+        );
+
+    z-index: 0;
+}
+
+    position: relative;
+}
+
 
         .container {
-            text-align: center;
-        }
+    position: relative;
 
+    z-index: 1;
+
+    width: 90%;
+
+    max-width: 750px;
+
+    margin: 40px auto;
+}
         .logo {
             width: 220px;
             max-width: 80%;
