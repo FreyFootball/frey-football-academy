@@ -376,7 +376,7 @@
         Du möchtest gezielt an deinem Fußballspiel arbeiten?
 
         Fülle das Formular aus und erzähl uns kurz etwas über
-        den Spieler und seine Ziele.
+        dich und deine Ziele.
 
         Wir melden uns anschließend persönlich bei dir.
 
@@ -501,51 +501,59 @@
 
             <!-- POSITION / SPIELNIVEAU -->
 
-            <div class="form-row">
+  verwenden. Ich würde es bei deinen Positionen so machen:
 
+<div class="form-row">
 
-                <div class="field">
+    <div class="field">
 
-                    <label for="position">
-                        Position
-                    </label>
+        <label for="position">
+            Position
+        </label>
 
-                    <select
-                        id="position"
-                        name="Position"
-                    >
+        <select
+            id="position"
+            name="Position[]"
+            multiple
+        >
 
-                        <option value="">
-                            Bitte wählen
-                        </option>
+            <option value="Torwart">
+                Torwart
+            </option>
 
-                        <option value="Torwart">
-                            Torwart
-                        </option>
+            <option value="Innenverteidiger">
+                Innenverteidiger
+            </option>
 
-                        <option value="Abwehr">
-                            Abwehr
-                        </option>
+            <option value="Außenverteidiger">
+                Außenverteidiger
+            </option>
 
-                        <option value="Mittelfeld">
-                            Mittelfeld
-                        </option>
+            <option value="6/8er">
+                6/8er
+            </option>
 
-                        <option value="Flügel">
-                            Flügel
-                        </option>
+            <option value="10er">
+                10er
+            </option>
 
-                        <option value="Sturm">
-                            Sturm
-                        </option>
+            <option value="Flügelspieler">
+                Flügelspieler
+            </option>
 
-                        <option value="Mehrere Positionen">
-                            Mehrere Positionen
-                        </option>
+            <option value="Stürmer">
+                Stürmer
+            </option>
 
-                    </select>
+        </select>
 
-                </div>
+        <div class="hint">
+            Mehrere Positionen können ausgewählt werden.
+        </div>
+
+    </div>
+
+</div>
 
 
                 <div class="field">
