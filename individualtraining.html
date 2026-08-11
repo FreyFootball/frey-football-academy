@@ -7,7 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Training anfragen | Frey Football Academy</title>
+    <title>Individualtraining anfragen | Frey Football Academy</title>
 
 
     <style>
@@ -30,7 +30,7 @@
 
             background:
                 radial-gradient(
-                    circle at 50% 15%,
+                    circle at 50% 10%,
                     rgba(255, 122, 0, 0.20),
                     transparent 35%
                 ),
@@ -45,12 +45,14 @@
 
             font-family: Arial, Helvetica, sans-serif;
 
+            line-height: 1.6;
+
             position: relative;
 
         }
 
 
-        /* DEZENTE LICHTEFFEKTE */
+        /* LICHTEFFEKTE */
 
         body::before {
 
@@ -91,11 +93,11 @@
 
             width: 90%;
 
-            max-width: 650px;
+            max-width: 750px;
 
             margin: 0 auto;
 
-            padding: 45px 0 50px;
+            padding: 40px 0 50px;
 
             text-align: center;
 
@@ -108,13 +110,13 @@
 
             display: block;
 
-            width: 260px;
+            width: 220px;
 
             max-width: 75%;
 
             height: auto;
 
-            margin: 0 auto 45px;
+            margin: 0 auto 35px;
 
         }
 
@@ -127,11 +129,9 @@
 
             margin: 0 auto 15px;
 
-            padding: 0;
-
             color: white;
 
-            font-size: 38px;
+            font-size: 36px;
 
             line-height: 1.2;
 
@@ -142,122 +142,359 @@
         }
 
 
-        /* UNTERTITEL */
+        /* EINLEITUNG */
 
-        .subtitle {
+        .intro {
 
             width: 100%;
 
-            margin: 0 auto 45px;
+            max-width: 650px;
+
+            margin: 0 auto 40px;
 
             color: #bbb;
 
-            font-size: 20px;
+            font-size: 18px;
 
-            line-height: 1.5;
+            line-height: 1.6;
 
             text-align: center;
 
         }
 
 
-        /* BUTTON-BEREICH */
+        /* FORMULAR */
 
-        .buttons {
+        form {
 
             width: 100%;
 
-            display: flex;
+            text-align: left;
 
-            flex-direction: column;
+            background: rgba(20, 20, 20, 0.92);
 
-            align-items: center;
+            border: 1px solid #333;
 
-            gap: 16px;
+            border-radius: 16px;
+
+            padding: 30px;
+
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
 
         }
 
 
-        /* BUTTONS */
+        /* ABSCHNITTE */
 
-        .button {
+        .section {
 
-            display: flex;
+            margin-top: 30px;
 
-            align-items: center;
+        }
 
-            justify-content: flex-start;
 
-            width: 82%;
+        .section:first-child {
 
-            min-height: 70px;
+            margin-top: 0;
 
-            padding: 16px 25px;
+        }
 
-            background: #ff7a00;
 
-            color: white;
+        .section-title {
 
-            text-decoration: none;
-
-            border-radius: 12px;
+            color: #ff7a00;
 
             font-size: 20px;
 
             font-weight: bold;
 
-            text-align: left;
-
-            transition: 0.2s ease;
+            margin-bottom: 20px;
 
         }
 
 
-        .button:hover {
+        /* ZWEI FELDER */
 
-            background: #ff9500;
+        .form-row {
 
-            transform: translateY(-2px);
+            display: flex;
+
+            gap: 15px;
 
         }
 
 
-        /* ICON */
+        .field {
 
-        .button-icon {
+            flex: 1;
 
-            width: 35px;
+            margin-bottom: 20px;
 
-            margin-right: 12px;
+        }
 
-            text-align: center;
 
-            font-size: 24px;
+        /* LABELS */
+
+        label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #ddd;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* EINGABEFELDER */
+
+        input,
+        select,
+        textarea {
+
+            width: 100%;
+
+            padding: 14px;
+
+            background: #111;
+
+            color: white;
+
+            border: 1px solid #444;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+
+        input::placeholder,
+        textarea::placeholder {
+
+            color: #888;
+
+        }
+
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+
+            outline: none;
+
+            border-color: #ff7a00;
+
+            box-shadow: 0 0 0 2px rgba(255, 122, 0, 0.10);
+
+        }
+
+
+        textarea {
+
+            min-height: 130px;
+
+            resize: vertical;
+
+        }
+
+
+        /* DATUM UND UHRZEIT */
+
+        input[type="date"],
+        input[type="time"] {
+
+            color-scheme: dark;
+
+            cursor: pointer;
+
+        }
+
+
+        /* POSITIONEN */
+
+        .position-options {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 10px;
+
+        }
+
+
+        .position-option {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 12px;
+
+            background: #111;
+
+            border: 1px solid #444;
+
+            border-radius: 8px;
+
+            color: #ddd;
+
+            cursor: pointer;
+
+            font-weight: normal;
+
+        }
+
+
+        .position-option:hover {
+
+            border-color: #ff7a00;
+
+        }
+
+
+        .position-option input {
+
+            width: 18px;
+
+            height: 18px;
+
+            margin: 0;
 
             flex-shrink: 0;
 
+            accent-color: #ff7a00;
+
         }
 
 
-        /* ZURÜCK BUTTON */
+        /* HINWEIS */
+
+        .hint {
+
+            color: #888;
+
+            font-size: 13px;
+
+            margin-top: 6px;
+
+        }
+
+
+        /* DATENSCHUTZ */
+
+        .checkbox {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+            margin-top: 25px;
+
+            color: #bbb;
+
+            font-size: 14px;
+
+        }
+
+
+        .checkbox input {
+
+            width: 18px;
+
+            height: 18px;
+
+            margin-top: 3px;
+
+            flex-shrink: 0;
+
+            accent-color: #ff7a00;
+
+        }
+
+
+        .checkbox label {
+
+            margin: 0;
+
+            color: #bbb;
+
+            font-weight: normal;
+
+        }
+
+
+        .checkbox a {
+
+            color: #ff7a00;
+
+        }
+
+
+        /* ABSENDEN */
+
+        .submit {
+
+            width: 100%;
+
+            margin-top: 30px;
+
+            padding: 17px;
+
+            background: #ff7a00;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 8px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        .submit:hover {
+
+            background: #ff9500;
+
+        }
+
+
+        /* ZURÜCK */
 
         .back {
 
-            display: inline-block;
+            display: block;
 
-            margin-top: 35px;
+            width: fit-content;
 
-            padding: 12px 24px;
+            margin: 30px auto 0;
+
+            padding: 12px 22px;
 
             background: #222;
 
-            color: #fff;
+            color: white;
 
             text-decoration: none;
 
             border-radius: 8px;
-
-            font-size: 15px;
 
         }
 
@@ -273,64 +510,61 @@
 
         .footer {
 
-            margin-top: 45px;
+            text-align: center;
+
+            margin-top: 40px;
 
             color: #777;
 
             font-size: 14px;
 
-            text-align: center;
-
         }
 
 
-        /* HANDY */
+        /* MOBILE */
 
         @media (max-width: 600px) {
 
             .container {
 
-                width: 90%;
+                width: 94%;
 
                 padding-top: 25px;
 
             }
 
 
-            .logo {
-
-                width: 250px;
-
-                max-width: 80%;
-
-                margin-bottom: 40px;
-
-            }
-
-
             h1 {
 
-                font-size: 34px;
+                font-size: 28px;
 
             }
 
 
-            .subtitle {
+            .form-row {
 
-                font-size: 18px;
-
-                margin-bottom: 35px;
+                display: block;
 
             }
 
 
-            .button {
+            .position-options {
 
-                width: 90%;
+                grid-template-columns: 1fr;
 
-                min-height: 68px;
+            }
 
-                font-size: 18px;
+
+            .logo {
+
+                width: 190px;
+
+            }
+
+
+            form {
+
+                padding: 22px;
 
             }
 
@@ -359,51 +593,541 @@
     <!-- TITEL -->
 
     <h1>
-        Training anfragen
+        Individualtraining anfragen
     </h1>
 
 
-    <!-- UNTERTITEL -->
+    <p class="intro">
 
-    <p class="subtitle">
-        Wähle dein gewünschtes Trainingsangebot.
+        Du möchtest gezielt an deinem Fußballspiel arbeiten?
+
+        Fülle das Formular aus und erzähl uns kurz etwas über
+        den Spieler und seine Ziele.
+
+        Wir melden uns anschließend persönlich bei dir.
+
     </p>
 
 
-    <!-- BUTTONS -->
+    <!-- ========================================= -->
+    <!-- FORMULAR -->
+    <!-- ========================================= -->
 
-    <div class="buttons">
+    <form
+        action="https://formspree.io/f/xoeadwwq"
+        method="POST"
+    >
 
 
-        <!-- INDIVIDUALTRAINING -->
+        <!-- BETREFF DER E-MAIL -->
 
-        <a
-            class="button"
-            href="individualtraining.html"
+        <input
+            type="hidden"
+            name="_subject"
+            value="Neue Anfrage – Individualtraining | Frey Football Academy"
         >
 
-            <span class="button-icon">
-                ⚽
-            </span>
 
-            <span>
-                Individualtraining anfragen
-            </span>
+        <!-- ========================================= -->
+        <!-- SPIELER -->
+        <!-- ========================================= -->
 
-        </a>
+        <div class="section">
 
 
-    </div>
+            <div class="section-title">
+                Angaben zum Spieler
+            </div>
+
+
+            <!-- VORNAME / NACHNAME -->
+
+            <div class="form-row">
+
+
+                <div class="field">
+
+                    <label for="vorname">
+                        Vorname *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="vorname"
+                        name="Vorname Spieler"
+                        autocomplete="given-name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="nachname">
+                        Nachname *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nachname"
+                        name="Nachname Spieler"
+                        autocomplete="family-name"
+                        required
+                    >
+
+                </div>
+
+
+            </div>
+
+
+            <!-- JAHRGANG / VEREIN -->
+
+            <div class="form-row">
+
+
+                <div class="field">
+
+                    <label for="jahrgang">
+                        Jahrgang *
+                    </label>
+
+                    <input
+                        type="number"
+                        id="jahrgang"
+                        name="Jahrgang"
+                        placeholder="z. B. 2014"
+                        min="2000"
+                        max="2026"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="verein">
+                        Verein
+                    </label>
+
+                    <input
+                        type="text"
+                        id="verein"
+                        name="Verein"
+                        placeholder="Aktueller Verein"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+            <!-- POSITIONEN -->
+
+            <div class="field">
+
+                <label>
+                    Position
+                </label>
+
+
+                <div class="position-options">
+
+
+                    <label class="position-option">
+
+                        <input
+                            type="checkbox"
+                            name="Position"
+                            value="Torwart"
+                        >
+
+                        <span>
+                            Torwart
+                        </span>
+
+                    </label>
+
+
+                    <label class="position-option">
+
+                        <input
+                            type="checkbox"
+                            name="Position"
+                            value="Innenverteidiger"
+                        >
+
+                        <span>
+                            Innenverteidiger
+                        </span>
+
+                    </label>
+
+
+                    <label class="position-option">
+
+                        <input
+                            type="checkbox"
+                            name="Position"
+                            value="Außenverteidiger"
+                        >
+
+                        <span>
+                            Außenverteidiger
+                        </span>
+
+                    </label>
+
+
+                    <label class="position-option">
+
+                        <input
+                            type="checkbox"
+                            name="Position"
+                            value="6/8er"
+                        >
+
+                        <span>
+                            6/8er
+                        </span>
+
+                    </label>
+
+
+                    <label class="position-option">
+
+                        <input
+                            type="checkbox"
+                            name="Position"
+                            value="10er"
+                        >
+
+                        <span>
+                            10er
+                        </span>
+
+                    </label>
+
+
+                    <label class="position-option">
+
+                        <input
+                            type="checkbox"
+                            name="Position"
+                            value="Flügelspieler"
+                        >
+
+                        <span>
+                            Flügelspieler
+                        </span>
+
+                    </label>
+
+
+                    <label class="position-option">
+
+                        <input
+                            type="checkbox"
+                            name="Position"
+                            value="Stürmer"
+                        >
+
+                        <span>
+                            Stürmer
+                        </span>
+
+                    </label>
+
+
+                </div>
+
+
+                <div class="hint">
+
+                    Mehrere Positionen können ausgewählt werden.
+
+                </div>
+
+            </div>
+
+
+            <!-- SPIELNIVEAU -->
+
+            <div class="field">
+
+                <label for="niveau">
+                    Spielniveau *
+                </label>
+
+
+                <select
+                    id="niveau"
+                    name="Spielniveau"
+                    required
+                >
+
+                    <option value="">
+                        Bitte wählen
+                    </option>
+
+                    <option value="Anfänger">
+                        Anfänger
+                    </option>
+
+                    <option value="Fortgeschritten">
+                        Fortgeschritten
+                    </option>
+
+                    <option value="Leistungsbereich">
+                        Leistungsbereich
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- TRAININGSFOKUS -->
+
+            <div class="field">
+
+                <label for="trainingsfokus">
+                    Worauf soll der Trainingsfokus liegen? *
+                </label>
+
+
+                <textarea
+                    id="trainingsfokus"
+                    name="Trainingsfokus"
+                    placeholder="z. B. Technik, Dribbling, erster Kontakt, Abschluss, Geschwindigkeit, schwächerer Fuß ..."
+                    required
+                ></textarea>
+
+
+                <div class="hint">
+
+                    Beschreibe kurz, woran im Training gezielt gearbeitet werden soll.
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ========================================= -->
+        <!-- WUNSCHTERMIN -->
+        <!-- ========================================= -->
+
+        <div class="section">
+
+
+            <div class="section-title">
+                Wunschtermin
+            </div>
+
+
+            <div class="form-row">
+
+
+                <!-- DATUM -->
+
+                <div class="field">
+
+                    <label for="trainingsdatum">
+                        Gewünschtes Trainingsdatum *
+                    </label>
+
+
+                    <input
+                        type="date"
+                        id="trainingsdatum"
+                        name="Gewünschtes Trainingsdatum"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- UHRZEIT -->
+
+                <div class="field">
+
+                    <label for="trainingszeit">
+                        Gewünschte Uhrzeit *
+                    </label>
+
+
+                    <input
+                        type="time"
+                        id="trainingszeit"
+                        name="Gewünschte Uhrzeit"
+                        required
+                    >
+
+                </div>
+
+
+            </div>
+
+
+            <div class="hint">
+
+                Bitte gib deinen Wunschtermin an. Wir prüfen anschließend die Verfügbarkeit und melden uns bei dir.
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ========================================= -->
+        <!-- KONTAKT -->
+        <!-- ========================================= -->
+
+        <div class="section">
+
+
+            <div class="section-title">
+                Kontakt
+            </div>
+
+
+            <!-- NAME -->
+
+            <div class="field">
+
+                <label for="elternname">
+                    Name des Erziehungsberechtigten *
+                </label>
+
+
+                <input
+                    type="text"
+                    id="elternname"
+                    name="Name Erziehungsberechtigter"
+                    placeholder="Vor- und Nachname"
+                    autocomplete="name"
+                    required
+                >
+
+            </div>
+
+
+            <!-- TELEFON / E-MAIL -->
+
+            <div class="form-row">
+
+
+                <div class="field">
+
+                    <label for="telefon">
+                        Telefonnummer *
+                    </label>
+
+
+                    <input
+                        type="tel"
+                        id="telefon"
+                        name="Telefon"
+                        placeholder="+49 ..."
+                        autocomplete="tel"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="email">
+                        E-Mail-Adresse *
+                    </label>
+
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="name@email.de"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ========================================= -->
+        <!-- DATENSCHUTZ -->
+        <!-- ========================================= -->
+
+        <div class="checkbox">
+
+
+            <input
+                type="checkbox"
+                id="datenschutz"
+                name="Datenschutzerklärung bestätigt"
+                value="Ja"
+                required
+            >
+
+
+            <label for="datenschutz">
+
+                Ich habe die
+
+                <a
+                    href="datenschutz.html"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Datenschutzerklärung
+                </a>
+
+                gelesen und zur Kenntnis genommen.
+
+            </label>
+
+
+        </div>
+
+
+        <!-- ========================================= -->
+        <!-- ABSENDEN -->
+        <!-- ========================================= -->
+
+        <button
+            type="submit"
+            class="submit"
+        >
+
+            INDIVIDUALTRAINING ANFRAGEN
+
+        </button>
+
+
+    </form>
 
 
     <!-- ZURÜCK -->
 
     <a
         class="back"
-        href="index.html"
+        href="training.html"
     >
 
-        ← Zurück zur Startseite
+        ← Zurück zu Training
 
     </a>
 
