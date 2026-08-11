@@ -1,7 +1,7 @@
-    <!DOCTYPE html>
-    <html lang="de">
+<!DOCTYPE html>
+<html lang="de">
 
-    <head>
+<head>
 
     <meta charset="UTF-8">
 
@@ -9,132 +9,331 @@
 
     <title>Training anfragen | Frey Football Academy</title>
 
+
     <style>
 
-        
-     body {
-    margin: 0;
-    min-height: 100vh;
-
-    color: #fff;
-
-    font-family: Arial, Helvetica, sans-serif;
-
-    line-height: 1.6;
-
-    background:
-        radial-gradient(
-            circle at 50% 15%,
-            rgba(255, 122, 0, 0.20),
-            transparent 35%
-        ),
-        linear-gradient(
-            180deg,
-            #181818 0%,
-            #0d0d0d 45%,
-            #050505 100%
-        );
-         body::before {
-    content: "";
-
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    background:
-        linear-gradient(
-            115deg,
-            transparent 35%,
-            rgba(255, 255, 255, 0.035) 45%,
-            transparent 55%
-        ),
-        linear-gradient(
-            65deg,
-            transparent 35%,
-            rgba(255, 255, 255, 0.025) 45%,
-            transparent 55%
-        );
-
-    z-index: 0;
-}
-
-    position: relative;
-}
+        * {
+            box-sizing: border-box;
+        }
 
 
-      .container {
-    position: relative;
-    z-index: 1;
-    width: 90%;
-    max-width: 750px;
-    margin: 40px auto;
-}
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
+
+        body {
+
+            background:
+                radial-gradient(
+                    circle at 50% 15%,
+                    rgba(255, 122, 0, 0.20),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    180deg,
+                    #181818 0%,
+                    #0d0d0d 50%,
+                    #050505 100%
+                );
+
+            color: white;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            position: relative;
+
+        }
+
+
+        /* DEZENTE LICHTEFFEKTE */
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            background:
+                linear-gradient(
+                    115deg,
+                    transparent 35%,
+                    rgba(255, 255, 255, 0.025) 45%,
+                    transparent 55%
+                ),
+                linear-gradient(
+                    65deg,
+                    transparent 35%,
+                    rgba(255, 255, 255, 0.02) 45%,
+                    transparent 55%
+                );
+
+            z-index: 0;
+
+        }
+
+
+        /* HAUPTBEREICH */
+
+        .container {
+
+            position: relative;
+
+            z-index: 1;
+
+            width: 90%;
+
+            max-width: 650px;
+
+            margin: 0 auto;
+
+            padding: 45px 0 50px;
+
+            text-align: center;
+
+        }
+
+
+        /* LOGO */
 
         .logo {
-            width: 180px;
-            max-width: 70%;
-            margin-bottom: 30px;
+
+            display: block;
+
+            width: 260px;
+
+            max-width: 75%;
+
+            height: auto;
+
+            margin: 0 auto 45px;
+
         }
+
+
+        /* ÜBERSCHRIFT */
 
         h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
+
+            width: 100%;
+
+            margin: 0 auto 15px;
+
+            padding: 0;
+
+            color: white;
+
+            font-size: 38px;
+
+            line-height: 1.2;
+
+            font-weight: 700;
+
+            text-align: center;
+
         }
 
-        .intro {
+
+        /* UNTERTITEL */
+
+        .subtitle {
+
+            width: 100%;
+
+            margin: 0 auto 45px;
+
             color: #bbb;
-            margin-bottom: 40px;
+
+            font-size: 20px;
+
+            line-height: 1.5;
+
+            text-align: center;
+
         }
+
+
+        /* BUTTON-BEREICH */
+
+        .buttons {
+
+            width: 100%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 16px;
+
+        }
+
+
+        /* BUTTONS */
 
         .button {
-            display: block;
-            width: 100%;
-            padding: 18px 0;
-            margin: 18px 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-start;
+
+            width: 82%;
+
+            min-height: 70px;
+
+            padding: 16px 25px;
 
             background: #ff7a00;
+
             color: white;
 
             text-decoration: none;
 
-            border-radius: 8px;
+            border-radius: 12px;
 
-            font-size: 18px;
+            font-size: 20px;
+
             font-weight: bold;
 
-            transition: 0.2s;
+            text-align: left;
+
+            transition: 0.2s ease;
+
         }
+
 
         .button:hover {
+
             background: #ff9500;
+
+            transform: translateY(-2px);
+
         }
 
+
+        /* ICON */
+
+        .button-icon {
+
+            width: 35px;
+
+            margin-right: 12px;
+
+            text-align: center;
+
+            font-size: 24px;
+
+            flex-shrink: 0;
+
+        }
+
+
+        /* ZURÜCK BUTTON */
+
         .back {
+
             display: inline-block;
 
-            margin-top: 25px;
+            margin-top: 35px;
 
-            padding: 12px 22px;
+            padding: 12px 24px;
 
             background: #222;
 
-            color: white;
+            color: #fff;
 
             text-decoration: none;
 
             border-radius: 8px;
+
+            font-size: 15px;
+
         }
+
 
         .back:hover {
+
             background: #333;
+
         }
 
+
+        /* FOOTER */
+
         .footer {
-            margin-top: 40px;
+
+            margin-top: 45px;
+
             color: #777;
+
             font-size: 14px;
+
+            text-align: center;
+
+        }
+
+
+        /* HANDY */
+
+        @media (max-width: 600px) {
+
+            .container {
+
+                width: 90%;
+
+                padding-top: 25px;
+
+            }
+
+
+            .logo {
+
+                width: 250px;
+
+                max-width: 80%;
+
+                margin-bottom: 40px;
+
+            }
+
+
+            h1 {
+
+                font-size: 34px;
+
+            }
+
+
+            .subtitle {
+
+                font-size: 18px;
+
+                margin-bottom: 35px;
+
+            }
+
+
+            .button {
+
+                width: 90%;
+
+                min-height: 68px;
+
+                font-size: 18px;
+
+            }
+
         }
 
     </style>
@@ -148,6 +347,8 @@
 <div class="container">
 
 
+    <!-- LOGO -->
+
     <img
         src="assets/logo.png"
         alt="Frey Football Academy Logo"
@@ -155,44 +356,47 @@
     >
 
 
+    <!-- TITEL -->
+
     <h1>
         Training anfragen
     </h1>
 
 
-    <p class="intro">
+    <!-- UNTERTITEL -->
 
-        Wähle das passende Trainingsangebot aus.
-
+    <p class="subtitle">
+        Wähle dein gewünschtes Trainingsangebot.
     </p>
 
 
-    <!-- INDIVIDUALTRAINING -->
+    <!-- BUTTONS -->
 
-    <a
-        class="button"
-        href="individualtraining.html"
-    >
-
-        ⚽ Individualtraining
-
-    </a>
+    <div class="buttons">
 
 
-    <!-- ZUKÜNFTIGE ANGEBOTE -->
+        <!-- INDIVIDUALTRAINING -->
 
-    <!--
+        <a
+            class="button"
+            href="individualtraining.html"
+        >
 
-    <a class="button" href="gruppentraining.html">
-        👥 Gruppentraining
-    </a>
+            <span class="button-icon">
+                ⚽
+            </span>
 
-    <a class="button" href="probetraining.html">
-        🏟️ Probetraining
-    </a>
+            <span>
+                Individualtraining anfragen
+            </span>
 
-    -->
+        </a>
 
+
+    </div>
+
+
+    <!-- ZURÜCK -->
 
     <a
         class="back"
@@ -203,6 +407,8 @@
 
     </a>
 
+
+    <!-- FOOTER -->
 
     <div class="footer">
 
