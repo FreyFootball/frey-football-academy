@@ -1,1 +1,922 @@
+<!DOCTYPE html>
+<html lang="de">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Individualtraining | Frey Football Academy</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            background: #111;
+
+            color: white;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            line-height: 1.6;
+
+        }
+
+
+        .container {
+
+            width: 90%;
+
+            max-width: 750px;
+
+            margin: 40px auto;
+
+            padding: 30px;
+
+        }
+
+
+        /* LOGO */
+
+        .logo {
+
+            display: block;
+
+            width: 180px;
+
+            max-width: 70%;
+
+            margin: 0 auto 30px;
+
+        }
+
+
+        /* ÜBERSCHRIFT */
+
+        h1 {
+
+            text-align: center;
+
+            font-size: 32px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .intro {
+
+            text-align: center;
+
+            color: #bdbdbd;
+
+            margin-bottom: 40px;
+
+        }
+
+
+        /* ABSCHNITTE */
+
+        .section {
+
+            margin-top: 35px;
+
+        }
+
+
+        .section-title {
+
+            color: #ff7a00;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        /* ZWEI FELDER NEBENEINANDER */
+
+        .form-row {
+
+            display: flex;
+
+            gap: 15px;
+
+        }
+
+
+        .field {
+
+            flex: 1;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        /* BESCHRIFTUNGEN */
+
+        label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #ddd;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* EINGABEFELDER */
+
+        input,
+        select,
+        textarea {
+
+            width: 100%;
+
+            padding: 14px;
+
+            background: #1c1c1c;
+
+            color: white;
+
+            border: 1px solid #444;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+
+            outline: none;
+
+            border-color: #ff7a00;
+
+        }
+
+
+        textarea {
+
+            min-height: 120px;
+
+            resize: vertical;
+
+        }
+
+
+        select {
+
+            cursor: pointer;
+
+        }
+
+
+        /* DATENSCHUTZ CHECKBOX */
+
+        .checkbox {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+            margin-top: 25px;
+
+            color: #bbb;
+
+            font-size: 14px;
+
+        }
+
+
+        .checkbox input {
+
+            width: 18px;
+
+            height: 18px;
+
+            margin-top: 3px;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .checkbox label {
+
+            color: #bbb;
+
+            font-weight: normal;
+
+            margin: 0;
+
+        }
+
+
+        .checkbox a {
+
+            color: #ff7a00;
+
+        }
+
+
+        /* ABSENDEN BUTTON */
+
+        .submit {
+
+            width: 100%;
+
+            margin-top: 30px;
+
+            padding: 17px;
+
+            background: #ff7a00;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 8px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        .submit:hover {
+
+            background: #ff9500;
+
+        }
+
+
+        /* ZURÜCK BUTTON */
+
+        .back {
+
+            display: block;
+
+            width: fit-content;
+
+            margin: 30px auto 0;
+
+            padding: 12px 22px;
+
+            background: #222;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+        }
+
+
+        .back:hover {
+
+            background: #333;
+
+        }
+
+
+        /* FOOTER */
+
+        .footer {
+
+            text-align: center;
+
+            margin-top: 40px;
+
+            color: #777;
+
+            font-size: 14px;
+
+        }
+
+
+        /* HANDY */
+
+        @media (max-width: 600px) {
+
+            .container {
+
+                width: 94%;
+
+                padding: 15px;
+
+                margin: 25px auto;
+
+            }
+
+
+            h1 {
+
+                font-size: 27px;
+
+            }
+
+
+            .form-row {
+
+                display: block;
+
+            }
+
+
+            .logo {
+
+                width: 160px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- LOGO -->
+
+    <img
+        src="assets/logo.png"
+        alt="Frey Football Academy Logo"
+        class="logo"
+    >
+
+
+    <!-- ÜBERSCHRIFT -->
+
+    <h1>
+        Anfrage Individualtraining
+    </h1>
+
+
+    <p class="intro">
+
+        Du möchtest dein Fußballspiel gezielt verbessern?
+
+        Schick uns deine Anfrage und wir melden uns zeitnah
+
+        mit Terminvorschlägen.
+
+    </p>
+
+
+
+    <!-- ================================= -->
+    <!-- FORMULAR -->
+    <!-- ================================= -->
+
+
+    <form
+
+        action="https://formspree.io/f/xoeadwwq"
+
+        method="POST"
+
+    >
+
+
+        <!-- Betreff der E-Mail -->
+
+        <input
+            type="hidden"
+            name="_subject"
+            value="Neue Anfrage – Frey Football Academy"
+        >
+
+
+
+        <!-- =============================== -->
+        <!-- SPIELER -->
+        <!-- =============================== -->
+
+
+        <div class="section">
+
+
+            <div class="section-title">
+
+                Spieler/in
+
+            </div>
+
+
+
+            <div class="form-row">
+
+
+                <div class="field">
+
+                    <label for="vorname">
+
+                        Vorname des Kindes *
+
+                    </label>
+
+
+                    <input
+
+                        type="text"
+
+                        id="vorname"
+
+                        name="Vorname des Kindes"
+
+                        autocomplete="given-name"
+
+                        required
+
+                    >
+
+                </div>
+
+
+
+                <div class="field">
+
+                    <label for="nachname">
+
+                        Nachname des Kindes *
+
+                    </label>
+
+
+                    <input
+
+                        type="text"
+
+                        id="nachname"
+
+                        name="Nachname des Kindes"
+
+                        autocomplete="family-name"
+
+                        required
+
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="form-row">
+
+
+                <div class="field">
+
+
+                    <label for="geburtsjahr">
+
+                        Jahrgang / Geburtsjahr *
+
+                    </label>
+
+
+                    <input
+
+                        type="number"
+
+                        id="geburtsjahr"
+
+                        name="Geburtsjahr"
+
+                        placeholder="z. B. 2014"
+
+                        min="2000"
+
+                        max="2026"
+
+                        required
+
+                    >
+
+
+                </div>
+
+
+
+                <div class="field">
+
+
+                    <label for="spielniveau">
+
+                        Spielniveau *
+
+                    </label>
+
+
+                    <select
+
+                        id="spielniveau"
+
+                        name="Spielniveau"
+
+                        required
+
+                    >
+
+                        <option value="">
+
+                            Bitte wählen
+
+                        </option>
+
+
+                        <option value="Anfänger">
+
+                            Anfänger
+
+                        </option>
+
+
+                        <option value="Hobby">
+
+                            Hobby
+
+                        </option>
+
+
+                        <option value="Verein">
+
+                            Verein
+
+                        </option>
+
+
+                        <option value="Leistungsbereich">
+
+                            Leistungsbereich
+
+                        </option>
+
+
+                    </select>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- TRAININGSFOKUS -->
+
+
+            <div class="field">
+
+
+                <label for="trainingsfokus">
+
+                    Trainingsfokus / Ziele *
+
+                </label>
+
+
+                <textarea
+
+                    id="trainingsfokus"
+
+                    name="Trainingsfokus / Ziele"
+
+                    placeholder="z. B. erster Kontakt, Dribbling, Abschluss, schwächerer Fuß ..."
+
+                    required
+
+                ></textarea>
+
+
+            </div>
+
+
+
+            <!-- STANDORT -->
+
+
+            <div class="field">
+
+
+                <label for="standort">
+
+                    Standort *
+
+                </label>
+
+
+                <select
+
+                    id="standort"
+
+                    name="Standort"
+
+                    required
+
+                >
+
+                    <option value="">
+
+                        Bitte wählen
+
+                    </option>
+
+
+                    <option value="Mainz">
+
+                        Mainz
+
+                    </option>
+
+
+                    <option value="Umgebung Mainz">
+
+                        Umgebung Mainz
+
+                    </option>
+
+
+                    <option value="Sonstiger Standort">
+
+                        Sonstiger Standort
+
+                    </option>
+
+
+                </select>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =============================== -->
+        <!-- ERZIEHUNGSBERECHTIGTE/R -->
+        <!-- =============================== -->
+
+
+        <div class="section">
+
+
+            <div class="section-title">
+
+                Erziehungsberechtigte/r
+
+            </div>
+
+
+
+            <div class="form-row">
+
+
+                <div class="field">
+
+
+                    <label for="elternname">
+
+                        Name *
+
+                    </label>
+
+
+                    <input
+
+                        type="text"
+
+                        id="elternname"
+
+                        name="Name Erziehungsberechtigte/r"
+
+                        placeholder="Vor- und Nachname"
+
+                        autocomplete="name"
+
+                        required
+
+                    >
+
+
+                </div>
+
+
+
+                <div class="field">
+
+
+                    <label for="telefon">
+
+                        Telefon *
+
+                    </label>
+
+
+                    <input
+
+                        type="tel"
+
+                        id="telefon"
+
+                        name="Telefon"
+
+                        placeholder="+49 ..."
+
+                        autocomplete="tel"
+
+                        required
+
+                    >
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- E-MAIL -->
+
+
+            <div class="field">
+
+
+                <label for="email">
+
+                    E-Mail *
+
+                </label>
+
+
+                <input
+
+                    type="email"
+
+                    id="email"
+
+                    name="email"
+
+                    placeholder="name@email.de"
+
+                    autocomplete="email"
+
+                    required
+
+                >
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =============================== -->
+        <!-- DATENSCHUTZ -->
+        <!-- =============================== -->
+
+
+        <div class="checkbox">
+
+
+            <input
+
+                type="checkbox"
+
+                id="datenschutz"
+
+                name="Datenschutz bestätigt"
+
+                value="Ja"
+
+                required
+
+            >
+
+
+            <label for="datenschutz">
+
+
+                Ich habe die
+
+                <a
+
+                    href="datenschutz.html"
+
+                    target="_blank"
+
+                    rel="noopener"
+
+                >
+
+                    Datenschutzerklärung
+
+                </a>
+
+                gelesen und zur Kenntnis genommen.
+
+
+            </label>
+
+
+        </div>
+
+
+
+        <!-- =============================== -->
+        <!-- ABSENDEN -->
+        <!-- =============================== -->
+
+
+        <button
+
+            type="submit"
+
+            class="submit"
+
+        >
+
+            ANFRAGE ABSENDEN
+
+        </button>
+
+
+    </form>
+
+
+
+    <!-- ZURÜCK -->
+
+
+    <a
+
+        class="back"
+
+        href="index.html"
+
+    >
+
+        ← Zurück zur Startseite
+
+    </a>
+
+
+
+    <!-- FOOTER -->
+
+
+    <div class="footer">
+
+        © 2026 Frey Football Academy
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>
