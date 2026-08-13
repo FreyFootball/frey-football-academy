@@ -252,7 +252,8 @@
 
         /* EINGABEFELDER */
 
-        input {
+        input,
+        select {
 
             width: 100%;
 
@@ -280,13 +281,23 @@
         }
 
 
-        input:focus {
+        input:focus,
+        select:focus {
 
             outline: none;
 
             border-color: #ff7a00;
 
             box-shadow: 0 0 0 2px rgba(255, 122, 0, 0.10);
+
+        }
+
+
+        /* SELECT */
+
+        select {
+
+            cursor: pointer;
 
         }
 
@@ -451,7 +462,7 @@
 
             height: 220px;
 
-            background: #fff;
+            background: white;
 
             border: 2px solid #444;
 
@@ -667,7 +678,8 @@
 
     <p class="intro">
 
-        Melde hier dein Kind für das Fördertraining der Frey Football Academy an.
+        Melde hier dein Kind für das Fördertraining
+        der Frey Football Academy an.
 
     </p>
 
@@ -677,13 +689,13 @@
     <!-- ========================================= -->
 
     <form
-        action="https://formspree.io/f/mnpaveen"
+        action="https://formspree.io/f/xoeadwwq"
         method="POST"
         id="foerdertraining-form"
     >
 
 
-        <!-- BETREFF -->
+        <!-- BETREFF FÜR FORMSPREE -->
 
         <input
             type="hidden"
@@ -692,7 +704,7 @@
         >
 
 
-        <!-- UNTERSCHRIFT ALS BILD -->
+        <!-- DIGITALE UNTERSCHRIFT -->
 
         <input
             type="hidden"
@@ -702,7 +714,7 @@
 
 
         <!-- ========================================= -->
-        <!-- SPIELER -->
+        <!-- ANGABEN ZUM SPIELER -->
         <!-- ========================================= -->
 
         <div class="section">
@@ -712,6 +724,8 @@
                 Angaben zum Spieler
             </div>
 
+
+            <!-- NAME -->
 
             <div class="field">
 
@@ -730,6 +744,8 @@
             </div>
 
 
+            <!-- GEBURTSDATUM -->
+
             <div class="field">
 
                 <label for="geburtsdatum">
@@ -746,85 +762,89 @@
             </div>
 
 
+            <!-- KLEIDERGRÖSSE / VEREIN -->
+
             <div class="form-row">
 
 
-                <div class="form-row">
+                <div class="field">
+
+                    <label for="kleidergroesse">
+                        Kleidergröße *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="kleidergroesse"
+                        name="Kleidergröße"
+                        placeholder="z. B. 152, 164, S, M"
+                        required
+                    >
+
+                </div>
 
 
-    <div class="field">
+                <div class="field">
 
-        <label for="kleidergroesse">
-            Kleidergröße *
-        </label>
+                    <label for="verein">
+                        Verein
+                    </label>
 
-        <input
-            type="text"
-            id="kleidergroesse"
-            name="Kleidergröße"
-            placeholder="z. B. 152, 164, S, M"
-            required
-        >
+                    <input
+                        type="text"
+                        id="verein"
+                        name="Verein"
+                        placeholder="Aktueller Verein"
+                    >
 
-    </div>
-
-
-    <div class="field">
-
-        <label for="verein">
-            Verein
-        </label>
-
-        <input
-            type="text"
-            id="verein"
-            name="Verein"
-            placeholder="Aktueller Verein"
-        >
-
-    </div>
+                </div>
 
 
-</div>
+            </div>
 
 
-<!-- STANDORT -->
+            <!-- STANDORT -->
 
-<div class="field">
+            <div class="field">
 
-    <label for="standort">
-        Standort *
-    </label>
+                <label for="standort">
+                    Standort *
+                </label>
 
-    <select
-        id="standort"
-        name="Standort"
-        required
-    >
 
-        <option value="">
-            Bitte Standort auswählen
-        </option>
+                <select
+                    id="standort"
+                    name="Standort"
+                    required
+                >
 
-        <option value="Walluf">
-            Walluf
-        </option>
+                    <option value="">
+                        Bitte Standort auswählen
+                    </option>
 
-        <option value="Klein-Winternheim">
-            Klein-Winternheim
-        </option>
+                    <option value="Walluf">
+                        Walluf
+                    </option>
 
-        <option value="Heidesheim">
-            Heidesheim
-        </option>
+                    <option value="Klein-Winternheim">
+                        Klein-Winternheim
+                    </option>
 
-        <option value="Bretzenheim">
-            Bretzenheim
-        </option>
+                    <option value="Heidesheim">
+                        Heidesheim
+                    </option>
 
-    </select>
+                    <option value="Bretzenheim">
+                        Bretzenheim
+                    </option>
 
-</div>
+                </select>
+
+            </div>
+
+
+        </div>
+
 
         <!-- ========================================= -->
         <!-- ERZIEHUNGSBERECHTIGTER -->
@@ -837,6 +857,8 @@
                 Angaben zum Erziehungsberechtigten
             </div>
 
+
+            <!-- NAME -->
 
             <div class="field">
 
@@ -855,6 +877,8 @@
 
             </div>
 
+
+            <!-- E-MAIL / TELEFON -->
 
             <div class="form-row">
 
@@ -902,7 +926,7 @@
 
 
         <!-- ========================================= -->
-        <!-- DATUM -->
+        <!-- ANMELDUNG -->
         <!-- ========================================= -->
 
         <div class="section">
@@ -966,6 +990,8 @@
             </p>
 
 
+            <!-- SCHNUPPERTRAINING -->
+
             <div class="trial">
 
                 <strong>
@@ -987,8 +1013,15 @@
                 Nach dem Schnuppertraining kann die Teilnahme am
                 Fördertraining widerrufen werden.
 
+                Erfolgt nach dem Schnuppertraining kein Widerruf,
+                beginnt die reguläre Teilnahme am Fördertraining.
+                Hierfür wird der reguläre Einstiegspreis von
+                <strong>80 € pro Monat</strong> fällig.
+
             </div>
 
+
+            <!-- ZUSTIMMUNG -->
 
             <div class="checkbox">
 
@@ -1144,20 +1177,25 @@
 
 
 <!-- ========================================= -->
-<!-- UNTERSCHRIFT JAVASCRIPT -->
+<!-- JAVASCRIPT FÜR UNTERSCHRIFT -->
 <!-- ========================================= -->
 
 <script>
 
-    const canvas = document.getElementById("signature-canvas");
+    const canvas =
+        document.getElementById("signature-canvas");
 
-    const ctx = canvas.getContext("2d");
+    const ctx =
+        canvas.getContext("2d");
 
-    const signatureData = document.getElementById("signature-data");
+    const signatureData =
+        document.getElementById("signature-data");
 
-    const form = document.getElementById("foerdertraining-form");
+    const form =
+        document.getElementById("foerdertraining-form");
 
-    const clearButton = document.getElementById("clear-signature");
+    const clearButton =
+        document.getElementById("clear-signature");
 
 
     let drawing = false;
@@ -1165,21 +1203,35 @@
     let hasSignature = false;
 
 
+    /* CANVAS EINRICHTEN */
+
     function resizeCanvas() {
 
-        const oldData = canvas.toDataURL();
+        const rect =
+            canvas.getBoundingClientRect();
 
-        const rect = canvas.getBoundingClientRect();
-
-        const ratio = Math.max(window.devicePixelRatio || 1, 1);
-
-
-        canvas.width = rect.width * ratio;
-
-        canvas.height = rect.height * ratio;
+        const ratio =
+            Math.max(
+                window.devicePixelRatio || 1,
+                1
+            );
 
 
-        ctx.scale(ratio, ratio);
+        canvas.width =
+            rect.width * ratio;
+
+        canvas.height =
+            rect.height * ratio;
+
+
+        ctx.setTransform(
+            ratio,
+            0,
+            0,
+            ratio,
+            0,
+            0
+        );
 
 
         ctx.lineWidth = 2.5;
@@ -1190,42 +1242,31 @@
 
         ctx.strokeStyle = "#111";
 
-
-        if (hasSignature) {
-
-            const image = new Image();
-
-            image.onload = function () {
-
-                ctx.drawImage(
-                    image,
-                    0,
-                    0,
-                    rect.width,
-                    rect.height
-                );
-
-            };
-
-            image.src = oldData;
-
-        }
-
     }
 
 
+    /* POSITION ERMITTELN */
+
     function getPosition(event) {
 
-        const rect = canvas.getBoundingClientRect();
+        const rect =
+            canvas.getBoundingClientRect();
 
 
-        if (event.touches && event.touches.length > 0) {
+        if (
+            event.touches &&
+            event.touches.length > 0
+        ) {
 
             return {
 
-                x: event.touches[0].clientX - rect.left,
+                x:
+                    event.touches[0].clientX
+                    - rect.left,
 
-                y: event.touches[0].clientY - rect.top
+                y:
+                    event.touches[0].clientY
+                    - rect.top
 
             };
 
@@ -1234,14 +1275,20 @@
 
         return {
 
-            x: event.clientX - rect.left,
+            x:
+                event.clientX
+                - rect.left,
 
-            y: event.clientY - rect.top
+            y:
+                event.clientY
+                - rect.top
 
         };
 
     }
 
+
+    /* ZEICHNEN STARTEN */
 
     function startDrawing(event) {
 
@@ -1252,14 +1299,21 @@
         hasSignature = true;
 
 
-        const position = getPosition(event);
+        const position =
+            getPosition(event);
+
 
         ctx.beginPath();
 
-        ctx.moveTo(position.x, position.y);
+        ctx.moveTo(
+            position.x,
+            position.y
+        );
 
     }
 
+
+    /* ZEICHNEN */
 
     function draw(event) {
 
@@ -1271,15 +1325,22 @@
         event.preventDefault();
 
 
-        const position = getPosition(event);
+        const position =
+            getPosition(event);
 
 
-        ctx.lineTo(position.x, position.y);
+        ctx.lineTo(
+            position.x,
+            position.y
+        );
+
 
         ctx.stroke();
 
     }
 
+
+    /* ZEICHNEN BEENDEN */
 
     function stopDrawing(event) {
 
@@ -1297,7 +1358,7 @@
     }
 
 
-    /* MOUSE */
+    /* MAUS */
 
     canvas.addEventListener(
         "mousedown",
@@ -1346,7 +1407,7 @@
     );
 
 
-    /* LÖSCHEN */
+    /* UNTERSCHRIFT LÖSCHEN */
 
     clearButton.addEventListener(
         "click",
@@ -1358,6 +1419,7 @@
                 canvas.width,
                 canvas.height
             );
+
 
             hasSignature = false;
 
