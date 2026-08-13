@@ -52,8 +52,6 @@
         }
 
 
-        /* DEZENTE LICHTEFFEKTE */
-
         body::before {
 
             content: "";
@@ -121,7 +119,7 @@
         }
 
 
-        /* ÜBERSCHRIFT */
+        /* TITEL */
 
         h1 {
 
@@ -141,8 +139,6 @@
 
         }
 
-
-        /* EINLEITUNG */
 
         .intro {
 
@@ -179,7 +175,8 @@
 
             padding: 30px;
 
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.35);
 
         }
 
@@ -213,7 +210,7 @@
         }
 
 
-        /* FELDER NEBENEINANDER */
+        /* FELDER */
 
         .form-row {
 
@@ -250,7 +247,7 @@
         }
 
 
-        /* EINGABEFELDER */
+        /* EINGABEN */
 
         input,
         select {
@@ -288,12 +285,11 @@
 
             border-color: #ff7a00;
 
-            box-shadow: 0 0 0 2px rgba(255, 122, 0, 0.10);
+            box-shadow:
+                0 0 0 2px rgba(255, 122, 0, 0.10);
 
         }
 
-
-        /* SELECT */
 
         select {
 
@@ -301,8 +297,6 @@
 
         }
 
-
-        /* DATUM */
 
         input[type="date"] {
 
@@ -521,6 +515,15 @@
         }
 
 
+        /* DATEI INPUT VERSTECKT */
+
+        #signature-file {
+
+            display: none;
+
+        }
+
+
         /* ABSENDEN */
 
         .submit {
@@ -551,6 +554,15 @@
         .submit:hover {
 
             background: #ff9500;
+
+        }
+
+
+        .submit:disabled {
+
+            opacity: 0.6;
+
+            cursor: wait;
 
         }
 
@@ -678,8 +690,7 @@
 
     <p class="intro">
 
-        Melde hier dein Kind für das Fördertraining
-        der Frey Football Academy an.
+        Melde hier dein Kind für das Fördertraining der Frey Football Academy an.
 
     </p>
 
@@ -691,25 +702,17 @@
     <form
         action="https://formspree.io/f/mnpaveen"
         method="POST"
+        enctype="multipart/form-data"
         id="foerdertraining-form"
     >
 
 
-        <!-- BETREFF FÜR FORMSPREE -->
+        <!-- BETREFF -->
 
         <input
             type="hidden"
             name="_subject"
             value="Neue Anmeldung – Fördertraining | Frey Football Academy"
-        >
-
-
-        <!-- DIGITALE UNTERSCHRIFT -->
-
-        <input
-            type="hidden"
-            name="Unterschrift"
-            id="signature-data"
         >
 
 
@@ -858,8 +861,6 @@
             </div>
 
 
-            <!-- NAME -->
-
             <div class="field">
 
                 <label for="erziehungsberechtigter">
@@ -877,8 +878,6 @@
 
             </div>
 
-
-            <!-- E-MAIL / TELEFON -->
 
             <div class="form-row">
 
@@ -1067,6 +1066,10 @@
                 </label>
 
 
+                <!--
+                    HIER WIRD DIE UNTERSCHRIFT GEZEICHNET
+                -->
+
                 <canvas
                     id="signature-canvas"
                     class="signature-canvas"
@@ -1091,6 +1094,19 @@
                     </button>
 
                 </div>
+
+
+                <!--
+                    DIESES FELD ENTHÄLT SPÄTER
+                    DIE UNTERSCHRIFT ALS ECHTE PNG-DATEI
+                -->
+
+                <input
+                    type="file"
+                    id="signature-file"
+                    name="Unterschrift"
+                    accept="image/png"
+                >
 
 
             </div>
@@ -1142,6 +1158,7 @@
         <button
             type="submit"
             class="submit"
+            id="submit-button"
         >
 
             Jetzt verbindlich anmelden
@@ -1168,7 +1185,15 @@
 
     <div class="footer">
 
-        © 2026 Frey Football Academy
+        Frey Football Academy · Train. Develop. Succeed.
+
+        <br><br>
+
+        Fritz-Kohl-Str. 3c · 55122 Mainz
+
+        · +49 173 3176916
+
+        · info@freyfootballacademy.com
 
     </div>
 
@@ -1177,25 +1202,34 @@
 
 
 <!-- ========================================= -->
-<!-- JAVASCRIPT FÜR UNTERSCHRIFT -->
+<!-- JAVASCRIPT -->
 <!-- ========================================= -->
 
 <script>
 
+
     const canvas =
         document.getElementById("signature-canvas");
+
 
     const ctx =
         canvas.getContext("2d");
 
-    const signatureData =
-        document.getElementById("signature-data");
 
     const form =
         document.getElementById("foerdertraining-form");
 
+
     const clearButton =
         document.getElementById("clear-signature");
+
+
+    const signatureFile =
+        document.getElementById("signature-file");
+
+
+    const submitButton =
+        document.getElementById("submit-button");
 
 
     let drawing = false;
@@ -1203,12 +1237,15 @@
     let hasSignature = false;
 
 
+    /* ========================================= */
     /* CANVAS EINRICHTEN */
+    /* ========================================= */
 
-    function resizeCanvas() {
+    function setupCanvas() {
 
         const rect =
             canvas.getBoundingClientRect();
+
 
         const ratio =
             Math.max(
@@ -1219,6 +1256,7 @@
 
         canvas.width =
             rect.width * ratio;
+
 
         canvas.height =
             rect.height * ratio;
@@ -1245,32 +1283,14 @@
     }
 
 
-    /* POSITION ERMITTELN */
+    /* ========================================= */
+    /* POSITION */
+    /* ========================================= */
 
     function getPosition(event) {
 
         const rect =
             canvas.getBoundingClientRect();
-
-
-        if (
-            event.touches &&
-            event.touches.length > 0
-        ) {
-
-            return {
-
-                x:
-                    event.touches[0].clientX
-                    - rect.left,
-
-                y:
-                    event.touches[0].clientY
-                    - rect.top
-
-            };
-
-        }
 
 
         return {
@@ -1288,11 +1308,14 @@
     }
 
 
-    /* ZEICHNEN STARTEN */
+    /* ========================================= */
+    /* UNTERSCHRIFT START */
+    /* ========================================= */
 
     function startDrawing(event) {
 
         event.preventDefault();
+
 
         drawing = true;
 
@@ -1305,6 +1328,7 @@
 
         ctx.beginPath();
 
+
         ctx.moveTo(
             position.x,
             position.y
@@ -1313,7 +1337,9 @@
     }
 
 
-    /* ZEICHNEN */
+    /* ========================================= */
+    /* UNTERSCHRIFT ZEICHNEN */
+    /* ========================================= */
 
     function draw(event) {
 
@@ -1340,7 +1366,9 @@
     }
 
 
-    /* ZEICHNEN BEENDEN */
+    /* ========================================= */
+    /* UNTERSCHRIFT ENDE */
+    /* ========================================= */
 
     function stopDrawing(event) {
 
@@ -1351,67 +1379,62 @@
 
         event.preventDefault();
 
+
         drawing = false;
+
 
         ctx.closePath();
 
     }
 
 
-    /* MAUS */
+    /* ========================================= */
+    /* POINTER EVENTS
+       FUNKTIONIERT MIT:
+       - MAUS
+       - FINGER
+       - TRACKPAD
+    */
+    /* ========================================= */
 
     canvas.addEventListener(
-        "mousedown",
+        "pointerdown",
         startDrawing
     );
 
 
     canvas.addEventListener(
-        "mousemove",
+        "pointermove",
         draw
     );
 
 
     canvas.addEventListener(
-        "mouseup",
+        "pointerup",
         stopDrawing
     );
 
 
     canvas.addEventListener(
-        "mouseleave",
+        "pointercancel",
         stopDrawing
     );
 
 
-    /* TOUCH */
-
     canvas.addEventListener(
-        "touchstart",
-        startDrawing,
-        { passive: false }
+        "pointerleave",
+        stopDrawing
     );
 
 
-    canvas.addEventListener(
-        "touchmove",
-        draw,
-        { passive: false }
-    );
-
-
-    canvas.addEventListener(
-        "touchend",
-        stopDrawing,
-        { passive: false }
-    );
-
-
-    /* UNTERSCHRIFT LÖSCHEN */
+    /* ========================================= */
+    /* LÖSCHEN */
+    /* ========================================= */
 
     clearButton.addEventListener(
         "click",
         function () {
+
 
             ctx.clearRect(
                 0,
@@ -1423,50 +1446,206 @@
 
             hasSignature = false;
 
-            signatureData.value = "";
+
+            signatureFile.value = "";
 
         }
     );
 
 
+    /* ========================================= */
+    /* CANVAS ALS PNG-DATEI SPEICHERN */
+    /* ========================================= */
+
+    function createSignatureFile() {
+
+        return new Promise(
+            function(resolve, reject) {
+
+
+                canvas.toBlob(
+                    function(blob) {
+
+
+                        if (!blob) {
+
+                            reject(
+                                new Error(
+                                    "Die Unterschrift konnte nicht erstellt werden."
+                                )
+                            );
+
+                            return;
+
+                        }
+
+
+                        const file =
+                            new File(
+                                [
+                                    blob
+                                ],
+                                "Unterschrift_FFA.png",
+                                {
+                                    type: "image/png"
+                                }
+                            );
+
+
+                        resolve(file);
+
+
+                    },
+                    "image/png"
+                );
+
+
+            }
+        );
+
+    }
+
+
+    /* ========================================= */
     /* FORMULAR ABSENDEN */
+    /* ========================================= */
 
     form.addEventListener(
         "submit",
-        function (event) {
+        async function(event) {
+
+
+            /*
+                Die normale Formularvalidierung
+                wurde bereits durchgeführt.
+            */
+
 
             if (!hasSignature) {
 
                 event.preventDefault();
 
+
                 alert(
                     "Bitte unterschreibe das Formular."
                 );
+
 
                 return;
 
             }
 
 
-            signatureData.value =
-                canvas.toDataURL("image/png");
+            /*
+                Verhindert einen doppelten Klick.
+            */
+
+            event.preventDefault();
+
+
+            submitButton.disabled = true;
+
+
+            submitButton.textContent =
+                "WIRD GESENDET …";
+
+
+            try {
+
+
+                /*
+                    Canvas → PNG
+                */
+
+                const file =
+                    await createSignatureFile();
+
+
+                /*
+                    Datei in das echte
+                    <input type="file">
+                    einsetzen.
+                */
+
+                const dataTransfer =
+                    new DataTransfer();
+
+
+                dataTransfer.items.add(file);
+
+
+                signatureFile.files =
+                    dataTransfer.files;
+
+
+                /*
+                    Kontrollieren,
+                    ob die Datei wirklich
+                    eingesetzt wurde.
+                */
+
+                if (
+                    !signatureFile.files ||
+                    signatureFile.files.length === 0
+                ) {
+
+                    throw new Error(
+                        "Die Unterschrift konnte nicht als Datei vorbereitet werden."
+                    );
+
+                }
+
+
+                /*
+                    Jetzt wird das Formular
+                    ganz normal an Formspree
+                    geschickt.
+
+                    Wichtig:
+                    Kein Base64 mehr.
+                    Stattdessen echte PNG-Datei.
+                */
+
+                HTMLFormElement.prototype.submit.call(form);
+
+
+            } catch (error) {
+
+
+                console.error(error);
+
+
+                submitButton.disabled = false;
+
+
+                submitButton.textContent =
+                    "FÖRDERTRAINING ANMELDEN";
+
+
+                alert(
+                    "Die Unterschrift konnte nicht verarbeitet werden. Bitte versuche es erneut."
+                );
+
+            }
+
 
         }
     );
 
 
-    /* CANVAS INITIALISIEREN */
+    /* ========================================= */
+    /* INITIALISIERUNG */
+    /* ========================================= */
 
     window.addEventListener(
         "load",
-        resizeCanvas
+        function () {
+
+            setupCanvas();
+
+        }
     );
 
-
-    window.addEventListener(
-        "resize",
-        resizeCanvas
-    );
 
 </script>
 
