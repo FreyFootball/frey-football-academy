@@ -9,13 +9,11 @@
 
     <title>Fördertraining | Frey Football Academy</title>
 
-
     <style>
 
         * {
             box-sizing: border-box;
         }
-
 
         html,
         body {
@@ -24,7 +22,6 @@
             width: 100%;
             min-height: 100%;
         }
-
 
         body {
 
@@ -48,9 +45,7 @@
             line-height: 1.6;
 
             position: relative;
-
         }
-
 
         body::before {
 
@@ -77,11 +72,7 @@
                 );
 
             z-index: 0;
-
         }
-
-
-        /* HAUPTBEREICH */
 
         .container {
 
@@ -98,11 +89,7 @@
             padding: 40px 0 50px;
 
             text-align: center;
-
         }
-
-
-        /* LOGO */
 
         .logo {
 
@@ -115,11 +102,7 @@
             height: auto;
 
             margin: 0 auto 35px;
-
         }
-
-
-        /* TITEL */
 
         h1 {
 
@@ -136,9 +119,7 @@
             font-weight: 700;
 
             text-align: center;
-
         }
-
 
         .intro {
 
@@ -155,11 +136,7 @@
             line-height: 1.6;
 
             text-align: center;
-
         }
-
-
-        /* FORMULAR */
 
         form {
 
@@ -177,25 +154,17 @@
 
             box-shadow:
                 0 15px 40px rgba(0, 0, 0, 0.35);
-
         }
-
-
-        /* ABSCHNITTE */
 
         .section {
 
             margin-top: 30px;
-
         }
-
 
         .section:first-child {
 
             margin-top: 0;
-
         }
-
 
         .section-title {
 
@@ -206,31 +175,21 @@
             font-weight: bold;
 
             margin-bottom: 20px;
-
         }
-
-
-        /* FELDER */
 
         .form-row {
 
             display: flex;
 
             gap: 15px;
-
         }
-
 
         .field {
 
             flex: 1;
 
             margin-bottom: 20px;
-
         }
-
-
-        /* LABELS */
 
         label {
 
@@ -243,11 +202,7 @@
             font-size: 14px;
 
             font-weight: bold;
-
         }
-
-
-        /* EINGABEN */
 
         input,
         select {
@@ -267,16 +222,12 @@
             font-size: 16px;
 
             font-family: Arial, Helvetica, sans-serif;
-
         }
-
 
         input::placeholder {
 
             color: #888;
-
         }
-
 
         input:focus,
         select:focus {
@@ -287,27 +238,19 @@
 
             box-shadow:
                 0 0 0 2px rgba(255, 122, 0, 0.10);
-
         }
-
 
         select {
 
             cursor: pointer;
-
         }
-
 
         input[type="date"] {
 
             color-scheme: dark;
 
             cursor: pointer;
-
         }
-
-
-        /* TEILNAHMEBEDINGUNGEN */
 
         .terms {
 
@@ -326,9 +269,7 @@
             font-size: 15px;
 
             line-height: 1.6;
-
         }
-
 
         .terms-title {
 
@@ -339,34 +280,24 @@
             font-weight: bold;
 
             margin-bottom: 15px;
-
         }
-
 
         .terms p {
 
             margin: 0 0 15px;
-
         }
-
 
         .terms a {
 
             color: #ff7a00;
 
             text-decoration: none;
-
         }
-
 
         .terms a:hover {
 
             text-decoration: underline;
-
         }
-
-
-        /* SCHNUPPERTRAINING */
 
         .trial {
 
@@ -385,18 +316,12 @@
             font-size: 15px;
 
             line-height: 1.6;
-
         }
-
 
         .trial strong {
 
             color: white;
-
         }
-
-
-        /* CHECKBOX */
 
         .checkbox {
 
@@ -407,9 +332,7 @@
             gap: 10px;
 
             margin-top: 20px;
-
         }
-
 
         .checkbox input {
 
@@ -422,9 +345,7 @@
             flex-shrink: 0;
 
             accent-color: #ff7a00;
-
         }
-
 
         .checkbox label {
 
@@ -435,96 +356,19 @@
             font-weight: normal;
 
             line-height: 1.5;
-
         }
 
+        .checkbox a {
 
-        /* UNTERSCHRIFT */
+            color: #ff7a00;
 
-        .signature-area {
-
-            margin-top: 10px;
-
+            text-decoration: none;
         }
 
+        .checkbox a:hover {
 
-        .signature-canvas {
-
-            display: block;
-
-            width: 100%;
-
-            height: 220px;
-
-            background: white;
-
-            border: 2px solid #444;
-
-            border-radius: 10px;
-
-            cursor: crosshair;
-
-            touch-action: none;
-
+            text-decoration: underline;
         }
-
-
-        .signature-hint {
-
-            margin-top: 8px;
-
-            color: #888;
-
-            font-size: 13px;
-
-        }
-
-
-        .signature-buttons {
-
-            display: flex;
-
-            justify-content: flex-end;
-
-            margin-top: 10px;
-
-        }
-
-
-        .clear-signature {
-
-            padding: 9px 15px;
-
-            background: #222;
-
-            color: #ddd;
-
-            border: 1px solid #444;
-
-            border-radius: 7px;
-
-            cursor: pointer;
-
-        }
-
-
-        .clear-signature:hover {
-
-            background: #333;
-
-        }
-
-
-        /* DATEI INPUT VERSTECKT */
-
-        #signature-file {
-
-            display: none;
-
-        }
-
-
-        /* ABSENDEN */
 
         .submit {
 
@@ -547,27 +391,12 @@
             font-weight: bold;
 
             cursor: pointer;
-
         }
-
 
         .submit:hover {
 
             background: #ff9500;
-
         }
-
-
-        .submit:disabled {
-
-            opacity: 0.6;
-
-            cursor: wait;
-
-        }
-
-
-        /* ZURÜCK */
 
         .back {
 
@@ -586,18 +415,12 @@
             text-decoration: none;
 
             border-radius: 8px;
-
         }
-
 
         .back:hover {
 
             background: #333;
-
         }
-
-
-        /* FOOTER */
 
         .footer {
 
@@ -608,11 +431,7 @@
             color: #777;
 
             font-size: 14px;
-
         }
-
-
-        /* MOBILE */
 
         @media (max-width: 600px) {
 
@@ -621,44 +440,27 @@
                 width: 94%;
 
                 padding-top: 25px;
-
             }
-
 
             h1 {
 
                 font-size: 28px;
-
             }
-
 
             .form-row {
 
                 display: block;
-
             }
-
 
             .logo {
 
                 width: 190px;
-
             }
-
 
             form {
 
                 padding: 22px;
-
             }
-
-
-            .signature-canvas {
-
-                height: 180px;
-
-            }
-
         }
 
     </style>
@@ -692,22 +494,20 @@
 
         Melde hier dein Kind für das Fördertraining der Frey Football Academy an.
 
+
     </p>
 
 
-    <!-- ========================================= -->
     <!-- FORMULAR -->
-    <!-- ========================================= -->
 
     <form
         action="https://formspree.io/f/mnpaveen"
         method="POST"
-        enctype="multipart/form-data"
         id="foerdertraining-form"
     >
 
 
-        <!-- BETREFF -->
+        <!-- BETREFF FÜR FORMSPREE -->
 
         <input
             type="hidden"
@@ -716,19 +516,16 @@
         >
 
 
-        <!-- ========================================= -->
-        <!-- ANGABEN ZUM SPIELER -->
-        <!-- ========================================= -->
+        <!-- ================================= -->
+        <!-- SPIELER -->
+        <!-- ================================= -->
 
         <div class="section">
-
 
             <div class="section-title">
                 Angaben zum Spieler
             </div>
 
-
-            <!-- NAME -->
 
             <div class="field">
 
@@ -747,8 +544,6 @@
             </div>
 
 
-            <!-- GEBURTSDATUM -->
-
             <div class="field">
 
                 <label for="geburtsdatum">
@@ -764,8 +559,6 @@
 
             </div>
 
-
-            <!-- KLEIDERGRÖSSE / VEREIN -->
 
             <div class="form-row">
 
@@ -806,14 +599,11 @@
             </div>
 
 
-            <!-- STANDORT -->
-
             <div class="field">
 
                 <label for="standort">
                     Standort *
                 </label>
-
 
                 <select
                     id="standort"
@@ -845,16 +635,14 @@
 
             </div>
 
-
         </div>
 
 
-        <!-- ========================================= -->
+        <!-- ================================= -->
         <!-- ERZIEHUNGSBERECHTIGTER -->
-        <!-- ========================================= -->
+        <!-- ================================= -->
 
         <div class="section">
-
 
             <div class="section-title">
                 Angaben zum Erziehungsberechtigten
@@ -920,16 +708,14 @@
 
             </div>
 
-
         </div>
 
 
-        <!-- ========================================= -->
+        <!-- ================================= -->
         <!-- ANMELDUNG -->
-        <!-- ========================================= -->
+        <!-- ================================= -->
 
         <div class="section">
-
 
             <div class="section-title">
                 Anmeldung
@@ -951,13 +737,12 @@
 
             </div>
 
-
         </div>
 
 
-        <!-- ========================================= -->
+        <!-- ================================= -->
         <!-- TEILNAHMEBEDINGUNGEN -->
-        <!-- ========================================= -->
+        <!-- ================================= -->
 
         <div class="terms">
 
@@ -1032,7 +817,6 @@
                     required
                 >
 
-
                 <label for="teilnahmebedingungen">
 
                     Ich habe die Teilnahmebedingungen gelesen,
@@ -1046,81 +830,11 @@
         </div>
 
 
-        <!-- ========================================= -->
-        <!-- UNTERSCHRIFT -->
-        <!-- ========================================= -->
-
-        <div class="section">
-
-
-            <div class="section-title">
-                Unterschrift
-            </div>
-
-
-            <div class="signature-area">
-
-
-                <label for="signature-canvas">
-                    Unterschrift des Erziehungsberechtigten *
-                </label>
-
-
-                <!--
-                    HIER WIRD DIE UNTERSCHRIFT GEZEICHNET
-                -->
-
-                <canvas
-                    id="signature-canvas"
-                    class="signature-canvas"
-                ></canvas>
-
-
-                <div class="signature-hint">
-
-                    Bitte hier mit Finger, Maus oder Trackpad unterschreiben.
-
-                </div>
-
-
-                <div class="signature-buttons">
-
-                    <button
-                        type="button"
-                        class="clear-signature"
-                        id="clear-signature"
-                    >
-                        Unterschrift löschen
-                    </button>
-
-                </div>
-
-
-                <!--
-                    DIESES FELD ENTHÄLT SPÄTER
-                    DIE UNTERSCHRIFT ALS ECHTE PNG-DATEI
-                -->
-
-                <input
-                    type="file"
-                    id="signature-file"
-                    name="Unterschrift"
-                    accept="image/png"
-                >
-
-
-            </div>
-
-
-        </div>
-
-
-        <!-- ========================================= -->
+        <!-- ================================= -->
         <!-- DATENSCHUTZ -->
-        <!-- ========================================= -->
+        <!-- ================================= -->
 
         <div class="checkbox">
-
 
             <input
                 type="checkbox"
@@ -1147,18 +861,16 @@
 
             </label>
 
-
         </div>
 
 
-        <!-- ========================================= -->
+        <!-- ================================= -->
         <!-- ABSENDEN -->
-        <!-- ========================================= -->
+        <!-- ================================= -->
 
         <button
             type="submit"
             class="submit"
-            id="submit-button"
         >
 
             Jetzt verbindlich anmelden
@@ -1199,455 +911,6 @@
 
 
 </div>
-
-
-<!-- ========================================= -->
-<!-- JAVASCRIPT -->
-<!-- ========================================= -->
-
-<script>
-
-
-    const canvas =
-        document.getElementById("signature-canvas");
-
-
-    const ctx =
-        canvas.getContext("2d");
-
-
-    const form =
-        document.getElementById("foerdertraining-form");
-
-
-    const clearButton =
-        document.getElementById("clear-signature");
-
-
-    const signatureFile =
-        document.getElementById("signature-file");
-
-
-    const submitButton =
-        document.getElementById("submit-button");
-
-
-    let drawing = false;
-
-    let hasSignature = false;
-
-
-    /* ========================================= */
-    /* CANVAS EINRICHTEN */
-    /* ========================================= */
-
-    function setupCanvas() {
-
-        const rect =
-            canvas.getBoundingClientRect();
-
-
-        const ratio =
-            Math.max(
-                window.devicePixelRatio || 1,
-                1
-            );
-
-
-        canvas.width =
-            rect.width * ratio;
-
-
-        canvas.height =
-            rect.height * ratio;
-
-
-        ctx.setTransform(
-            ratio,
-            0,
-            0,
-            ratio,
-            0,
-            0
-        );
-
-
-        ctx.lineWidth = 2.5;
-
-        ctx.lineCap = "round";
-
-        ctx.lineJoin = "round";
-
-        ctx.strokeStyle = "#111";
-
-    }
-
-
-    /* ========================================= */
-    /* POSITION */
-    /* ========================================= */
-
-    function getPosition(event) {
-
-        const rect =
-            canvas.getBoundingClientRect();
-
-
-        return {
-
-            x:
-                event.clientX
-                - rect.left,
-
-            y:
-                event.clientY
-                - rect.top
-
-        };
-
-    }
-
-
-    /* ========================================= */
-    /* UNTERSCHRIFT START */
-    /* ========================================= */
-
-    function startDrawing(event) {
-
-        event.preventDefault();
-
-
-        drawing = true;
-
-        hasSignature = true;
-
-
-        const position =
-            getPosition(event);
-
-
-        ctx.beginPath();
-
-
-        ctx.moveTo(
-            position.x,
-            position.y
-        );
-
-    }
-
-
-    /* ========================================= */
-    /* UNTERSCHRIFT ZEICHNEN */
-    /* ========================================= */
-
-    function draw(event) {
-
-        if (!drawing) {
-            return;
-        }
-
-
-        event.preventDefault();
-
-
-        const position =
-            getPosition(event);
-
-
-        ctx.lineTo(
-            position.x,
-            position.y
-        );
-
-
-        ctx.stroke();
-
-    }
-
-
-    /* ========================================= */
-    /* UNTERSCHRIFT ENDE */
-    /* ========================================= */
-
-    function stopDrawing(event) {
-
-        if (!drawing) {
-            return;
-        }
-
-
-        event.preventDefault();
-
-
-        drawing = false;
-
-
-        ctx.closePath();
-
-    }
-
-
-    /* ========================================= */
-    /* POINTER EVENTS
-       FUNKTIONIERT MIT:
-       - MAUS
-       - FINGER
-       - TRACKPAD
-    */
-    /* ========================================= */
-
-    canvas.addEventListener(
-        "pointerdown",
-        startDrawing
-    );
-
-
-    canvas.addEventListener(
-        "pointermove",
-        draw
-    );
-
-
-    canvas.addEventListener(
-        "pointerup",
-        stopDrawing
-    );
-
-
-    canvas.addEventListener(
-        "pointercancel",
-        stopDrawing
-    );
-
-
-    canvas.addEventListener(
-        "pointerleave",
-        stopDrawing
-    );
-
-
-    /* ========================================= */
-    /* LÖSCHEN */
-    /* ========================================= */
-
-    clearButton.addEventListener(
-        "click",
-        function () {
-
-
-            ctx.clearRect(
-                0,
-                0,
-                canvas.width,
-                canvas.height
-            );
-
-
-            hasSignature = false;
-
-
-            signatureFile.value = "";
-
-        }
-    );
-
-
-    /* ========================================= */
-    /* CANVAS ALS PNG-DATEI SPEICHERN */
-    /* ========================================= */
-
-    function createSignatureFile() {
-
-        return new Promise(
-            function(resolve, reject) {
-
-
-                canvas.toBlob(
-                    function(blob) {
-
-
-                        if (!blob) {
-
-                            reject(
-                                new Error(
-                                    "Die Unterschrift konnte nicht erstellt werden."
-                                )
-                            );
-
-                            return;
-
-                        }
-
-
-                        const file =
-                            new File(
-                                [
-                                    blob
-                                ],
-                                "Unterschrift_FFA.png",
-                                {
-                                    type: "image/png"
-                                }
-                            );
-
-
-                        resolve(file);
-
-
-                    },
-                    "image/png"
-                );
-
-
-            }
-        );
-
-    }
-
-
-    /* ========================================= */
-    /* FORMULAR ABSENDEN */
-    /* ========================================= */
-
-    form.addEventListener(
-        "submit",
-        async function(event) {
-
-
-            /*
-                Die normale Formularvalidierung
-                wurde bereits durchgeführt.
-            */
-
-
-            if (!hasSignature) {
-
-                event.preventDefault();
-
-
-                alert(
-                    "Bitte unterschreibe das Formular."
-                );
-
-
-                return;
-
-            }
-
-
-            /*
-                Verhindert einen doppelten Klick.
-            */
-
-            event.preventDefault();
-
-
-            submitButton.disabled = true;
-
-
-            submitButton.textContent =
-                "WIRD GESENDET …";
-
-
-            try {
-
-
-                /*
-                    Canvas → PNG
-                */
-
-                const file =
-                    await createSignatureFile();
-
-
-                /*
-                    Datei in das echte
-                    <input type="file">
-                    einsetzen.
-                */
-
-                const dataTransfer =
-                    new DataTransfer();
-
-
-                dataTransfer.items.add(file);
-
-
-                signatureFile.files =
-                    dataTransfer.files;
-
-
-                /*
-                    Kontrollieren,
-                    ob die Datei wirklich
-                    eingesetzt wurde.
-                */
-
-                if (
-                    !signatureFile.files ||
-                    signatureFile.files.length === 0
-                ) {
-
-                    throw new Error(
-                        "Die Unterschrift konnte nicht als Datei vorbereitet werden."
-                    );
-
-                }
-
-
-                /*
-                    Jetzt wird das Formular
-                    ganz normal an Formspree
-                    geschickt.
-
-                    Wichtig:
-                    Kein Base64 mehr.
-                    Stattdessen echte PNG-Datei.
-                */
-
-                HTMLFormElement.prototype.submit.call(form);
-
-
-            } catch (error) {
-
-
-                console.error(error);
-
-
-                submitButton.disabled = false;
-
-
-                submitButton.textContent =
-                    "FÖRDERTRAINING ANMELDEN";
-
-
-                alert(
-                    "Die Unterschrift konnte nicht verarbeitet werden. Bitte versuche es erneut."
-                );
-
-            }
-
-
-        }
-    );
-
-
-    /* ========================================= */
-    /* INITIALISIERUNG */
-    /* ========================================= */
-
-    window.addEventListener(
-        "load",
-        function () {
-
-            setupCanvas();
-
-        }
-    );
-
-
-</script>
 
 
 </body>
