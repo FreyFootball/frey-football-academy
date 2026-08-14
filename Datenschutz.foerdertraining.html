@@ -4,11 +4,9 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Datenschutzerklärung Fördertraining | Frey Football Academy</title>
-
 
     <style>
 
@@ -28,31 +26,45 @@
 
         body {
 
+            min-height: 100vh;
+
+            color: #fff;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            line-height: 1.7;
+
+            overflow-x: hidden;
+
             background:
                 radial-gradient(
-                    circle at 50% 10%,
-                    rgba(255, 122, 0, 0.20),
-                    transparent 35%
+                    circle at 50% 8%,
+                    rgba(255, 122, 0, 0.28),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 5% 75%,
+                    rgba(255, 122, 0, 0.07),
+                    transparent 30%
                 ),
                 linear-gradient(
                     180deg,
                     #181818 0%,
-                    #0d0d0d 50%,
-                    #050505 100%
+                    #0c0c0c 50%,
+                    #030303 100%
                 );
-
-            color: white;
-
-            font-family: Arial, Helvetica, sans-serif;
-
-            line-height: 1.7;
 
             position: relative;
 
         }
 
 
-        /* DEZENTE LICHTEFFEKTE */
+        /* =========================================
+           ANIMIERTER LICHT-HINTERGRUND
+        ========================================= */
 
         body::before {
 
@@ -60,49 +72,333 @@
 
             position: fixed;
 
-            inset: 0;
+            inset: -50%;
 
             pointer-events: none;
 
             background:
-                linear-gradient(
-                    115deg,
-                    transparent 35%,
-                    rgba(255, 255, 255, 0.025) 45%,
-                    transparent 55%
-                ),
-                linear-gradient(
-                    65deg,
-                    transparent 35%,
-                    rgba(255, 255, 255, 0.02) 45%,
-                    transparent 55%
+                conic-gradient(
+                    from 0deg,
+                    transparent,
+                    rgba(255, 122, 0, 0.055),
+                    transparent,
+                    rgba(255, 255, 255, 0.02),
+                    transparent
                 );
+
+            animation:
+                rotateLight 20s linear infinite;
 
             z-index: 0;
 
         }
 
 
-        /* HAUPTBEREICH */
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            width: 520px;
+            height: 520px;
+
+            left: 50%;
+            top: 10%;
+
+            transform:
+                translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255, 122, 0, 0.12),
+                    transparent 65%
+                );
+
+            filter: blur(25px);
+
+            pointer-events: none;
+
+            animation:
+                pulseGlow 4s ease-in-out infinite;
+
+            z-index: 0;
+
+        }
+
+
+        @keyframes rotateLight {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+
+                opacity: 0.4;
+
+                transform:
+                    translate(-50%, -50%)
+                    scale(0.9);
+
+            }
+
+            50% {
+
+                opacity: 1;
+
+                transform:
+                    translate(-50%, -50%)
+                    scale(1.15);
+
+            }
+
+        }
+
+
+        /* =========================================
+           SCHWEBENDE PARTIKEL
+        ========================================= */
+
+        .particles {
+
+            position: fixed;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+        }
+
+
+        .particle {
+
+            position: absolute;
+
+            width: 4px;
+            height: 4px;
+
+            border-radius: 50%;
+
+            background: #ff7a00;
+
+            box-shadow:
+                0 0 8px #ff7a00,
+                0 0 18px rgba(255, 122, 0, 0.5);
+
+            opacity: 0;
+
+            animation:
+                floatParticle linear infinite;
+
+        }
+
+
+        @keyframes floatParticle {
+
+            0% {
+
+                transform:
+                    translateY(110vh)
+                    translateX(0)
+                    scale(0.4);
+
+                opacity: 0;
+
+            }
+
+            10% {
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 0.5;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-10vh)
+                    translateX(80px)
+                    scale(1.2);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        /* =========================================
+           DEZENTE FUSSBÄLLE
+        ========================================= */
+
+        .football {
+
+            position: fixed;
+
+            font-size: 50px;
+
+            opacity: 0.045;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+            animation:
+                footballFloat 8s ease-in-out infinite,
+                footballRotate 14s linear infinite;
+
+        }
+
+
+        .football.one {
+
+            left: 3%;
+            top: 25%;
+
+        }
+
+
+        .football.two {
+
+            right: 4%;
+            bottom: 15%;
+
+            font-size: 65px;
+
+            animation-delay: -4s;
+
+        }
+
+
+        .football.three {
+
+            left: 10%;
+            bottom: 8%;
+
+            font-size: 32px;
+
+            animation-delay: -7s;
+
+        }
+
+
+        @keyframes footballFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-25px);
+            }
+
+        }
+
+
+        @keyframes footballRotate {
+
+            from {
+                rotate: 0deg;
+            }
+
+            to {
+                rotate: 360deg;
+            }
+
+        }
+
+
+        /* =========================================
+           HAUPTBEREICH
+        ========================================= */
 
         .container {
 
             position: relative;
 
-            z-index: 1;
+            z-index: 2;
 
-            width: 90%;
+            width: 92%;
 
             max-width: 850px;
 
             margin: 0 auto;
 
-            padding: 40px 0 60px;
+            padding: 45px 0 60px;
 
         }
 
 
-        /* LOGO */
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .logo-wrapper {
+
+            position: relative;
+
+            width: fit-content;
+
+            margin: 0 auto 25px;
+
+            animation:
+                logoEntrance 1s
+                cubic-bezier(.16,1,.3,1)
+                forwards;
+
+        }
+
+
+        .logo-wrapper::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: -35px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255, 122, 0, 0.25),
+                    transparent 65%
+                );
+
+            filter: blur(15px);
+
+            animation:
+                logoGlow 3s ease-in-out infinite;
+
+            z-index: -1;
+
+        }
+
 
         .logo {
 
@@ -114,12 +410,86 @@
 
             height: auto;
 
-            margin: 0 auto 35px;
+            margin: 0 auto;
+
+            filter:
+                drop-shadow(
+                    0 0 18px
+                    rgba(255, 122, 0, 0.25)
+                );
+
+            transition:
+                transform 0.4s ease,
+                filter 0.4s ease;
 
         }
 
 
-        /* TITEL */
+        .logo:hover {
+
+            transform:
+                scale(1.06)
+                rotate(-1deg);
+
+            filter:
+                drop-shadow(
+                    0 0 30px
+                    rgba(255, 122, 0, 0.6)
+                );
+
+        }
+
+
+        @keyframes logoEntrance {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(-35px)
+                    scale(0.8);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+        }
+
+
+        @keyframes logoGlow {
+
+            0%,
+            100% {
+
+                transform: scale(0.9);
+
+                opacity: 0.5;
+
+            }
+
+            50% {
+
+                transform: scale(1.15);
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        /* =========================================
+           TITEL
+        ========================================= */
 
         h1 {
 
@@ -127,53 +497,202 @@
 
             color: white;
 
-            font-size: 34px;
+            font-size: 38px;
 
             line-height: 1.2;
 
+            font-weight: 800;
+
+            letter-spacing: -1px;
+
             text-align: center;
+
+            animation:
+                fadeUp 0.8s 0.2s
+                cubic-bezier(.16,1,.3,1)
+                both;
+
+        }
+
+
+        h1::after {
+
+            content: "";
+
+            display: block;
+
+            width: 65px;
+
+            height: 4px;
+
+            margin: 18px auto 0;
+
+            border-radius: 10px;
+
+            background: #ff7a00;
+
+            box-shadow:
+                0 0 15px
+                rgba(255, 122, 0, 0.7);
+
+            animation:
+                lineGrow 0.8s 0.6s
+                cubic-bezier(.16,1,.3,1)
+                both;
 
         }
 
 
         .date {
 
-            margin: 0 auto 40px;
+            margin: 20px auto 35px;
 
-            color: #999;
+            color: #888;
 
             font-size: 14px;
 
+            line-height: 1.5;
+
             text-align: center;
+
+            animation:
+                fadeUp 0.8s 0.35s
+                cubic-bezier(.16,1,.3,1)
+                both;
 
         }
 
 
-        /* INHALTSBOX */
+        @keyframes lineGrow {
+
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 65px;
+            }
+
+        }
+
+
+        /* =========================================
+           HAUPT-CONTENT
+        ========================================= */
 
         .content {
 
-            background: rgba(20, 20, 20, 0.92);
-
-            border: 1px solid #333;
-
-            border-radius: 16px;
+            position: relative;
 
             padding: 35px;
 
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.07),
+                    rgba(255, 255, 255, 0.025)
+                );
+
+            border: 1px solid
+                rgba(255, 255, 255, 0.08);
+
+            border-radius: 20px;
+
             box-shadow:
-                0 15px 40px rgba(0, 0, 0, 0.35);
+                0 18px 50px
+                rgba(0, 0, 0, 0.35);
+
+            backdrop-filter: blur(14px);
+
+            overflow: hidden;
+
+            animation:
+                contentEntrance 0.9s 0.4s
+                cubic-bezier(.16,1,.3,1)
+                both;
 
         }
 
 
-        /* ÜBERSCHRIFTEN */
+        .content::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -120%;
+
+            width: 60%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 122, 0, 0.045),
+                    transparent
+                );
+
+            transform: skewX(-20deg);
+
+            animation:
+                contentShine 7s ease-in-out infinite;
+
+            pointer-events: none;
+
+        }
+
+
+        @keyframes contentEntrance {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes contentShine {
+
+            0%,
+            55% {
+                left: -120%;
+            }
+
+            75%,
+            100% {
+                left: 160%;
+            }
+
+        }
+
+
+        /* =========================================
+           ÜBERSCHRIFTEN
+        ========================================= */
 
         h2 {
 
+            position: relative;
+
             margin: 35px 0 15px;
 
-            padding-bottom: 8px;
+            padding-bottom: 9px;
 
             color: #ff7a00;
 
@@ -181,12 +700,38 @@
 
             line-height: 1.3;
 
+            font-weight: 800;
+
         }
 
 
         h2:first-child {
 
             margin-top: 0;
+
+        }
+
+
+        h2::before {
+
+            content: "";
+
+            display: inline-block;
+
+            width: 7px;
+            height: 7px;
+
+            margin-right: 10px;
+
+            vertical-align: middle;
+
+            border-radius: 50%;
+
+            background: #ff7a00;
+
+            box-shadow:
+                0 0 10px
+                rgba(255, 122, 0, 0.8);
 
         }
 
@@ -202,7 +747,9 @@
         }
 
 
-        /* TEXT */
+        /* =========================================
+           TEXT
+        ========================================= */
 
         p {
 
@@ -210,10 +757,28 @@
 
             color: #ccc;
 
+            font-size: 16px;
+
         }
 
 
-        /* LISTEN */
+        p:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+
+        strong {
+
+            color: #fff;
+
+        }
+
+
+        /* =========================================
+           LISTEN
+        ========================================= */
 
         ul {
 
@@ -228,24 +793,62 @@
 
         li {
 
-            margin-bottom: 7px;
+            margin-bottom: 8px;
+
+            padding-left: 3px;
 
         }
 
 
-        /* KONTAKT */
+        li::marker {
+
+            color: #ff7a00;
+
+        }
+
+
+        /* =========================================
+           KONTAKTBOX
+        ========================================= */
 
         .contact-box {
 
-            padding: 20px;
+            position: relative;
+
+            padding: 21px;
 
             margin: 10px 0 25px;
 
-            background: #111;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 122, 0, 0.07),
+                    rgba(0, 0, 0, 0.18)
+                );
 
-            border: 1px solid #333;
+            border: 1px solid
+                rgba(255, 122, 0, 0.18);
 
-            border-radius: 10px;
+            border-radius: 13px;
+
+            box-shadow:
+                inset 0 0 20px
+                rgba(255, 122, 0, 0.025);
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
+
+        }
+
+
+        .contact-box:hover {
+
+            transform:
+                translateY(-2px);
+
+            border-color:
+                rgba(255, 122, 0, 0.35);
 
         }
 
@@ -264,7 +867,9 @@
         }
 
 
-        /* LINKS */
+        /* =========================================
+           LINKS
+        ========================================= */
 
         a {
 
@@ -272,79 +877,218 @@
 
             text-decoration: none;
 
+            transition:
+                color 0.25s ease,
+                text-shadow 0.25s ease;
+
         }
 
 
         a:hover {
 
-            text-decoration: underline;
+            color: #ff9d2e;
+
+            text-shadow:
+                0 0 12px
+                rgba(255, 122, 0, 0.5);
 
         }
 
 
-        /* TRENNLINIE */
+        /* =========================================
+           TRENNLINIE
+        ========================================= */
 
         .divider {
 
             height: 1px;
 
-            background: #333;
-
             margin: 35px 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 122, 0, 0.35),
+                    transparent
+                );
 
         }
 
 
-        /* ZURÜCK */
+        /* =========================================
+           ZURÜCK-BUTTON
+        ========================================= */
+
+        .back-wrapper {
+
+            text-align: center;
+
+            margin-top: 35px;
+
+            animation:
+                fadeUp 0.8s 0.9s
+                cubic-bezier(.16,1,.3,1)
+                both;
+
+        }
+
 
         .back {
 
-            display: block;
+            position: relative;
 
-            width: fit-content;
+            display: inline-flex;
 
-            margin: 30px auto 0;
+            align-items: center;
 
-            padding: 12px 22px;
+            justify-content: center;
 
-            background: #222;
+            gap: 10px;
+
+            padding: 15px 27px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff7a00,
+                    #ff6200
+                );
 
             color: white;
 
             text-decoration: none;
 
-            border-radius: 8px;
+            border-radius: 13px;
 
-            text-align: center;
+            font-weight: 800;
+
+            font-size: 16px;
+
+            border: 1px solid
+                rgba(255, 255, 255, 0.1);
+
+            box-shadow:
+                0 10px 25px
+                rgba(0, 0, 0, 0.35);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+
+        }
+
+
+        .back::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -120%;
+
+            width: 70%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.25),
+                    transparent
+                );
+
+            transform: skewX(-20deg);
+
+            transition:
+                left 0.6s ease;
+
+        }
+
+
+        .back:hover::before {
+
+            left: 150%;
 
         }
 
 
         .back:hover {
 
-            background: #333;
+            transform:
+                translateY(-4px)
+                scale(1.03);
 
-            text-decoration: none;
+            color: white;
+
+            text-shadow: none;
+
+            box-shadow:
+                0 15px 35px
+                rgba(0, 0, 0, 0.45),
+                0 0 25px
+                rgba(255, 122, 0, 0.3);
 
         }
 
 
-        /* FOOTER */
+        /* =========================================
+           FOOTER
+        ========================================= */
 
         .footer {
 
-            margin-top: 40px;
+            margin-top: 45px;
 
-            color: #777;
+            color: #666;
 
             font-size: 14px;
 
+            line-height: 1.7;
+
             text-align: center;
+
+            animation:
+                fadeUp 0.8s 1s
+                cubic-bezier(.16,1,.3,1)
+                both;
 
         }
 
 
-        /* MOBILE */
+        /* =========================================
+           ALLGEMEINE ANIMATION
+        ========================================= */
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(20px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
 
         @media (max-width: 600px) {
 
@@ -352,7 +1096,7 @@
 
                 width: 94%;
 
-                padding-top: 25px;
+                padding-top: 28px;
 
             }
 
@@ -366,14 +1110,16 @@
 
             h1 {
 
-                font-size: 28px;
+                font-size: 30px;
 
             }
 
 
             .content {
 
-                padding: 22px;
+                padding: 23px 20px;
+
+                border-radius: 17px;
 
             }
 
@@ -385,10 +1131,59 @@
             }
 
 
+            h3 {
+
+                font-size: 16px;
+
+            }
+
+
             p,
             li {
 
                 font-size: 15px;
+
+            }
+
+
+            .contact-box {
+
+                padding: 18px;
+
+            }
+
+
+            .back {
+
+                width: 100%;
+
+            }
+
+
+            .football {
+
+                font-size: 30px;
+
+            }
+
+        }
+
+
+        /* =========================================
+           REDUCED MOTION
+        ========================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration: 0.01ms !important;
+
+                animation-iteration-count: 1 !important;
+
+                transition-duration: 0.01ms !important;
 
             }
 
@@ -402,675 +1197,724 @@
 <body>
 
 
-<div class="container">
+    <!-- =========================================
+         SCHWEBENDE PARTIKEL
+    ========================================= -->
+
+    <div class="particles">
+
+        <span
+            class="particle"
+            style="left: 7%; animation-duration: 9s; animation-delay: -2s;"
+        ></span>
+
+        <span
+            class="particle"
+            style="left: 19%; animation-duration: 12s; animation-delay: -6s;"
+        ></span>
+
+        <span
+            class="particle"
+            style="left: 32%; animation-duration: 10s; animation-delay: -4s;"
+        ></span>
+
+        <span
+            class="particle"
+            style="left: 46%; animation-duration: 14s; animation-delay: -8s;"
+        ></span>
+
+        <span
+            class="particle"
+            style="left: 60%; animation-duration: 11s; animation-delay: -3s;"
+        ></span>
+
+        <span
+            class="particle"
+            style="left: 74%; animation-duration: 13s; animation-delay: -7s;"
+        ></span>
+
+        <span
+            class="particle"
+            style="left: 88%; animation-duration: 10s; animation-delay: -5s;"
+        ></span>
+
+    </div>
 
 
-    <!-- LOGO -->
+    <!-- =========================================
+         DEZENTE FUSSBÄLLE
+    ========================================= -->
 
-    <img
-        src="assets/logo.png"
-        alt="Frey Football Academy Logo"
-        class="logo"
-    >
+    <div class="football one">
+        ⚽
+    </div>
 
+    <div class="football two">
+        ⚽
+    </div>
 
-    <!-- TITEL -->
-
-    <h1>
-        Datenschutzerklärung
-    </h1>
-
-
-    <p class="date">
-        Kommunikation per E-Mail und WhatsApp<br>
-        Stand: August 2026
-    </p>
+    <div class="football three">
+        ⚽
+    </div>
 
 
-    <div class="content">
+    <!-- =========================================
+         HAUPTBEREICH
+    ========================================= -->
+
+    <main class="container">
 
 
-        <!-- ========================================= -->
-        <!-- 1. VERANTWORTLICHER -->
-        <!-- ========================================= -->
+        <!-- LOGO -->
 
-        <h2>
-            1. Verantwortlicher
-        </h2>
+        <div class="logo-wrapper">
 
-
-        <div class="contact-box">
-
-            <p>
-
-                <strong>
-                    Frey Football Academy (FFA)
-                </strong>
-
-                <br>
-
-                Inhaber: Jan Frey
-
-                <br>
-
-                Fritz-Kohl-Str. 3c
-
-                <br>
-
-                55122 Mainz
-
-                <br>
-
-                E-Mail:
-                <a href="mailto:info@freyfootballacademy.com">
-                    info@freyfootballacademy.com
-                </a>
-
-                <br>
-
-                Tel.:
-                <a href="tel:+491733176916">
-                    0173-3176916
-                </a>
-
-            </p>
+            <img
+                src="assets/logo.png"
+                alt="Frey Football Academy Logo"
+                class="logo"
+            >
 
         </div>
 
 
-        <!-- ========================================= -->
-        <!-- 2. ZWECK -->
-        <!-- ========================================= -->
+        <!-- TITEL -->
 
-        <h2>
-            2. Zweck der Verarbeitung
-        </h2>
+        <h1>
+            Datenschutzerklärung
+        </h1>
 
 
-        <p>
+        <p class="date">
 
-            Die FFA verarbeitet personenbezogene Daten, soweit dies
-            für die Kommunikation und Organisation des Fördertrainings
-            erforderlich ist.
+            Kommunikation per E-Mail und WhatsApp<br>
+
+            Stand: August 2026
 
         </p>
 
 
-        <p>
+        <!-- =====================================
+             INHALT
+        ====================================== -->
 
-            Die reguläre Kommunikation erfolgt grundsätzlich per E-Mail.
+        <div class="content">
 
-            Zusätzlich kann die FFA eine freiwillige WhatsApp-Gruppe
-            anbieten. Diese dient ausschließlich dazu, kurzfristige
-            organisatorische Änderungen schnell mitzuteilen.
 
-        </p>
+            <!-- 1 -->
 
+            <h2>
+                1. Verantwortlicher
+            </h2>
 
-        <!-- ========================================= -->
-        <!-- 3. E-MAIL -->
-        <!-- ========================================= -->
 
-        <h2>
-            3. Kommunikation per E-Mail
-        </h2>
+            <div class="contact-box">
 
+                <p>
 
-        <p>
+                    <strong>
+                        Frey Football Academy (FFA)
+                    </strong>
 
-            Im Rahmen der Kommunikation per E-Mail können insbesondere
-            folgende personenbezogene Daten verarbeitet werden:
+                    <br>
 
-        </p>
+                    Inhaber: Jan Frey
 
+                    <br>
 
-        <ul>
+                    Fritz-Kohl-Str. 3c
 
-            <li>Name des Spielers</li>
+                    <br>
 
-            <li>Name des gesetzlichen Vertreters</li>
+                    55122 Mainz
 
-            <li>E-Mail-Adresse</li>
+                    <br>
 
-            <li>Telefonnummer, soweit diese für die Kommunikation verwendet wird</li>
+                    E-Mail:
 
-            <li>Inhalte der E-Mail-Kommunikation</li>
+                    <a href="mailto:info@freyfootballacademy.com">
+                        info@freyfootballacademy.com
+                    </a>
 
-            <li>sonstige Informationen, die im Rahmen der Organisation
-                des Fördertrainings mitgeteilt werden</li>
+                    <br>
 
-        </ul>
+                    Tel.:
 
+                    <a href="tel:+491733176916">
+                        0173-3176916
+                    </a>
 
-        <p>
+                </p>
 
-            Die Verarbeitung erfolgt insbesondere zur:
+            </div>
 
-        </p>
 
+            <!-- 2 -->
 
-        <ul>
+            <h2>
+                2. Zweck der Verarbeitung
+            </h2>
 
-            <li>Mitteilung von Trainingszeiten und Trainingsorten</li>
+            <p>
 
-            <li>Information über Ferien und Trainingspausen</li>
+                Die FFA verarbeitet personenbezogene Daten, soweit dies
+                für die Kommunikation und Organisation des Fördertrainings
+                erforderlich ist.
 
-            <li>Mitteilung von Änderungen und Ausfällen</li>
+            </p>
 
-            <li>organisatorischen Abstimmung</li>
+            <p>
 
-            <li>Kommunikation zu Veranstaltungen und zum Trainingsbetrieb</li>
+                Die reguläre Kommunikation erfolgt grundsätzlich per E-Mail.
 
-            <li>Bearbeitung von Anfragen und Anliegen</li>
+                Zusätzlich kann die FFA eine freiwillige WhatsApp-Gruppe
+                anbieten. Diese dient ausschließlich dazu, kurzfristige
+                organisatorische Änderungen schnell mitzuteilen.
 
-        </ul>
+            </p>
 
 
-        <p>
+            <!-- 3 -->
 
-            Soweit die Verarbeitung für die Durchführung bzw.
-            Organisation des Vertragsverhältnisses erforderlich ist,
-            erfolgt sie auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO.
+            <h2>
+                3. Kommunikation per E-Mail
+            </h2>
 
-        </p>
+            <p>
 
+                Im Rahmen der Kommunikation per E-Mail können insbesondere
+                folgende personenbezogene Daten verarbeitet werden:
 
-        <p>
+            </p>
 
-            Soweit die Verarbeitung auf einer gesetzlichen Verpflichtung
-            beruht, erfolgt sie auf Grundlage von Art. 6 Abs. 1 lit. c DSGVO.
+            <ul>
 
-        </p>
+                <li>Name des Spielers</li>
 
+                <li>Name des gesetzlichen Vertreters</li>
 
-        <p>
+                <li>E-Mail-Adresse</li>
 
-            Soweit die Verarbeitung zur Wahrung berechtigter Interessen
-            der FFA erforderlich ist, erfolgt sie auf Grundlage von
-            Art. 6 Abs. 1 lit. f DSGVO.
+                <li>
+                    Telefonnummer, soweit diese für die Kommunikation
+                    verwendet wird
+                </li>
 
-        </p>
+                <li>Inhalte der E-Mail-Kommunikation</li>
 
+                <li>
+                    sonstige Informationen, die im Rahmen der Organisation
+                    des Fördertrainings mitgeteilt werden
+                </li>
 
-        <!-- ========================================= -->
-        <!-- 4. WHATSAPP -->
-        <!-- ========================================= -->
+            </ul>
 
-        <h2>
-            4. Freiwillige Kommunikation über WhatsApp
-        </h2>
+            <p>
 
+                Die Verarbeitung erfolgt insbesondere zur:
 
-        <p>
+            </p>
 
-            Die FFA kann zusätzlich eine WhatsApp-Gruppe für Teilnehmer
-            bzw. deren gesetzliche Vertreter anbieten.
+            <ul>
 
-        </p>
+                <li>Mitteilung von Trainingszeiten und Trainingsorten</li>
 
+                <li>Information über Ferien und Trainingspausen</li>
 
-        <p>
+                <li>Mitteilung von Änderungen und Ausfällen</li>
 
-            Die Teilnahme an dieser WhatsApp-Gruppe ist freiwillig und
-            keine Voraussetzung für die Teilnahme am Fördertraining.
+                <li>organisatorischen Abstimmung</li>
 
-        </p>
+                <li>
+                    Kommunikation zu Veranstaltungen und zum
+                    Trainingsbetrieb
+                </li>
 
+                <li>Bearbeitung von Anfragen und Anliegen</li>
 
-        <p>
+            </ul>
 
-            Die WhatsApp-Gruppe dient ausschließlich der schnellen
-            Information über kurzfristige Änderungen des Trainingsbetriebs,
-            insbesondere:
+            <p>
 
-        </p>
+                Soweit die Verarbeitung für die Durchführung bzw.
+                Organisation des Vertragsverhältnisses erforderlich ist,
+                erfolgt sie auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO.
 
+            </p>
 
-        <ul>
+            <p>
 
-            <li>kurzfristige Änderungen von Trainingszeiten</li>
+                Soweit die Verarbeitung auf einer gesetzlichen Verpflichtung
+                beruht, erfolgt sie auf Grundlage von Art. 6 Abs. 1 lit. c DSGVO.
 
-            <li>kurzfristige Änderungen des Trainingsortes</li>
+            </p>
 
-            <li>kurzfristige Trainingsausfälle</li>
+            <p>
 
-            <li>witterungsbedingte oder sonstige kurzfristige Änderungen</li>
+                Soweit die Verarbeitung zur Wahrung berechtigter Interessen
+                der FFA erforderlich ist, erfolgt sie auf Grundlage von
+                Art. 6 Abs. 1 lit. f DSGVO.
 
-            <li>sonstige kurzfristige organisatorische Hinweise</li>
+            </p>
 
-        </ul>
 
+            <!-- 4 -->
 
-        <p>
+            <h2>
+                4. Freiwillige Kommunikation über WhatsApp
+            </h2>
 
-            Wichtige oder vertragsrelevante Informationen werden nicht
-            ausschließlich über die WhatsApp-Gruppe übermittelt.
+            <p>
 
-            Diese werden zusätzlich per E-Mail oder auf einem anderen
-            geeigneten Kommunikationsweg zur Verfügung gestellt.
+                Die FFA kann zusätzlich eine WhatsApp-Gruppe für Teilnehmer
+                bzw. deren gesetzliche Vertreter anbieten.
 
-        </p>
+            </p>
 
+            <p>
 
-        <!-- ========================================= -->
-        <!-- 5. WHATSAPP DATEN -->
-        <!-- ========================================= -->
+                Die Teilnahme an dieser WhatsApp-Gruppe ist freiwillig und
+                keine Voraussetzung für die Teilnahme am Fördertraining.
 
-        <h2>
-            5. Welche Daten werden bei WhatsApp verarbeitet?
-        </h2>
+            </p>
 
+            <p>
 
-        <p>
+                Die WhatsApp-Gruppe dient ausschließlich der schnellen
+                Information über kurzfristige Änderungen des Trainingsbetriebs,
+                insbesondere:
 
-            Bei der Teilnahme an einer WhatsApp-Gruppe können insbesondere
-            folgende Daten sichtbar bzw. verarbeitet werden:
+            </p>
 
-        </p>
+            <ul>
 
+                <li>kurzfristige Änderungen von Trainingszeiten</li>
 
-        <ul>
+                <li>kurzfristige Änderungen des Trainingsortes</li>
 
-            <li>Telefonnummer</li>
+                <li>kurzfristige Trainingsausfälle</li>
 
-            <li>WhatsApp-Profilname</li>
+                <li>
+                    witterungsbedingte oder sonstige kurzfristige Änderungen
+                </li>
 
-            <li>gegebenenfalls Profilbild und weitere für Gruppenmitglieder
-                sichtbare Profilinformationen</li>
+                <li>
+                    sonstige kurzfristige organisatorische Hinweise
+                </li>
 
-            <li>Nachrichten und sonstige innerhalb der Gruppe
-                ausgetauschte Inhalte</li>
+            </ul>
 
-        </ul>
+            <p>
 
+                Wichtige oder vertragsrelevante Informationen werden nicht
+                ausschließlich über die WhatsApp-Gruppe übermittelt.
 
-        <p>
+                Diese werden zusätzlich per E-Mail oder auf einem anderen
+                geeigneten Kommunikationsweg zur Verfügung gestellt.
 
-            Bei einer normalen WhatsApp-Gruppe kann insbesondere die
-            Telefonnummer eines Gruppenmitglieds für andere Mitglieder
-            der Gruppe sichtbar sein.
+            </p>
 
-        </p>
 
+            <!-- 5 -->
 
-        <p>
+            <h2>
+                5. Welche Daten werden bei WhatsApp verarbeitet?
+            </h2>
 
-            Die FFA hat keinen vollständigen Einfluss darauf, welche
-            personenbezogenen Daten WhatsApp selbst verarbeitet und wie
-            der Dienst diese Daten technisch verarbeitet.
+            <p>
 
-        </p>
+                Bei der Teilnahme an einer WhatsApp-Gruppe können insbesondere
+                folgende Daten sichtbar bzw. verarbeitet werden:
 
+            </p>
 
-        <p>
+            <ul>
 
-            Für die Verarbeitung durch WhatsApp gelten zusätzlich die
-            Datenschutzinformationen von WhatsApp.
+                <li>Telefonnummer</li>
 
-        </p>
+                <li>WhatsApp-Profilname</li>
 
+                <li>
+                    gegebenenfalls Profilbild und weitere für Gruppenmitglieder
+                    sichtbare Profilinformationen
+                </li>
 
-        <!-- ========================================= -->
-        <!-- 6. KEINE SENSIBLEN INFORMATIONEN -->
-        <!-- ========================================= -->
+                <li>
+                    Nachrichten und sonstige innerhalb der Gruppe
+                    ausgetauschte Inhalte
+                </li>
 
-        <h2>
-            6. Keine sensiblen Informationen über WhatsApp
-        </h2>
+            </ul>
 
+            <p>
 
-        <p>
+                Bei einer normalen WhatsApp-Gruppe kann insbesondere die
+                Telefonnummer eines Gruppenmitglieds für andere Mitglieder
+                der Gruppe sichtbar sein.
 
-            Die WhatsApp-Gruppe ist ausschließlich für kurzfristige
-            organisatorische Informationen vorgesehen.
+            </p>
 
-        </p>
+            <p>
 
+                Die FFA hat keinen vollständigen Einfluss darauf, welche
+                personenbezogenen Daten WhatsApp selbst verarbeitet und wie
+                der Dienst diese Daten technisch verarbeitet.
 
-        <p>
+            </p>
 
-            Über die WhatsApp-Gruppe werden insbesondere keine
-            Gesundheitsdaten, Angaben zu Verletzungen oder sonstige
-            besonders schützenswerte personenbezogene Daten ausgetauscht.
+            <p>
 
-        </p>
+                Für die Verarbeitung durch WhatsApp gelten zusätzlich die
+                Datenschutzinformationen von WhatsApp.
 
+            </p>
 
-        <p>
 
-            Individuelle Anliegen, insbesondere zu Gesundheit,
-            Verletzungen oder persönlichen Umständen eines Spielers,
-            sollen direkt und nicht über die WhatsApp-Gruppe mit der
-            FFA besprochen werden.
+            <!-- 6 -->
 
-        </p>
+            <h2>
+                6. Keine sensiblen Informationen über WhatsApp
+            </h2>
 
+            <p>
 
-        <!-- ========================================= -->
-        <!-- 7. RECHTSGRUNDLAGE WHATSAPP -->
-        <!-- ========================================= -->
+                Die WhatsApp-Gruppe ist ausschließlich für kurzfristige
+                organisatorische Informationen vorgesehen.
 
-        <h2>
-            7. Rechtsgrundlage für die WhatsApp-Kommunikation
-        </h2>
+            </p>
 
+            <p>
 
-        <p>
+                Über die WhatsApp-Gruppe werden insbesondere keine
+                Gesundheitsdaten, Angaben zu Verletzungen oder sonstige
+                besonders schützenswerte personenbezogene Daten ausgetauscht.
 
-            Die Teilnahme an der WhatsApp-Gruppe erfolgt freiwillig.
+            </p>
 
-        </p>
+            <p>
 
+                Individuelle Anliegen, insbesondere zu Gesundheit,
+                Verletzungen oder persönlichen Umständen eines Spielers,
+                sollen direkt und nicht über die WhatsApp-Gruppe mit der
+                FFA besprochen werden.
 
-        <p>
+            </p>
 
-            Soweit für die Teilnahme und die damit verbundene Verarbeitung
-            personenbezogener Daten eine Einwilligung erforderlich ist,
-            erfolgt die Verarbeitung auf Grundlage von
-            Art. 6 Abs. 1 lit. a DSGVO.
 
-        </p>
+            <!-- 7 -->
 
+            <h2>
+                7. Rechtsgrundlage für die WhatsApp-Kommunikation
+            </h2>
 
-        <p>
+            <p>
 
-            Die Einwilligung kann jederzeit mit Wirkung für die Zukunft
-            widerrufen werden.
+                Die Teilnahme an der WhatsApp-Gruppe erfolgt freiwillig.
 
-        </p>
+            </p>
 
+            <p>
 
-        <p>
+                Soweit für die Teilnahme und die damit verbundene Verarbeitung
+                personenbezogener Daten eine Einwilligung erforderlich ist,
+                erfolgt die Verarbeitung auf Grundlage von
+                Art. 6 Abs. 1 lit. a DSGVO.
 
-            Der Widerruf kann beispielsweise per E-Mail an
+            </p>
 
-            <a href="mailto:info@freyfootballacademy.com">
-                info@freyfootballacademy.com
+            <p>
+
+                Die Einwilligung kann jederzeit mit Wirkung für die Zukunft
+                widerrufen werden.
+
+            </p>
+
+            <p>
+
+                Der Widerruf kann beispielsweise per E-Mail an
+
+                <a href="mailto:info@freyfootballacademy.com">
+                    info@freyfootballacademy.com
+                </a>
+
+                erklärt werden.
+
+            </p>
+
+            <p>
+
+                Nach dem Widerruf wird die betreffende Person aus der
+                WhatsApp-Gruppe entfernt bzw. die WhatsApp-Kommunikation
+                für diese Person beendet.
+
+            </p>
+
+            <p>
+
+                Die Rechtmäßigkeit der Verarbeitung, die aufgrund der
+                Einwilligung bis zum Widerruf erfolgt ist, bleibt vom
+                Widerruf unberührt.
+
+            </p>
+
+
+            <!-- TRENNER -->
+
+            <div class="divider"></div>
+
+
+            <!-- 8 -->
+
+            <h2>
+                8. Speicherdauer
+            </h2>
+
+            <p>
+
+                Die FFA verarbeitet und speichert personenbezogene Daten
+                grundsätzlich nur so lange, wie dies für die jeweiligen
+                Zwecke erforderlich ist oder gesetzliche
+                Aufbewahrungspflichten bestehen.
+
+            </p>
+
+            <p>
+
+                E-Mail-Kommunikation kann gespeichert werden, soweit dies
+                für die Durchführung und Dokumentation des
+                Vertragsverhältnisses, die Bearbeitung von Anliegen oder
+                aufgrund gesetzlicher Aufbewahrungspflichten erforderlich ist.
+
+            </p>
+
+            <p>
+
+                Nach Beendigung der Teilnahme werden personenbezogene Daten
+                gelöscht, sobald sie für die genannten Zwecke nicht mehr
+                erforderlich sind und keine gesetzlichen
+                Aufbewahrungspflichten entgegenstehen.
+
+            </p>
+
+            <p>
+
+                Für Nachrichten und sonstige Inhalte innerhalb von WhatsApp
+                gelten zusätzlich die technischen Speicher- und
+                Löschmechanismen von WhatsApp.
+
+            </p>
+
+
+            <!-- 9 -->
+
+            <h2>
+                9. Empfänger und eingesetzte Dienste
+            </h2>
+
+            <p>
+
+                Für die Kommunikation verwendet die FFA einen E-Mail-Dienst
+                sowie für die freiwillige kurzfristige Kommunikation den
+                Dienst WhatsApp.
+
+            </p>
+
+            <p>
+
+                Personenbezogene Daten können dabei an die jeweiligen
+                Dienstanbieter übermittelt bzw. durch diese verarbeitet
+                werden, soweit dies für die Bereitstellung der
+                Kommunikationsdienste erforderlich ist.
+
+            </p>
+
+            <p>
+
+                Auf die Verarbeitung personenbezogener Daten durch WhatsApp
+                hat die FFA nur eingeschränkten Einfluss.
+
+            </p>
+
+            <p>
+
+                Die jeweils aktuellen Datenschutzinformationen der
+                eingesetzten Dienste sind ergänzend zu beachten.
+
+            </p>
+
+
+            <!-- 10 -->
+
+            <h2>
+                10. Verarbeitung außerhalb der Europäischen Union
+            </h2>
+
+            <p>
+
+                Bei der Nutzung digitaler Kommunikationsdienste kann eine
+                Verarbeitung personenbezogener Daten außerhalb der
+                Europäischen Union bzw. des Europäischen Wirtschaftsraums
+                nicht vollständig ausgeschlossen werden.
+
+            </p>
+
+            <p>
+
+                Soweit eine Übermittlung personenbezogener Daten in ein
+                Drittland erfolgt, erfolgt diese nur unter Beachtung der
+                gesetzlichen Voraussetzungen der DSGVO.
+
+            </p>
+
+
+            <!-- 11 -->
+
+            <h2>
+                11. Rechte der betroffenen Personen
+            </h2>
+
+            <p>
+
+                Betroffene Personen haben nach Maßgabe der gesetzlichen
+                Voraussetzungen insbesondere folgende Rechte:
+
+            </p>
+
+            <ul>
+
+                <li>Recht auf Auskunft</li>
+
+                <li>Recht auf Berichtigung</li>
+
+                <li>Recht auf Löschung</li>
+
+                <li>
+                    Recht auf Einschränkung der Verarbeitung
+                </li>
+
+                <li>Recht auf Datenübertragbarkeit</li>
+
+                <li>
+                    Recht auf Widerspruch gegen bestimmte Verarbeitungen
+                </li>
+
+                <li>
+                    Recht auf Widerruf einer erteilten Einwilligung mit
+                    Wirkung für die Zukunft
+                </li>
+
+            </ul>
+
+            <p>
+
+                Zur Ausübung dieser Rechte kann eine Nachricht an folgende
+                E-Mail-Adresse gerichtet werden:
+
+            </p>
+
+            <p>
+
+                <a href="mailto:info@freyfootballacademy.com">
+
+                    info@freyfootballacademy.com
+
+                </a>
+
+            </p>
+
+
+            <!-- 12 -->
+
+            <h2>
+                12. Beschwerderecht
+            </h2>
+
+            <p>
+
+                Betroffene Personen haben das Recht, sich bei einer
+                Datenschutzaufsichtsbehörde über die Verarbeitung ihrer
+                personenbezogenen Daten zu beschweren.
+
+            </p>
+
+
+            <!-- 13 -->
+
+            <h2>
+                13. Freiwilligkeit der WhatsApp-Kommunikation
+            </h2>
+
+            <p>
+
+                Die Nutzung der WhatsApp-Gruppe ist freiwillig.
+
+            </p>
+
+            <p>
+
+                Die Teilnahme am Fördertraining ist nicht davon abhängig,
+                dass eine Person WhatsApp nutzt oder der
+                WhatsApp-Kommunikation zustimmt.
+
+            </p>
+
+            <p>
+
+                Wer nicht an der WhatsApp-Gruppe teilnehmen möchte, erhält
+                die für die Teilnahme am Fördertraining erforderlichen
+                Informationen über den regulären Kommunikationsweg,
+                insbesondere per E-Mail.
+
+            </p>
+
+
+        </div>
+
+
+        <!-- =========================================
+             ZURÜCK
+        ========================================== -->
+
+        <div class="back-wrapper">
+
+            <a
+                href="foerdertraining.html"
+                class="back"
+            >
+
+                <span>
+                    ←
+                </span>
+
+                <span>
+                    Zurück zur Anmeldung
+                </span>
+
             </a>
 
-            erklärt werden.
+        </div>
 
-        </p>
 
+        <!-- =========================================
+             FOOTER
+        ========================================== -->
 
-        <p>
+        <div class="footer">
 
-            Nach dem Widerruf wird die betreffende Person aus der
-            WhatsApp-Gruppe entfernt bzw. die WhatsApp-Kommunikation
-            für diese Person beendet.
+            Frey Football Academy · Train. Develop. Succeed.
 
-        </p>
+            <br><br>
 
+            Fritz-Kohl-Str. 3c · 55122 Mainz
 
-        <p>
+            · +49 173 3176916
 
-            Die Rechtmäßigkeit der Verarbeitung, die aufgrund der
-            Einwilligung bis zum Widerruf erfolgt ist, bleibt vom
-            Widerruf unberührt.
+            · info@freyfootballacademy.com
 
-        </p>
+        </div>
 
 
-        <!-- ========================================= -->
-        <!-- 8. SPEICHERDAUER -->
-        <!-- ========================================= -->
-
-        <h2>
-            8. Speicherdauer
-        </h2>
-
-
-        <p>
-
-            Die FFA verarbeitet und speichert personenbezogene Daten
-            grundsätzlich nur so lange, wie dies für die jeweiligen
-            Zwecke erforderlich ist oder gesetzliche
-            Aufbewahrungspflichten bestehen.
-
-        </p>
-
-
-        <p>
-
-            E-Mail-Kommunikation kann gespeichert werden, soweit dies
-            für die Durchführung und Dokumentation des
-            Vertragsverhältnisses, die Bearbeitung von Anliegen oder
-            aufgrund gesetzlicher Aufbewahrungspflichten erforderlich ist.
-
-        </p>
-
-
-        <p>
-
-            Nach Beendigung der Teilnahme werden personenbezogene Daten
-            gelöscht, sobald sie für die genannten Zwecke nicht mehr
-            erforderlich sind und keine gesetzlichen
-            Aufbewahrungspflichten entgegenstehen.
-
-        </p>
-
-
-        <p>
-
-            Für Nachrichten und sonstige Inhalte innerhalb von WhatsApp
-            gelten zusätzlich die technischen Speicher- und
-            Löschmechanismen von WhatsApp.
-
-        </p>
-
-
-        <!-- ========================================= -->
-        <!-- 9. EMPFÄNGER -->
-        <!-- ========================================= -->
-
-        <h2>
-            9. Empfänger und eingesetzte Dienste
-        </h2>
-
-
-        <p>
-
-            Für die Kommunikation verwendet die FFA einen E-Mail-Dienst
-            sowie für die freiwillige kurzfristige Kommunikation den
-            Dienst WhatsApp.
-
-        </p>
-
-
-        <p>
-
-            Personenbezogene Daten können dabei an die jeweiligen
-            Dienstanbieter übermittelt bzw. durch diese verarbeitet
-            werden, soweit dies für die Bereitstellung der
-            Kommunikationsdienste erforderlich ist.
-
-        </p>
-
-
-        <p>
-
-            Auf die Verarbeitung personenbezogener Daten durch WhatsApp
-            hat die FFA nur eingeschränkten Einfluss.
-
-        </p>
-
-
-        <p>
-
-            Die jeweils aktuellen Datenschutzinformationen der
-            eingesetzten Dienste sind ergänzend zu beachten.
-
-        </p>
-
-
-        <!-- ========================================= -->
-        <!-- 10. DRITTLAND -->
-        <!-- ========================================= -->
-
-        <h2>
-            10. Verarbeitung außerhalb der Europäischen Union
-        </h2>
-
-
-        <p>
-
-            Bei der Nutzung digitaler Kommunikationsdienste kann eine
-            Verarbeitung personenbezogener Daten außerhalb der
-            Europäischen Union bzw. des Europäischen Wirtschaftsraums
-            nicht vollständig ausgeschlossen werden.
-
-        </p>
-
-
-        <p>
-
-            Soweit eine Übermittlung personenbezogener Daten in ein
-            Drittland erfolgt, erfolgt diese nur unter Beachtung der
-            gesetzlichen Voraussetzungen der DSGVO.
-
-        </p>
-
-
-        <!-- ========================================= -->
-        <!-- 11. RECHTE -->
-        <!-- ========================================= -->
-
-        <h2>
-            11. Rechte der betroffenen Personen
-        </h2>
-
-
-        <p>
-
-            Betroffene Personen haben nach Maßgabe der gesetzlichen
-            Voraussetzungen insbesondere folgende Rechte:
-
-        </p>
-
-
-        <ul>
-
-            <li>Recht auf Auskunft</li>
-
-            <li>Recht auf Berichtigung</li>
-
-            <li>Recht auf Löschung</li>
-
-            <li>Recht auf Einschränkung der Verarbeitung</li>
-
-            <li>Recht auf Datenübertragbarkeit</li>
-
-            <li>Recht auf Widerspruch gegen bestimmte Verarbeitungen</li>
-
-            <li>Recht auf Widerruf einer erteilten Einwilligung mit
-                Wirkung für die Zukunft</li>
-
-        </ul>
-
-
-        <p>
-
-            Zur Ausübung dieser Rechte kann eine Nachricht an folgende
-            E-Mail-Adresse gerichtet werden:
-
-        </p>
-
-
-        <p>
-
-            <a href="mailto:info@freyfootballacademy.com">
-                info@freyfootballacademy.com
-            </a>
-
-        </p>
-
-
-        <!-- ========================================= -->
-        <!-- 12. BESCHWERDERECHT -->
-        <!-- ========================================= -->
-
-        <h2>
-            12. Beschwerderecht
-        </h2>
-
-
-        <p>
-
-            Betroffene Personen haben das Recht, sich bei einer
-            Datenschutzaufsichtsbehörde über die Verarbeitung ihrer
-            personenbezogenen Daten zu beschweren.
-
-        </p>
-
-
-        <!-- ========================================= -->
-        <!-- 13. FREIWILLIGKEIT WHATSAPP -->
-        <!-- ========================================= -->
-
-        <h2>
-            13. Freiwilligkeit der WhatsApp-Kommunikation
-        </h2>
-
-
-        <p>
-
-            Die Nutzung der WhatsApp-Gruppe ist freiwillig.
-
-        </p>
-
-
-        <p>
-
-            Die Teilnahme am Fördertraining ist nicht davon abhängig,
-            dass eine Person WhatsApp nutzt oder der
-            WhatsApp-Kommunikation zustimmt.
-
-        </p>
-
-
-        <p>
-
-            Wer nicht an der WhatsApp-Gruppe teilnehmen möchte, erhält
-            die für die Teilnahme am Fördertraining erforderlichen
-            Informationen über den regulären Kommunikationsweg,
-            insbesondere per E-Mail.
-
-        </p>
-
-
-    </div>
-
-
-    <!-- ZURÜCK -->
-
-    <a
-        href="foerdertraining.html"
-        class="back"
-    >
-
-        ← Zurück zur Anmeldung
-
-    </a>
-
-
-    <!-- FOOTER -->
-
-    <div class="footer">
-
-        Frey Football Academy · Train. Develop. Succeed.
-
-        <br><br>
-
-        Fritz-Kohl-Str. 3c · 55122 Mainz
-
-        · +49 173 3176916
-
-        · info@freyfootballacademy.com
-
-    </div>
-
-
-</div>
+    </main>
 
 
 </body>
