@@ -16,6 +16,7 @@
             box-sizing: border-box;
         }
 
+
         html,
         body {
             margin: 0;
@@ -23,6 +24,7 @@
             width: 100%;
             min-height: 100%;
         }
+
 
         body {
 
@@ -51,6 +53,10 @@
         }
 
 
+        /* =========================================
+           CONTAINER
+        ========================================= */
+
         .container {
 
             width: 90%;
@@ -64,7 +70,9 @@
         }
 
 
-        /* LOGO */
+        /* =========================================
+           LOGO
+        ========================================= */
 
         .logo {
 
@@ -81,7 +89,9 @@
         }
 
 
-        /* TITEL */
+        /* =========================================
+           TITEL
+        ========================================= */
 
         h1 {
 
@@ -98,9 +108,9 @@
 
         .intro {
 
-            margin: 0 auto 35px;
-
             max-width: 650px;
+
+            margin: 0 auto 35px;
 
             text-align: center;
 
@@ -118,7 +128,9 @@
         }
 
 
-        /* FORMULAR */
+        /* =========================================
+           FORMULAR
+        ========================================= */
 
         form {
 
@@ -136,7 +148,9 @@
         }
 
 
-        /* ABSCHNITTE */
+        /* =========================================
+           ABSCHNITTE
+        ========================================= */
 
         .section {
 
@@ -165,7 +179,9 @@
         }
 
 
-        /* SPIELER AUSWAHL */
+        /* =========================================
+           SPIELERANZAHL
+        ========================================= */
 
         .player-count {
 
@@ -173,7 +189,8 @@
 
             padding: 20px;
 
-            background: rgba(255, 122, 0, 0.07);
+            background:
+                rgba(255, 122, 0, 0.07);
 
             border: 1px solid #3b3b3b;
 
@@ -248,7 +265,41 @@
         }
 
 
-        /* FELDER */
+        /* =========================================
+           SPIELER BOX
+        ========================================= */
+
+        .player-box {
+
+            margin-bottom: 25px;
+
+            padding: 22px;
+
+            background: #111;
+
+            border: 1px solid #333;
+
+            border-radius: 12px;
+
+        }
+
+
+        .player-box-title {
+
+            margin-bottom: 18px;
+
+            color: #ff7a00;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* =========================================
+           FELDER
+        ========================================= */
 
         .form-row {
 
@@ -301,7 +352,10 @@
 
             font-size: 16px;
 
-            font-family: Arial, Helvetica, sans-serif;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
 
         }
 
@@ -328,14 +382,17 @@
         }
 
 
-        input[type="date"] {
+        select {
 
-            color-scheme: dark;
+            cursor: pointer;
 
         }
 
 
-        select {
+        input[type="date"],
+        input[type="time"] {
+
+            color-scheme: dark;
 
             cursor: pointer;
 
@@ -351,11 +408,13 @@
         }
 
 
-        /* POSITIONEN */
+        /* =========================================
+           POSITIONEN
+        ========================================= */
 
         .position-select {
 
-            min-height: 140px;
+            min-height: 145px;
 
         }
 
@@ -371,37 +430,9 @@
         }
 
 
-        /* SPIELER BOX */
-
-        .player-box {
-
-            margin-bottom: 25px;
-
-            padding: 22px;
-
-            background: #111;
-
-            border: 1px solid #333;
-
-            border-radius: 12px;
-
-        }
-
-
-        .player-box-title {
-
-            margin-bottom: 18px;
-
-            color: #ff7a00;
-
-            font-size: 18px;
-
-            font-weight: bold;
-
-        }
-
-
-        /* HINWEIS */
+        /* =========================================
+           INFO BOX
+        ========================================= */
 
         .info-box {
 
@@ -431,7 +462,9 @@
         }
 
 
-        /* CHECKBOX */
+        /* =========================================
+           CHECKBOX
+        ========================================= */
 
         .checkbox {
 
@@ -474,7 +507,25 @@
         }
 
 
-        /* ABSENDEN */
+        .checkbox a {
+
+            color: #ff7a00;
+
+            text-decoration: none;
+
+        }
+
+
+        .checkbox a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        /* =========================================
+           ABSENDEN
+        ========================================= */
 
         .submit {
 
@@ -508,7 +559,9 @@
         }
 
 
-        /* ZURÜCK */
+        /* =========================================
+           ZURÜCK
+        ========================================= */
 
         .back {
 
@@ -538,7 +591,9 @@
         }
 
 
-        /* FOOTER */
+        /* =========================================
+           FOOTER
+        ========================================= */
 
         .footer {
 
@@ -553,7 +608,9 @@
         }
 
 
-        /* MOBILE */
+        /* =========================================
+           MOBILE
+        ========================================= */
 
         @media (max-width: 600px) {
 
@@ -613,7 +670,9 @@
 <div class="container">
 
 
-    <!-- LOGO -->
+    <!-- =========================================
+         LOGO
+    ========================================= -->
 
     <img
         src="assets/logo.png"
@@ -622,7 +681,9 @@
     >
 
 
-    <!-- TITEL -->
+    <!-- =========================================
+         TITEL
+    ========================================= -->
 
     <h1>
 
@@ -645,17 +706,15 @@
     </p>
 
 
-    <!-- ========================================= -->
-    <!-- FORMULAR -->
-    <!-- ========================================= -->
+    <!-- =========================================
+         FORMULAR
+    ========================================= -->
 
     <form
         action="https://formspree.io/f/mwleqbjw"
         method="POST"
     >
 
-
-        <!-- FORMSPREE BETREFF -->
 
         <input
             type="hidden"
@@ -664,17 +723,15 @@
         >
 
 
-        <!-- ========================================= -->
-        <!-- ANZAHL SPIELER -->
-        <!-- ========================================= -->
+        <!-- =========================================
+             ANZAHL SPIELER
+        ========================================= -->
 
         <div class="section">
 
 
             <div class="section-title">
-
                 Trainingsgruppe
-
             </div>
 
 
@@ -747,9 +804,9 @@
         </div>
 
 
-        <!-- ========================================= -->
-        <!-- SPIELER 1 -->
-        <!-- ========================================= -->
+        <!-- =========================================
+             SPIELER 1
+        ========================================= -->
 
         <div class="player-box">
 
@@ -764,23 +821,6 @@
 
                 <div class="field">
 
-                    <label for="spieler1_nachname">
-                        Nachname *
-                    </label>
-
-                    <input
-                        type="text"
-                        id="spieler1_nachname"
-                        name="Spieler 1 – Nachname"
-                        placeholder="Nachname"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="field">
-
                     <label for="spieler1_vorname">
                         Vorname *
                     </label>
@@ -790,6 +830,23 @@
                         id="spieler1_vorname"
                         name="Spieler 1 – Vorname"
                         placeholder="Vorname"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="spieler1_nachname">
+                        Nachname *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="spieler1_nachname"
+                        name="Spieler 1 – Nachname"
+                        placeholder="Nachname"
                         required
                     >
 
@@ -814,7 +871,7 @@
                         name="Spieler 1 – Jahrgang"
                         placeholder="z. B. 2014"
                         min="2000"
-                        max="2025"
+                        max="2026"
                         required
                     >
 
@@ -915,9 +972,9 @@
         </div>
 
 
-        <!-- ========================================= -->
-        <!-- SPIELER 2 -->
-        <!-- ========================================= -->
+        <!-- =========================================
+             SPIELER 2
+        ========================================= -->
 
         <div
             class="player-box"
@@ -935,23 +992,6 @@
 
                 <div class="field">
 
-                    <label for="spieler2_nachname">
-                        Nachname *
-                    </label>
-
-                    <input
-                        type="text"
-                        id="spieler2_nachname"
-                        name="Spieler 2 – Nachname"
-                        placeholder="Nachname"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="field">
-
                     <label for="spieler2_vorname">
                         Vorname *
                     </label>
@@ -961,6 +1001,23 @@
                         id="spieler2_vorname"
                         name="Spieler 2 – Vorname"
                         placeholder="Vorname"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="spieler2_nachname">
+                        Nachname *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="spieler2_nachname"
+                        name="Spieler 2 – Nachname"
+                        placeholder="Nachname"
                         required
                     >
 
@@ -985,7 +1042,7 @@
                         name="Spieler 2 – Jahrgang"
                         placeholder="z. B. 2014"
                         min="2000"
-                        max="2025"
+                        max="2026"
                         required
                     >
 
@@ -1076,6 +1133,7 @@
                 <div class="position-hint">
 
                     Mehrere Positionen können ausgewählt werden.
+                    Auf dem Handy gedrückt halten.
 
                 </div>
 
@@ -1085,13 +1143,14 @@
         </div>
 
 
-        <!-- ========================================= -->
-        <!-- SPIELER 3 -->
-        <!-- ========================================= -->
+        <!-- =========================================
+             SPIELER 3
+        ========================================= -->
 
         <div
             class="player-box"
             id="player3Box"
+            style="display: none;"
         >
 
 
@@ -1105,23 +1164,6 @@
 
                 <div class="field">
 
-                    <label for="spieler3_nachname">
-                        Nachname *
-                    </label>
-
-                    <input
-                        type="text"
-                        id="spieler3_nachname"
-                        name="Spieler 3 – Nachname"
-                        placeholder="Nachname"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="field">
-
                     <label for="spieler3_vorname">
                         Vorname *
                     </label>
@@ -1131,7 +1173,22 @@
                         id="spieler3_vorname"
                         name="Spieler 3 – Vorname"
                         placeholder="Vorname"
-                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="spieler3_nachname">
+                        Nachname *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="spieler3_nachname"
+                        name="Spieler 3 – Nachname"
+                        placeholder="Nachname"
                     >
 
                 </div>
@@ -1155,8 +1212,7 @@
                         name="Spieler 3 – Jahrgang"
                         placeholder="z. B. 2014"
                         min="2000"
-                        max="2025"
-                        required
+                        max="2026"
                     >
 
                 </div>
@@ -1171,7 +1227,6 @@
                     <select
                         id="spieler3_level"
                         name="Spieler 3 – Spielniveau"
-                        required
                     >
 
                         <option value="">
@@ -1209,7 +1264,6 @@
                     name="Spieler 3 – Positionen"
                     class="position-select"
                     multiple
-                    required
                 >
 
                     <option value="Torwart">
@@ -1246,6 +1300,7 @@
                 <div class="position-hint">
 
                     Mehrere Positionen können ausgewählt werden.
+                    Auf dem Handy gedrückt halten.
 
                 </div>
 
@@ -1255,13 +1310,14 @@
         </div>
 
 
-        <!-- ========================================= -->
-        <!-- SPIELER 4 -->
-        <!-- ========================================= -->
+        <!-- =========================================
+             SPIELER 4
+        ========================================= -->
 
         <div
             class="player-box"
             id="player4Box"
+            style="display: none;"
         >
 
 
@@ -1275,23 +1331,6 @@
 
                 <div class="field">
 
-                    <label for="spieler4_nachname">
-                        Nachname *
-                    </label>
-
-                    <input
-                        type="text"
-                        id="spieler4_nachname"
-                        name="Spieler 4 – Nachname"
-                        placeholder="Nachname"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="field">
-
                     <label for="spieler4_vorname">
                         Vorname *
                     </label>
@@ -1301,7 +1340,22 @@
                         id="spieler4_vorname"
                         name="Spieler 4 – Vorname"
                         placeholder="Vorname"
-                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="spieler4_nachname">
+                        Nachname *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="spieler4_nachname"
+                        name="Spieler 4 – Nachname"
+                        placeholder="Nachname"
                     >
 
                 </div>
@@ -1325,8 +1379,7 @@
                         name="Spieler 4 – Jahrgang"
                         placeholder="z. B. 2014"
                         min="2000"
-                        max="2025"
-                        required
+                        max="2026"
                     >
 
                 </div>
@@ -1341,7 +1394,6 @@
                     <select
                         id="spieler4_level"
                         name="Spieler 4 – Spielniveau"
-                        required
                     >
 
                         <option value="">
@@ -1379,7 +1431,6 @@
                     name="Spieler 4 – Positionen"
                     class="position-select"
                     multiple
-                    required
                 >
 
                     <option value="Torwart">
@@ -1416,6 +1467,7 @@
                 <div class="position-hint">
 
                     Mehrere Positionen können ausgewählt werden.
+                    Auf dem Handy gedrückt halten.
 
                 </div>
 
@@ -1425,59 +1477,64 @@
         </div>
 
 
-        <!-- ========================================= -->
-        <!-- TRAINING -->
-        <!-- ========================================= -->
+        <!-- =========================================
+             TRAININGSWUNSCH
+        ========================================= -->
 
-        <div class="field">
-
-            <label for="standort">
-            Standort *
-            </label>
-
-            <select
-            id="standort"
-            name="Standort"
-            required
-            >
-
-            <option value="">
-            Bitte Standort auswählen
-            </option>
-
-            <option value="Walluf">
-            Walluf
-            </option>
-
-            <option value="Klein-Winternheim">
-            Klein-Winternheim
-            </option>
-
-            <option value="Heidesheim">
-            Heidesheim
-            </option>
-
-            <option value="Bretzenheim">
-            Bretzenheim
-            </option>
-        
-            <div class="section">
+        <div class="section">
 
 
-                
             <div class="section-title">
                 Trainingswunsch
             </div>
 
 
-            <!-- DATUM -->
+            <!-- STANDORT -->
+
+            <div class="field">
+
+                <label for="standort">
+                    Standort *
+                </label>
+
+                <select
+                    id="standort"
+                    name="Standort"
+                    required
+                >
+
+                    <option value="">
+                        Bitte Standort auswählen
+                    </option>
+
+                    <option value="Walluf">
+                        Walluf
+                    </option>
+
+                    <option value="Klein-Winternheim">
+                        Klein-Winternheim
+                    </option>
+
+                    <option value="Heidesheim">
+                        Heidesheim
+                    </option>
+
+                    <option value="Mainz-Bretzenheim">
+                        Mainz-Bretzenheim
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- DATUM UND UHRZEIT -->
 
             <div class="form-row">
 
 
                 <div class="field">
 
-                    
                     <label for="datum">
                         Gewünschtes Trainingsdatum *
                     </label>
@@ -1545,9 +1602,9 @@
         </div>
 
 
-        <!-- ========================================= -->
-        <!-- ERZIEHUNGSBERECHTIGTER -->
-        <!-- ========================================= -->
+        <!-- =========================================
+             ERZIEHUNGSBERECHTIGTER
+        ========================================= -->
 
         <div class="section">
 
@@ -1559,15 +1616,13 @@
 
             <div class="field">
 
-                <label for="name">
-
-                    Name *
-
+                <label for="erziehungsberechtigter">
+                    Name des Erziehungsberechtigten *
                 </label>
 
                 <input
                     type="text"
-                    id="name"
+                    id="erziehungsberechtigter"
                     name="Name des Erziehungsberechtigten"
                     placeholder="Vor- und Nachname"
                     required
@@ -1582,13 +1637,13 @@
                 <div class="field">
 
                     <label for="telefon">
-                        Telefon *
+                        Telefonnummer *
                     </label>
 
                     <input
                         type="tel"
                         id="telefon"
-                        name="Telefon"
+                        name="Telefonnummer"
                         placeholder="+49 ..."
                         required
                     >
@@ -1599,13 +1654,13 @@
                 <div class="field">
 
                     <label for="email">
-                        E-Mail *
+                        E-Mail-Adresse *
                     </label>
 
                     <input
                         type="email"
                         id="email"
-                        name="E-Mail"
+                        name="E-Mail-Adresse"
                         placeholder="name@email.de"
                         required
                     >
@@ -1619,9 +1674,9 @@
         </div>
 
 
-        <!-- ========================================= -->
-        <!-- DATENSCHUTZ -->
-        <!-- ========================================= -->
+        <!-- =========================================
+             DATENSCHUTZ
+        ========================================= -->
 
         <div class="checkbox">
 
@@ -1653,9 +1708,9 @@
         </div>
 
 
-        <!-- ========================================= -->
-        <!-- ABSENDEN -->
-        <!-- ========================================= -->
+        <!-- =========================================
+             ABSENDEN
+        ========================================= -->
 
         <button
             type="submit"
@@ -1670,19 +1725,23 @@
     </form>
 
 
-    <!-- ZURÜCK -->
+    <!-- =========================================
+         ZURÜCK
+    ========================================= -->
 
     <a
-        href="angebote.html"
+        href="trainingsangebote.html"
         class="back"
     >
 
-        ← Zurück zu den Angeboten
+        ← Zurück zu den Trainingsangeboten
 
     </a>
 
 
-    <!-- FOOTER -->
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
 
     <div class="footer">
 
@@ -1702,140 +1761,109 @@
 </div>
 
 
-<!-- ========================================= -->
-<!-- JAVASCRIPT -->
-<!-- ========================================= -->
+<!-- =========================================
+     JAVASCRIPT
+     SPIELER 3 & 4 EIN-/AUSBLENDEN
+========================================= -->
 
 <script>
 
+    const players2 =
+        document.getElementById("players2");
 
-    const playerRadios =
-        document.querySelectorAll(
-            'input[name="Anzahl Spieler"]'
-        );
+    const players3 =
+        document.getElementById("players3");
 
-
-    const playerBoxes = {
-
-        2: document.getElementById("player2Box"),
-
-        3: document.getElementById("player3Box"),
-
-        4: document.getElementById("player4Box")
-
-    };
+    const players4 =
+        document.getElementById("players4");
 
 
-    function updatePlayerFields() {
+    const player3Box =
+        document.getElementById("player3Box");
+
+    const player4Box =
+        document.getElementById("player4Box");
 
 
-        const selected =
-            document.querySelector(
-                'input[name="Anzahl Spieler"]:checked'
-            );
+    function updatePlayers() {
 
+        if (players2.checked) {
 
-        if (!selected) {
-            return;
+            player3Box.style.display = "none";
+
+            player4Box.style.display = "none";
+
+            setRequired(player3Box, false);
+
+            setRequired(player4Box, false);
+
         }
 
 
-        const count =
-            parseInt(
-                selected.value
-            );
+        if (players3.checked) {
+
+            player3Box.style.display = "block";
+
+            player4Box.style.display = "none";
+
+            setRequired(player3Box, true);
+
+            setRequired(player4Box, false);
+
+        }
 
 
-        for (
-            let i = 2;
-            i <= 4;
-            i++
-        ) {
+        if (players4.checked) {
 
+            player3Box.style.display = "block";
 
-            const box =
-                playerBoxes[i];
+            player4Box.style.display = "block";
 
+            setRequired(player3Box, true);
 
-            const fields =
-                box.querySelectorAll(
-                    "input, select"
-                );
-
-
-            if (i <= count) {
-
-
-                box.style.display =
-                    "block";
-
-
-                fields.forEach(
-                    function(field) {
-
-                        field.required =
-                            true;
-
-                    }
-                );
-
-
-            } else {
-
-
-                box.style.display =
-                    "none";
-
-
-                fields.forEach(
-                    function(field) {
-
-                        field.required =
-                            false;
-
-                        /*
-                         * Werte werden entfernt,
-                         * damit keine ausgeblendeten
-                         * Spieler an Formspree
-                         * übertragen werden.
-                         */
-
-                        if (
-                            field.tagName === "SELECT"
-                        ) {
-
-                            field.selectedIndex = -1;
-
-                        } else {
-
-                            field.value = "";
-
-                        }
-
-                    }
-                );
-
-            }
+            setRequired(player4Box, true);
 
         }
 
     }
 
 
-    playerRadios.forEach(
-        function(radio) {
+    function setRequired(box, required) {
 
-            radio.addEventListener(
-                "change",
-                updatePlayerFields
+        const fields =
+            box.querySelectorAll(
+                "input, select"
             );
 
-        }
+
+        fields.forEach(function(field) {
+
+            field.required = required;
+
+        });
+
+    }
+
+
+    players2.addEventListener(
+        "change",
+        updatePlayers
     );
 
 
-    updatePlayerFields();
+    players3.addEventListener(
+        "change",
+        updatePlayers
+    );
 
+
+    players4.addEventListener(
+        "change",
+        updatePlayers
+    );
+
+
+    updatePlayers();
 
 </script>
 
