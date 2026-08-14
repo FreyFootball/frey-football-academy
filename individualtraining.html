@@ -31,8 +31,6 @@ body {
 
     min-height: 100vh;
 
-    margin: 0;
-
     color: #ffffff;
 
     font-family:
@@ -271,7 +269,6 @@ body::after {
 .football.one {
 
     left: 2%;
-
     top: 18%;
 }
 
@@ -279,7 +276,6 @@ body::after {
 .football.two {
 
     right: 2%;
-
     top: 58%;
 
     font-size: 105px;
@@ -291,7 +287,6 @@ body::after {
 .football.three {
 
     left: 8%;
-
     bottom: 8%;
 
     font-size: 45px;
@@ -349,10 +344,7 @@ body::after {
 
 
 /* =========================================================
-   LOGO
-   WICHTIG:
-   width:100% + flex + justify-content:center
-   = garantiert mittig
+   LOGO – EXAKT ZENTRIERT
 ========================================================= */
 
 .logo-wrapper {
@@ -381,8 +373,6 @@ body::after {
         both;
 }
 
-
-/* Zentraler Glow */
 
 .logo-wrapper::before {
 
@@ -659,8 +649,6 @@ form {
 }
 
 
-/* Licht läuft gelegentlich über die Card */
-
 form::before {
 
     content: "";
@@ -747,7 +735,6 @@ form::before {
 
 
 .section:first-child {
-
     margin-top: 0;
 }
 
@@ -791,7 +778,7 @@ form::before {
 
 
 /* =========================================================
-   FORMULARFELDER
+   FELDER
 ========================================================= */
 
 .form-row {
@@ -860,14 +847,12 @@ textarea {
 input:hover,
 select:hover,
 textarea:hover {
-
     border-color: #666;
 }
 
 
 input::placeholder,
 textarea::placeholder {
-
     color: #777;
 }
 
@@ -893,7 +878,6 @@ textarea:focus {
 
 
 select {
-
     cursor: pointer;
 }
 
@@ -928,7 +912,6 @@ textarea {
 
 
 .position-select option {
-
     padding: 7px;
 }
 
@@ -973,21 +956,16 @@ textarea {
     font-size: 14px;
 
     line-height: 1.65;
-
-    box-shadow:
-        inset 0 0 25px
-        rgba(255, 122, 0, 0.025);
 }
 
 
 .info-box strong {
-
     color: #ffffff;
 }
 
 
 /* =========================================================
-   CHECKBOX
+   DATENSCHUTZ
 ========================================================= */
 
 .checkbox {
@@ -1042,13 +1020,47 @@ textarea {
 
 
 .checkbox a:hover {
-
     text-decoration: underline;
 }
 
 
 /* =========================================================
-   ABSENDE-BUTTON
+   AJAX FEHLER
+========================================================= */
+
+[data-fs-error] {
+
+    color: #ff8a8a;
+
+    font-size: 14px;
+}
+
+
+.form-error {
+
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 14px 16px;
+
+    background:
+        rgba(255, 60, 60, 0.08);
+
+    border:
+        1px solid
+        rgba(255, 80, 80, 0.25);
+
+    border-radius: 10px;
+
+    color: #ffaaaa;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ABSENDEN
 ========================================================= */
 
 .submit {
@@ -1093,7 +1105,8 @@ textarea {
 
     transition:
         transform 0.3s ease,
-        box-shadow 0.3s ease;
+        box-shadow 0.3s ease,
+        opacity 0.3s ease;
 }
 
 
@@ -1128,7 +1141,6 @@ textarea {
 
 
 .submit:hover::before {
-
     left: 150%;
 }
 
@@ -1148,16 +1160,18 @@ textarea {
 }
 
 
-.submit:active {
+.submit:disabled {
 
-    transform:
-        translateY(0)
-        scale(0.99);
+    opacity: 0.65;
+
+    cursor: wait;
+
+    transform: none;
 }
 
 
 /* =========================================================
-   ZURÜCK-BUTTON
+   ZURÜCK
 ========================================================= */
 
 .back {
@@ -1233,7 +1247,7 @@ textarea {
 
 
 /* =========================================================
-   ALLGEMEINE ANIMATION
+   ANIMATION
 ========================================================= */
 
 @keyframes fadeUp {
@@ -1318,19 +1332,16 @@ textarea {
 
 
     .form-row {
-
         display: block;
     }
 
 
     .football {
-
         font-size: 38px;
     }
 
 
     .football.two {
-
         font-size: 50px;
     }
 
@@ -1338,7 +1349,7 @@ textarea {
 
 
 /* =========================================================
-   BEWEGUNG REDUZIEREN
+   REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1437,7 +1448,7 @@ textarea {
 
 
 <!-- =======================================================
-     DEZENTE FUSSBÄLLE
+     SCHWEBENDE FUSSBÄLLE
 ======================================================== -->
 
 <div class="football one">
@@ -1460,9 +1471,7 @@ textarea {
 <div class="container">
 
 
-    <!-- ===================================================
-         LOGO
-    ==================================================== -->
+    <!-- LOGO -->
 
     <div class="logo-wrapper">
 
@@ -1475,9 +1484,7 @@ textarea {
     </div>
 
 
-    <!-- ===================================================
-         TITEL
-    ==================================================== -->
+    <!-- TITEL -->
 
     <h1>
 
@@ -1510,23 +1517,15 @@ textarea {
     ==================================================== -->
 
     <form
-        action="https://formspree.io/f/xoeadwwq"
-        method="POST"
+        id="individualtraining-form"
     >
 
+        <!-- Formspree AJAX Fehler -->
 
-        <input
-            type="hidden"
-            name="_subject"
-            value="Neue Anfrage – Individualtraining | Frey Football Academy"
-        >
-
-
-        <input
-            type="hidden"
-            name="_next"
-            value="https://freyfootballacademy.com/anfrage-erfolgreich.html"
-        >
+        <div
+            class="form-error"
+            data-fs-error
+        ></div>
 
 
         <!-- ===============================================
@@ -1535,20 +1534,15 @@ textarea {
 
         <div class="section">
 
-
             <div class="section-title">
-
                 Angaben zum Spieler
-
             </div>
 
 
             <div class="field">
 
                 <label for="spielername">
-
                     Name des Spielers *
-
                 </label>
 
                 <input
@@ -1556,8 +1550,13 @@ textarea {
                     id="spielername"
                     name="Name des Spielers"
                     placeholder="Vor- und Nachname"
+                    data-fs-field
                     required
                 >
+
+                <span
+                    data-fs-error="Name des Spielers"
+                ></span>
 
             </div>
 
@@ -1565,17 +1564,20 @@ textarea {
             <div class="field">
 
                 <label for="geburtsdatum">
-
                     Geburtsdatum des Spielers *
-
                 </label>
 
                 <input
                     type="date"
                     id="geburtsdatum"
                     name="Geburtsdatum des Spielers"
+                    data-fs-field
                     required
                 >
+
+                <span
+                    data-fs-error="Geburtsdatum des Spielers"
+                ></span>
 
             </div>
 
@@ -1583,42 +1585,37 @@ textarea {
             <div class="field">
 
                 <label for="spielniveau">
-
                     Spielniveau *
-
                 </label>
 
                 <select
                     id="spielniveau"
                     name="Spielniveau"
+                    data-fs-field
                     required
                 >
 
                     <option value="">
-
                         Bitte wählen
-
                     </option>
 
                     <option value="Anfänger">
-
                         Anfänger
-
                     </option>
 
                     <option value="Fortgeschritten">
-
                         Fortgeschritten
-
                     </option>
 
                     <option value="Leistungsbereich">
-
                         Leistungsbereich
-
                     </option>
 
                 </select>
+
+                <span
+                    data-fs-error="Spielniveau"
+                ></span>
 
             </div>
 
@@ -1626,9 +1623,7 @@ textarea {
             <div class="field">
 
                 <label for="position">
-
                     Position *
-
                 </label>
 
                 <select
@@ -1636,53 +1631,39 @@ textarea {
                     name="Positionen"
                     class="position-select"
                     multiple
+                    data-fs-field
                     required
                 >
 
                     <option value="Torwart">
-
                         Torwart
-
                     </option>
 
                     <option value="Innenverteidiger">
-
                         Innenverteidiger
-
                     </option>
 
                     <option value="Außenverteidiger">
-
                         Außenverteidiger
-
                     </option>
 
                     <option value="6/8er">
-
                         6/8er
-
                     </option>
 
                     <option value="10er">
-
                         10er
-
                     </option>
 
                     <option value="Flügelspieler">
-
                         Flügelspieler
-
                     </option>
 
                     <option value="Stürmer">
-
                         Stürmer
-
                     </option>
 
                 </select>
-
 
                 <div class="position-hint">
 
@@ -1693,7 +1674,6 @@ textarea {
 
             </div>
 
-
         </div>
 
 
@@ -1703,56 +1683,42 @@ textarea {
 
         <div class="section">
 
-
             <div class="section-title">
-
                 Trainingswunsch
-
             </div>
 
 
             <div class="field">
 
                 <label for="standort">
-
                     Standort *
-
                 </label>
 
                 <select
                     id="standort"
                     name="Standort"
+                    data-fs-field
                     required
                 >
 
                     <option value="">
-
                         Bitte Standort auswählen
-
                     </option>
 
                     <option value="Walluf">
-
                         Walluf
-
                     </option>
 
                     <option value="Klein-Winternheim">
-
                         Klein-Winternheim
-
                     </option>
 
                     <option value="Heidesheim">
-
                         Heidesheim
-
                     </option>
 
                     <option value="Mainz-Bretzenheim">
-
                         Mainz-Bretzenheim
-
                     </option>
 
                 </select>
@@ -1762,19 +1728,17 @@ textarea {
 
             <div class="form-row">
 
-
                 <div class="field">
 
                     <label for="datum">
-
                         Gewünschtes Trainingsdatum *
-
                     </label>
 
                     <input
                         type="date"
                         id="datum"
                         name="Gewünschtes Trainingsdatum"
+                        data-fs-field
                         required
                     >
 
@@ -1784,20 +1748,18 @@ textarea {
                 <div class="field">
 
                     <label for="uhrzeit">
-
                         Wunschuhrzeit *
-
                     </label>
 
                     <input
                         type="time"
                         id="uhrzeit"
                         name="Wunschuhrzeit"
+                        data-fs-field
                         required
                     >
 
                 </div>
-
 
             </div>
 
@@ -1805,15 +1767,14 @@ textarea {
             <div class="field">
 
                 <label for="fokus">
-
                     Worauf soll der Trainingsfokus liegen?
-
                 </label>
 
                 <textarea
                     id="fokus"
                     name="Trainingsfokus"
                     placeholder="z. B. erster Kontakt, Abschluss, Dribbling, 1 gegen 1, Technik ..."
+                    data-fs-field
                 ></textarea>
 
             </div>
@@ -1822,9 +1783,7 @@ textarea {
             <div class="info-box">
 
                 <strong>
-
                     Hinweis:
-
                 </strong>
 
                 <br>
@@ -1836,30 +1795,24 @@ textarea {
 
             </div>
 
-
         </div>
 
 
         <!-- ===============================================
-             ANSPRECHPARTNER
+             ERZIEHUNGSBERECHTIGTER
         ================================================ -->
 
         <div class="section">
 
-
             <div class="section-title">
-
                 Angaben zum Erziehungsberechtigten
-
             </div>
 
 
             <div class="field">
 
                 <label for="erziehungsberechtigter">
-
                     Name des Erziehungsberechtigten *
-
                 </label>
 
                 <input
@@ -1867,6 +1820,7 @@ textarea {
                     id="erziehungsberechtigter"
                     name="Name des Erziehungsberechtigten"
                     placeholder="Vor- und Nachname"
+                    data-fs-field
                     required
                 >
 
@@ -1875,13 +1829,10 @@ textarea {
 
             <div class="form-row">
 
-
                 <div class="field">
 
                     <label for="telefon">
-
                         Telefonnummer *
-
                     </label>
 
                     <input
@@ -1889,6 +1840,7 @@ textarea {
                         id="telefon"
                         name="Telefonnummer"
                         placeholder="+49 ..."
+                        data-fs-field
                         required
                     >
 
@@ -1898,9 +1850,7 @@ textarea {
                 <div class="field">
 
                     <label for="email">
-
                         E-Mail-Adresse *
-
                     </label>
 
                     <input
@@ -1908,14 +1858,13 @@ textarea {
                         id="email"
                         name="E-Mail-Adresse"
                         placeholder="name@email.de"
+                        data-fs-field
                         required
                     >
 
                 </div>
 
-
             </div>
-
 
         </div>
 
@@ -1926,15 +1875,14 @@ textarea {
 
         <div class="checkbox">
 
-
             <input
                 type="checkbox"
                 id="datenschutz"
                 name="Datenschutz bestätigt"
                 value="Ja"
+                data-fs-field
                 required
             >
-
 
             <label for="datenschutz">
 
@@ -1945,15 +1893,12 @@ textarea {
                     target="_blank"
                     rel="noopener"
                 >
-
                     Datenschutzerklärung
-
                 </a>
 
                 gelesen und zur Kenntnis genommen. *
 
             </label>
-
 
         </div>
 
@@ -1965,6 +1910,7 @@ textarea {
         <button
             type="submit"
             class="submit"
+            data-fs-submit-btn
         >
 
             ⚡ TRAINING ANFRAGEN
@@ -2009,6 +1955,62 @@ textarea {
 
 
 </div>
+
+
+<!-- =======================================================
+     FORMSPREE AJAX
+======================================================== -->
+
+<script>
+
+window.formspree =
+    window.formspree ||
+    function () {
+
+        (formspree.q = formspree.q || []).push(arguments);
+
+    };
+
+
+formspree(
+    "initForm",
+    {
+
+        formElement:
+            "#individualtraining-form",
+
+        formId:
+            "xoeadwwq",
+
+
+        onSuccess:
+            function () {
+
+                window.location.href =
+                    "anfrage-erfolgreich.html";
+
+            },
+
+
+        onFailure:
+            function () {
+
+                alert(
+                    "Die Anfrage konnte gerade nicht gesendet werden. Bitte versuche es erneut."
+                );
+
+            }
+
+    }
+);
+
+</script>
+
+
+<script
+    src="https://unpkg.com/@formspree/ajax@1"
+    defer
+></script>
 
 
 </body>
