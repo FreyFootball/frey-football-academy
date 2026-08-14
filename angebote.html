@@ -4,7 +4,6 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Trainingsangebote | Frey Football Academy</title>
@@ -28,18 +27,7 @@
 
         body {
 
-            background:
-                radial-gradient(
-                    circle at 50% 0%,
-                    rgba(255, 122, 0, 0.18),
-                    transparent 35%
-                ),
-                linear-gradient(
-                    180deg,
-                    #171717 0%,
-                    #0b0b0b 55%,
-                    #050505 100%
-                );
+            min-height: 100vh;
 
             color: white;
 
@@ -50,6 +38,308 @@
 
             line-height: 1.6;
 
+            overflow-x: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 50% 5%,
+                    rgba(255, 122, 0, 0.28),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 5% 55%,
+                    rgba(255, 122, 0, 0.06),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 95% 85%,
+                    rgba(255, 122, 0, 0.05),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    180deg,
+                    #181818 0%,
+                    #0b0b0b 55%,
+                    #030303 100%
+                );
+
+            position: relative;
+
+        }
+
+
+        /* =========================================
+           ANIMIERTER BACKGROUND
+        ========================================= */
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            inset: -50%;
+
+            pointer-events: none;
+
+            background:
+                conic-gradient(
+                    from 0deg,
+                    transparent,
+                    rgba(255, 122, 0, 0.055),
+                    transparent,
+                    rgba(255, 255, 255, 0.02),
+                    transparent
+                );
+
+            animation:
+                rotateBackground 22s linear infinite;
+
+            z-index: 0;
+
+        }
+
+
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            width: 650px;
+            height: 650px;
+
+            left: 50%;
+            top: 5%;
+
+            transform:
+                translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255, 122, 0, 0.12),
+                    transparent 68%
+                );
+
+            filter: blur(30px);
+
+            pointer-events: none;
+
+            animation:
+                backgroundPulse 5s ease-in-out infinite;
+
+            z-index: 0;
+
+        }
+
+
+        @keyframes rotateBackground {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        @keyframes backgroundPulse {
+
+            0%,
+            100% {
+
+                opacity: 0.4;
+
+                scale: 0.9;
+
+            }
+
+            50% {
+
+                opacity: 1;
+
+                scale: 1.12;
+
+            }
+
+        }
+
+
+        /* =========================================
+           PARTIKEL
+        ========================================= */
+
+        .particles {
+
+            position: fixed;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+        }
+
+
+        .particle {
+
+            position: absolute;
+
+            bottom: -10px;
+
+            width: 4px;
+            height: 4px;
+
+            border-radius: 50%;
+
+            background: #ff7a00;
+
+            box-shadow:
+                0 0 8px #ff7a00,
+                0 0 18px rgba(255, 122, 0, 0.5);
+
+            opacity: 0;
+
+            animation:
+                particleFloat linear infinite;
+
+        }
+
+
+        @keyframes particleFloat {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    translateX(0)
+                    scale(0.4);
+
+                opacity: 0;
+
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 0.4;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-110vh)
+                    translateX(90px)
+                    scale(1.2);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        /* =========================================
+           FUSSBÄLLE
+        ========================================= */
+
+        .football {
+
+            position: fixed;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+            font-size: 70px;
+
+            opacity: 0.045;
+
+            animation:
+                footballFloat 7s ease-in-out infinite,
+                footballRotate 14s linear infinite;
+
+        }
+
+
+        .football.one {
+
+            left: 2%;
+
+            top: 18%;
+
+        }
+
+
+        .football.two {
+
+            right: 2%;
+
+            top: 48%;
+
+            font-size: 95px;
+
+            animation-delay: -3s;
+
+        }
+
+
+        .football.three {
+
+            left: 8%;
+
+            bottom: 8%;
+
+            font-size: 45px;
+
+            animation-delay: -5s;
+
+        }
+
+
+        @keyframes footballFloat {
+
+            0%,
+            100% {
+
+                translate: 0 0;
+
+            }
+
+            50% {
+
+                translate: 0 -28px;
+
+            }
+
+        }
+
+
+        @keyframes footballRotate {
+
+            from {
+                rotate: 0deg;
+            }
+
+            to {
+                rotate: 360deg;
+            }
+
         }
 
 
@@ -59,13 +349,17 @@
 
         .container {
 
+            position: relative;
+
+            z-index: 2;
+
             width: 92%;
 
             max-width: 1100px;
 
             margin: 0 auto;
 
-            padding: 35px 0 60px;
+            padding: 40px 0 65px;
 
         }
 
@@ -74,17 +368,132 @@
            LOGO
         ========================================= */
 
+        .logo-wrapper {
+
+            position: relative;
+
+            width: fit-content;
+
+            margin: 0 auto 28px;
+
+            animation:
+                logoEntrance 1s
+                cubic-bezier(.16,1,.3,1)
+                both;
+
+        }
+
+
+        .logo-wrapper::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: -45px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255, 122, 0, 0.25),
+                    transparent 65%
+                );
+
+            filter: blur(18px);
+
+            animation:
+                logoGlow 3.5s ease-in-out infinite;
+
+            z-index: -1;
+
+        }
+
+
         .logo {
 
             display: block;
 
-            width: 180px;
+            width: 190px;
 
             max-width: 70%;
 
             height: auto;
 
-            margin: 0 auto 25px;
+            margin: 0 auto;
+
+            filter:
+                drop-shadow(
+                    0 0 20px
+                    rgba(255, 122, 0, 0.25)
+                );
+
+            transition:
+                transform 0.4s ease,
+                filter 0.4s ease;
+
+        }
+
+
+        .logo:hover {
+
+            transform:
+                scale(1.06)
+                rotate(-1deg);
+
+            filter:
+                drop-shadow(
+                    0 0 32px
+                    rgba(255, 122, 0, 0.55)
+                );
+
+        }
+
+
+        @keyframes logoEntrance {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(-35px)
+                    scale(0.8);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+        }
+
+
+        @keyframes logoGlow {
+
+            0%,
+            100% {
+
+                opacity: 0.45;
+
+                transform: scale(0.9);
+
+            }
+
+            50% {
+
+                opacity: 1;
+
+                transform: scale(1.15);
+
+            }
 
         }
 
@@ -99,11 +508,18 @@
 
             text-align: center;
 
-            font-size: 42px;
+            font-size: 44px;
 
             line-height: 1.15;
 
-            font-weight: 800;
+            font-weight: 900;
+
+            letter-spacing: -1px;
+
+            animation:
+                fadeUp 0.8s 0.2s
+                cubic-bezier(.16,1,.3,1)
+                both;
 
         }
 
@@ -112,20 +528,74 @@
 
             color: #ff7a00;
 
+            text-shadow:
+                0 0 25px
+                rgba(255, 122, 0, 0.25);
+
         }
 
+
+        h1::after {
+
+            content: "";
+
+            display: block;
+
+            width: 70px;
+
+            height: 4px;
+
+            margin: 18px auto 0;
+
+            border-radius: 10px;
+
+            background: #ff7a00;
+
+            box-shadow:
+                0 0 15px
+                rgba(255, 122, 0, 0.7);
+
+            animation:
+                lineGrow 0.8s 0.6s
+                cubic-bezier(.16,1,.3,1)
+                both;
+
+        }
+
+
+        @keyframes lineGrow {
+
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 70px;
+            }
+
+        }
+
+
+        /* =========================================
+           INTRO
+        ========================================= */
 
         .intro {
 
             max-width: 700px;
 
-            margin: 15px auto 45px;
+            margin: 18px auto 50px;
 
             text-align: center;
 
             color: #aaa;
 
             font-size: 18px;
+
+            animation:
+                fadeUp 0.8s 0.35s
+                cubic-bezier(.16,1,.3,1)
+                both;
 
         }
 
@@ -136,27 +606,158 @@
 
         .offer {
 
-            margin-bottom: 35px;
+            position: relative;
 
-            background: rgba(18, 18, 18, 0.96);
+            margin-bottom: 38px;
 
-            border: 1px solid #333;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.065),
+                    rgba(18, 18, 18, 0.96)
+                );
 
-            border-radius: 18px;
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.09);
+
+            border-radius: 20px;
 
             overflow: hidden;
 
             box-shadow:
-                0 15px 40px rgba(0, 0, 0, 0.35);
+                0 20px 55px
+                rgba(0, 0, 0, 0.38);
+
+            backdrop-filter: blur(12px);
+
+            transition:
+                transform 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+
+            animation:
+                offerEntrance 0.9s
+                cubic-bezier(.16,1,.3,1)
+                both;
 
         }
 
 
+        .offer:nth-of-type(1) {
+            animation-delay: 0.45s;
+        }
+
+
+        .offer:nth-of-type(2) {
+            animation-delay: 0.6s;
+        }
+
+
+        .offer:nth-of-type(3) {
+            animation-delay: 0.75s;
+        }
+
+
+        .offer:hover {
+
+            transform:
+                translateY(-7px);
+
+            border-color:
+                rgba(255, 122, 0, 0.28);
+
+            box-shadow:
+                0 30px 75px
+                rgba(0, 0, 0, 0.48),
+
+                0 0 35px
+                rgba(255, 122, 0, 0.07);
+
+        }
+
+
+        .offer::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -120%;
+
+            width: 60%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 122, 0, 0.045),
+                    transparent
+                );
+
+            transform: skewX(-20deg);
+
+            animation:
+                cardShine 8s ease-in-out infinite;
+
+            pointer-events: none;
+
+        }
+
+
+        @keyframes cardShine {
+
+            0%,
+            55% {
+                left: -120%;
+            }
+
+            75%,
+            100% {
+                left: 160%;
+            }
+
+        }
+
+
+        @keyframes offerEntrance {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(35px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        /* =========================================
+           OFFER HEADER
+        ========================================= */
+
         .offer-header {
 
-            padding: 28px 30px;
+            position: relative;
 
-            border-bottom: 1px solid #333;
+            padding: 30px 32px;
+
+            border-bottom:
+                1px solid
+                rgba(255, 255, 255, 0.08);
 
         }
 
@@ -170,6 +771,8 @@
             font-size: 30px;
 
             line-height: 1.2;
+
+            font-weight: 850;
 
         }
 
@@ -205,15 +808,24 @@
 
         .price-card {
 
-            min-height: 150px;
+            position: relative;
+
+            min-height: 155px;
 
             padding: 20px;
 
-            border: 1px solid #3b3b3b;
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.10);
 
-            border-radius: 12px;
+            border-radius: 14px;
 
-            background: #101010;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.045),
+                    rgba(10, 10, 10, 0.8)
+                );
 
             text-align: center;
 
@@ -222,6 +834,66 @@
             flex-direction: column;
 
             justify-content: center;
+
+            overflow: hidden;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                background 0.3s ease;
+
+        }
+
+
+        .price-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -100%;
+
+            width: 60%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 122, 0, 0.08),
+                    transparent
+                );
+
+            transform: skewX(-20deg);
+
+            transition:
+                left 0.6s ease;
+
+        }
+
+
+        .price-card:hover::before {
+
+            left: 140%;
+
+        }
+
+
+        .price-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            border-color:
+                rgba(255, 122, 0, 0.35);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 122, 0, 0.07),
+                    rgba(10, 10, 10, 0.9)
+                );
 
         }
 
@@ -232,9 +904,9 @@
 
             font-size: 15px;
 
-            font-weight: bold;
+            font-weight: 800;
 
-            margin-bottom: 8px;
+            margin-bottom: 9px;
 
         }
 
@@ -243,11 +915,15 @@
 
             color: #ff7a00;
 
-            font-size: 31px;
+            font-size: 32px;
 
-            font-weight: 800;
+            font-weight: 900;
 
             line-height: 1.1;
+
+            text-shadow:
+                0 0 18px
+                rgba(255, 122, 0, 0.12);
 
         }
 
@@ -264,7 +940,7 @@
 
 
         /* =========================================
-           INHALT
+           CONTENT
         ========================================= */
 
         .offer-content {
@@ -276,11 +952,13 @@
 
         .offer-content h3 {
 
-            margin: 5px 0 12px;
+            margin: 5px 0 13px;
 
             color: #ff7a00;
 
             font-size: 20px;
+
+            font-weight: 800;
 
         }
 
@@ -298,7 +976,28 @@
 
         .offer-content li {
 
-            margin-bottom: 7px;
+            margin-bottom: 8px;
+
+            transition:
+                transform 0.2s ease,
+                color 0.2s ease;
+
+        }
+
+
+        .offer-content li::marker {
+
+            color: #ff7a00;
+
+        }
+
+
+        .offer-content li:hover {
+
+            transform:
+                translateX(4px);
+
+            color: white;
 
         }
 
@@ -309,19 +1008,29 @@
 
         .info-box {
 
-            margin-top: 22px;
+            position: relative;
 
-            padding: 18px 20px;
+            margin-top: 23px;
+
+            padding: 19px 21px;
 
             background:
-                rgba(255, 122, 0, 0.08);
+                linear-gradient(
+                    135deg,
+                    rgba(255, 122, 0, 0.10),
+                    rgba(255, 122, 0, 0.035)
+                );
 
             border-left:
                 3px solid #ff7a00;
 
-            border-radius: 8px;
+            border-radius: 9px;
 
             color: #ccc;
+
+            box-shadow:
+                inset 0 0 20px
+                rgba(255, 122, 0, 0.025);
 
         }
 
@@ -339,79 +1048,192 @@
 
         .button {
 
-            display: inline-block;
+            position: relative;
 
-            margin-top: 25px;
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            margin-top: 26px;
 
             padding: 14px 25px;
 
-            background: #ff7a00;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff7a00,
+                    #ff6200
+                );
 
             color: white;
 
             text-decoration: none;
 
-            border-radius: 8px;
+            border-radius: 11px;
 
             font-size: 16px;
 
-            font-weight: bold;
+            font-weight: 800;
 
-            transition: 0.2s;
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.08);
+
+            box-shadow:
+                0 10px 25px
+                rgba(0, 0, 0, 0.3);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+
+        }
+
+
+        .button::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -120%;
+
+            width: 65%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.28),
+                    transparent
+                );
+
+            transform: skewX(-20deg);
+
+            transition:
+                left 0.6s ease;
+
+        }
+
+
+        .button:hover::before {
+
+            left: 150%;
 
         }
 
 
         .button:hover {
 
-            background: #ff9500;
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff9500,
+                    #ff6d00
+                );
 
-            transform: translateY(-1px);
+            color: white;
 
-        }
+            transform:
+                translateY(-4px)
+                scale(1.02);
 
+            box-shadow:
+                0 16px 35px
+                rgba(0, 0, 0, 0.42),
 
-        .button-secondary {
-
-            background: #222;
-
-            border: 1px solid #444;
-
-        }
-
-
-        .button-secondary:hover {
-
-            background: #333;
+                0 0 25px
+                rgba(255, 122, 0, 0.25);
 
         }
 
 
         /* =========================================
-           FÖRDERTRAINING HERVORHEBEN
+           FEATURED FÖRDERTRAINING
         ========================================= */
 
         .featured {
 
             border:
-                1px solid rgba(255, 122, 0, 0.6);
+                1px solid
+                rgba(255, 122, 0, 0.65);
 
             box-shadow:
-                0 0 35px rgba(255, 122, 0, 0.08),
-                0 15px 40px rgba(0, 0, 0, 0.35);
+                0 0 45px
+                rgba(255, 122, 0, 0.09),
+
+                0 20px 55px
+                rgba(0, 0, 0, 0.4);
+
+        }
+
+
+        .featured::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            border-radius: 20px;
+
+            pointer-events: none;
+
+            box-shadow:
+                inset 0 0 45px
+                rgba(255, 122, 0, 0.035);
+
+            animation:
+                featuredPulse 3s ease-in-out infinite;
+
+        }
+
+
+        @keyframes featuredPulse {
+
+            0%,
+            100% {
+
+                opacity: 0.5;
+
+            }
+
+            50% {
+
+                opacity: 1;
+
+            }
 
         }
 
 
         .featured-label {
 
-            display: inline-block;
+            display: inline-flex;
 
-            margin-bottom: 12px;
+            align-items: center;
 
-            padding: 6px 12px;
+            gap: 7px;
 
-            background: #ff7a00;
+            margin-bottom: 13px;
+
+            padding: 7px 13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff9500,
+                    #ff6200
+                );
 
             color: white;
 
@@ -419,9 +1241,64 @@
 
             font-size: 12px;
 
-            font-weight: bold;
+            font-weight: 900;
 
-            letter-spacing: 0.5px;
+            letter-spacing: 0.7px;
+
+            box-shadow:
+                0 0 20px
+                rgba(255, 122, 0, 0.18);
+
+            animation:
+                labelPulse 2.5s ease-in-out infinite;
+
+        }
+
+
+        .featured-label::before {
+
+            content: "";
+
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: white;
+
+            box-shadow:
+                0 0 8px white;
+
+            animation:
+                dotPulse 1.5s ease-in-out infinite;
+
+        }
+
+
+        @keyframes labelPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.025);
+            }
+
+        }
+
+
+        @keyframes dotPulse {
+
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
 
         }
 
@@ -437,24 +1314,48 @@
             grid-template-columns:
                 repeat(2, 1fr);
 
-            gap: 12px;
+            gap: 13px;
 
-            margin-top: 20px;
+            margin-top: 21px;
 
         }
 
 
         .feature {
 
-            padding: 15px;
+            position: relative;
 
-            background: #111;
+            padding: 16px;
 
-            border: 1px solid #2f2f2f;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.045),
+                    rgba(10, 10, 10, 0.7)
+                );
 
-            border-radius: 9px;
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.08);
+
+            border-radius: 10px;
 
             color: #ccc;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
+
+        }
+
+
+        .feature:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                rgba(255, 122, 0, 0.30);
 
         }
 
@@ -465,7 +1366,7 @@
 
             color: white;
 
-            margin-bottom: 3px;
+            margin-bottom: 4px;
 
         }
 
@@ -476,37 +1377,103 @@
 
         .cta {
 
-            margin-top: 50px;
+            position: relative;
 
-            padding: 35px 25px;
+            margin-top: 55px;
+
+            padding: 42px 28px;
 
             text-align: center;
 
             border:
-                1px solid #333;
+                1px solid
+                rgba(255, 122, 0, 0.22);
 
-            border-radius: 16px;
+            border-radius: 19px;
 
             background:
                 linear-gradient(
                     135deg,
-                    rgba(255, 122, 0, 0.10),
+                    rgba(255, 122, 0, 0.12),
                     rgba(20, 20, 20, 0.95)
                 );
+
+            box-shadow:
+                0 20px 55px
+                rgba(0, 0, 0, 0.35);
+
+            overflow: hidden;
+
+            animation:
+                fadeUp 0.8s 1s
+                cubic-bezier(.16,1,.3,1)
+                both;
+
+        }
+
+
+        .cta::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: -100px;
+            left: 50%;
+
+            width: 300px;
+            height: 300px;
+
+            transform:
+                translateX(-50%);
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255, 122, 0, 0.13),
+                    transparent 70%
+                );
+
+            animation:
+                ctaGlow 4s ease-in-out infinite;
+
+        }
+
+
+        @keyframes ctaGlow {
+
+            0%,
+            100% {
+                scale: 0.8;
+                opacity: 0.5;
+            }
+
+            50% {
+                scale: 1.15;
+                opacity: 1;
+            }
 
         }
 
 
         .cta h2 {
 
+            position: relative;
+
             margin: 0 0 10px;
 
-            font-size: 28px;
+            font-size: 29px;
+
+            line-height: 1.2;
 
         }
 
 
         .cta p {
+
+            position: relative;
 
             margin: 0;
 
@@ -515,34 +1482,86 @@
         }
 
 
+        .cta .button {
+
+            margin-left: 6px;
+
+            margin-right: 6px;
+
+        }
+
+
+        .button-secondary {
+
+            background:
+                rgba(255, 255, 255, 0.05);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.15);
+
+        }
+
+
+        .button-secondary:hover {
+
+            background:
+                rgba(255, 255, 255, 0.10);
+
+        }
+
+
         /* =========================================
-           ZURÜCK
+           BACK BUTTON
         ========================================= */
 
         .back {
 
-            display: block;
+            display: flex;
 
             width: fit-content;
+
+            align-items: center;
+
+            gap: 8px;
 
             margin: 35px auto 0;
 
             padding: 12px 22px;
 
-            background: #222;
+            background:
+                rgba(255, 255, 255, 0.045);
 
-            color: white;
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.10);
+
+            color: #ddd;
 
             text-decoration: none;
 
-            border-radius: 8px;
+            border-radius: 10px;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                border-color 0.3s ease;
 
         }
 
 
         .back:hover {
 
-            background: #333;
+            transform:
+                translateY(-3px);
+
+            background:
+                rgba(255, 122, 0, 0.08);
+
+            border-color:
+                rgba(255, 122, 0, 0.25);
+
+            color: white;
 
         }
 
@@ -553,13 +1572,47 @@
 
         .footer {
 
-            margin-top: 40px;
+            margin-top: 42px;
 
             text-align: center;
 
             color: #666;
 
             font-size: 13px;
+
+            line-height: 1.7;
+
+            animation:
+                fadeUp 0.8s 1.1s
+                cubic-bezier(.16,1,.3,1)
+                both;
+
+        }
+
+
+        /* =========================================
+           FADE UP
+        ========================================= */
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(22px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
 
         }
 
@@ -590,7 +1643,7 @@
 
                 width: 94%;
 
-                padding-top: 25px;
+                padding-top: 28px;
 
             }
 
@@ -604,7 +1657,7 @@
 
             h1 {
 
-                font-size: 32px;
+                font-size: 33px;
 
             }
 
@@ -613,14 +1666,14 @@
 
                 font-size: 16px;
 
-                margin-bottom: 30px;
+                margin-bottom: 32px;
 
             }
 
 
             .offer-header {
 
-                padding: 23px 20px;
+                padding: 24px 20px;
 
             }
 
@@ -650,7 +1703,8 @@
 
             .offer-content {
 
-                padding: 0 20px 25px;
+                padding:
+                    0 20px 25px;
 
             }
 
@@ -664,18 +1718,55 @@
 
             .cta {
 
-                padding: 28px 20px;
+                padding:
+                    30px 20px;
 
             }
 
 
             .cta .button {
 
-                display: block;
+                display: flex;
 
-                margin-left: 0;
+                margin:
+                    12px 0 0;
 
-                margin-right: 0;
+                width: 100%;
+
+            }
+
+
+            .football {
+
+                font-size: 35px;
+
+            }
+
+
+            .football.two {
+
+                font-size: 45px;
+
+            }
+
+        }
+
+
+        /* =========================================
+           REDUCED MOTION
+        ========================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration: 0.01ms !important;
+
+                animation-iteration-count: 1 !important;
+
+                transition-duration: 0.01ms !important;
 
             }
 
@@ -689,632 +1780,721 @@
 <body>
 
 
-<div class="container">
+    <!-- =========================================
+         PARTIKEL
+    ========================================= -->
+
+    <div class="particles">
+
+        <span
+            class="particle"
+            style="left:7%; animation-duration:10s; animation-delay:-2s;"
+        ></span>
+
+        <span
+            class="particle"
+            style="left:18%; animation-duration:13s; animation-delay:-7s;"
+        ></span>
+
+        <span
+            class="particle"
+            style="left:31%; animation-duration:11s; animation-delay:-4s;"
+        ></span>
+
+        <span
+            class="particle"
+            style="left:45%; animation-duration:15s; animation-delay:-9s;"
+        ></span>
+
+        <span
+            class="particle"
+            style="left:59%; animation-duration:12s; animation-delay:-3s;"
+        ></span>
+
+        <span
+            class="particle"
+            style="left:73%; animation-duration:14s; animation-delay:-8s;"
+        ></span>
+
+        <span
+            class="particle"
+            style="left:87%; animation-duration:10s; animation-delay:-5s;"
+        ></span>
+
+    </div>
 
 
     <!-- =========================================
-         LOGO
+         SCHWEBENDE FUSSBÄLLE
     ========================================= -->
 
-    <img
-        src="assets/logo.png"
-        alt="Frey Football Academy"
-        class="logo"
-    >
+    <div class="football one">
+        ⚽
+    </div>
+
+    <div class="football two">
+        ⚽
+    </div>
+
+    <div class="football three">
+        ⚽
+    </div>
 
 
-    <!-- =========================================
-         TITEL
-    ========================================= -->
-
-    <h1>
-
-        Unsere
-        <span class="orange">
-            Leistungen
-        </span>
-
-    </h1>
+    <main class="container">
 
 
-    <p class="intro">
+        <!-- =========================================
+             LOGO
+        ========================================= -->
 
-        Individuelle Förderung, intensives Training
-        und nachhaltige Entwicklung – passend zu
-        den Zielen und dem Entwicklungsstand jedes Spielers.
+        <div class="logo-wrapper">
 
-    </p>
+            <img
+                src="assets/logo.png"
+                alt="Frey Football Academy"
+                class="logo"
+            >
 
-
-    <!-- =====================================================
-         INDIVIDUALTRAINING
-    ====================================================== -->
-
-    <section class="offer">
+        </div>
 
 
-        <div class="offer-header">
+        <!-- =========================================
+             TITEL
+        ========================================= -->
+
+        <h1>
+
+            Unsere
+
+            <span class="orange">
+                Leistungen
+            </span>
+
+        </h1>
+
+
+        <p class="intro">
+
+            Individuelle Förderung, intensives Training
+            und nachhaltige Entwicklung – passend zu
+            den Zielen und dem Entwicklungsstand jedes Spielers.
+
+        </p>
+
+
+        <!-- =====================================================
+             INDIVIDUALTRAINING
+        ====================================================== -->
+
+        <section class="offer">
+
+
+            <div class="offer-header">
+
+                <h2>
+                    Individualtraining
+                </h2>
+
+                <p>
+                    Persönlich. Präzise. Zielorientiert.
+                </p>
+
+            </div>
+
+
+            <div class="prices">
+
+
+                <div class="price-card">
+
+                    <div class="price-title">
+                        FFA Performance Check
+                    </div>
+
+                    <div class="price">
+                        50 €
+                    </div>
+
+                    <div class="price-sub">
+                        60 Minuten · 1. Training · Kennenlernen
+                    </div>
+
+                </div>
+
+
+                <div class="price-card">
+
+                    <div class="price-title">
+                        Individualtraining
+                    </div>
+
+                    <div class="price">
+                        75 €
+                    </div>
+
+                    <div class="price-sub">
+                        60 Minuten
+                    </div>
+
+                </div>
+
+
+                <div class="price-card">
+
+                    <div class="price-title">
+                        5er-Karte
+                    </div>
+
+                    <div class="price">
+                        350 €
+                    </div>
+
+                    <div class="price-sub">
+                        5 × Training
+                    </div>
+
+                </div>
+
+
+                <div class="price-card">
+
+                    <div class="price-title">
+                        10er-Karte
+                    </div>
+
+                    <div class="price">
+                        650 €
+                    </div>
+
+                    <div class="price-sub">
+                        10 × Training
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="offer-content">
+
+
+                <h3>
+                    Genau abgestimmt für deine Ziele
+                </h3>
+
+
+                <ul>
+
+                    <li>
+                        Individuelle technische Entwicklung
+                    </li>
+
+                    <li>
+                        Gezielte Arbeit an persönlichen Stärken und Schwächen
+                    </li>
+
+                    <li>
+                        Positionsspezifisches Training
+                    </li>
+
+                    <li>
+                        Intensive Betreuung im 1-zu-1-Training
+                    </li>
+
+                </ul>
+
+
+                <a
+                    href="individualtraining.html"
+                    class="button"
+                >
+
+                    Individualtraining anfragen
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =====================================================
+             DUO & KLEINGRUPPE
+        ====================================================== -->
+
+        <section class="offer">
+
+
+            <div class="offer-header">
+
+                <h2>
+                    Duo- & Kleingruppentraining
+                </h2>
+
+                <p>
+                    Motivierend. Intensiv. Spielnah.
+                </p>
+
+            </div>
+
+
+            <div class="prices">
+
+
+                <div class="price-card">
+
+                    <div class="price-title">
+                        Duo Training
+                    </div>
+
+                    <div class="price">
+                        50 €
+                    </div>
+
+                    <div class="price-sub">
+                        pro Person · 60 Minuten
+                    </div>
+
+                </div>
+
+
+                <div class="price-card">
+
+                    <div class="price-title">
+                        3 Spieler
+                    </div>
+
+                    <div class="price">
+                        40 €
+                    </div>
+
+                    <div class="price-sub">
+                        pro Person · 60 Minuten
+                    </div>
+
+                </div>
+
+
+                <div class="price-card">
+
+                    <div class="price-title">
+                        4 Spieler
+                    </div>
+
+                    <div class="price">
+                        30 €
+                    </div>
+
+                    <div class="price-sub">
+                        pro Person · 60 Minuten
+                    </div>
+
+                </div>
+
+
+                <div class="price-card">
+
+                    <div class="price-title">
+                        Erste Einheit
+                    </div>
+
+                    <div class="price">
+                        Normalpreis
+                    </div>
+
+                    <div class="price-sub">
+                        unverbindlich anfragen
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="offer-content">
+
+
+                <h3>
+                    Gemeinsam besser werden
+                </h3>
+
+
+                <ul>
+
+                    <li>
+                        Training mit einem festen Trainingspartner
+                    </li>
+
+                    <li>
+                        Kleine Gruppen mit hoher Trainingsintensität
+                    </li>
+
+                    <li>
+                        Viele Ballaktionen und Wiederholungen
+                    </li>
+
+                    <li>
+                        Spielnahe Trainingsformen
+                    </li>
+
+                </ul>
+
+
+                <div class="info-box">
+
+                    <strong>
+                        2 bis 4 Spieler
+                    </strong>
+
+                    <br>
+
+                    Stelle deine eigene Trainingsgruppe zusammen
+                    und trainiert gemeinsam.
+
+                </div>
+
+
+                <a
+                    href="duo-kleingruppentraining.html"
+                    class="button"
+                >
+
+                    Duo- & Kleingruppentraining anfragen
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =====================================================
+             FÖRDERTRAINING
+        ====================================================== -->
+
+        <section class="offer featured">
+
+
+            <div class="offer-header">
+
+
+                <span class="featured-label">
+                    FFA FÖRDERPROGRAMM
+                </span>
+
+
+                <h2>
+                    Fördertraining
+                </h2>
+
+
+                <p>
+                    Gemeinsam. Zielgerichtet. Nachhaltig.
+                </p>
+
+
+            </div>
+
+
+            <div class="prices">
+
+
+                <div class="price-card">
+
+                    <div class="price-title">
+                        1. Training
+                    </div>
+
+                    <div class="price">
+                        0 €
+                    </div>
+
+                    <div class="price-sub">
+                        Kostenloses Schnuppertraining
+                    </div>
+
+                </div>
+
+
+                <div class="price-card">
+
+                    <div class="price-title">
+                        Trainingsdauer
+                    </div>
+
+                    <div class="price">
+                        75
+                    </div>
+
+                    <div class="price-sub">
+                        Minuten pro Woche
+                    </div>
+
+                </div>
+
+
+                <div class="price-card">
+
+                    <div class="price-title">
+                        Gruppengröße
+                    </div>
+
+                    <div class="price">
+                        max. 10
+                    </div>
+
+                    <div class="price-sub">
+                        Spieler pro Gruppe
+                    </div>
+
+                </div>
+
+
+                <div class="price-card">
+
+                    <div class="price-title">
+                        Monatsbeitrag
+                    </div>
+
+                    <div class="price">
+                        80 €
+                    </div>
+
+                    <div class="price-sub">
+                        pro Monat
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="offer-content">
+
+
+                <h3>
+                    Das Fördertraining bietet
+                </h3>
+
+
+                <div class="features">
+
+
+                    <div class="feature">
+
+                        <strong>
+                            Kostenloses Schnuppertraining
+                        </strong>
+
+                        Erste Einheit kostenfrei kennenlernen.
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <strong>
+                            75 Minuten pro Woche
+                        </strong>
+
+                        Regelmäßiges und strukturiertes Training.
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <strong>
+                            Maximal 10 Spieler
+                        </strong>
+
+                        Kleine Gruppen für individuelle Betreuung.
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <strong>
+                            Individuelle Förderung
+                        </strong>
+
+                        Entwicklung von Stärken und persönlichen
+                        Entwicklungsfeldern.
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <strong>
+                            Mehrere Standorte
+                        </strong>
+
+                        Training an verschiedenen FFA-Standorten.
+
+                    </div>
+
+
+                    <div class="feature">
+
+                        <strong>
+                            Monatliche Abrechnung
+                        </strong>
+
+                        Transparente monatliche Teilnahmegebühr.
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <strong>
+                        Schnuppertraining:
+                    </strong>
+
+                    <br>
+
+                    Das erste Training ist kostenfrei.
+                    Danach wird der erste Monat ab dem
+                    individuellen Einstiegsdatum anteilsmäßig
+                    berechnet. Ab dem darauffolgenden Monat
+                    beträgt der reguläre Beitrag
+                    <strong>80 € pro Monat</strong>.
+
+                </div>
+
+
+                <a
+                    href="foerdertraining.html"
+                    class="button"
+                >
+
+                    Jetzt fürs Fördertraining anmelden
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =====================================================
+             CTA
+        ====================================================== -->
+
+        <div class="cta">
+
 
             <h2>
-                Individualtraining
+
+                Bereit für den nächsten
+
+                <span class="orange">
+                    Schritt?
+                </span>
+
             </h2>
 
+
             <p>
-                Persönlich. Präzise. Zielorientiert.
+
+                Wähle das passende Trainingsangebot
+                und starte deine Entwicklung mit der FFA.
+
             </p>
-
-        </div>
-
-
-        <div class="prices">
-
-
-            <div class="price-card">
-
-                <div class="price-title">
-                    FFA Performance Check
-                </div>
-
-                <div class="price">
-                    50 €
-                </div>
-
-                <div class="price-sub">
-                    60 Minuten · 1.Training · Kennenlernen
-                </div>
-
-            </div>
-
-
-            <div class="price-card">
-
-                <div class="price-title">
-                    Individualtraining
-                </div>
-
-                <div class="price">
-                    75 €
-                </div>
-
-                <div class="price-sub">
-                    60 Minuten
-                </div>
-
-            </div>
-
-
-            <div class="price-card">
-
-                <div class="price-title">
-                    5er-Karte
-                </div>
-
-                <div class="price">
-                    350 €
-                </div>
-
-                <div class="price-sub">
-                    5 × Training
-                </div>
-
-            </div>
-
-
-            <div class="price-card">
-
-                <div class="price-title">
-                    10er-Karte
-                </div>
-
-                <div class="price">
-                    650 €
-                </div>
-
-                <div class="price-sub">
-                    10 × Training
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="offer-content">
-
-
-            <h3>
-                Genau abgestimmt für deine Ziele
-            </h3>
-
-
-            <ul>
-
-                <li>
-                    Individuelle technische Entwicklung
-                </li>
-
-                <li>
-                    Gezielte Arbeit an persönlichen Stärken und Schwächen
-                </li>
-
-                <li>
-                    Positionsspezifisches Training
-                </li>
-
-                <li>
-                    Intensive Betreuung im 1-zu-1-Training
-                </li>
-
-            </ul>
 
 
             <a
                 href="individualtraining.html"
                 class="button"
             >
-                Individualtraining anfragen
+                Individualtraining
             </a>
-
-
-        </div>
-
-
-    </section>
-
-
-    <!-- =====================================================
-         DUO & KLEINGRUPPE
-    ====================================================== -->
-
-    <section class="offer">
-
-
-        <div class="offer-header">
-
-            <h2>
-                Duo- & Kleingruppentraining
-            </h2>
-
-            <p>
-                Motivierend. Intensiv. Spielnah.
-            </p>
-
-        </div>
-
-
-        <div class="prices">
-
-
-            <div class="price-card">
-
-                <div class="price-title">
-                    Duo Training
-                </div>
-
-                <div class="price">
-                    50 €
-                </div>
-
-                <div class="price-sub">
-                    pro Person · 60 Minuten
-                </div>
-
-            </div>
-
-
-            <div class="price-card">
-
-                <div class="price-title">
-                    3 Spieler
-                </div>
-
-                <div class="price">
-                    40 €
-                </div>
-
-                <div class="price-sub">
-                    pro Person · 60 Minuten
-                </div>
-
-            </div>
-
-
-            <div class="price-card">
-
-                <div class="price-title">
-                    4 Spieler
-                </div>
-
-                <div class="price">
-                    30 €
-                </div>
-
-                <div class="price-sub">
-                    pro Person · 60 Minuten
-                </div>
-
-            </div>
-
-
-            <div class="price-card">
-
-                <div class="price-title">
-                    Erste Einheit
-                </div>
-
-                <div class="price">
-                    Normalpreis
-                </div>
-
-                <div class="price-sub">
-                    unverbindlich anfragen
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="offer-content">
-
-
-            <h3>
-                Gemeinsam besser werden
-            </h3>
-
-
-            <ul>
-
-                <li>
-                    Training mit einem festen Trainingspartner
-                </li>
-
-                <li>
-                    Kleine Gruppen mit hoher Trainingsintensität
-                </li>
-
-                <li>
-                    Viele Ballaktionen und Wiederholungen
-                </li>
-
-                <li>
-                    Spielnahe Trainingsformen
-                </li>
-
-            </ul>
-
-
-            <div class="info-box">
-
-                <strong>
-                    2 bis 4 Spieler
-                </strong>
-
-                <br>
-
-                Stelle deine eigene Trainingsgruppe zusammen
-                und trainiert gemeinsam.
-
-            </div>
 
 
             <a
                 href="duo-kleingruppentraining.html"
-                class="button"
+                class="button button-secondary"
             >
-                Duo- & Kleingruppentraining anfragen
+                Duo & Kleingruppe
             </a>
-
-
-        </div>
-
-
-    </section>
-
-
-    <!-- =====================================================
-         FÖRDERTRAINING
-    ====================================================== -->
-
-    <section class="offer featured">
-
-
-        <div class="offer-header">
-
-
-            <span class="featured-label">
-                FFA FÖRDERPROGRAMM
-            </span>
-
-
-            <h2>
-                Fördertraining
-            </h2>
-
-
-            <p>
-                Gemeinsam. Zielgerichtet. Nachhaltig.
-            </p>
-
-
-        </div>
-
-
-        <div class="prices">
-
-
-            <div class="price-card">
-
-                <div class="price-title">
-                    1. Training
-                </div>
-
-                <div class="price">
-                    0 €
-                </div>
-
-                <div class="price-sub">
-                    Kostenloses Schnuppertraining
-                </div>
-
-            </div>
-
-
-            <div class="price-card">
-
-                <div class="price-title">
-                    Trainingsdauer
-                </div>
-
-                <div class="price">
-                    75
-                </div>
-
-                <div class="price-sub">
-                    Minuten pro Woche
-                </div>
-
-            </div>
-
-
-            <div class="price-card">
-
-                <div class="price-title">
-                    Gruppengröße
-                </div>
-
-                <div class="price">
-                    max. 10
-                </div>
-
-                <div class="price-sub">
-                    Spieler pro Gruppe
-                </div>
-
-            </div>
-
-
-            <div class="price-card">
-
-                <div class="price-title">
-                    Monatsbeitrag
-                </div>
-
-                <div class="price">
-                    80 €
-                </div>
-
-                <div class="price-sub">
-                    pro Monat
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="offer-content">
-
-
-            <h3>
-                Das Fördertraining bietet
-            </h3>
-
-
-            <div class="features">
-
-
-                <div class="feature">
-
-                    <strong>
-                        Kostenloses Schnuppertraining
-                    </strong>
-
-                    Erste Einheit kostenfrei kennenlernen.
-
-                </div>
-
-
-                <div class="feature">
-
-                    <strong>
-                        75 Minuten pro Woche
-                    </strong>
-
-                    Regelmäßiges und strukturiertes Training.
-
-                </div>
-
-
-                <div class="feature">
-
-                    <strong>
-                        Maximal 10 Spieler
-                    </strong>
-
-                    Kleine Gruppen für individuelle Betreuung.
-
-                </div>
-
-
-                <div class="feature">
-
-                    <strong>
-                        Individuelle Förderung
-                    </strong>
-
-                    Entwicklung von Stärken und persönlichen
-                    Entwicklungsfeldern.
-
-                </div>
-
-
-                <div class="feature">
-
-                    <strong>
-                        Mehrere Standorte
-                    </strong>
-
-                    Training an verschiedenen FFA-Standorten.
-
-                </div>
-
-
-                <div class="feature">
-
-                    <strong>
-                        Monatliche Abrechnung
-                    </strong>
-
-                    Transparente monatliche Teilnahmegebühr.
-
-                </div>
-
-
-            </div>
-
-
-            <div class="info-box">
-
-                <strong>
-                    Schnuppertraining:
-                </strong>
-
-                <br>
-
-                Das erste Training ist kostenfrei.
-                Danach wird der erste Monat ab dem
-                individuellen Einstiegsdatum anteilsmäßig
-                berechnet. Ab dem darauffolgenden Monat
-                beträgt der reguläre Beitrag
-                <strong>80 € pro Monat</strong>.
-
-            </div>
 
 
             <a
                 href="foerdertraining.html"
-                class="button"
+                class="button button-secondary"
             >
-                Jetzt fürs Fördertraining anmelden
+                Fördertraining
             </a>
 
 
         </div>
 
 
-    </section>
+        <!-- =========================================
+             ZURÜCK
+        ========================================== -->
 
+        <a
+            href="index.html"
+            class="back"
+        >
 
-    <!-- =====================================================
-         CTA
-    ====================================================== -->
-
-    <div class="cta">
-
-
-        <h2>
-
-            Bereit für den nächsten
-            <span class="orange">
-                Schritt?
+            <span>
+                ←
             </span>
 
-        </h2>
+            Zurück zur Startseite
 
-
-        <p>
-
-            Wähle das passende Trainingsangebot
-            und starte deine Entwicklung mit der FFA.
-
-        </p>
-
-
-        <a
-            href="individualtraining.html"
-            class="button"
-        >
-            Individualtraining
         </a>
 
 
-        <a
-            href="duo-kleingruppentraining.html"
-            class="button button-secondary"
-        >
-            Duo & Kleingruppe
-        </a>
+        <!-- =========================================
+             FOOTER
+        ========================================== -->
+
+        <div class="footer">
+
+            Frey Football Academy · Train. Develop. Succeed.
+
+            <br><br>
+
+            Fritz-Kohl-Str. 3c · 55122 Mainz
+
+            · +49 173 3176916
+
+            · info@freyfootballacademy.com
+
+        </div>
 
 
-        <a
-            href="foerdertraining.html"
-            class="button button-secondary"
-        >
-            Fördertraining
-        </a>
-
-
-    </div>
-
-
-    <!-- =========================================
-         ZURÜCK ZUR STARTSEITE
-    ========================================= -->
-
-    <a
-        href="index.html"
-        class="back"
-    >
-
-        ← Zurück zur Startseite
-
-    </a>
-
-
-    <!-- =========================================
-         FOOTER
-    ========================================= -->
-
-    <div class="footer">
-
-        Frey Football Academy · Train. Develop. Succeed.
-
-        <br><br>
-
-        Fritz-Kohl-Str. 3c · 55122 Mainz
-
-        · +49 173 3176916
-
-        · info@freyfootballacademy.com
-
-    </div>
-
-
-</div>
+    </main>
 
 
 </body>
