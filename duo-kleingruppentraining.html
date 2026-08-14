@@ -8,7 +8,12 @@
 
 <title>Duo- & Kleingruppentraining | Frey Football Academy</title>
 
+
 <style>
+
+/* =========================================================
+   GRUNDLAGEN
+========================================================= */
 
 * {
     box-sizing: border-box;
@@ -26,7 +31,7 @@ body {
 
     min-height: 100vh;
 
-    color: white;
+    color: #ffffff;
 
     font-family:
         Arial,
@@ -37,20 +42,22 @@ body {
 
     overflow-x: hidden;
 
+    position: relative;
+
     background:
         radial-gradient(
             circle at 50% 5%,
-            rgba(255,122,0,0.28),
+            rgba(255, 122, 0, 0.28),
             transparent 32%
         ),
         radial-gradient(
             circle at 0% 55%,
-            rgba(255,122,0,0.07),
+            rgba(255, 122, 0, 0.07),
             transparent 30%
         ),
         radial-gradient(
             circle at 100% 85%,
-            rgba(255,122,0,0.06),
+            rgba(255, 122, 0, 0.06),
             transparent 30%
         ),
         linear-gradient(
@@ -59,14 +66,12 @@ body {
             #0b0b0b 55%,
             #030303 100%
         );
-
-    position: relative;
 }
 
 
-/* =========================================
-   ANIMIERTER BACKGROUND
-========================================= */
+/* =========================================================
+   ANIMIERTER HINTERGRUND
+========================================================= */
 
 body::before {
 
@@ -74,22 +79,26 @@ body::before {
 
     position: fixed;
 
-    inset: -50%;
+    width: 180vw;
+    height: 180vw;
+
+    top: -90vw;
+    left: -40vw;
 
     pointer-events: none;
 
     background:
         conic-gradient(
             from 0deg,
-            transparent,
-            rgba(255,122,0,0.045),
-            transparent,
-            rgba(255,255,255,0.018),
-            transparent
+            transparent 0deg,
+            rgba(255, 122, 0, 0.035) 70deg,
+            transparent 135deg,
+            rgba(255, 255, 255, 0.018) 220deg,
+            transparent 300deg
         );
 
     animation:
-        backgroundRotate 24s linear infinite;
+        backgroundRotate 28s linear infinite;
 
     z-index: 0;
 }
@@ -105,26 +114,26 @@ body::after {
     height: 650px;
 
     left: 50%;
-    top: 4%;
+    top: 0;
 
     transform:
-        translate(-50%,-50%);
+        translate(-50%, -45%);
 
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(255,122,0,0.14),
+            rgba(255, 122, 0, 0.16),
             transparent 68%
         );
 
-    filter: blur(30px);
+    filter: blur(35px);
 
     pointer-events: none;
 
     animation:
-        glowPulse 5s ease-in-out infinite;
+        mainGlow 5s ease-in-out infinite;
 
     z-index: 0;
 }
@@ -133,35 +142,33 @@ body::after {
 @keyframes backgroundRotate {
 
     from {
-        transform: rotate(0deg);
+        rotate: 0deg;
     }
 
     to {
-        transform: rotate(360deg);
+        rotate: 360deg;
     }
-
 }
 
 
-@keyframes glowPulse {
+@keyframes mainGlow {
 
     0%,
     100% {
-        opacity: 0.4;
-        scale: 0.9;
+        opacity: 0.45;
+        scale: 0.92;
     }
 
     50% {
         opacity: 1;
-        scale: 1.12;
+        scale: 1.08;
     }
-
 }
 
 
-/* =========================================
+/* =========================================================
    PARTIKEL
-========================================= */
+========================================================= */
 
 .particles {
 
@@ -181,7 +188,7 @@ body::after {
 
     position: absolute;
 
-    bottom: -10px;
+    bottom: -15px;
 
     width: 4px;
     height: 4px;
@@ -192,7 +199,7 @@ body::after {
 
     box-shadow:
         0 0 8px #ff7a00,
-        0 0 18px rgba(255,122,0,0.5);
+        0 0 18px rgba(255, 122, 0, 0.5);
 
     opacity: 0;
 
@@ -206,15 +213,14 @@ body::after {
     0% {
 
         transform:
-            translateY(0)
-            translateX(0)
+            translate3d(0, 0, 0)
             scale(0.4);
 
         opacity: 0;
     }
 
     10% {
-        opacity: 0.6;
+        opacity: 0.5;
     }
 
     50% {
@@ -222,25 +228,23 @@ body::after {
     }
 
     90% {
-        opacity: 0.35;
+        opacity: 0.3;
     }
 
     100% {
 
         transform:
-            translateY(-110vh)
-            translateX(90px)
+            translate3d(90px, -110vh, 0)
             scale(1.2);
 
         opacity: 0;
     }
-
 }
 
 
-/* =========================================
-   FUSSBÄLLE
-========================================= */
+/* =========================================================
+   SCHWEBENDE FUSSBÄLLE
+========================================================= */
 
 .football {
 
@@ -250,19 +254,22 @@ body::after {
 
     z-index: 0;
 
+    color: #ffffff;
+
     opacity: 0.045;
 
-    font-size: 75px;
+    font-size: 80px;
 
     animation:
-        ballFloat 7s ease-in-out infinite,
-        ballRotate 14s linear infinite;
+        footballFloat 7s ease-in-out infinite,
+        footballRotate 14s linear infinite;
 }
 
 
 .football.one {
 
     left: 2%;
+
     top: 18%;
 }
 
@@ -270,9 +277,10 @@ body::after {
 .football.two {
 
     right: 2%;
-    top: 55%;
 
-    font-size: 100px;
+    top: 58%;
+
+    font-size: 105px;
 
     animation-delay: -3s;
 }
@@ -281,6 +289,7 @@ body::after {
 .football.three {
 
     left: 8%;
+
     bottom: 8%;
 
     font-size: 45px;
@@ -289,7 +298,7 @@ body::after {
 }
 
 
-@keyframes ballFloat {
+@keyframes footballFloat {
 
     0%,
     100% {
@@ -297,13 +306,12 @@ body::after {
     }
 
     50% {
-        translate: 0 -30px;
+        translate: 0 -28px;
     }
-
 }
 
 
-@keyframes ballRotate {
+@keyframes footballRotate {
 
     from {
         rotate: 0deg;
@@ -312,13 +320,12 @@ body::after {
     to {
         rotate: 360deg;
     }
-
 }
 
 
-/* =========================================
-   CONTAINER
-========================================= */
+/* =========================================================
+   HAUPTCONTAINER
+========================================================= */
 
 .container {
 
@@ -332,28 +339,46 @@ body::after {
 
     margin: 0 auto;
 
-    padding: 38px 0 60px;
+    padding:
+        38px
+        0
+        60px;
 }
 
 
-/* =========================================
+/* =========================================================
    LOGO
-========================================= */
+   EXAKT ZENTRIERT
+========================================================= */
 
 .logo-wrapper {
 
     position: relative;
 
-    width: fit-content;
+    display: flex;
 
-    margin: 0 auto 28px;
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    min-height: 230px;
+
+    margin:
+        0
+        auto
+        10px;
 
     animation:
-        logoEntrance 0.9s
+        logoEntrance
+        0.9s
         cubic-bezier(.16,1,.3,1)
         both;
 }
 
+
+/* Zentraler Glow */
 
 .logo-wrapper::before {
 
@@ -361,23 +386,35 @@ body::after {
 
     position: absolute;
 
-    inset: -45px;
+    width: 300px;
+    height: 300px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
 
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(255,122,0,0.25),
+            rgba(255, 122, 0, 0.25),
             transparent 65%
         );
 
-    filter: blur(18px);
+    filter: blur(22px);
 
-    animation:
-        logoGlow 3.5s ease-in-out infinite;
+    pointer-events: none;
 
     z-index: -1;
+
+    animation:
+        logoGlow
+        3.5s
+        ease-in-out
+        infinite;
 }
 
 
@@ -385,16 +422,22 @@ body::after {
 
     display: block;
 
-    width: 205px;
+    width: 210px;
 
     max-width: 75%;
 
     height: auto;
 
+    margin: 0;
+
+    position: relative;
+
+    z-index: 2;
+
     filter:
         drop-shadow(
             0 0 22px
-            rgba(255,122,0,0.25)
+            rgba(255, 122, 0, 0.25)
         );
 
     transition:
@@ -412,7 +455,7 @@ body::after {
     filter:
         drop-shadow(
             0 0 35px
-            rgba(255,122,0,0.55)
+            rgba(255, 122, 0, 0.55)
         );
 }
 
@@ -436,7 +479,6 @@ body::after {
             translateY(0)
             scale(1);
     }
-
 }
 
 
@@ -447,28 +489,36 @@ body::after {
 
         opacity: 0.45;
 
-        transform: scale(0.9);
+        transform:
+            translate(-50%, -50%)
+            scale(0.90);
     }
 
     50% {
 
         opacity: 1;
 
-        transform: scale(1.15);
+        transform:
+            translate(-50%, -50%)
+            scale(1.15);
     }
-
 }
 
 
-/* =========================================
+/* =========================================================
    TITEL
-========================================= */
+========================================================= */
 
 h1 {
 
-    margin: 0 0 12px;
+    margin:
+        0
+        0
+        12px;
 
     text-align: center;
+
+    color: #ffffff;
 
     font-size: 42px;
 
@@ -479,7 +529,9 @@ h1 {
     letter-spacing: -1px;
 
     animation:
-        fadeUp 0.8s 0.2s
+        fadeUp
+        0.8s
+        0.2s
         cubic-bezier(.16,1,.3,1)
         both;
 }
@@ -491,7 +543,7 @@ h1 {
 
     text-shadow:
         0 0 25px
-        rgba(255,122,0,0.22);
+        rgba(255, 122, 0, 0.22);
 }
 
 
@@ -501,7 +553,10 @@ h1 {
 
     height: 4px;
 
-    margin: 18px auto 0;
+    margin:
+        18px
+        auto
+        0;
 
     border-radius: 10px;
 
@@ -509,10 +564,12 @@ h1 {
 
     box-shadow:
         0 0 15px
-        rgba(255,122,0,0.7);
+        rgba(255, 122, 0, 0.7);
 
     animation:
-        lineGrow 0.8s 0.5s
+        lineGrow
+        0.8s
+        0.5s
         cubic-bezier(.16,1,.3,1)
         both;
 }
@@ -527,15 +584,17 @@ h1 {
     to {
         width: 70px;
     }
-
 }
 
 
 .intro {
 
-    max-width: 650px;
+    max-width: 680px;
 
-    margin: 18px auto 38px;
+    margin:
+        18px
+        auto
+        38px;
 
     text-align: center;
 
@@ -543,46 +602,54 @@ h1 {
 
     font-size: 18px;
 
+    line-height: 1.65;
+
     animation:
-        fadeUp 0.8s 0.35s
+        fadeUp
+        0.8s
+        0.35s
         cubic-bezier(.16,1,.3,1)
         both;
 }
 
 
-/* =========================================
-   FORM
-========================================= */
+/* =========================================================
+   FORMULAR
+========================================================= */
 
 form {
 
     position: relative;
 
+    width: 100%;
+
+    padding: 34px;
+
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,0.055),
-            rgba(18,18,18,0.97)
+            rgba(255, 255, 255, 0.055),
+            rgba(18, 18, 18, 0.97)
         );
 
     border:
         1px solid
-        rgba(255,255,255,0.10);
+        rgba(255, 255, 255, 0.10);
 
     border-radius: 22px;
 
-    padding: 34px;
-
     box-shadow:
         0 25px 70px
-        rgba(0,0,0,0.48);
+        rgba(0, 0, 0, 0.48);
 
     backdrop-filter: blur(14px);
 
     overflow: hidden;
 
     animation:
-        formEntrance 0.9s 0.45s
+        formEntrance
+        0.9s
+        0.45s
         cubic-bezier(.16,1,.3,1)
         both;
 }
@@ -595,25 +662,31 @@ form::before {
     position: absolute;
 
     top: 0;
+
     left: -120%;
 
     width: 60%;
+
     height: 100%;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,122,0,0.045),
+            rgba(255, 122, 0, 0.045),
             transparent
         );
 
-    transform: skewX(-20deg);
-
-    animation:
-        formShine 9s ease-in-out infinite;
+    transform:
+        skewX(-20deg);
 
     pointer-events: none;
+
+    animation:
+        formShine
+        9s
+        ease-in-out
+        infinite;
 }
 
 
@@ -636,7 +709,6 @@ form::before {
             translateY(0)
             scale(1);
     }
-
 }
 
 
@@ -651,25 +723,25 @@ form::before {
     100% {
         left: 160%;
     }
-
 }
 
 
-/* =========================================
-   SECTION
-========================================= */
+/* =========================================================
+   ABSCHNITTE
+========================================================= */
 
 .section {
 
-    margin-top: 35px;
-
     position: relative;
+
+    margin-top: 35px;
 
     z-index: 1;
 }
 
 
 .section:first-child {
+
     margin-top: 0;
 }
 
@@ -682,9 +754,9 @@ form::before {
 
     gap: 12px;
 
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 
-    color: white;
+    color: #ffffff;
 
     font-size: 21px;
 
@@ -700,19 +772,21 @@ form::before {
 
     height: 24px;
 
+    flex-shrink: 0;
+
     border-radius: 10px;
 
     background: #ff7a00;
 
     box-shadow:
         0 0 12px
-        rgba(255,122,0,0.55);
+        rgba(255, 122, 0, 0.55);
 }
 
 
-/* =========================================
-   PLAYER COUNT
-========================================= */
+/* =========================================================
+   SPIELER-ANZAHL
+========================================================= */
 
 .player-count {
 
@@ -723,13 +797,13 @@ form::before {
     background:
         linear-gradient(
             135deg,
-            rgba(255,122,0,0.10),
-            rgba(255,122,0,0.025)
+            rgba(255, 122, 0, 0.10),
+            rgba(255, 122, 0, 0.025)
         );
 
     border:
         1px solid
-        rgba(255,122,0,0.20);
+        rgba(255, 122, 0, 0.20);
 
     border-radius: 13px;
 
@@ -742,17 +816,20 @@ form::before {
 .player-count:hover {
 
     border-color:
-        rgba(255,122,0,0.35);
+        rgba(255, 122, 0, 0.35);
 
     box-shadow:
         0 0 30px
-        rgba(255,122,0,0.045);
+        rgba(255, 122, 0, 0.045);
 }
 
 
 .player-count p {
 
-    margin: 0 0 15px;
+    margin:
+        0
+        0
+        15px;
 
     color: #ddd;
 
@@ -772,6 +849,7 @@ form::before {
 
 
 .player-option input {
+
     display: none;
 }
 
@@ -785,7 +863,7 @@ form::before {
     text-align: center;
 
     background:
-        rgba(10,10,10,0.8);
+        rgba(10, 10, 10, 0.8);
 
     border:
         1px solid
@@ -813,9 +891,9 @@ form::before {
         translateY(-3px);
 
     border-color:
-        rgba(255,122,0,0.4);
+        rgba(255, 122, 0, 0.4);
 
-    color: white;
+    color: #ffffff;
 }
 
 
@@ -831,17 +909,17 @@ form::before {
     border-color:
         #ff7a00;
 
-    color: white;
+    color: #ffffff;
 
     box-shadow:
         0 8px 25px
-        rgba(255,122,0,0.18);
+        rgba(255, 122, 0, 0.18);
 }
 
 
-/* =========================================
-   PLAYER BOX
-========================================= */
+/* =========================================================
+   SPIELER-BOX
+========================================================= */
 
 .player-box {
 
@@ -854,18 +932,21 @@ form::before {
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,0.035),
-            rgba(10,10,10,0.82)
+            rgba(255, 255, 255, 0.035),
+            rgba(10, 10, 10, 0.82)
         );
 
     border:
         1px solid
-        rgba(255,255,255,0.08);
+        rgba(255, 255, 255, 0.08);
 
     border-radius: 14px;
 
     animation:
-        boxAppear 0.45s ease both;
+        boxAppear
+        0.45s
+        ease
+        both;
 
     transition:
         border-color 0.3s ease,
@@ -876,7 +957,7 @@ form::before {
 .player-box:hover {
 
     border-color:
-        rgba(255,122,0,0.20);
+        rgba(255, 122, 0, 0.20);
 
     transform:
         translateY(-2px);
@@ -910,7 +991,7 @@ form::before {
     filter:
         drop-shadow(
             0 0 8px
-            rgba(255,122,0,0.35)
+            rgba(255, 122, 0, 0.35)
         );
 }
 
@@ -932,13 +1013,12 @@ form::before {
         transform:
             translateY(0);
     }
-
 }
 
 
-/* =========================================
-   FORM ROW
-========================================= */
+/* =========================================================
+   FORMULARFELDER
+========================================================= */
 
 .form-row {
 
@@ -979,9 +1059,9 @@ textarea {
     padding: 14px;
 
     background:
-        rgba(8,8,8,0.85);
+        rgba(8, 8, 8, 0.85);
 
-    color: white;
+    color: #ffffff;
 
     border:
         1px solid
@@ -1007,8 +1087,7 @@ input:hover,
 select:hover,
 textarea:hover {
 
-    border-color:
-        #666;
+    border-color: #666;
 }
 
 
@@ -1025,15 +1104,14 @@ textarea:focus {
 
     outline: none;
 
-    border-color:
-        #ff7a00;
+    border-color: #ff7a00;
 
     box-shadow:
         0 0 0 3px
-        rgba(255,122,0,0.08),
+        rgba(255, 122, 0, 0.08),
 
         0 0 25px
-        rgba(255,122,0,0.06);
+        rgba(255, 122, 0, 0.06);
 
     transform:
         translateY(-1px);
@@ -1063,9 +1141,9 @@ textarea {
 }
 
 
-/* =========================================
-   POSITION
-========================================= */
+/* =========================================================
+   POSITIONEN
+========================================================= */
 
 .position-select {
 
@@ -1078,14 +1156,6 @@ textarea {
 .position-select option {
 
     padding: 7px;
-
-}
-
-
-.position-select option:checked {
-
-    background:
-        #ff7a00;
 }
 
 
@@ -1099,9 +1169,9 @@ textarea {
 }
 
 
-/* =========================================
+/* =========================================================
    INFO BOX
-========================================= */
+========================================================= */
 
 .info-box {
 
@@ -1109,13 +1179,13 @@ textarea {
 
     margin-top: 15px;
 
-    padding: 19px;
+    padding: 20px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(255,122,0,0.10),
-            rgba(255,122,0,0.025)
+            rgba(255, 122, 0, 0.11),
+            rgba(255, 122, 0, 0.025)
         );
 
     border-left:
@@ -1128,20 +1198,23 @@ textarea {
 
     font-size: 14px;
 
+    line-height: 1.65;
+
     box-shadow:
         inset 0 0 25px
-        rgba(255,122,0,0.025);
+        rgba(255, 122, 0, 0.025);
 }
 
 
 .info-box strong {
-    color: white;
+
+    color: #ffffff;
 }
 
 
-/* =========================================
+/* =========================================================
    CHECKBOX
-========================================= */
+========================================================= */
 
 .checkbox {
 
@@ -1168,8 +1241,7 @@ textarea {
 
     flex-shrink: 0;
 
-    accent-color:
-        #ff7a00;
+    accent-color: #ff7a00;
 
     cursor: pointer;
 }
@@ -1192,7 +1264,6 @@ textarea {
     color: #ff7a00;
 
     text-decoration: none;
-
 }
 
 
@@ -1202,9 +1273,9 @@ textarea {
 }
 
 
-/* =========================================
-   SUBMIT
-========================================= */
+/* =========================================================
+   ABSENDEN
+========================================================= */
 
 .submit {
 
@@ -1225,7 +1296,7 @@ textarea {
             #ff6200
         );
 
-    color: white;
+    color: #ffffff;
 
     border: none;
 
@@ -1241,10 +1312,10 @@ textarea {
 
     box-shadow:
         0 12px 30px
-        rgba(0,0,0,0.35),
+        rgba(0, 0, 0, 0.35),
 
         0 0 25px
-        rgba(255,122,0,0.12);
+        rgba(255, 122, 0, 0.12);
 
     transition:
         transform 0.3s ease,
@@ -1259,9 +1330,11 @@ textarea {
     position: absolute;
 
     top: 0;
+
     left: -120%;
 
     width: 60%;
+
     height: 100%;
 
     background:
@@ -1294,10 +1367,10 @@ textarea {
 
     box-shadow:
         0 18px 40px
-        rgba(0,0,0,0.45),
+        rgba(0, 0, 0, 0.45),
 
         0 0 35px
-        rgba(255,122,0,0.25);
+        rgba(255, 122, 0, 0.25);
 }
 
 
@@ -1309,9 +1382,9 @@ textarea {
 }
 
 
-/* =========================================
-   BACK
-========================================= */
+/* =========================================================
+   ZURÜCK
+========================================================= */
 
 .back {
 
@@ -1323,9 +1396,14 @@ textarea {
 
     gap: 8px;
 
-    margin: 32px auto 0;
+    margin:
+        32px
+        auto
+        0;
 
-    padding: 13px 23px;
+    padding:
+        13px
+        23px;
 
     background:
         rgba(255,255,255,0.045);
@@ -1358,13 +1436,13 @@ textarea {
     border-color:
         rgba(255,122,0,0.25);
 
-    color: white;
+    color: #ffffff;
 }
 
 
-/* =========================================
+/* =========================================================
    FOOTER
-========================================= */
+========================================================= */
 
 .footer {
 
@@ -1380,9 +1458,9 @@ textarea {
 }
 
 
-/* =========================================
-   FADE
-========================================= */
+/* =========================================================
+   ANIMATION
+========================================================= */
 
 @keyframes fadeUp {
 
@@ -1401,13 +1479,12 @@ textarea {
         transform:
             translateY(0);
     }
-
 }
 
 
-/* =========================================
+/* =========================================================
    MOBILE
-========================================= */
+========================================================= */
 
 @media (max-width: 600px) {
 
@@ -1415,19 +1492,38 @@ textarea {
 
         width: 94%;
 
-        padding-top: 25px;
+        padding-top: 20px;
+    }
+
+
+    .logo-wrapper {
+
+        min-height: 195px;
+
+        margin-bottom: 5px;
     }
 
 
     .logo {
 
-        width: 180px;
+        width: 185px;
+
+        max-width: 78%;
+    }
+
+
+    .logo-wrapper::before {
+
+        width: 250px;
+        height: 250px;
     }
 
 
     h1 {
 
         font-size: 31px;
+
+        letter-spacing: -0.5px;
     }
 
 
@@ -1479,9 +1575,9 @@ textarea {
 }
 
 
-/* =========================================
+/* =========================================================
    REDUCED MOTION
-========================================= */
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1506,67 +1602,105 @@ textarea {
 <body>
 
 
-<!-- =========================================
+<!-- =======================================================
      PARTIKEL
-========================================= -->
+======================================================== -->
 
 <div class="particles">
 
     <span
         class="particle"
-        style="left:7%;animation-duration:10s;animation-delay:-2s;"
+        style="
+            left:7%;
+            animation-duration:10s;
+            animation-delay:-2s;
+        "
     ></span>
 
     <span
         class="particle"
-        style="left:18%;animation-duration:13s;animation-delay:-7s;"
+        style="
+            left:18%;
+            animation-duration:13s;
+            animation-delay:-7s;
+        "
     ></span>
 
     <span
         class="particle"
-        style="left:31%;animation-duration:11s;animation-delay:-4s;"
+        style="
+            left:31%;
+            animation-duration:11s;
+            animation-delay:-4s;
+        "
     ></span>
 
     <span
         class="particle"
-        style="left:45%;animation-duration:15s;animation-delay:-9s;"
+        style="
+            left:45%;
+            animation-duration:15s;
+            animation-delay:-9s;
+        "
     ></span>
 
     <span
         class="particle"
-        style="left:59%;animation-duration:12s;animation-delay:-3s;"
+        style="
+            left:59%;
+            animation-duration:12s;
+            animation-delay:-3s;
+        "
     ></span>
 
     <span
         class="particle"
-        style="left:73%;animation-duration:14s;animation-delay:-8s;"
+        style="
+            left:73%;
+            animation-duration:14s;
+            animation-delay:-8s;
+        "
     ></span>
 
     <span
         class="particle"
-        style="left:87%;animation-duration:10s;animation-delay:-5s;"
+        style="
+            left:87%;
+            animation-duration:10s;
+            animation-delay:-5s;
+        "
     ></span>
 
 </div>
 
 
-<!-- =========================================
+<!-- =======================================================
      SCHWEBENDE FUSSBÄLLE
-========================================= -->
+======================================================== -->
 
-<div class="football one">⚽</div>
+<div class="football one">
+    ⚽
+</div>
 
-<div class="football two">⚽</div>
+<div class="football two">
+    ⚽
+</div>
 
-<div class="football three">⚽</div>
+<div class="football three">
+    ⚽
+</div>
 
+
+<!-- =======================================================
+     HAUPTINHALT
+======================================================== -->
 
 <div class="container">
 
 
-    <!-- =========================================
+    <!-- ===================================================
          LOGO
-    ========================================== -->
+    ==================================================== -->
 
     <div class="logo-wrapper">
 
@@ -1579,9 +1713,9 @@ textarea {
     </div>
 
 
-    <!-- =========================================
+    <!-- ===================================================
          TITEL
-    ========================================== -->
+    ==================================================== -->
 
     <h1>
 
@@ -1609,9 +1743,9 @@ textarea {
     </p>
 
 
-    <!-- =========================================
+    <!-- ===================================================
          FORMULAR
-    ========================================== -->
+    ==================================================== -->
 
     <form
         action="https://formspree.io/f/mwleqbjw"
@@ -1633,15 +1767,17 @@ textarea {
         >
 
 
-        <!-- =========================================
+        <!-- ===============================================
              ANZAHL SPIELER
-        ========================================== -->
+        ================================================ -->
 
         <div class="section">
 
 
             <div class="section-title">
+
                 Trainingsgruppe
+
             </div>
 
 
@@ -1649,7 +1785,9 @@ textarea {
 
 
                 <p>
+
                     Wie viele Spieler nehmen teil? *
+
                 </p>
 
 
@@ -1667,7 +1805,9 @@ textarea {
                         >
 
                         <label for="players2">
+
                             2 Spieler
+
                         </label>
 
                     </div>
@@ -1683,7 +1823,9 @@ textarea {
                         >
 
                         <label for="players3">
+
                             3 Spieler
+
                         </label>
 
                     </div>
@@ -1699,7 +1841,9 @@ textarea {
                         >
 
                         <label for="players4">
+
                             4 Spieler
+
                         </label>
 
                     </div>
@@ -1714,15 +1858,17 @@ textarea {
         </div>
 
 
-        <!-- =========================================
+        <!-- ===============================================
              SPIELER 1
-        ========================================== -->
+        ================================================ -->
 
         <div class="player-box">
 
 
             <div class="player-box-title">
+
                 Spieler 1
+
             </div>
 
 
@@ -1732,7 +1878,9 @@ textarea {
                 <div class="field">
 
                     <label for="spieler1_vorname">
+
                         Vorname *
+
                     </label>
 
                     <input
@@ -1749,7 +1897,9 @@ textarea {
                 <div class="field">
 
                     <label for="spieler1_nachname">
+
                         Nachname *
+
                     </label>
 
                     <input
@@ -1772,7 +1922,9 @@ textarea {
                 <div class="field">
 
                     <label for="spieler1_jahrgang">
+
                         Jahrgang *
+
                     </label>
 
                     <input
@@ -1791,7 +1943,9 @@ textarea {
                 <div class="field">
 
                     <label for="spieler1_level">
+
                         Spielniveau *
+
                     </label>
 
                     <select
@@ -1801,19 +1955,27 @@ textarea {
                     >
 
                         <option value="">
+
                             Bitte wählen
+
                         </option>
 
                         <option value="Anfänger">
+
                             Anfänger
+
                         </option>
 
                         <option value="Fortgeschritten">
+
                             Fortgeschritten
+
                         </option>
 
                         <option value="Leistungsbereich">
+
                             Leistungsbereich
+
                         </option>
 
                     </select>
@@ -1827,7 +1989,9 @@ textarea {
             <div class="field">
 
                 <label for="spieler1_position">
+
                     Position *
+
                 </label>
 
                 <select
@@ -1839,31 +2003,45 @@ textarea {
                 >
 
                     <option value="Torwart">
+
                         Torwart
+
                     </option>
 
                     <option value="Innenverteidiger">
+
                         Innenverteidiger
+
                     </option>
 
                     <option value="Außenverteidiger">
+
                         Außenverteidiger
+
                     </option>
 
                     <option value="6/8er">
+
                         6/8er
+
                     </option>
 
                     <option value="10er">
+
                         10er
+
                     </option>
 
                     <option value="Flügelspieler">
+
                         Flügelspieler
+
                     </option>
 
                     <option value="Stürmer">
+
                         Stürmer
+
                     </option>
 
                 </select>
@@ -1882,9 +2060,9 @@ textarea {
         </div>
 
 
-        <!-- =========================================
+        <!-- ===============================================
              SPIELER 2
-        ========================================== -->
+        ================================================ -->
 
         <div
             class="player-box"
@@ -1893,7 +2071,9 @@ textarea {
 
 
             <div class="player-box-title">
+
                 Spieler 2
+
             </div>
 
 
@@ -1903,7 +2083,9 @@ textarea {
                 <div class="field">
 
                     <label for="spieler2_vorname">
+
                         Vorname *
+
                     </label>
 
                     <input
@@ -1920,7 +2102,9 @@ textarea {
                 <div class="field">
 
                     <label for="spieler2_nachname">
+
                         Nachname *
+
                     </label>
 
                     <input
@@ -1943,7 +2127,9 @@ textarea {
                 <div class="field">
 
                     <label for="spieler2_jahrgang">
+
                         Jahrgang *
+
                     </label>
 
                     <input
@@ -1962,7 +2148,9 @@ textarea {
                 <div class="field">
 
                     <label for="spieler2_level">
+
                         Spielniveau *
+
                     </label>
 
                     <select
@@ -1972,19 +2160,27 @@ textarea {
                     >
 
                         <option value="">
+
                             Bitte wählen
+
                         </option>
 
                         <option value="Anfänger">
+
                             Anfänger
+
                         </option>
 
                         <option value="Fortgeschritten">
+
                             Fortgeschritten
+
                         </option>
 
                         <option value="Leistungsbereich">
+
                             Leistungsbereich
+
                         </option>
 
                     </select>
@@ -1998,7 +2194,9 @@ textarea {
             <div class="field">
 
                 <label for="spieler2_position">
+
                     Position *
+
                 </label>
 
                 <select
@@ -2010,31 +2208,45 @@ textarea {
                 >
 
                     <option value="Torwart">
+
                         Torwart
+
                     </option>
 
                     <option value="Innenverteidiger">
+
                         Innenverteidiger
+
                     </option>
 
                     <option value="Außenverteidiger">
+
                         Außenverteidiger
+
                     </option>
 
                     <option value="6/8er">
+
                         6/8er
+
                     </option>
 
                     <option value="10er">
+
                         10er
+
                     </option>
 
                     <option value="Flügelspieler">
+
                         Flügelspieler
+
                     </option>
 
                     <option value="Stürmer">
+
                         Stürmer
+
                     </option>
 
                 </select>
@@ -2053,9 +2265,9 @@ textarea {
         </div>
 
 
-        <!-- =========================================
+        <!-- ===============================================
              SPIELER 3
-        ========================================== -->
+        ================================================ -->
 
         <div
             class="player-box"
@@ -2065,7 +2277,9 @@ textarea {
 
 
             <div class="player-box-title">
+
                 Spieler 3
+
             </div>
 
 
@@ -2075,7 +2289,9 @@ textarea {
                 <div class="field">
 
                     <label for="spieler3_vorname">
+
                         Vorname *
+
                     </label>
 
                     <input
@@ -2091,7 +2307,9 @@ textarea {
                 <div class="field">
 
                     <label for="spieler3_nachname">
+
                         Nachname *
+
                     </label>
 
                     <input
@@ -2113,7 +2331,9 @@ textarea {
                 <div class="field">
 
                     <label for="spieler3_jahrgang">
+
                         Jahrgang *
+
                     </label>
 
                     <input
@@ -2131,7 +2351,9 @@ textarea {
                 <div class="field">
 
                     <label for="spieler3_level">
+
                         Spielniveau *
+
                     </label>
 
                     <select
@@ -2140,19 +2362,27 @@ textarea {
                     >
 
                         <option value="">
+
                             Bitte wählen
+
                         </option>
 
                         <option value="Anfänger">
+
                             Anfänger
+
                         </option>
 
                         <option value="Fortgeschritten">
+
                             Fortgeschritten
+
                         </option>
 
                         <option value="Leistungsbereich">
+
                             Leistungsbereich
+
                         </option>
 
                     </select>
@@ -2166,7 +2396,9 @@ textarea {
             <div class="field">
 
                 <label for="spieler3_position">
+
                     Position *
+
                 </label>
 
                 <select
@@ -2177,31 +2409,45 @@ textarea {
                 >
 
                     <option value="Torwart">
+
                         Torwart
+
                     </option>
 
                     <option value="Innenverteidiger">
+
                         Innenverteidiger
+
                     </option>
 
                     <option value="Außenverteidiger">
+
                         Außenverteidiger
+
                     </option>
 
                     <option value="6/8er">
+
                         6/8er
+
                     </option>
 
                     <option value="10er">
+
                         10er
+
                     </option>
 
                     <option value="Flügelspieler">
+
                         Flügelspieler
+
                     </option>
 
                     <option value="Stürmer">
+
                         Stürmer
+
                     </option>
 
                 </select>
@@ -2220,9 +2466,9 @@ textarea {
         </div>
 
 
-        <!-- =========================================
+        <!-- ===============================================
              SPIELER 4
-        ========================================== -->
+        ================================================ -->
 
         <div
             class="player-box"
@@ -2232,7 +2478,9 @@ textarea {
 
 
             <div class="player-box-title">
+
                 Spieler 4
+
             </div>
 
 
@@ -2242,7 +2490,9 @@ textarea {
                 <div class="field">
 
                     <label for="spieler4_vorname">
+
                         Vorname *
+
                     </label>
 
                     <input
@@ -2258,7 +2508,9 @@ textarea {
                 <div class="field">
 
                     <label for="spieler4_nachname">
+
                         Nachname *
+
                     </label>
 
                     <input
@@ -2280,7 +2532,9 @@ textarea {
                 <div class="field">
 
                     <label for="spieler4_jahrgang">
+
                         Jahrgang *
+
                     </label>
 
                     <input
@@ -2298,7 +2552,9 @@ textarea {
                 <div class="field">
 
                     <label for="spieler4_level">
+
                         Spielniveau *
+
                     </label>
 
                     <select
@@ -2307,19 +2563,27 @@ textarea {
                     >
 
                         <option value="">
+
                             Bitte wählen
+
                         </option>
 
                         <option value="Anfänger">
+
                             Anfänger
+
                         </option>
 
                         <option value="Fortgeschritten">
+
                             Fortgeschritten
+
                         </option>
 
                         <option value="Leistungsbereich">
+
                             Leistungsbereich
+
                         </option>
 
                     </select>
@@ -2333,7 +2597,9 @@ textarea {
             <div class="field">
 
                 <label for="spieler4_position">
+
                     Position *
+
                 </label>
 
                 <select
@@ -2344,31 +2610,45 @@ textarea {
                 >
 
                     <option value="Torwart">
+
                         Torwart
+
                     </option>
 
                     <option value="Innenverteidiger">
+
                         Innenverteidiger
+
                     </option>
 
                     <option value="Außenverteidiger">
+
                         Außenverteidiger
+
                     </option>
 
                     <option value="6/8er">
+
                         6/8er
+
                     </option>
 
                     <option value="10er">
+
                         10er
+
                     </option>
 
                     <option value="Flügelspieler">
+
                         Flügelspieler
+
                     </option>
 
                     <option value="Stürmer">
+
                         Stürmer
+
                     </option>
 
                 </select>
@@ -2387,22 +2667,26 @@ textarea {
         </div>
 
 
-        <!-- =========================================
+        <!-- ===============================================
              TRAININGSWUNSCH
-        ========================================== -->
+        ================================================ -->
 
         <div class="section">
 
 
             <div class="section-title">
+
                 Trainingswunsch
+
             </div>
 
 
             <div class="field">
 
                 <label for="standort">
+
                     Standort *
+
                 </label>
 
                 <select
@@ -2412,23 +2696,33 @@ textarea {
                 >
 
                     <option value="">
+
                         Bitte Standort auswählen
+
                     </option>
 
                     <option value="Walluf">
+
                         Walluf
+
                     </option>
 
                     <option value="Klein-Winternheim">
+
                         Klein-Winternheim
+
                     </option>
 
                     <option value="Heidesheim">
+
                         Heidesheim
+
                     </option>
 
                     <option value="Mainz-Bretzenheim">
+
                         Mainz-Bretzenheim
+
                     </option>
 
                 </select>
@@ -2442,7 +2736,9 @@ textarea {
                 <div class="field">
 
                     <label for="datum">
+
                         Gewünschtes Trainingsdatum *
+
                     </label>
 
                     <input
@@ -2458,7 +2754,9 @@ textarea {
                 <div class="field">
 
                     <label for="uhrzeit">
+
                         Wunschuhrzeit *
+
                     </label>
 
                     <input
@@ -2477,7 +2775,9 @@ textarea {
             <div class="field">
 
                 <label for="fokus">
+
                     Worauf soll der Trainingsfokus liegen?
+
                 </label>
 
                 <textarea
@@ -2492,7 +2792,9 @@ textarea {
             <div class="info-box">
 
                 <strong>
+
                     Hinweis:
+
                 </strong>
 
                 <br>
@@ -2508,22 +2810,26 @@ textarea {
         </div>
 
 
-        <!-- =========================================
+        <!-- ===============================================
              ANSPRECHPARTNER
-        ========================================== -->
+        ================================================ -->
 
         <div class="section">
 
 
             <div class="section-title">
-                Ansprechpartner
+
+                Angaben zum Erziehungsberechtigten
+
             </div>
 
 
             <div class="field">
 
                 <label for="erziehungsberechtigter">
+
                     Name des Erziehungsberechtigten *
+
                 </label>
 
                 <input
@@ -2543,7 +2849,9 @@ textarea {
                 <div class="field">
 
                     <label for="telefon">
+
                         Telefonnummer *
+
                     </label>
 
                     <input
@@ -2560,7 +2868,9 @@ textarea {
                 <div class="field">
 
                     <label for="email">
+
                         E-Mail-Adresse *
+
                     </label>
 
                     <input
@@ -2580,9 +2890,9 @@ textarea {
         </div>
 
 
-        <!-- =========================================
+        <!-- ===============================================
              DATENSCHUTZ
-        ========================================== -->
+        ================================================ -->
 
         <div class="checkbox">
 
@@ -2605,7 +2915,9 @@ textarea {
                     target="_blank"
                     rel="noopener"
                 >
+
                     Datenschutzerklärung
+
                 </a>
 
                 gelesen und zur Kenntnis genommen. *
@@ -2616,9 +2928,9 @@ textarea {
         </div>
 
 
-        <!-- =========================================
+        <!-- ===============================================
              ABSENDEN
-        ========================================== -->
+        ================================================ -->
 
         <button
             type="submit"
@@ -2633,9 +2945,9 @@ textarea {
     </form>
 
 
-    <!-- =========================================
+    <!-- ===================================================
          ZURÜCK
-    ========================================== -->
+    ==================================================== -->
 
     <a
         href="angebote.html"
@@ -2647,9 +2959,9 @@ textarea {
     </a>
 
 
-    <!-- =========================================
+    <!-- ===================================================
          FOOTER
-    ========================================== -->
+    ==================================================== -->
 
     <div class="footer">
 
@@ -2669,10 +2981,10 @@ textarea {
 </div>
 
 
-<!-- =========================================
+<!-- =======================================================
      JAVASCRIPT
-     SPIELER 3 & 4 EIN-/AUSBLENDEN
-========================================= -->
+     2 / 3 / 4 SPIELER
+======================================================== -->
 
 <script>
 
@@ -2693,49 +3005,6 @@ const player4Box =
     document.getElementById("player4Box");
 
 
-function updatePlayers() {
-
-    if (players2.checked) {
-
-        player3Box.style.display = "none";
-
-        player4Box.style.display = "none";
-
-        setRequired(player3Box, false);
-
-        setRequired(player4Box, false);
-
-    }
-
-
-    if (players3.checked) {
-
-        player3Box.style.display = "block";
-
-        player4Box.style.display = "none";
-
-        setRequired(player3Box, true);
-
-        setRequired(player4Box, false);
-
-    }
-
-
-    if (players4.checked) {
-
-        player3Box.style.display = "block";
-
-        player4Box.style.display = "block";
-
-        setRequired(player3Box, true);
-
-        setRequired(player4Box, true);
-
-    }
-
-}
-
-
 function setRequired(box, required) {
 
     const fields =
@@ -2752,6 +3021,84 @@ function setRequired(box, required) {
 
 }
 
+
+function updatePlayers() {
+
+
+    /* =========================================
+       2 SPIELER
+    ========================================= */
+
+    if (players2.checked) {
+
+        player3Box.style.display = "none";
+
+        player4Box.style.display = "none";
+
+        setRequired(
+            player3Box,
+            false
+        );
+
+        setRequired(
+            player4Box,
+            false
+        );
+
+    }
+
+
+    /* =========================================
+       3 SPIELER
+    ========================================= */
+
+    if (players3.checked) {
+
+        player3Box.style.display = "block";
+
+        player4Box.style.display = "none";
+
+        setRequired(
+            player3Box,
+            true
+        );
+
+        setRequired(
+            player4Box,
+            false
+        );
+
+    }
+
+
+    /* =========================================
+       4 SPIELER
+    ========================================= */
+
+    if (players4.checked) {
+
+        player3Box.style.display = "block";
+
+        player4Box.style.display = "block";
+
+        setRequired(
+            player3Box,
+            true
+        );
+
+        setRequired(
+            player4Box,
+            true
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   EVENT LISTENER
+========================================================= */
 
 players2.addEventListener(
     "change",
@@ -2770,6 +3117,10 @@ players4.addEventListener(
     updatePlayers
 );
 
+
+/* =========================================================
+   INITIALISIERUNG
+========================================================= */
 
 updatePlayers();
 
