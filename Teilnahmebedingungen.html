@@ -4,11 +4,9 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Teilnahmebedingungen | Frey Football Academy</title>
-
 
     <style>
 
@@ -28,31 +26,45 @@
 
         body {
 
+            min-height: 100vh;
+
+            color: #fff;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            line-height: 1.7;
+
+            overflow-x: hidden;
+
             background:
                 radial-gradient(
-                    circle at 50% 10%,
-                    rgba(255, 122, 0, 0.20),
-                    transparent 35%
+                    circle at 50% 8%,
+                    rgba(255, 122, 0, 0.28),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 5% 75%,
+                    rgba(255, 122, 0, 0.07),
+                    transparent 30%
                 ),
                 linear-gradient(
                     180deg,
                     #181818 0%,
-                    #0d0d0d 50%,
-                    #050505 100%
+                    #0c0c0c 50%,
+                    #030303 100%
                 );
-
-            color: white;
-
-            font-family: Arial, Helvetica, sans-serif;
-
-            line-height: 1.7;
 
             position: relative;
 
         }
 
 
-        /* DEZENTER HINTERGRUND */
+        /* =========================================
+           ANIMIERTER HINTERGRUND
+        ========================================= */
 
         body::before {
 
@@ -60,49 +72,333 @@
 
             position: fixed;
 
-            inset: 0;
+            inset: -50%;
 
             pointer-events: none;
 
             background:
-                linear-gradient(
-                    115deg,
-                    transparent 35%,
-                    rgba(255, 255, 255, 0.025) 45%,
-                    transparent 55%
-                ),
-                linear-gradient(
-                    65deg,
-                    transparent 35%,
-                    rgba(255, 255, 255, 0.02) 45%,
-                    transparent 55%
+                conic-gradient(
+                    from 0deg,
+                    transparent,
+                    rgba(255, 122, 0, 0.055),
+                    transparent,
+                    rgba(255, 255, 255, 0.02),
+                    transparent
                 );
+
+            animation:
+                rotateLight 20s linear infinite;
 
             z-index: 0;
 
         }
 
 
-        /* HAUPTBEREICH */
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            width: 520px;
+            height: 520px;
+
+            left: 50%;
+            top: 10%;
+
+            transform:
+                translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255, 122, 0, 0.12),
+                    transparent 65%
+                );
+
+            filter: blur(25px);
+
+            pointer-events: none;
+
+            animation:
+                pulseGlow 4s ease-in-out infinite;
+
+            z-index: 0;
+
+        }
+
+
+        @keyframes rotateLight {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+
+                opacity: 0.4;
+
+                transform:
+                    translate(-50%, -50%)
+                    scale(0.9);
+
+            }
+
+            50% {
+
+                opacity: 1;
+
+                transform:
+                    translate(-50%, -50%)
+                    scale(1.15);
+
+            }
+
+        }
+
+
+        /* =========================================
+           PARTIKEL
+        ========================================= */
+
+        .particles {
+
+            position: fixed;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+        }
+
+
+        .particle {
+
+            position: absolute;
+
+            width: 4px;
+            height: 4px;
+
+            border-radius: 50%;
+
+            background: #ff7a00;
+
+            box-shadow:
+                0 0 8px #ff7a00,
+                0 0 18px rgba(255, 122, 0, 0.5);
+
+            opacity: 0;
+
+            animation:
+                floatParticle linear infinite;
+
+        }
+
+
+        @keyframes floatParticle {
+
+            0% {
+
+                transform:
+                    translateY(110vh)
+                    translateX(0)
+                    scale(0.4);
+
+                opacity: 0;
+
+            }
+
+            10% {
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 0.5;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-10vh)
+                    translateX(80px)
+                    scale(1.2);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        /* =========================================
+           SCHWEBENDE FUSSBÄLLE
+        ========================================= */
+
+        .football {
+
+            position: fixed;
+
+            font-size: 50px;
+
+            opacity: 0.045;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+            animation:
+                footballFloat 8s ease-in-out infinite,
+                footballRotate 14s linear infinite;
+
+        }
+
+
+        .football.one {
+
+            left: 3%;
+            top: 25%;
+
+        }
+
+
+        .football.two {
+
+            right: 4%;
+            bottom: 15%;
+
+            font-size: 65px;
+
+            animation-delay: -4s;
+
+        }
+
+
+        .football.three {
+
+            left: 10%;
+            bottom: 8%;
+
+            font-size: 32px;
+
+            animation-delay: -7s;
+
+        }
+
+
+        @keyframes footballFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-25px);
+            }
+
+        }
+
+
+        @keyframes footballRotate {
+
+            from {
+                rotate: 0deg;
+            }
+
+            to {
+                rotate: 360deg;
+            }
+
+        }
+
+
+        /* =========================================
+           CONTAINER
+        ========================================= */
 
         .container {
 
             position: relative;
 
-            z-index: 1;
+            z-index: 2;
 
-            width: 90%;
+            width: 92%;
 
             max-width: 850px;
 
             margin: 0 auto;
 
-            padding: 40px 0 60px;
+            padding: 45px 0 60px;
 
         }
 
 
-        /* LOGO */
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .logo-wrapper {
+
+            position: relative;
+
+            width: fit-content;
+
+            margin: 0 auto 25px;
+
+            animation:
+                logoEntrance 1s
+                cubic-bezier(.16,1,.3,1)
+                forwards;
+
+        }
+
+
+        .logo-wrapper::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: -35px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255, 122, 0, 0.25),
+                    transparent 65%
+                );
+
+            filter: blur(15px);
+
+            animation:
+                logoGlow 3s ease-in-out infinite;
+
+            z-index: -1;
+
+        }
+
 
         .logo {
 
@@ -114,12 +410,86 @@
 
             height: auto;
 
-            margin: 0 auto 35px;
+            margin: 0 auto;
+
+            filter:
+                drop-shadow(
+                    0 0 18px
+                    rgba(255, 122, 0, 0.25)
+                );
+
+            transition:
+                transform 0.4s ease,
+                filter 0.4s ease;
 
         }
 
 
-        /* TITEL */
+        .logo:hover {
+
+            transform:
+                scale(1.06)
+                rotate(-1deg);
+
+            filter:
+                drop-shadow(
+                    0 0 30px
+                    rgba(255, 122, 0, 0.6)
+                );
+
+        }
+
+
+        @keyframes logoEntrance {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(-35px)
+                    scale(0.8);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+        }
+
+
+        @keyframes logoGlow {
+
+            0%,
+            100% {
+
+                transform: scale(0.9);
+
+                opacity: 0.5;
+
+            }
+
+            50% {
+
+                transform: scale(1.15);
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        /* =========================================
+           TITEL
+        ========================================= */
 
         h1 {
 
@@ -127,57 +497,210 @@
 
             color: white;
 
-            font-size: 34px;
+            font-size: 38px;
 
             line-height: 1.2;
 
+            font-weight: 800;
+
+            letter-spacing: -1px;
+
             text-align: center;
+
+            animation:
+                fadeUp 0.8s 0.2s
+                cubic-bezier(.16,1,.3,1)
+                both;
+
+        }
+
+
+        h1::after {
+
+            content: "";
+
+            display: block;
+
+            width: 65px;
+
+            height: 4px;
+
+            margin: 18px auto 0;
+
+            border-radius: 10px;
+
+            background: #ff7a00;
+
+            box-shadow:
+                0 0 15px
+                rgba(255, 122, 0, 0.7);
+
+            animation:
+                lineGrow 0.8s 0.6s
+                cubic-bezier(.16,1,.3,1)
+                both;
 
         }
 
 
         .date {
 
-            margin: 0 auto 40px;
+            margin: 20px auto 35px;
 
-            color: #999;
+            color: #888;
 
             font-size: 14px;
 
+            line-height: 1.5;
+
             text-align: center;
+
+            animation:
+                fadeUp 0.8s 0.35s
+                cubic-bezier(.16,1,.3,1)
+                both;
 
         }
 
 
-        /* INHALT */
+        @keyframes lineGrow {
+
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 65px;
+            }
+
+        }
+
+
+        /* =========================================
+           CONTENT
+        ========================================= */
 
         .content {
 
-            background: rgba(20, 20, 20, 0.94);
-
-            border: 1px solid #333;
-
-            border-radius: 16px;
+            position: relative;
 
             padding: 35px;
 
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.07),
+                    rgba(255, 255, 255, 0.025)
+                );
+
+            border: 1px solid
+                rgba(255, 255, 255, 0.08);
+
+            border-radius: 20px;
+
             box-shadow:
-                0 15px 40px rgba(0, 0, 0, 0.35);
+                0 18px 50px
+                rgba(0, 0, 0, 0.35);
+
+            backdrop-filter: blur(14px);
+
+            overflow: hidden;
+
+            animation:
+                contentEntrance 0.9s 0.4s
+                cubic-bezier(.16,1,.3,1)
+                both;
 
         }
 
 
-        /* ÜBERSCHRIFTEN */
+        .content::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -120%;
+
+            width: 60%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 122, 0, 0.045),
+                    transparent
+                );
+
+            transform: skewX(-20deg);
+
+            animation:
+                contentShine 7s ease-in-out infinite;
+
+            pointer-events: none;
+
+        }
+
+
+        @keyframes contentEntrance {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes contentShine {
+
+            0%,
+            55% {
+                left: -120%;
+            }
+
+            75%,
+            100% {
+                left: 160%;
+            }
+
+        }
+
+
+        /* =========================================
+           ÜBERSCHRIFTEN
+        ========================================= */
 
         h2 {
 
+            position: relative;
+
             margin: 38px 0 15px;
+
+            padding-bottom: 9px;
 
             color: #ff7a00;
 
             font-size: 21px;
 
             line-height: 1.3;
+
+            font-weight: 800;
 
         }
 
@@ -189,7 +712,33 @@
         }
 
 
-        /* TEXT */
+        h2::before {
+
+            content: "";
+
+            display: inline-block;
+
+            width: 7px;
+            height: 7px;
+
+            margin-right: 10px;
+
+            vertical-align: middle;
+
+            border-radius: 50%;
+
+            background: #ff7a00;
+
+            box-shadow:
+                0 0 10px
+                rgba(255, 122, 0, 0.8);
+
+        }
+
+
+        /* =========================================
+           TEXT
+        ========================================= */
 
         p {
 
@@ -197,10 +746,21 @@
 
             color: #ccc;
 
+            font-size: 16px;
+
         }
 
 
-        /* LISTEN */
+        strong {
+
+            color: white;
+
+        }
+
+
+        /* =========================================
+           LISTEN
+        ========================================= */
 
         ul {
 
@@ -215,26 +775,63 @@
 
         li {
 
-            margin-bottom: 7px;
+            margin-bottom: 8px;
+
+            padding-left: 3px;
 
         }
 
 
-        /* BEISPIELE */
+        li::marker {
+
+            color: #ff7a00;
+
+        }
+
+
+        /* =========================================
+           HIGHLIGHT / BEISPIELE
+        ========================================= */
 
         .example {
 
-            padding: 18px 20px;
+            position: relative;
 
-            margin: 15px 0 20px;
+            padding: 20px 22px;
 
-            background: #111;
+            margin: 18px 0 22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 122, 0, 0.08),
+                    rgba(0, 0, 0, 0.18)
+                );
 
             border-left: 3px solid #ff7a00;
 
-            border-radius: 8px;
+            border-radius: 10px;
 
             color: #ccc;
+
+            box-shadow:
+                inset 0 0 20px
+                rgba(255, 122, 0, 0.025);
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
+
+        }
+
+
+        .example:hover {
+
+            transform:
+                translateX(4px);
+
+            border-color:
+                #ff9500;
 
         }
 
@@ -246,19 +843,48 @@
         }
 
 
-        /* KONTAKT */
+        /* =========================================
+           KONTAKT / ZAHLUNG
+        ========================================= */
 
         .contact-box {
 
-            padding: 20px;
+            position: relative;
 
-            margin-top: 10px;
+            padding: 22px;
 
-            background: #111;
+            margin: 12px 0 20px;
 
-            border: 1px solid #333;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 122, 0, 0.07),
+                    rgba(0, 0, 0, 0.2)
+                );
 
-            border-radius: 10px;
+            border: 1px solid
+                rgba(255, 122, 0, 0.18);
+
+            border-radius: 13px;
+
+            box-shadow:
+                inset 0 0 20px
+                rgba(255, 122, 0, 0.025);
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
+
+        }
+
+
+        .contact-box:hover {
+
+            transform:
+                translateY(-2px);
+
+            border-color:
+                rgba(255, 122, 0, 0.35);
 
         }
 
@@ -277,7 +903,9 @@
         }
 
 
-        /* LINKS */
+        /* =========================================
+           LINKS
+        ========================================= */
 
         a {
 
@@ -285,66 +913,197 @@
 
             text-decoration: none;
 
+            transition:
+                color 0.25s ease,
+                text-shadow 0.25s ease;
+
         }
 
 
         a:hover {
 
-            text-decoration: underline;
+            color: #ff9d2e;
+
+            text-shadow:
+                0 0 12px
+                rgba(255, 122, 0, 0.5);
 
         }
 
 
-        /* ZURÜCK */
+        /* =========================================
+           ZURÜCK-BUTTON
+        ========================================= */
+
+        .back-wrapper {
+
+            text-align: center;
+
+            margin-top: 35px;
+
+            animation:
+                fadeUp 0.8s 0.9s
+                cubic-bezier(.16,1,.3,1)
+                both;
+
+        }
+
 
         .back {
 
-            display: block;
+            position: relative;
 
-            width: fit-content;
+            display: inline-flex;
 
-            margin: 30px auto 0;
+            align-items: center;
 
-            padding: 12px 22px;
+            justify-content: center;
 
-            background: #222;
+            gap: 10px;
+
+            padding: 15px 27px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff7a00,
+                    #ff6200
+                );
 
             color: white;
 
             text-decoration: none;
 
-            border-radius: 8px;
+            border-radius: 13px;
 
-            text-align: center;
+            font-weight: 800;
+
+            font-size: 16px;
+
+            border: 1px solid
+                rgba(255, 255, 255, 0.1);
+
+            box-shadow:
+                0 10px 25px
+                rgba(0, 0, 0, 0.35);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+
+        }
+
+
+        .back::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -120%;
+
+            width: 70%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.25),
+                    transparent
+                );
+
+            transform: skewX(-20deg);
+
+            transition:
+                left 0.6s ease;
+
+        }
+
+
+        .back:hover::before {
+
+            left: 150%;
 
         }
 
 
         .back:hover {
 
-            background: #333;
+            transform:
+                translateY(-4px)
+                scale(1.03);
 
-            text-decoration: none;
+            color: white;
+
+            text-shadow: none;
+
+            box-shadow:
+                0 15px 35px
+                rgba(0, 0, 0, 0.45),
+                0 0 25px
+                rgba(255, 122, 0, 0.3);
 
         }
 
 
-        /* FOOTER */
+        /* =========================================
+           FOOTER
+        ========================================= */
 
         .footer {
 
-            margin-top: 40px;
+            margin-top: 45px;
 
-            color: #777;
+            color: #666;
 
             font-size: 14px;
 
+            line-height: 1.7;
+
             text-align: center;
+
+            animation:
+                fadeUp 0.8s 1s
+                cubic-bezier(.16,1,.3,1)
+                both;
 
         }
 
 
-        /* MOBILE */
+        /* =========================================
+           ALLGEMEINE ANIMATION
+        ========================================= */
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(20px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
 
         @media (max-width: 600px) {
 
@@ -352,7 +1111,7 @@
 
                 width: 94%;
 
-                padding-top: 25px;
+                padding-top: 28px;
 
             }
 
@@ -366,14 +1125,16 @@
 
             h1 {
 
-                font-size: 28px;
+                font-size: 30px;
 
             }
 
 
             .content {
 
-                padding: 22px;
+                padding: 23px 20px;
+
+                border-radius: 17px;
 
             }
 
@@ -392,6 +1153,49 @@
 
             }
 
+
+            .contact-box,
+            .example {
+
+                padding: 18px;
+
+            }
+
+
+            .back {
+
+                width: 100%;
+
+            }
+
+
+            .football {
+
+                font-size: 30px;
+
+            }
+
+        }
+
+
+        /* =========================================
+           REDUCED MOTION
+        ========================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration: 0.01ms !important;
+
+                animation-iteration-count: 1 !important;
+
+                transition-duration: 0.01ms !important;
+
+            }
+
         }
 
     </style>
@@ -402,801 +1206,900 @@
 <body>
 
 
-<div class="container">
+    <!-- =========================================
+         PARTIKEL
+    ========================================= -->
+
+    <div class="particles">
+
+        <span
+            class="particle"
+            style="left: 7%; animation-duration: 9s; animation-delay: -2s;"
+        ></span>
+
+        <span
+            class="particle"
+            style="left: 19%; animation-duration: 12s; animation-delay: -6s;"
+        ></span>
+
+        <span
+            class="particle"
+            style="left: 32%; animation-duration: 10s; animation-delay: -4s;"
+        ></span>
+
+        <span
+            class="particle"
+            style="left: 46%; animation-duration: 14s; animation-delay: -8s;"
+        ></span>
+
+        <span
+            class="particle"
+            style="left: 60%; animation-duration: 11s; animation-delay: -3s;"
+        ></span>
+
+        <span
+            class="particle"
+            style="left: 74%; animation-duration: 13s; animation-delay: -7s;"
+        ></span>
+
+        <span
+            class="particle"
+            style="left: 88%; animation-duration: 10s; animation-delay: -5s;"
+        ></span>
+
+    </div>
 
 
-    <!-- LOGO -->
+    <!-- =========================================
+         DEZENTE FUSSBÄLLE
+    ========================================= -->
 
-    <img
-        src="assets/logo.png"
-        alt="Frey Football Academy Logo"
-        class="logo"
-    >
+    <div class="football one">
+        ⚽
+    </div>
 
+    <div class="football two">
+        ⚽
+    </div>
 
-    <!-- TITEL -->
-
-    <h1>
-        Teilnahmebedingungen
-    </h1>
-
-
-    <p class="date">
-        Fördertraining<br>
-        Stand: August 2026
-    </p>
+    <div class="football three">
+        ⚽
+    </div>
 
 
-    <div class="content">
+    <!-- =========================================
+         HAUPTBEREICH
+    ========================================= -->
+
+    <main class="container">
 
 
-        <!-- 1 -->
+        <!-- LOGO -->
 
-        <h2>
-            1. Geltungsbereich
-        </h2>
+        <div class="logo-wrapper">
 
-        <p>
-            Diese Teilnahmebedingungen gelten für die Teilnahme am
-            Fördertraining der Frey Football Academy (FFA).
-        </p>
+            <img
+                src="assets/logo.png"
+                alt="Frey Football Academy Logo"
+                class="logo"
+            >
 
-        <p>
-            Mit der Anmeldung zum Fördertraining erkennen der Teilnehmer
-            bzw. bei minderjährigen Teilnehmern die gesetzlichen Vertreter
-            diese Teilnahmebedingungen an.
-        </p>
+        </div>
 
 
-        <!-- 2 -->
+        <!-- TITEL -->
 
-        <h2>
-            2. Ziel und Konzept des Fördertrainings
-        </h2>
-
-        <p>
-            Das Fördertraining der FFA ist ein ergänzendes Trainingsangebot
-            zum Vereinstraining und verfolgt das Ziel, Spieler gezielt und
-            nachhaltig in ihrer fußballerischen Entwicklung zu fördern.
-        </p>
-
-        <p>
-            Im Mittelpunkt stehen insbesondere:
-        </p>
-
-        <ul>
-
-            <li>technische Fähigkeiten</li>
-
-            <li>Wahrnehmung und Spielverständnis</li>
-
-            <li>Entscheidungsverhalten</li>
-
-            <li>Handlungsschnelligkeit</li>
-
-            <li>1-gegen-1-Verhalten</li>
-
-            <li>individuelle Stärken und Entwicklungsfelder</li>
-
-            <li>
-                die Übertragung der Trainingsinhalte auf das
-                Mannschaftstraining und den Spieltag
-            </li>
-
-        </ul>
-
-        <p>
-            Die Trainingsinhalte werden nicht ausschließlich von Einheit
-            zu Einheit betrachtet. Stattdessen werden feste Themenblöcke
-            über mehrere Wochen behandelt.
-        </p>
-
-        <p>
-            Dadurch erhalten die Spieler ausreichend Zeit, Inhalte zu
-            verstehen, anzuwenden und zu festigen. Ziel ist eine nachhaltige
-            Entwicklung, bei der die erarbeiteten Fähigkeiten auch im
-            Mannschaftstraining und am Spieltag zur Anwendung kommen.
-        </p>
+        <h1>
+            Teilnahmebedingungen
+        </h1>
 
 
-        <!-- 3 -->
+        <p class="date">
 
-        <h2>
-            3. Gruppengröße
-        </h2>
+            Fördertraining<br>
 
-        <p>
-            Eine Fördergruppe besteht aus maximal 10 Spielern.
-        </p>
+            Stand: August 2026
 
-        <p>
-            Die begrenzte Gruppengröße ermöglicht eine intensive Betreuung
-            und ausreichend individuelle Aufmerksamkeit für jeden Spieler.
-        </p>
-
-        <p>
-            Die Einteilung in die jeweiligen Gruppen erfolgt durch die FFA
-            unter Berücksichtigung von Alter, Leistungsstand und
-            Entwicklungsniveau.
-        </p>
-
-        <p>
-            Ein Anspruch auf die Aufnahme in eine bestimmte Gruppe besteht nicht.
         </p>
 
 
-        <!-- 4 -->
+        <!-- =====================================
+             INHALT
+        ====================================== -->
 
-        <h2>
-            4. Kostenfreies Schnuppertraining
-        </h2>
-
-        <p>
-            Das erste Training ist kostenfrei und dient als Schnuppertraining.
-        </p>
-
-        <p>
-            Der Spieler und seine Erziehungsberechtigten erhalten dadurch
-            die Möglichkeit, das Fördertraining, die Trainingsphilosophie
-            und die Arbeitsweise der FFA kennenzulernen.
-        </p>
-
-        <p>
-            Nach dem Schnuppertraining kann die Teilnahme am Fördertraining
-            widerrufen werden.
-        </p>
-
-        <p>
-            Erfolgt nach dem Schnuppertraining kein Widerruf, beginnt die
-            reguläre Teilnahme am Fördertraining.
-        </p>
+        <div class="content">
 
 
-        <!-- 5 -->
+            <!-- 1 -->
 
-        <h2>
-            5. Einstieg
-        </h2>
-
-        <p>
-            Der Einstieg in das Fördertraining ist bei freien Kapazitäten
-            jederzeit möglich.
-        </p>
-
-        <p>
-            Aufgrund der begrenzten Gruppengröße besteht kein Anspruch auf
-            einen freien Platz in einer bestimmten Trainingsgruppe.
-        </p>
-
-        <p>
-            Mit der Zusage zur weiteren Teilnahme wird der Trainingsplatz
-            verbindlich reserviert.
-        </p>
-
-
-        <!-- 6 -->
-
-        <h2>
-            6. Trainingsrhythmus und Schulferien
-        </h2>
-
-        <p>
-            Das Fördertraining findet grundsätzlich 1x75 Minuten wöchentlich statt.
-        </p>
-
-        <p>
-            Während der Schulferien in Rheinland-Pfalz bzw. Hessen wird
-            das reguläre Fördertraining ausgesetzt.
-        </p>
-
-        <p>
-            In dieser Zeit finden grundsätzlich keine regulären
-            Fördertrainingseinheiten statt.
-        </p>
-
-        <p>
-            Die konkreten Trainingspausen während der Schulferien werden
-            den Teilnehmern bzw. Erziehungsberechtigten rechtzeitig mitgeteilt.
-        </p>
-
-        <p>
-            Fällt ein kompletter Kalendermonat ausschließlich in die
-            Schulferien in Rheinland-Pfalz und findet in diesem Monat
-            kein Fördertraining statt, wird für diesen Monat kein
-            Monatsbeitrag erhoben.
-        </p>
-
-        <p>
-            Beginnt oder endet eine Ferienzeit innerhalb eines Monats,
-            bleibt der reguläre Monatsbeitrag grundsätzlich bestehen,
-            sofern in diesem Monat reguläre Fördertrainingseinheiten stattfinden.
-        </p>
-
-
-        <!-- 7 -->
-
-        <h2>
-            7. Teilnahmegebühr
-        </h2>
-
-        <p>
-            Die reguläre Teilnahmegebühr für das Fördertraining beträgt
-            derzeit 80,00 € pro Monat.
-        </p>
-
-        <p>
-            Der Betrag von 80,00 € stellt den aktuellen Einstiegspreis
-            zum Start der Frey Football Academy dar.
-        </p>
-
-        <p>
-            Die FFA kann die Teilnahmegebühr künftig anpassen, wenn dies
-            aufgrund einer Weiterentwicklung des Fördertrainings, einer
-            Erweiterung oder Veränderung des Leistungsumfangs oder
-            aufgrund gestiegener Kosten für die Durchführung des Trainings
-            sachlich gerechtfertigt ist.
-        </p>
-
-        <p>
-            Eine Änderung der Teilnahmegebühr wird den Teilnehmern bzw.
-            deren gesetzlichen Vertretern mindestens sechs Wochen vor
-            ihrem Inkrafttreten in Textform mitgeteilt.
-        </p>
-
-        <p>
-            Die neue Teilnahmegebühr gilt ausschließlich für die Zukunft
-            und wird frühestens zum Beginn des auf die Mitteilung
-            folgenden übernächsten Monats wirksam.
-        </p>
-
-        <p>
-            Im Falle einer Erhöhung der Teilnahmegebühr besteht ein
-            Sonderkündigungsrecht.
-        </p>
-
-        <p>
-            Die Teilnahme kann in diesem Fall bis zum Zeitpunkt des
-            Inkrafttretens der neuen Teilnahmegebühr ohne Einhaltung der
-            regulären Kündigungsfrist zum Ende des Monats gekündigt werden,
-            der dem Inkrafttreten der neuen Teilnahmegebühr vorausgeht.
-        </p>
-
-        <p>
-            Nach dem kostenfreien Schnuppertraining wird bei einer Zusage
-            zur weiteren Teilnahme der erste Monat anteilig berechnet.
-            Ab dem darauffolgenden Monat wird der
-            reguläre Beitrag von <strong>80,00 € pro Monat</strong> fällig.
-        </p>
-            
-        <p>
-            Die Teilnahmegebühr bezieht sich auf den reservierten
-            Trainingsplatz innerhalb der jeweiligen Fördergruppe und
-            nicht auf die Anzahl der tatsächlich wahrgenommenen
-            Trainingseinheiten eines einzelnen Monats.
-        </p>
-
-
-        <!-- 8 -->
-
-        <h2>
-            8. Zahlungsweise
-        </h2>
-
-        <p>
-            Die monatliche Teilnahmegebühr ist jeweils im Voraus zu entrichten.
-        </p>
-
-        <p>
-            Die Zahlung erfolgt per Überweisung auf folgendes Konto:
-        </p>
-
-        <div class="contact-box">
+            <h2>
+                1. Geltungsbereich
+            </h2>
 
             <p>
-
-                <strong>
-                    Kontoinhaber:
-                </strong>
-                Jan Frey / Frey Football Academy
-
-                <br><br>
-
-                <strong>
-                    IBAN:
-                </strong>
-                DE26 5509 1200 0068 4447 13
-
-                <br>
-
-                <strong>
-                    BIC:
-                </strong>
-                GENODE61AZY
-
-                <br>
-
-                <strong>
-                    Kreditinstitut:
-                </strong>
-                Volksbank Alzey-Worms eG
-
-                <br><br>
-
-                <strong>
-                    Verwendungszweck:
-                </strong>
-                FFA Fördertraining – [Name des Spielers] – [Monat/Jahr]
-
+                Diese Teilnahmebedingungen gelten für die Teilnahme am
+                Fördertraining der Frey Football Academy (FFA).
             </p>
 
-        </div>
+            <p>
+                Mit der Anmeldung zum Fördertraining erkennen der Teilnehmer
+                bzw. bei minderjährigen Teilnehmern die gesetzlichen Vertreter
+                diese Teilnahmebedingungen an.
+            </p>
 
-        <p>
-            Die Zahlung für den jeweiligen Monat muss spätestens zum
-            1. des Monats auf dem angegebenen Konto eingegangen sein.
-        </p>
 
+            <!-- 2 -->
 
-        <!-- 9 -->
-
-        <h2>
-            9. Laufzeit und Kündigung
-        </h2>
-
-        <p>
-            Die Teilnahme am Fördertraining ist monatlich kündbar.
-        </p>
-
-        <p>
-            Die Kündigung muss der FFA spätestens bis zum 15. eines
-            Monats in Textform zugehen, damit die Teilnahme zum Ende
-            desselben Monats beendet wird.
-        </p>
-
-        <p>
-            Die Kündigung ist per E-Mail an folgende Adresse zu richten:
-        </p>
-
-        <p>
-            <a href="mailto:info@freyfootballacademy.com">
-                info@freyfootballacademy.com
-            </a>
-        </p>
-
-        <p>
-            Geht die Kündigung nach dem 15. eines Monats ein, endet die
-            Teilnahme zum Ende des darauffolgenden Monats.
-        </p>
-
-
-        <div class="example">
-
-            <strong>
-                Beispiele:
-            </strong>
-
-            <br><br>
-
-            Kündigung bis einschließlich 15. September
-            → Teilnahme endet zum 30. September.
-
-            <br><br>
-
-            Kündigung ab dem 16. September
-            → Teilnahme endet zum 31. Oktober.
-
-        </div>
-
-
-        <p>
-            Die monatliche Teilnahmegebühr wird jeweils im Voraus
-            berechnet und ist für den jeweiligen Monat vollständig
-            zu entrichten.
-        </p>
-
-        <p>
-            Das Recht zur außerordentlichen Kündigung aus wichtigem
-            Grund bleibt unberührt.
-        </p>
-
-
-        <!-- 10 -->
-
-        <h2>
-            10. Fehlzeiten des Spielers
-        </h2>
-
-        <p>
-            Kann ein Spieler an einer Trainingseinheit nicht teilnehmen,
-            ist die FFA nach Möglichkeit frühzeitig darüber zu informieren.
-        </p>
-
-        <p>
-            Eine einzelne versäumte Trainingseinheit führt grundsätzlich
-            nicht zu einer Reduzierung oder Erstattung der monatlichen
-            Teilnahmegebühr.
-        </p>
-
-        <p>
-            Ein Anspruch auf Nachholung versäumter Trainingseinheiten
-            besteht grundsätzlich nicht.
-        </p>
-
-
-        <!-- 11 -->
-
-        <h2>
-            11. Ausfall von Trainingseinheiten
-        </h2>
-
-        <p>
-            Sollte eine Trainingseinheit aufgrund von Witterung,
-            Unbespielbarkeit des Platzes, Platzsperrung oder anderen
-            Umständen ausfallen, auf die die FFA keinen Einfluss hat,
-            besteht grundsätzlich kein Anspruch auf Erstattung der
-            monatlichen Teilnahmegebühr.
-        </p>
-
-        <p>
-            Die FFA bemüht sich, nach Möglichkeit einen Ersatztermin
-            oder eine alternative Trainingsmöglichkeit anzubieten.
-        </p>
-
-        <p>
-            Bei länger andauernden oder außergewöhnlichen Ausfällen wird
-            die FFA die Situation prüfen und eine angemessene Lösung anbieten.
-        </p>
-
-
-        <!-- 12 -->
-
-        <h2>
-            12. Trainingsinhalte und Trainingsphilosophie
-        </h2>
-
-        <p>
-            Die FFA verfolgt einen ganzheitlichen, individuellen und
-            spielorientierten Entwicklungsansatz.
-        </p>
-
-        <p>
-            Die Trainingsinhalte werden gezielt ausgewählt und über
-            mehrere Wochen in festen Themenblöcken aufgebaut.
-        </p>
-
-        <p>
-            Dabei geht es nicht darum, möglichst viele unterschiedliche
-            Übungen anzubieten. Vielmehr sollen relevante Fähigkeiten
-            nachhaltig entwickelt, wiederholt und in unterschiedlichen
-            Spielsituationen angewendet werden.
-        </p>
-
-        <p>
-            Die erarbeiteten Inhalte sollen anschließend möglichst
-            nachhaltig in das Mannschaftstraining und den Spieltag
-            übertragen werden können.
-        </p>
-
-
-        <!-- 13 -->
-
-        <h2>
-            13. Verhalten im Training
-        </h2>
-
-        <p>
-            Von allen Teilnehmern wird ein respektvoller, sportlicher
-            und zuverlässiger Umgang erwartet.
-        </p>
-
-        <p>
-            Die Spieler verpflichten sich insbesondere:
-        </p>
-
-        <ul>
-
-            <li>
-                respektvoll mit Trainern und anderen Spielern umzugehen
-            </li>
-
-            <li>
-                Anweisungen der Trainer zu beachten
-            </li>
-
-            <li>
-                pünktlich zum Training zu erscheinen
-            </li>
-
-            <li>
-                geeignete Trainingskleidung und Fußballausrüstung mitzubringen
-            </li>
-
-            <li>
-                sorgsam mit Trainingsmaterial und Sportanlagen umzugehen
-            </li>
-
-        </ul>
-
-        <p>
-            Bei wiederholtem oder schwerwiegendem Fehlverhalten kann die
-            FFA nach angemessener Abstimmung mit den Erziehungsberechtigten
-            weitere Maßnahmen ergreifen.
-        </p>
-
-
-        <!-- 14 -->
-
-        <h2>
-            14. Gesundheit und Verletzungen
-        </h2>
-
-        <p>
-            Der Teilnehmer bzw. bei Minderjährigen dessen gesetzlicher
-            Vertreter hat sicherzustellen, dass der Spieler gesundheitlich
-            zur Teilnahme am Fußballtraining in der Lage ist.
-        </p>
-
-        <p>
-            Bestehen Verletzungen, gesundheitliche Einschränkungen oder
-            andere für das Training relevante Umstände, sind diese der
-            FFA vor Trainingsbeginn (so zeitnah wie möglich) mitzuteilen.
-        </p>
-
-        <p>
-            Bei akuten Beschwerden oder Verletzungen kann ein Spieler
-            aus Sicherheitsgründen vorübergehend vom Training ausgeschlossen werden.
-        </p>
-
-
-        <!-- 15 -->
-
-        <h2>
-            15. Haftung
-        </h2>
-
-        <p>
-            Die Haftung der FFA richtet sich nach den gesetzlichen Vorschriften.
-        </p>
-
-        <p>
-            Die gesetzlichen Haftungsregelungen, insbesondere für Schäden
-            aus der Verletzung von Leben, Körper oder Gesundheit sowie für
-            vorsätzliches oder grob fahrlässiges Verhalten, bleiben unberührt.
-        </p>
-
-
-        <!-- 16 -->
-
-        <h2>
-            16. Kommunikation
-        </h2>
-
-        <p>
-            Die reguläre Kommunikation zwischen der Frey Football Academy
-            und den Teilnehmern bzw. deren gesetzlichen Vertretern erfolgt
-            grundsätzlich per E-Mail.
-        </p>
-
-        <p>
-            Über die E-Mail-Kommunikation werden insbesondere folgende
-            Informationen bereitgestellt:
-        </p>
-
-        <ul>
-
-            <li>Trainingszeiten und Trainingsorte</li>
-
-            <li>Informationen zu Ferien und Trainingspausen</li>
-
-            <li>organisatorische Hinweise</li>
-
-            <li>Informationen zum Trainingsbetrieb und zu Veranstaltungen</li>
-
-            <li>sonstige wichtige oder vertragsrelevante Mitteilungen</li>
-
-        </ul>
-
-        <p>
-            Zusätzlich kann die FFA eine freiwillige WhatsApp-Gruppe
-            für kurzfristige organisatorische Informationen anbieten.
-        </p>
-
-        <p>
-            Die WhatsApp-Gruppe dient ausschließlich der schnellen
-            Information über kurzfristige Änderungen des Trainingsbetriebs,
-            insbesondere:
-        </p>
-
-        <ul>
-
-            <li>
-                kurzfristige Änderungen von Trainingszeiten oder Trainingsorten
-            </li>
-
-            <li>
-                kurzfristige Trainingsausfälle
-            </li>
-
-            <li>
-                witterungsbedingte oder sonstige kurzfristige Änderungen
-            </li>
-
-            <li>
-                sonstige kurzfristige organisatorische Hinweise
-            </li>
-
-        </ul>
-
-        <p>
-            Die Teilnahme an der WhatsApp-Gruppe ist freiwillig und keine
-            Voraussetzung für die Teilnahme am Fördertraining.
-        </p>
-
-        <p>
-            Wichtige oder vertragsrelevante Mitteilungen werden nicht
-            ausschließlich über die WhatsApp-Gruppe übermittelt, sondern
-            zusätzlich per E-Mail oder auf einem anderen geeigneten Weg
-            zur Verfügung gestellt.
-        </p>
-
-        <p>
-            Über die WhatsApp-Gruppe werden keine Gesundheitsdaten,
-            Angaben zu Verletzungen oder sonstige besonders schützenswerte
-            personenbezogene Daten ausgetauscht.
-        </p>
-
-        <p>
-            Mit der Teilnahme an der WhatsApp-Gruppe erklären sich die
-            Teilnehmer bzw. deren gesetzlichen Vertreter mit der Verarbeitung
-            der hierfür erforderlichen personenbezogenen Daten im Rahmen
-            der gesonderten Datenschutzerklärung und – soweit erforderlich –
-            der entsprechenden Einwilligung einverstanden.
-        </p>
-
-
-        <!-- 17 -->
-
-        <h2>
-            17. Ausschluss vom Fördertraining
-        </h2>
-
-        <p>
-            Bei schwerwiegenden oder wiederholten Verstößen gegen diese
-            Teilnahmebedingungen oder bei erheblichem störendem Verhalten
-            kann die FFA einen Teilnehmer nach angemessener vorheriger
-            Kommunikation vom weiteren Training ausschließen.
-        </p>
-
-        <p>
-            Gesetzliche Rechte sowie bereits entstandene Zahlungsansprüche
-            bleiben hiervon unberührt, soweit gesetzlich zulässig.
-        </p>
-
-
-        <!-- 18 -->
-
-        <h2>
-            18. Änderungen der Teilnahmebedingungen
-        </h2>
-
-        <p>
-            Die FFA kann diese Teilnahmebedingungen ändern, soweit dies
-            aufgrund gesetzlicher Vorgaben, behördlicher Anforderungen
-            oder zur Anpassung an notwendige organisatorische Änderungen
-            erforderlich ist.
-        </p>
-
-        <p>
-            Änderungen, die die wesentlichen Rechte und Pflichten der
-            Teilnehmer bzw. der FFA betreffen, werden den Teilnehmern
-            bzw. deren gesetzlichen Vertretern mindestens vier Wochen
-            vor ihrem Inkrafttreten in Textform mitgeteilt.
-        </p>
-
-        <p>
-            Änderungen wesentlicher Vertragsinhalte erfolgen nicht
-            einseitig, sondern bedürfen der Zustimmung des jeweiligen
-            Teilnehmers bzw. bei minderjährigen Teilnehmern des gesetzlichen
-            Vertreters, soweit eine solche Zustimmung gesetzlich erforderlich ist.
-        </p>
-
-        <p>
-            Die gesetzlichen Rechte der Teilnehmer bleiben unberührt.
-        </p>
-
-
-        <!-- 19 -->
-
-        <h2>
-            19. Schlussbestimmungen
-        </h2>
-
-        <p>
-            Sollten einzelne Bestimmungen dieser Teilnahmebedingungen
-            unwirksam sein oder werden, bleiben die übrigen Bestimmungen
-            unberührt.
-        </p>
-
-        <p>
-            Es gelten die gesetzlichen Vorschriften der Bundesrepublik Deutschland.
-        </p>
-
-
-        <!-- KONTAKT -->
-
-        <h2>
-            Kontaktdaten
-        </h2>
-
-        <div class="contact-box">
+            <h2>
+                2. Ziel und Konzept des Fördertrainings
+            </h2>
 
             <p>
+                Das Fördertraining der FFA ist ein ergänzendes Trainingsangebot
+                zum Vereinstraining und verfolgt das Ziel, Spieler gezielt und
+                nachhaltig in ihrer fußballerischen Entwicklung zu fördern.
+            </p>
 
-                <strong>
-                    Frey Football Academy (FFA)
-                </strong>
+            <p>
+                Im Mittelpunkt stehen insbesondere:
+            </p>
 
-                <br>
+            <ul>
 
-                Inhaber: Jan Frey
+                <li>technische Fähigkeiten</li>
 
-                <br>
+                <li>Wahrnehmung und Spielverständnis</li>
 
-                E-Mail:
+                <li>Entscheidungsverhalten</li>
+
+                <li>Handlungsschnelligkeit</li>
+
+                <li>1-gegen-1-Verhalten</li>
+
+                <li>individuelle Stärken und Entwicklungsfelder</li>
+
+                <li>
+                    die Übertragung der Trainingsinhalte auf das
+                    Mannschaftstraining und den Spieltag
+                </li>
+
+            </ul>
+
+            <p>
+                Die Trainingsinhalte werden nicht ausschließlich von Einheit
+                zu Einheit betrachtet. Stattdessen werden feste Themenblöcke
+                über mehrere Wochen behandelt.
+            </p>
+
+            <p>
+                Dadurch erhalten die Spieler ausreichend Zeit, Inhalte zu
+                verstehen, anzuwenden und zu festigen. Ziel ist eine nachhaltige
+                Entwicklung, bei der die erarbeiteten Fähigkeiten auch im
+                Mannschaftstraining und am Spieltag zur Anwendung kommen.
+            </p>
+
+
+            <!-- 3 -->
+
+            <h2>
+                3. Gruppengröße
+            </h2>
+
+            <p>
+                Eine Fördergruppe besteht aus maximal 10 Spielern.
+            </p>
+
+            <p>
+                Die begrenzte Gruppengröße ermöglicht eine intensive Betreuung
+                und ausreichend individuelle Aufmerksamkeit für jeden Spieler.
+            </p>
+
+            <p>
+                Die Einteilung in die jeweiligen Gruppen erfolgt durch die FFA
+                unter Berücksichtigung von Alter, Leistungsstand und
+                Entwicklungsniveau.
+            </p>
+
+            <p>
+                Ein Anspruch auf die Aufnahme in eine bestimmte Gruppe besteht nicht.
+            </p>
+
+
+            <!-- 4 -->
+
+            <h2>
+                4. Kostenfreies Schnuppertraining
+            </h2>
+
+            <p>
+                Das erste Training ist kostenfrei und dient als Schnuppertraining.
+            </p>
+
+            <p>
+                Der Spieler und seine Erziehungsberechtigten erhalten dadurch
+                die Möglichkeit, das Fördertraining, die Trainingsphilosophie
+                und die Arbeitsweise der FFA kennenzulernen.
+            </p>
+
+            <p>
+                Nach dem Schnuppertraining kann die Teilnahme am Fördertraining
+                widerrufen werden.
+            </p>
+
+            <p>
+                Erfolgt nach dem Schnuppertraining kein Widerruf, beginnt die
+                reguläre Teilnahme am Fördertraining.
+            </p>
+
+
+            <!-- 5 -->
+
+            <h2>
+                5. Einstieg
+            </h2>
+
+            <p>
+                Der Einstieg in das Fördertraining ist bei freien Kapazitäten
+                jederzeit möglich.
+            </p>
+
+            <p>
+                Aufgrund der begrenzten Gruppengröße besteht kein Anspruch auf
+                einen freien Platz in einer bestimmten Trainingsgruppe.
+            </p>
+
+            <p>
+                Mit der Zusage zur weiteren Teilnahme wird der Trainingsplatz
+                verbindlich reserviert.
+            </p>
+
+
+            <!-- 6 -->
+
+            <h2>
+                6. Trainingsrhythmus und Schulferien
+            </h2>
+
+            <p>
+                Das Fördertraining findet grundsätzlich 1x75 Minuten wöchentlich statt.
+            </p>
+
+            <p>
+                Während der Schulferien in Rheinland-Pfalz bzw. Hessen wird
+                das reguläre Fördertraining ausgesetzt.
+            </p>
+
+            <p>
+                In dieser Zeit finden grundsätzlich keine regulären
+                Fördertrainingseinheiten statt.
+            </p>
+
+            <p>
+                Die konkreten Trainingspausen während der Schulferien werden
+                den Teilnehmern bzw. Erziehungsberechtigten rechtzeitig mitgeteilt.
+            </p>
+
+            <p>
+                Fällt ein kompletter Kalendermonat ausschließlich in die
+                Schulferien in Rheinland-Pfalz und findet in diesem Monat
+                kein Fördertraining statt, wird für diesen Monat kein
+                Monatsbeitrag erhoben.
+            </p>
+
+            <p>
+                Beginnt oder endet eine Ferienzeit innerhalb eines Monats,
+                bleibt der reguläre Monatsbeitrag grundsätzlich bestehen,
+                sofern in diesem Monat reguläre Fördertrainingseinheiten stattfinden.
+            </p>
+
+
+            <!-- 7 -->
+
+            <h2>
+                7. Teilnahmegebühr
+            </h2>
+
+            <p>
+                Die reguläre Teilnahmegebühr für das Fördertraining beträgt
+                derzeit 80,00 € pro Monat.
+            </p>
+
+            <p>
+                Der Betrag von 80,00 € stellt den aktuellen Einstiegspreis
+                zum Start der Frey Football Academy dar.
+            </p>
+
+            <p>
+                Die FFA kann die Teilnahmegebühr künftig anpassen, wenn dies
+                aufgrund einer Weiterentwicklung des Fördertrainings, einer
+                Erweiterung oder Veränderung des Leistungsumfangs oder
+                aufgrund gestiegener Kosten für die Durchführung des Trainings
+                sachlich gerechtfertigt ist.
+            </p>
+
+            <p>
+                Eine Änderung der Teilnahmegebühr wird den Teilnehmern bzw.
+                deren gesetzlichen Vertretern mindestens sechs Wochen vor
+                ihrem Inkrafttreten in Textform mitgeteilt.
+            </p>
+
+            <p>
+                Die neue Teilnahmegebühr gilt ausschließlich für die Zukunft
+                und wird frühestens zum Beginn des auf die Mitteilung
+                folgenden übernächsten Monats wirksam.
+            </p>
+
+            <p>
+                Im Falle einer Erhöhung der Teilnahmegebühr besteht ein
+                Sonderkündigungsrecht.
+            </p>
+
+            <p>
+                Die Teilnahme kann in diesem Fall bis zum Zeitpunkt des
+                Inkrafttretens der neuen Teilnahmegebühr ohne Einhaltung der
+                regulären Kündigungsfrist zum Ende des Monats gekündigt werden,
+                der dem Inkrafttreten der neuen Teilnahmegebühr vorausgeht.
+            </p>
+
+            <p>
+                Nach dem kostenfreien Schnuppertraining wird bei einer Zusage
+                zur weiteren Teilnahme der erste Monat anteilig berechnet.
+                Ab dem darauffolgenden Monat wird der
+                reguläre Beitrag von <strong>80,00 € pro Monat</strong> fällig.
+            </p>
+
+            <p>
+                Die Teilnahmegebühr bezieht sich auf den reservierten
+                Trainingsplatz innerhalb der jeweiligen Fördergruppe und
+                nicht auf die Anzahl der tatsächlich wahrgenommenen
+                Trainingseinheiten eines einzelnen Monats.
+            </p>
+
+
+            <!-- 8 -->
+
+            <h2>
+                8. Zahlungsweise
+            </h2>
+
+            <p>
+                Die monatliche Teilnahmegebühr ist jeweils im Voraus zu entrichten.
+            </p>
+
+            <p>
+                Die Zahlung erfolgt per Überweisung auf folgendes Konto:
+            </p>
+
+            <div class="contact-box">
+
+                <p>
+
+                    <strong>
+                        Kontoinhaber:
+                    </strong>
+
+                    Jan Frey / Frey Football Academy
+
+                    <br><br>
+
+                    <strong>
+                        IBAN:
+                    </strong>
+
+                    DE26 5509 1200 0068 4447 13
+
+                    <br>
+
+                    <strong>
+                        BIC:
+                    </strong>
+
+                    GENODE61AZY
+
+                    <br>
+
+                    <strong>
+                        Kreditinstitut:
+                    </strong>
+
+                    Volksbank Alzey-Worms eG
+
+                    <br><br>
+
+                    <strong>
+                        Verwendungszweck:
+                    </strong>
+
+                    FFA Fördertraining – [Name des Spielers] – [Monat/Jahr]
+
+                </p>
+
+            </div>
+
+            <p>
+                Die Zahlung für den jeweiligen Monat muss spätestens zum
+                1. des Monats auf dem angegebenen Konto eingegangen sein.
+            </p>
+
+
+            <!-- 9 -->
+
+            <h2>
+                9. Laufzeit und Kündigung
+            </h2>
+
+            <p>
+                Die Teilnahme am Fördertraining ist monatlich kündbar.
+            </p>
+
+            <p>
+                Die Kündigung muss der FFA spätestens bis zum 15. eines
+                Monats in Textform zugehen, damit die Teilnahme zum Ende
+                desselben Monats beendet wird.
+            </p>
+
+            <p>
+                Die Kündigung ist per E-Mail an folgende Adresse zu richten:
+            </p>
+
+            <p>
                 <a href="mailto:info@freyfootballacademy.com">
                     info@freyfootballacademy.com
                 </a>
-
-                <br>
-
-                Tel.:
-                <a href="tel:+491733176916">
-                    0173-3176916
-                </a>
-
-                <br>
-
-                Anschrift:
-                Fritz-Kohl-Str. 3c, 55122 Mainz
-
             </p>
+
+            <p>
+                Geht die Kündigung nach dem 15. eines Monats ein, endet die
+                Teilnahme zum Ende des darauffolgenden Monats.
+            </p>
+
+            <div class="example">
+
+                <strong>
+                    Beispiele:
+                </strong>
+
+                <br><br>
+
+                Kündigung bis einschließlich 15. September
+                → Teilnahme endet zum 30. September.
+
+                <br><br>
+
+                Kündigung ab dem 16. September
+                → Teilnahme endet zum 31. Oktober.
+
+            </div>
+
+            <p>
+                Die monatliche Teilnahmegebühr wird jeweils im Voraus
+                berechnet und ist für den jeweiligen Monat vollständig zu
+                entrichten.
+            </p>
+
+            <p>
+                Das Recht zur außerordentlichen Kündigung aus wichtigem
+                Grund bleibt unberührt.
+            </p>
+
+
+            <!-- 10 -->
+
+            <h2>
+                10. Fehlzeiten des Spielers
+            </h2>
+
+            <p>
+                Kann ein Spieler an einer Trainingseinheit nicht teilnehmen,
+                ist die FFA nach Möglichkeit frühzeitig darüber zu informieren.
+            </p>
+
+            <p>
+                Eine einzelne versäumte Trainingseinheit führt grundsätzlich
+                nicht zu einer Reduzierung oder Erstattung der monatlichen
+                Teilnahmegebühr.
+            </p>
+
+            <p>
+                Ein Anspruch auf Nachholung versäumter Trainingseinheiten
+                besteht grundsätzlich nicht.
+            </p>
+
+
+            <!-- 11 -->
+
+            <h2>
+                11. Ausfall von Trainingseinheiten
+            </h2>
+
+            <p>
+                Sollte eine Trainingseinheit aufgrund von Witterung,
+                Unbespielbarkeit des Platzes, Platzsperrung oder anderen
+                Umständen ausfallen, auf die die FFA keinen Einfluss hat,
+                besteht grundsätzlich kein Anspruch auf Erstattung der
+                monatlichen Teilnahmegebühr.
+            </p>
+
+            <p>
+                Die FFA bemüht sich, nach Möglichkeit einen Ersatztermin
+                oder eine alternative Trainingsmöglichkeit anzubieten.
+            </p>
+
+            <p>
+                Bei länger andauernden oder außergewöhnlichen Ausfällen wird
+                die FFA die Situation prüfen und eine angemessene Lösung anbieten.
+            </p>
+
+
+            <!-- 12 -->
+
+            <h2>
+                12. Trainingsinhalte und Trainingsphilosophie
+            </h2>
+
+            <p>
+                Die FFA verfolgt einen ganzheitlichen, individuellen und
+                spielorientierten Entwicklungsansatz.
+            </p>
+
+            <p>
+                Die Trainingsinhalte werden gezielt ausgewählt und über
+                mehrere Wochen in festen Themenblöcken aufgebaut.
+            </p>
+
+            <p>
+                Dabei geht es nicht darum, möglichst viele unterschiedliche
+                Übungen anzubieten. Vielmehr sollen relevante Fähigkeiten
+                nachhaltig entwickelt, wiederholt und in unterschiedlichen
+                Spielsituationen angewendet werden.
+            </p>
+
+            <p>
+                Die erarbeiteten Inhalte sollen anschließend möglichst
+                nachhaltig in das Mannschaftstraining und den Spieltag
+                übertragen werden können.
+            </p>
+
+
+            <!-- 13 -->
+
+            <h2>
+                13. Verhalten im Training
+            </h2>
+
+            <p>
+                Von allen Teilnehmern wird ein respektvoller, sportlicher
+                und zuverlässiger Umgang erwartet.
+            </p>
+
+            <p>
+                Die Spieler verpflichten sich insbesondere:
+            </p>
+
+            <ul>
+
+                <li>
+                    respektvoll mit Trainern und anderen Spielern umzugehen
+                </li>
+
+                <li>
+                    Anweisungen der Trainer zu beachten
+                </li>
+
+                <li>
+                    pünktlich zum Training zu erscheinen
+                </li>
+
+                <li>
+                    geeignete Trainingskleidung und Fußballausrüstung mitzubringen
+                </li>
+
+                <li>
+                    sorgsam mit Trainingsmaterial und Sportanlagen umzugehen
+                </li>
+
+            </ul>
+
+            <p>
+                Bei wiederholtem oder schwerwiegendem Fehlverhalten kann die
+                FFA nach angemessener Abstimmung mit den Erziehungsberechtigten
+                weitere Maßnahmen ergreifen.
+            </p>
+
+
+            <!-- 14 -->
+
+            <h2>
+                14. Gesundheit und Verletzungen
+            </h2>
+
+            <p>
+                Der Teilnehmer bzw. bei Minderjährigen dessen gesetzlicher
+                Vertreter hat sicherzustellen, dass der Spieler gesundheitlich
+                zur Teilnahme am Fußballtraining in der Lage ist.
+            </p>
+
+            <p>
+                Bestehen Verletzungen, gesundheitliche Einschränkungen oder
+                andere für das Training relevante Umstände, sind diese der
+                FFA vor Trainingsbeginn (so zeitnah wie möglich) mitzuteilen.
+            </p>
+
+            <p>
+                Bei akuten Beschwerden oder Verletzungen kann ein Spieler
+                aus Sicherheitsgründen vorübergehend vom Training ausgeschlossen werden.
+            </p>
+
+
+            <!-- 15 -->
+
+            <h2>
+                15. Haftung
+            </h2>
+
+            <p>
+                Die Haftung der FFA richtet sich nach den gesetzlichen Vorschriften.
+            </p>
+
+            <p>
+                Die gesetzlichen Haftungsregelungen, insbesondere für Schäden
+                aus der Verletzung von Leben, Körper oder Gesundheit sowie für
+                vorsätzliches oder grob fahrlässiges Verhalten, bleiben unberührt.
+            </p>
+
+
+            <!-- 16 -->
+
+            <h2>
+                16. Kommunikation
+            </h2>
+
+            <p>
+                Die reguläre Kommunikation zwischen der Frey Football Academy
+                und den Teilnehmern bzw. deren gesetzlichen Vertretern erfolgt
+                grundsätzlich per E-Mail.
+            </p>
+
+            <p>
+                Über die E-Mail-Kommunikation werden insbesondere folgende
+                Informationen bereitgestellt:
+            </p>
+
+            <ul>
+
+                <li>Trainingszeiten und Trainingsorte</li>
+
+                <li>Informationen zu Ferien und Trainingspausen</li>
+
+                <li>organisatorische Hinweise</li>
+
+                <li>
+                    Informationen zum Trainingsbetrieb und zu Veranstaltungen
+                </li>
+
+                <li>
+                    sonstige wichtige oder vertragsrelevante Mitteilungen
+                </li>
+
+            </ul>
+
+            <p>
+                Zusätzlich kann die FFA eine freiwillige WhatsApp-Gruppe
+                für kurzfristige organisatorische Informationen anbieten.
+            </p>
+
+            <p>
+                Die WhatsApp-Gruppe dient ausschließlich der schnellen
+                Information über kurzfristige Änderungen des Trainingsbetriebs,
+                insbesondere:
+            </p>
+
+            <ul>
+
+                <li>
+                    kurzfristige Änderungen von Trainingszeiten oder Trainingsorten
+                </li>
+
+                <li>
+                    kurzfristige Trainingsausfälle
+                </li>
+
+                <li>
+                    witterungsbedingte oder sonstige kurzfristige Änderungen
+                </li>
+
+                <li>
+                    sonstige kurzfristige organisatorische Hinweise
+                </li>
+
+            </ul>
+
+            <p>
+                Die Teilnahme an der WhatsApp-Gruppe ist freiwillig und keine
+                Voraussetzung für die Teilnahme am Fördertraining.
+            </p>
+
+            <p>
+                Wichtige oder vertragsrelevante Mitteilungen werden nicht
+                ausschließlich über die WhatsApp-Gruppe übermittelt, sondern
+                zusätzlich per E-Mail oder auf einem anderen geeigneten Weg
+                zur Verfügung gestellt.
+            </p>
+
+            <p>
+                Über die WhatsApp-Gruppe werden keine Gesundheitsdaten,
+                Angaben zu Verletzungen oder sonstige besonders schützenswerte
+                personenbezogene Daten ausgetauscht.
+            </p>
+
+            <p>
+                Mit der Teilnahme an der WhatsApp-Gruppe erklären sich die
+                Teilnehmer bzw. deren gesetzlichen Vertreter mit der Verarbeitung
+                der hierfür erforderlichen personenbezogenen Daten im Rahmen
+                der gesonderten Datenschutzerklärung und – soweit erforderlich –
+                der entsprechenden Einwilligung einverstanden.
+            </p>
+
+
+            <!-- 17 -->
+
+            <h2>
+                17. Ausschluss vom Fördertraining
+            </h2>
+
+            <p>
+                Bei schwerwiegenden oder wiederholten Verstößen gegen diese
+                Teilnahmebedingungen oder bei erheblichem störendem Verhalten
+                kann die FFA einen Teilnehmer nach angemessener vorheriger
+                Kommunikation vom weiteren Training ausschließen.
+            </p>
+
+            <p>
+                Gesetzliche Rechte sowie bereits entstandene Zahlungsansprüche
+                bleiben hiervon unberührt, soweit gesetzlich zulässig.
+            </p>
+
+
+            <!-- 18 -->
+
+            <h2>
+                18. Änderungen der Teilnahmebedingungen
+            </h2>
+
+            <p>
+                Die FFA kann diese Teilnahmebedingungen ändern, soweit dies
+                aufgrund gesetzlicher Vorgaben, behördlicher Anforderungen
+                oder zur Anpassung an notwendige organisatorische Änderungen
+                erforderlich ist.
+            </p>
+
+            <p>
+                Änderungen, die die wesentlichen Rechte und Pflichten der
+                Teilnehmer bzw. der FFA betreffen, werden den Teilnehmern
+                bzw. deren gesetzlichen Vertretern mindestens vier Wochen
+                vor ihrem Inkrafttreten in Textform mitgeteilt.
+            </p>
+
+            <p>
+                Änderungen wesentlicher Vertragsinhalte erfolgen nicht
+                einseitig, sondern bedürfen der Zustimmung des jeweiligen
+                Teilnehmers bzw. bei minderjährigen Teilnehmern des gesetzlichen
+                Vertreters, soweit eine solche Zustimmung gesetzlich erforderlich ist.
+            </p>
+
+            <p>
+                Die gesetzlichen Rechte der Teilnehmer bleiben unberührt.
+            </p>
+
+
+            <!-- 19 -->
+
+            <h2>
+                19. Schlussbestimmungen
+            </h2>
+
+            <p>
+                Sollten einzelne Bestimmungen dieser Teilnahmebedingungen
+                unwirksam sein oder werden, bleiben die übrigen Bestimmungen
+                unberührt.
+            </p>
+
+            <p>
+                Es gelten die gesetzlichen Vorschriften der Bundesrepublik Deutschland.
+            </p>
+
+
+            <!-- KONTAKT -->
+
+            <h2>
+                Kontaktdaten
+            </h2>
+
+            <div class="contact-box">
+
+                <p>
+
+                    <strong>
+                        Frey Football Academy (FFA)
+                    </strong>
+
+                    <br>
+
+                    Inhaber: Jan Frey
+
+                    <br>
+
+                    E-Mail:
+
+                    <a href="mailto:info@freyfootballacademy.com">
+                        info@freyfootballacademy.com
+                    </a>
+
+                    <br>
+
+                    Tel.:
+
+                    <a href="tel:+491733176916">
+                        0173-3176916
+                    </a>
+
+                    <br>
+
+                    Anschrift:
+                    Fritz-Kohl-Str. 3c, 55122 Mainz
+
+                </p>
+
+            </div>
+
 
         </div>
 
 
-    </div>
+        <!-- =========================================
+             ZURÜCK
+        ========================================== -->
+
+        <div class="back-wrapper">
+
+            <a
+                href="foerdertraining.html"
+                class="back"
+            >
+
+                <span>
+                    ←
+                </span>
+
+                <span>
+                    Zurück zur Anmeldung
+                </span>
+
+            </a>
+
+        </div>
 
 
-    <!-- ZURÜCK -->
+        <!-- =========================================
+             FOOTER
+        ========================================== -->
 
-    <a
-        href="foerdertraining.html"
-        class="back"
-    >
+        <div class="footer">
 
-        ← Zurück zur Anmeldung
+            Frey Football Academy · Train. Develop. Succeed.
 
-    </a>
+            <br><br>
 
+            Fritz-Kohl-Str. 3c · 55122 Mainz
 
-    <!-- FOOTER -->
+            · +49 173 3176916
 
-    <div class="footer">
+            · info@freyfootballacademy.com
 
-        Frey Football Academy · Train. Develop. Succeed.
-
-        <br><br>
-
-        Fritz-Kohl-Str. 3c · 55122 Mainz
-
-        · +49 173 3176916
-
-        · info@freyfootballacademy.com
-
-    </div>
+        </div>
 
 
-</div>
+    </main>
 
 
 </body>
