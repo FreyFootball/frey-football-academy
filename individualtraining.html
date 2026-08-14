@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Individualtraining | Frey Football Academy</title>
+<title>Duo- & Kleingruppentraining | Frey Football Academy</title>
 
 
 <style>
@@ -269,6 +269,7 @@ body::after {
 .football.one {
 
     left: 2%;
+
     top: 18%;
 }
 
@@ -276,6 +277,7 @@ body::after {
 .football.two {
 
     right: 2%;
+
     top: 58%;
 
     font-size: 105px;
@@ -287,6 +289,7 @@ body::after {
 .football.three {
 
     left: 8%;
+
     bottom: 8%;
 
     font-size: 45px;
@@ -608,6 +611,196 @@ h1 {
 
 
 /* =========================================================
+   INFO CARDS
+========================================================= */
+
+.info-card {
+
+    position: relative;
+
+    margin-bottom: 25px;
+
+    padding: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 122, 0, 0.10),
+            rgba(18, 18, 18, 0.92)
+        );
+
+    border:
+        1px solid
+        rgba(255, 122, 0, 0.20);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(0, 0, 0, 0.30);
+
+    overflow: hidden;
+
+    animation:
+        fadeUp
+        0.8s
+        0.4s
+        cubic-bezier(.16,1,.3,1)
+        both;
+}
+
+
+.info-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -100px;
+    right: -80px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 122, 0, 0.18),
+            transparent 70%
+        );
+
+    filter: blur(10px);
+}
+
+
+.info-card h2 {
+
+    position: relative;
+
+    margin:
+        0
+        0
+        12px;
+
+    color: #ffffff;
+
+    font-size: 24px;
+
+    font-weight: 900;
+}
+
+
+.info-card h2 span {
+
+    color: #ff7a00;
+}
+
+
+.info-card p {
+
+    position: relative;
+
+    margin: 0;
+
+    color: #bbb;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   HIGHLIGHTS
+========================================================= */
+
+.highlights {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 35px;
+}
+
+
+.highlight {
+
+    padding: 20px 15px;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    border-radius: 13px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.highlight:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(255,122,0,0.28);
+
+    background:
+        rgba(255,122,0,0.055);
+}
+
+
+.highlight-icon {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #ff7a00;
+
+    font-size: 27px;
+
+    filter:
+        drop-shadow(
+            0 0 10px
+            rgba(255,122,0,0.25)
+        );
+}
+
+
+.highlight strong {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #ffffff;
+
+    font-size: 15px;
+}
+
+
+.highlight span {
+
+    color: #888;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
    FORMULAR
 ========================================================= */
 
@@ -721,7 +914,7 @@ form::before {
 
 
 /* =========================================================
-   ABSCHNITTE
+   FORMULAR-ABSCHNITTE
 ========================================================= */
 
 .section {
@@ -1025,22 +1218,14 @@ textarea {
 
 
 /* =========================================================
-   AJAX FEHLER
+   FEHLER
 ========================================================= */
-
-[data-fs-error] {
-
-    color: #ff8a8a;
-
-    font-size: 14px;
-}
-
 
 .form-error {
 
     display: none;
 
-    margin-top: 20px;
+    margin-bottom: 20px;
 
     padding: 14px 16px;
 
@@ -1060,7 +1245,7 @@ textarea {
 
 
 /* =========================================================
-   ABSENDEN
+   ABSENDE-BUTTON
 ========================================================= */
 
 .submit {
@@ -1323,6 +1508,44 @@ textarea {
     }
 
 
+    .info-card {
+
+        padding: 22px;
+    }
+
+
+    .highlights {
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+
+    .highlight {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        text-align: left;
+    }
+
+
+    .highlight-icon {
+
+        margin: 0;
+
+        width: 38px;
+
+        flex-shrink: 0;
+
+        text-align: center;
+    }
+
+
     form {
 
         padding: 21px;
@@ -1471,7 +1694,9 @@ textarea {
 <div class="container">
 
 
-    <!-- LOGO -->
+    <!-- ===================================================
+         LOGO
+    ==================================================== -->
 
     <div class="logo-wrapper">
 
@@ -1484,11 +1709,17 @@ textarea {
     </div>
 
 
-    <!-- TITEL -->
+    <!-- ===================================================
+         TITEL
+    ==================================================== -->
 
     <h1>
 
-        Individual<span class="orange">training</span>
+        Duo- &
+
+        <span class="orange">
+            Kleingruppentraining
+        </span>
 
     </h1>
 
@@ -1498,18 +1729,118 @@ textarea {
 
     <p class="intro">
 
-        Du möchtest gezielt an deinem Fußballspiel arbeiten?
+        Gemeinsam trainieren.
+        Gemeinsam besser werden.
 
         <br>
 
-        Fülle das Formular aus und erzähl uns kurz etwas
-        über dich und deine Ziele.
-
-        <br>
-
-        Wir melden uns anschließend persönlich bei dir.
+        Intensives Fußballtraining für zwei bis
+        wenige Spieler mit individuellem Fokus.
 
     </p>
+
+
+    <!-- ===================================================
+         INFO
+    ==================================================== -->
+
+    <div class="info-card">
+
+        <h2>
+
+            Mehr Spieler.
+
+            <span>
+                Mehr Intensität.
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Im Duo- und Kleingruppentraining verbinden wir
+            individuelle Förderung mit spielnahen Situationen.
+            Dadurch entstehen intensive Trainingseinheiten,
+            bei denen Technik, Entscheidungen und
+            Zusammenspiel gleichermaßen im Mittelpunkt stehen.
+
+        </p>
+
+    </div>
+
+
+    <!-- ===================================================
+         HIGHLIGHTS
+    ==================================================== -->
+
+    <div class="highlights">
+
+
+        <div class="highlight">
+
+            <span class="highlight-icon">
+                ⚡
+            </span>
+
+            <div>
+
+                <strong>
+                    Hohe Intensität
+                </strong>
+
+                <span>
+                    Viele Aktionen und viele Ballkontakte
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="highlight">
+
+            <span class="highlight-icon">
+                👥
+            </span>
+
+            <div>
+
+                <strong>
+                    Gemeinsam trainieren
+                </strong>
+
+                <span>
+                    Training mit Freunden oder Mitspielern
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="highlight">
+
+            <span class="highlight-icon">
+                🎯
+            </span>
+
+            <div>
+
+                <strong>
+                    Individueller Fokus
+                </strong>
+
+                <span>
+                    Inhalte passend zu euren Zielen
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
 
 
     <!-- ===================================================
@@ -1517,10 +1848,11 @@ textarea {
     ==================================================== -->
 
     <form
-        id="individualtraining-form"
+        id="duo-form"
     >
 
-        <!-- Formspree AJAX Fehler -->
+
+        <!-- Formspree Fehler -->
 
         <div
             class="form-error"
@@ -1534,50 +1866,86 @@ textarea {
 
         <div class="section">
 
+
             <div class="section-title">
-                Angaben zum Spieler
+
+                Angaben zu den Spielern
+
             </div>
 
 
             <div class="field">
 
-                <label for="spielername">
-                    Name des Spielers *
+                <label for="spieler">
+
+                    Namen der Spieler *
+
                 </label>
 
                 <input
                     type="text"
-                    id="spielername"
-                    name="Name des Spielers"
-                    placeholder="Vor- und Nachname"
+                    id="spieler"
+                    name="Namen der Spieler"
+                    placeholder="Vor- und Nachnamen"
                     data-fs-field
                     required
                 >
-
-                <span
-                    data-fs-error="Name des Spielers"
-                ></span>
 
             </div>
 
 
             <div class="field">
 
-                <label for="geburtsdatum">
-                    Geburtsdatum des Spielers *
+                <label for="anzahl">
+
+                    Anzahl der Spieler *
+
                 </label>
 
-                <input
-                    type="date"
-                    id="geburtsdatum"
-                    name="Geburtsdatum des Spielers"
+                <select
+                    id="anzahl"
+                    name="Anzahl der Spieler"
                     data-fs-field
                     required
                 >
 
-                <span
-                    data-fs-error="Geburtsdatum des Spielers"
-                ></span>
+                    <option value="">
+
+                        Bitte wählen
+
+                    </option>
+
+                    <option value="2">
+
+                        2 Spieler
+
+                    </option>
+
+                    <option value="3">
+
+                        3 Spieler
+
+                    </option>
+
+                    <option value="4">
+
+                        4 Spieler
+
+                    </option>
+
+                    <option value="5">
+
+                        5 Spieler
+
+                    </option>
+
+                    <option value="6">
+
+                        6 Spieler
+
+                    </option>
+
+                </select>
 
             </div>
 
@@ -1585,7 +1953,9 @@ textarea {
             <div class="field">
 
                 <label for="spielniveau">
+
                     Spielniveau *
+
                 </label>
 
                 <select
@@ -1596,26 +1966,30 @@ textarea {
                 >
 
                     <option value="">
+
                         Bitte wählen
+
                     </option>
 
                     <option value="Anfänger">
+
                         Anfänger
+
                     </option>
 
                     <option value="Fortgeschritten">
+
                         Fortgeschritten
+
                     </option>
 
                     <option value="Leistungsbereich">
+
                         Leistungsbereich
+
                     </option>
 
                 </select>
-
-                <span
-                    data-fs-error="Spielniveau"
-                ></span>
 
             </div>
 
@@ -1623,7 +1997,9 @@ textarea {
             <div class="field">
 
                 <label for="position">
-                    Position *
+
+                    Positionen
+
                 </label>
 
                 <select
@@ -1632,38 +2008,52 @@ textarea {
                     class="position-select"
                     multiple
                     data-fs-field
-                    required
                 >
 
                     <option value="Torwart">
+
                         Torwart
+
                     </option>
 
                     <option value="Innenverteidiger">
+
                         Innenverteidiger
+
                     </option>
 
                     <option value="Außenverteidiger">
+
                         Außenverteidiger
+
                     </option>
 
                     <option value="6/8er">
+
                         6/8er
+
                     </option>
 
                     <option value="10er">
+
                         10er
+
                     </option>
 
                     <option value="Flügelspieler">
+
                         Flügelspieler
+
                     </option>
 
                     <option value="Stürmer">
+
                         Stürmer
+
                     </option>
 
                 </select>
+
 
                 <div class="position-hint">
 
@@ -1674,6 +2064,7 @@ textarea {
 
             </div>
 
+
         </div>
 
 
@@ -1683,15 +2074,20 @@ textarea {
 
         <div class="section">
 
+
             <div class="section-title">
+
                 Trainingswunsch
+
             </div>
 
 
             <div class="field">
 
                 <label for="standort">
+
                     Standort *
+
                 </label>
 
                 <select
@@ -1702,23 +2098,33 @@ textarea {
                 >
 
                     <option value="">
+
                         Bitte Standort auswählen
+
                     </option>
 
                     <option value="Walluf">
+
                         Walluf
+
                     </option>
 
                     <option value="Klein-Winternheim">
+
                         Klein-Winternheim
+
                     </option>
 
                     <option value="Heidesheim">
+
                         Heidesheim
+
                     </option>
 
                     <option value="Mainz-Bretzenheim">
+
                         Mainz-Bretzenheim
+
                     </option>
 
                 </select>
@@ -1728,10 +2134,13 @@ textarea {
 
             <div class="form-row">
 
+
                 <div class="field">
 
                     <label for="datum">
+
                         Gewünschtes Trainingsdatum *
+
                     </label>
 
                     <input
@@ -1748,7 +2157,9 @@ textarea {
                 <div class="field">
 
                     <label for="uhrzeit">
+
                         Wunschuhrzeit *
+
                     </label>
 
                     <input
@@ -1761,19 +2172,22 @@ textarea {
 
                 </div>
 
+
             </div>
 
 
             <div class="field">
 
                 <label for="fokus">
-                    Worauf soll der Trainingsfokus liegen?
+
+                    Trainingsfokus
+
                 </label>
 
                 <textarea
                     id="fokus"
                     name="Trainingsfokus"
-                    placeholder="z. B. erster Kontakt, Abschluss, Dribbling, 1 gegen 1, Technik ..."
+                    placeholder="Woran möchtet ihr besonders arbeiten? Welche Ziele habt ihr?"
                     data-fs-field
                 ></textarea>
 
@@ -1795,6 +2209,7 @@ textarea {
 
             </div>
 
+
         </div>
 
 
@@ -1804,15 +2219,20 @@ textarea {
 
         <div class="section">
 
+
             <div class="section-title">
+
                 Angaben zum Erziehungsberechtigten
+
             </div>
 
 
             <div class="field">
 
                 <label for="erziehungsberechtigter">
+
                     Name des Erziehungsberechtigten *
+
                 </label>
 
                 <input
@@ -1829,10 +2249,13 @@ textarea {
 
             <div class="form-row">
 
+
                 <div class="field">
 
                     <label for="telefon">
+
                         Telefonnummer *
+
                     </label>
 
                     <input
@@ -1850,7 +2273,9 @@ textarea {
                 <div class="field">
 
                     <label for="email">
+
                         E-Mail-Adresse *
+
                     </label>
 
                     <input
@@ -1864,7 +2289,9 @@ textarea {
 
                 </div>
 
+
             </div>
+
 
         </div>
 
@@ -1875,6 +2302,7 @@ textarea {
 
         <div class="checkbox">
 
+
             <input
                 type="checkbox"
                 id="datenschutz"
@@ -1883,6 +2311,7 @@ textarea {
                 data-fs-field
                 required
             >
+
 
             <label for="datenschutz">
 
@@ -1893,12 +2322,15 @@ textarea {
                     target="_blank"
                     rel="noopener"
                 >
+
                     Datenschutzerklärung
+
                 </a>
 
                 gelesen und zur Kenntnis genommen. *
 
             </label>
+
 
         </div>
 
@@ -1913,7 +2345,7 @@ textarea {
             data-fs-submit-btn
         >
 
-            ⚡ TRAINING ANFRAGEN
+            ⚡ DUO- & KLEINGRUPPENTRAINING ANFRAGEN
 
         </button>
 
@@ -1977,10 +2409,10 @@ formspree(
     {
 
         formElement:
-            "#individualtraining-form",
+            "#duo-form",
 
         formId:
-            "xoeadwwq",
+            "mwleqbjw",
 
 
         onSuccess:
