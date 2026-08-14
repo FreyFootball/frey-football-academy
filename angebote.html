@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Angebote | Frey Football Academy</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
+
+        body {
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(255, 122, 0, 0.18),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    180deg,
+                    #171717 0%,
+                    #0b0b0b 55%,
+                    #050505 100%
+                );
+
+            color: white;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =========================================
+           HAUPTBEREICH
+        ========================================= */
+
+        .container {
+
+            width: 92%;
+
+            max-width: 1100px;
+
+            margin: 0 auto;
+
+            padding: 35px 0 60px;
+
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .logo {
+
+            display: block;
+
+            width: 180px;
+
+            max-width: 70%;
+
+            height: auto;
+
+            margin: 0 auto 25px;
+
+        }
+
+
+        /* =========================================
+           TITEL
+        ========================================= */
+
+        h1 {
+
+            margin: 0;
+
+            text-align: center;
+
+            font-size: 42px;
+
+            line-height: 1.15;
+
+            font-weight: 800;
+
+        }
+
+
+        .intro {
+
+            max-width: 700px;
+
+            margin: 15px auto 45px;
+
+            text-align: center;
+
+            color: #aaa;
+
+            font-size: 18px;
+
+        }
+
+
+        .orange {
+
+            color: #ff7a00;
+
+        }
+
+
+        /* =========================================
+           ANGEBOT
+        ========================================= */
+
+        .offer {
+
+            margin-bottom: 35px;
+
+            background: rgba(18, 18, 18, 0.96);
+
+            border: 1px solid #333;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.35);
+
+        }
+
+
+        .offer-header {
+
+            padding: 28px 30px;
+
+            border-bottom: 1px solid #333;
+
+        }
+
+
+        .offer-header h2 {
+
+            margin: 0;
+
+            color: white;
+
+            font-size: 30px;
+
+            line-height: 1.2;
+
+        }
+
+
+        .offer-header p {
+
+            margin: 8px 0 0;
+
+            color: #999;
+
+            font-size: 16px;
+
+        }
+
+
+        /* =========================================
+           PREISE
+        ========================================= */
+
+        .prices {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+
+            padding: 25px 30px;
+
+        }
+
+
+        .price-card {
+
+            min-height: 150px;
+
+            padding: 20px;
+
+            border: 1px solid #3b3b3b;
+
+            border-radius: 12px;
+
+            background: #101010;
+
+            text-align: center;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+        }
+
+
+        .price-title {
+
+            color: #ddd;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .price {
+
+            color: #ff7a00;
+
+            font-size: 31px;
+
+            font-weight: 800;
+
+            line-height: 1.1;
+
+        }
+
+
+        .price-sub {
+
+            margin-top: 7px;
+
+            color: #888;
+
+            font-size: 13px;
+
+        }
+
+
+        /* =========================================
+           INHALT
+        ========================================= */
+
+        .offer-content {
+
+            padding: 0 30px 30px;
+
+        }
+
+
+        .offer-content h3 {
+
+            margin: 5px 0 12px;
+
+            color: #ff7a00;
+
+            font-size: 20px;
+
+        }
+
+
+        .offer-content ul {
+
+            margin: 0;
+
+            padding-left: 22px;
+
+            color: #ccc;
+
+        }
+
+
+        .offer-content li {
+
+            margin-bottom: 7px;
+
+        }
+
+
+        /* =========================================
+           INFO BOX
+        ========================================= */
+
+        .info-box {
+
+            margin-top: 22px;
+
+            padding: 18px 20px;
+
+            background:
+                rgba(255, 122, 0, 0.08);
+
+            border-left:
+                3px solid #ff7a00;
+
+            border-radius: 8px;
+
+            color: #ccc;
+
+        }
+
+
+        .info-box strong {
+
+            color: white;
+
+        }
+
+
+        /* =========================================
+           BUTTON
+        ========================================= */
+
+        .button {
+
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding: 14px 25px;
+
+            background: #ff7a00;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+
+        }
+
+
+        .button:hover {
+
+            background: #ff9500;
+
+            transform: translateY(-1px);
+
+        }
+
+
+        .button-secondary {
+
+            background: #222;
+
+            border: 1px solid #444;
+
+        }
+
+
+        .button-secondary:hover {
+
+            background: #333;
+
+        }
+
+
+        /* =========================================
+           FÖRDERTRAINING HIGHLIGHT
+        ========================================= */
+
+        .featured {
+
+            border:
+                1px solid rgba(255, 122, 0, 0.6);
+
+            box-shadow:
+                0 0 35px rgba(255, 122, 0, 0.08),
+                0 15px 40px rgba(0, 0, 0, 0.35);
+
+        }
+
+
+        .featured-label {
+
+            display: inline-block;
+
+            margin-bottom: 12px;
+
+            padding: 6px 12px;
+
+            background: #ff7a00;
+
+            color: white;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 0.5px;
+
+        }
+
+
+        /* =========================================
+           FÖRDERTRAINING DETAILS
+        ========================================= */
+
+        .features {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+
+        }
+
+
+        .feature {
+
+            padding: 15px;
+
+            background: #111;
+
+            border: 1px solid #2f2f2f;
+
+            border-radius: 9px;
+
+            color: #ccc;
+
+        }
+
+
+        .feature strong {
+
+            display: block;
+
+            color: white;
+
+            margin-bottom: 3px;
+
+        }
+
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .cta {
+
+            margin-top: 50px;
+
+            padding: 35px 25px;
+
+            text-align: center;
+
+            border:
+                1px solid #333;
+
+            border-radius: 16px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 122, 0, 0.10),
+                    rgba(20, 20, 20, 0.95)
+                );
+
+        }
+
+
+        .cta h2 {
+
+            margin: 0 0 10px;
+
+            font-size: 28px;
+
+        }
+
+
+        .cta p {
+
+            margin: 0;
+
+            color: #aaa;
+
+        }
+
+
+        /* =========================================
+           ZURÜCK
+        ========================================= */
+
+        .back {
+
+            display: block;
+
+            width: fit-content;
+
+            margin: 35px auto 0;
+
+            padding: 12px 22px;
+
+            background: #222;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+        }
+
+
+        .back:hover {
+
+            background: #333;
+
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .footer {
+
+            margin-top: 40px;
+
+            text-align: center;
+
+            color: #666;
+
+            font-size: 13px;
+
+        }
+
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (max-width: 850px) {
+
+            .prices {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        /* =========================================
+           HANDY
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .container {
+
+                width: 94%;
+
+                padding-top: 25px;
+
+            }
+
+
+            .logo {
+
+                width: 170px;
+
+            }
+
+
+            h1 {
+
+                font-size: 32px;
+
+            }
+
+
+            .intro {
+
+                font-size: 16px;
+
+                margin-bottom: 30px;
+
+            }
+
+
+            .offer-header {
+
+                padding: 23px 20px;
+
+            }
+
+
+            .offer-header h2 {
+
+                font-size: 25px;
+
+            }
+
+
+            .prices {
+
+                grid-template-columns: 1fr;
+
+                padding: 20px;
+
+            }
+
+
+            .price-card {
+
+                min-height: 125px;
+
+            }
+
+
+            .offer-content {
+
+                padding: 0 20px 25px;
+
+            }
+
+
+            .features {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .cta {
+
+                padding: 28px 20px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- =========================================
+         LOGO
+    ========================================= -->
+
+    <img
+        src="assets/logo.png"
+        alt="Frey Football Academy"
+        class="logo"
+    >
+
+
+    <!-- =========================================
+         TITEL
+    ========================================= -->
+
+    <h1>
+
+        Unsere
+        <span class="orange">
+            Angebote
+        </span>
+
+    </h1>
+
+
+    <p class="intro">
+
+        Individuelle Förderung, intensives Training
+        und nachhaltige Entwicklung – passend zu
+        den Zielen und dem Entwicklungsstand jedes Spielers.
+
+    </p>
+
+
+
+    <!-- =====================================================
+         1. INDIVIDUALTRAINING
+    ====================================================== -->
+
+    <section class="offer">
+
+
+        <div class="offer-header">
+
+            <h2>
+                Individualtraining
+            </h2>
+
+            <p>
+                Persönlich. Präzise. Zielorientiert.
+            </p>
+
+        </div>
+
+
+        <div class="prices">
+
+
+            <!-- PERFORMANCE CHECK -->
+
+            <div class="price-card">
+
+                <div class="price-title">
+                    FFA Performance Check
+                </div>
+
+                <div class="price">
+                    50 €
+                </div>
+
+                <div class="price-sub">
+                    60 Minuten · 1. Training
+                </div>
+
+            </div>
+
+
+            <!-- INDIVIDUAL -->
+
+            <div class="price-card">
+
+                <div class="price-title">
+                    Individualtraining
+                </div>
+
+                <div class="price">
+                    75 €
+                </div>
+
+                <div class="price-sub">
+                    60 Minuten
+                </div>
+
+            </div>
+
+
+            <!-- 5ER -->
+
+            <div class="price-card">
+
+                <div class="price-title">
+                    5er-Karte
+                </div>
+
+                <div class="price">
+                    350 €
+                </div>
+
+                <div class="price-sub">
+                    5 × Training
+                </div>
+
+            </div>
+
+
+            <!-- 10ER -->
+
+            <div class="price-card">
+
+                <div class="price-title">
+                    10er-Karte
+                </div>
+
+                <div class="price">
+                    650 €
+                </div>
+
+                <div class="price-sub">
+                    10 × Training
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="offer-content">
+
+
+            <h3>
+                Für wen geeignet?
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    Individuelle technische Entwicklung
+                </li>
+
+                <li>
+                    Gezielte Arbeit an persönlichen Stärken und Schwächen
+                </li>
+
+                <li>
+                    Positionsspezifisches Training
+                </li>
+
+                <li>
+                    Intensive Betreuung im 1-zu-1-Training
+                </li>
+
+            </ul>
+
+
+            <a
+                href="individualtraining.html"
+                class="button"
+            >
+                Individualtraining anfragen
+            </a>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         2. DUO & KLEINGRUPPEN
+    ====================================================== -->
+
+    <section class="offer">
+
+
+        <div class="offer-header">
+
+            <h2>
+                Duo- & Kleingruppentraining
+            </h2>
+
+            <p>
+                Motivierend. Intensiv. Spielnah.
+            </p>
+
+        </div>
+
+
+        <div class="prices">
+
+
+            <!-- DUO -->
+
+            <div class="price-card">
+
+                <div class="price-title">
+                    Duo Training
+                </div>
+
+                <div class="price">
+                    45 €
+                </div>
+
+                <div class="price-sub">
+                    pro Person · 45 Minuten
+                </div>
+
+            </div>
+
+
+            <!-- PERFORMANCE DUO -->
+
+            <div class="price-card">
+
+                <div class="price-title">
+                    FFA Performance Check
+                </div>
+
+                <div class="price">
+                    35 €
+                </div>
+
+                <div class="price-sub">
+                    pro Person
+                </div>
+
+            </div>
+
+
+            <!-- 3 SPIELER -->
+
+            <div class="price-card">
+
+                <div class="price-title">
+                    Kleingruppe · 3 Spieler
+                </div>
+
+                <div class="price">
+                    35 €
+                </div>
+
+                <div class="price-sub">
+                    pro Person
+                </div>
+
+            </div>
+
+
+            <!-- 4 SPIELER -->
+
+            <div class="price-card">
+
+                <div class="price-title">
+                    Kleingruppe · 4 Spieler
+                </div>
+
+                <div class="price">
+                    30 €
+                </div>
+
+                <div class="price-sub">
+                    pro Person
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="offer-content">
+
+
+            <h3>
+                Gemeinsam besser werden
+            </h3>
+
+
+            <ul>
+
+                <li>
+                    Training mit einem festen Trainingspartner
+                </li>
+
+                <li>
+                    Kleine Gruppen mit hoher Trainingsintensität
+                </li>
+
+                <li>
+                    Viele Ballaktionen und Wiederholungen
+                </li>
+
+                <li>
+                    Spielnahe Trainingsformen
+                </li>
+
+            </ul>
+
+
+            <div class="info-box">
+
+                <strong>
+                    Erste Einheit unverbindlich
+                </strong>
+
+                <br>
+
+                Die erste Einheit kann zum regulären Preis
+                unverbindlich absolviert werden.
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         3. FÖRDERTRAINING
+    ====================================================== -->
+
+    <section class="offer featured">
+
+
+        <div class="offer-header">
+
+
+            <span class="featured-label">
+                FFA FÖRDERPROGRAMM
+            </span>
+
+
+            <h2>
+                Fördertraining
+            </h2>
+
+
+            <p>
+                Gemeinsam. Zielgerichtet. Nachhaltig.
+            </p>
+
+
+        </div>
+
+
+        <div class="prices">
+
+
+            <!-- SCHNUPPERTRAINING -->
+
+            <div class="price-card">
+
+                <div class="price-title">
+                    1. Training
+                </div>
+
+                <div class="price">
+                    0 €
+                </div>
+
+                <div class="price-sub">
+                    Kostenloses Schnuppertraining
+                </div>
+
+            </div>
+
+
+            <!-- TRAININGSDAUER -->
+
+            <div class="price-card">
+
+                <div class="price-title">
+                    Trainingsdauer
+                </div>
+
+                <div class="price">
+                    75
+                </div>
+
+                <div class="price-sub">
+                    Minuten pro Woche
+                </div>
+
+            </div>
+
+
+            <!-- GRUPPE -->
+
+            <div class="price-card">
+
+                <div class="price-title">
+                    Gruppengröße
+                </div>
+
+                <div class="price">
+                    max. 10
+                </div>
+
+                <div class="price-sub">
+                    Spieler pro Gruppe
+                </div>
+
+            </div>
+
+
+            <!-- PREIS -->
+
+            <div class="price-card">
+
+                <div class="price-title">
+                    Monatsbeitrag
+                </div>
+
+                <div class="price">
+                    80 €
+                </div>
+
+                <div class="price-sub">
+                    pro Monat
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="offer-content">
+
+
+            <h3>
+                Das Fördertraining bietet
+            </h3>
+
+
+            <div class="features">
+
+
+                <div class="feature">
+
+                    <strong>
+                        Kostenloses Schnuppertraining
+                    </strong>
+
+                    Erste Einheit kostenfrei kennenlernen.
+
+                </div>
+
+
+                <div class="feature">
+
+                    <strong>
+                        75 Minuten pro Woche
+                    </strong>
+
+                    Regelmäßiges und strukturiertes Training.
+
+                </div>
+
+
+                <div class="feature">
+
+                    <strong>
+                        Maximal 10 Spieler
+                    </strong>
+
+                    Kleine Gruppen für individuelle Betreuung.
+
+                </div>
+
+
+                <div class="feature">
+
+                    <strong>
+                        Individuelle Förderung
+                    </strong>
+
+                    Entwicklung von Stärken und persönlichen
+                    Entwicklungsfeldern.
+
+                </div>
+
+
+                <div class="feature">
+
+                    <strong>
+                        Einstieg jederzeit
+                    </strong>
+
+                    Einstieg bei freien Kapazitäten möglich.
+
+                </div>
+
+
+                <div class="feature">
+
+                    <strong>
+                        Monatliche Abrechnung
+                    </strong>
+
+                    Transparente monatliche Teilnahmegebühr.
+
+                </div>
+
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>
+                    Vorteil für Fördertraining-Teilnehmer:
+                </strong>
+
+                <br>
+
+                10 % Rabatt auf alle weiteren Trainingsangebote
+                der Frey Football Academy.
+
+            </div>
+
+
+            <a
+                href="foerdertraining.html"
+                class="button"
+            >
+                Jetzt fürs Fördertraining anmelden
+            </a>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+    <div class="cta">
+
+
+        <h2>
+
+            Bereit für den nächsten
+            <span class="orange">
+                Schritt?
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Wähle das passende Trainingsangebot
+            und starte deine Entwicklung mit der FFA.
+
+        </p>
+
+
+        <a
+            href="foerdertraining.html"
+            class="button"
+        >
+            Fördertraining anmelden
+        </a>
+
+
+        <a
+            href="individualtraining.html"
+            class="button button-secondary"
+        >
+            Individualtraining anfragen
+        </a>
+
+
+    </div>
+
+
+
+    <!-- ZURÜCK -->
+
+    <a
+        href="index.html"
+        class="back"
+    >
+        ← Zurück zur Startseite
+    </a>
+
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        Frey Football Academy · Train. Develop. Succeed.
+
+        <br><br>
+
+        Fritz-Kohl-Str. 3c · 55122 Mainz
+
+        · +49 173 3176916
+
+        · info@freyfootballacademy.com
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>
