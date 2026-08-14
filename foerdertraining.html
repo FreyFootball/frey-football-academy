@@ -10,7 +10,7 @@
     content="width=device-width, initial-scale=1.0"
 >
 
-<title>Fördertraining anmelden | Frey Football Academy</title>
+<title>Fördertraining | Frey Football Academy</title>
 
 
 <style>
@@ -1184,6 +1184,16 @@ input[type="date"] {
 }
 
 
+.submit:disabled {
+
+    opacity: 0.65;
+
+    cursor: wait;
+
+    transform: none;
+}
+
+
 /* =========================================================
    ZURÜCK
 ========================================================= */
@@ -1400,7 +1410,7 @@ input[type="date"] {
 
 <!-- =======================================================
      PARTIKEL
-======================================================== -->
+========================================================= -->
 
 <div class="particles">
 
@@ -1472,7 +1482,7 @@ input[type="date"] {
 
 <!-- =======================================================
      SCHWEBENDE FUSSBÄLLE
-======================================================== -->
+========================================================= -->
 
 <div class="football one">
     ⚽
@@ -1489,7 +1499,7 @@ input[type="date"] {
 
 <!-- =======================================================
      HAUPTINHALT
-======================================================== -->
+========================================================= -->
 
 <div class="container">
 
@@ -1510,14 +1520,14 @@ input[type="date"] {
     <!-- TITEL -->
 
     <h1>
-        Fördertraining anmelden
+        Anmeldung zum Fördertraining
     </h1>
 
 
     <p class="intro">
 
-        Melde deinen Spieler online für das Fördertraining
-        der Frey Football Academy an.
+        Hier kannst du dein Kind für das Fördertraining
+        der Frey Football Academy anmelden.
 
     </p>
 
@@ -1525,7 +1535,6 @@ input[type="date"] {
     <!-- FORMULAR -->
 
     <form
-        action="https://formspree.io/f/xoeadwwq"
         method="POST"
         id="foerdertraining-form"
     >
@@ -1736,35 +1745,6 @@ input[type="date"] {
 
 
         <!-- ================================= -->
-        <!-- ANMELDUNG -->
-        <!-- ================================= -->
-
-        <div class="section">
-
-            <div class="section-title">
-                Anmeldung
-            </div>
-
-
-            <div class="field">
-
-                <label for="anmeldedatum">
-                    Datum *
-                </label>
-
-                <input
-                    type="date"
-                    id="anmeldedatum"
-                    name="Datum der Anmeldung"
-                    required
-                >
-
-            </div>
-
-        </div>
-
-
-        <!-- ================================= -->
         <!-- TEILNAHMEBEDINGUNGEN -->
         <!-- ================================= -->
 
@@ -1898,7 +1878,7 @@ input[type="date"] {
             class="submit"
         >
 
-            FÖRDERTRAINING ANMELDEN
+            Jetzt anmelden
 
         </button>
 
@@ -1910,10 +1890,10 @@ input[type="date"] {
 
     <a
         class="back"
-        href="leistungen.html"
+        href="index.html"
     >
 
-        ← Zurück zu den Trainingsangeboten
+        ← Zurück zur Startseite
 
     </a>
 
@@ -1938,6 +1918,99 @@ input[type="date"] {
 
 
 </div>
+
+
+<!-- =======================================================
+     FORMSPREE + BESTÄTIGUNGSSEITE
+========================================================= -->
+
+<script>
+
+const form =
+    document.getElementById(
+        "foerdertraining-form"
+    );
+
+
+form.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const button =
+            form.querySelector(".submit");
+
+
+        const originalText =
+            button.innerHTML;
+
+
+        button.disabled = true;
+
+        button.innerHTML =
+            "⏳ WIRD GESENDET ...";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    "https://formspree.io/f/xoeadwwq",
+                    {
+
+                        method: "POST",
+
+                        body:
+                            new FormData(form),
+
+                        headers: {
+
+                            "Accept":
+                                "application/json"
+
+                        }
+
+                    }
+                );
+
+
+            if (response.ok) {
+
+                window.location.href =
+                    "anfrage-erfolgreich.html";
+
+                return;
+
+            }
+
+
+            throw new Error(
+                "Formular konnte nicht gesendet werden."
+            );
+
+        }
+
+
+        catch (error) {
+
+            alert(
+                "Die Anmeldung konnte gerade nicht gesendet werden. Bitte versuche es erneut."
+            );
+
+
+            button.disabled = false;
+
+            button.innerHTML =
+                originalText;
+
+        }
+
+    }
+);
+
+</script>
 
 
 </body>
