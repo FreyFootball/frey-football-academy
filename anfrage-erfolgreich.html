@@ -3,1130 +3,1062 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <title>Anfrage eingegangen | Frey Football Academy</title>
+<title>Anfrage erfolgreich | Frey Football Academy</title>
 
 
-    <style>
+<style>
 
-        * {
-            box-sizing: border-box;
-        }
+/* =========================================================
+   GRUNDLAGEN
+========================================================= */
 
+* {
+    box-sizing: border-box;
+}
 
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            min-height: 100%;
-        }
 
+html,
+body {
 
-        body {
+    width: 100%;
 
-            min-height: 100vh;
+    min-height: 100%;
 
-            display: flex;
+    margin: 0;
 
-            align-items: center;
+    padding: 0;
+}
 
-            justify-content: center;
 
-            overflow: hidden;
+body {
 
-            background:
-                radial-gradient(
-                    circle at 50% 15%,
-                    rgba(255, 122, 0, 0.28),
-                    transparent 32%
-                ),
-                radial-gradient(
-                    circle at 10% 85%,
-                    rgba(255, 122, 0, 0.08),
-                    transparent 30%
-                ),
-                linear-gradient(
-                    180deg,
-                    #181818 0%,
-                    #0d0d0d 50%,
-                    #050505 100%
-                );
+    min-height: 100vh;
 
-            color: white;
+    display: flex;
 
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
+    align-items: center;
 
-            position: relative;
+    justify-content: center;
 
-        }
+    overflow-x: hidden;
 
+    color: #ffffff;
 
-        /* =========================================
-           ANIMIERTER HINTERGRUND
-        ========================================= */
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-        body::before {
+    background:
 
-            content: "";
+        radial-gradient(
+            circle at 50% 8%,
+            rgba(255, 122, 0, 0.24),
+            transparent 32%
+        ),
 
-            position: fixed;
+        radial-gradient(
+            circle at 10% 70%,
+            rgba(255, 122, 0, 0.06),
+            transparent 28%
+        ),
 
-            inset: -50%;
+        radial-gradient(
+            circle at 90% 85%,
+            rgba(255, 122, 0, 0.05),
+            transparent 28%
+        ),
 
-            pointer-events: none;
+        linear-gradient(
+            180deg,
+            #181818 0%,
+            #0d0d0d 50%,
+            #050505 100%
+        );
 
-            background:
-                conic-gradient(
-                    from 0deg,
-                    transparent,
-                    rgba(255, 122, 0, 0.06),
-                    transparent,
-                    rgba(255, 255, 255, 0.025),
-                    transparent
-                );
+    position: relative;
+}
 
-            animation:
-                rotateBackground 20s linear infinite;
 
-            z-index: 0;
+/* =========================================================
+   ANIMIERTER HINTERGRUND
+========================================================= */
 
-        }
+body::before {
 
+    content: "";
 
-        body::after {
+    position: fixed;
 
-            content: "";
+    inset: -50%;
 
-            position: fixed;
+    pointer-events: none;
 
-            width: 600px;
-            height: 600px;
+    background:
 
-            left: 50%;
-            top: 50%;
+        conic-gradient(
+            from 0deg,
+            transparent 0deg,
+            rgba(255, 122, 0, 0.035) 80deg,
+            transparent 150deg,
+            rgba(255, 255, 255, 0.015) 230deg,
+            transparent 310deg
+        );
 
-            transform:
-                translate(-50%, -50%);
+    animation:
+        backgroundRotate
+        30s
+        linear
+        infinite;
 
-            border-radius: 50%;
+    z-index: 0;
+}
 
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(255, 122, 0, 0.10),
-                    transparent 68%
-                );
 
-            filter: blur(30px);
+body::after {
 
-            pointer-events: none;
+    content: "";
 
-            animation:
-                backgroundPulse 4s ease-in-out infinite;
+    position: fixed;
 
-            z-index: 0;
+    width: 550px;
 
-        }
+    height: 550px;
 
+    left: 50%;
 
-        @keyframes rotateBackground {
+    top: 0;
 
-            from {
-                transform: rotate(0deg);
-            }
+    transform:
+        translate(-50%, -50%);
 
-            to {
-                transform: rotate(360deg);
-            }
+    border-radius: 50%;
 
-        }
+    background:
 
+        radial-gradient(
+            circle,
+            rgba(255, 122, 0, 0.16),
+            transparent 68%
+        );
 
-        @keyframes backgroundPulse {
+    filter: blur(35px);
 
-            0%,
-            100% {
+    pointer-events: none;
 
-                opacity: 0.45;
+    animation:
+        glowPulse
+        5s
+        ease-in-out
+        infinite;
 
-                scale: 0.9;
+    z-index: 0;
+}
 
-            }
 
-            50% {
+@keyframes backgroundRotate {
 
-                opacity: 1;
+    from {
+        rotate: 0deg;
+    }
 
-                scale: 1.1;
+    to {
+        rotate: 360deg;
+    }
+}
 
-            }
 
-        }
+@keyframes glowPulse {
 
+    0%,
+    100% {
 
-        /* =========================================
-           PARTIKEL
-        ========================================= */
+        opacity: 0.45;
 
-        .particles {
+        scale: 0.92;
+    }
 
-            position: fixed;
+    50% {
 
-            inset: 0;
+        opacity: 1;
 
-            overflow: hidden;
+        scale: 1.08;
+    }
+}
 
-            pointer-events: none;
 
-            z-index: 1;
+/* =========================================================
+   PARTIKEL
+========================================================= */
 
-        }
+.particles {
 
+    position: fixed;
 
-        .particle {
+    inset: 0;
 
-            position: absolute;
+    overflow: hidden;
 
-            bottom: -10px;
+    pointer-events: none;
 
-            width: 4px;
-            height: 4px;
+    z-index: 1;
+}
 
-            border-radius: 50%;
 
-            background: #ff7a00;
+.particle {
 
-            box-shadow:
-                0 0 8px #ff7a00,
-                0 0 18px rgba(255, 122, 0, 0.5);
+    position: absolute;
 
-            opacity: 0;
+    bottom: -20px;
 
-            animation:
-                particleFloat linear infinite;
+    width: 4px;
 
-        }
+    height: 4px;
 
+    border-radius: 50%;
 
-        @keyframes particleFloat {
+    background: #ff7a00;
 
-            0% {
+    box-shadow:
+        0 0 8px #ff7a00,
+        0 0 18px rgba(255, 122, 0, 0.5);
 
-                transform:
-                    translateY(0)
-                    translateX(0)
-                    scale(0.4);
+    opacity: 0;
 
-                opacity: 0;
+    animation:
+        particleFloat
+        linear
+        infinite;
+}
 
-            }
 
-            10% {
-                opacity: 0.7;
-            }
+@keyframes particleFloat {
 
-            50% {
-                opacity: 1;
-            }
+    0% {
 
-            90% {
-                opacity: 0.4;
-            }
+        transform:
+            translate3d(0, 0, 0)
+            scale(0.4);
 
-            100% {
+        opacity: 0;
+    }
 
-                transform:
-                    translateY(-110vh)
-                    translateX(90px)
-                    scale(1.2);
+    10% {
+        opacity: 0.45;
+    }
 
-                opacity: 0;
+    50% {
+        opacity: 0.9;
+    }
 
-            }
+    90% {
+        opacity: 0.25;
+    }
 
-        }
+    100% {
 
+        transform:
+            translate3d(80px, -110vh, 0)
+            scale(1.15);
 
-        /* =========================================
-           SCHWEBENDER FUSSBALL
-        ========================================= */
+        opacity: 0;
+    }
+}
 
-        .football {
 
-            position: fixed;
+/* =========================================================
+   HAUPTCONTAINER
+========================================================= */
 
-            font-size: 70px;
+.container {
 
-            opacity: 0.055;
+    position: relative;
 
-            pointer-events: none;
+    z-index: 2;
 
-            z-index: 1;
+    width: 100%;
 
-            animation:
-                footballFloat 6s ease-in-out infinite,
-                footballRotate 12s linear infinite;
+    max-width: 700px;
 
-        }
+    margin: 0 auto;
 
+    padding:
+        35px
+        20px
+        45px;
 
-        .football.one {
+    text-align: center;
+}
 
-            left: 5%;
 
-            top: 18%;
+/* =========================================================
+   LOGO-CONTAINER
+   WICHTIG:
+   Das Logo wird ausschließlich über Flexbox zentriert.
+========================================================= */
 
-        }
+.logo-container {
 
+    width: 100%;
 
-        .football.two {
+    display: flex;
 
-            right: 5%;
+    align-items: center;
 
-            bottom: 13%;
+    justify-content: center;
 
-            font-size: 85px;
+    text-align: center;
 
-            animation-delay: -3s;
+    margin:
+        0
+        0
+        35px;
 
-        }
+    animation:
+        logoEntrance
+        0.9s
+        cubic-bezier(.16,1,.3,1)
+        both;
+}
 
 
-        @keyframes footballFloat {
+/* =========================================================
+   LOGO-GLOW
+========================================================= */
 
-            0%,
-            100% {
+.logo-area {
 
-                transform:
-                    translateY(0);
+    position: relative;
 
-            }
+    display: flex;
 
-            50% {
+    align-items: center;
 
-                transform:
-                    translateY(-25px);
+    justify-content: center;
 
-            }
+    width: 250px;
 
-        }
+    height: 250px;
+}
 
 
-        @keyframes footballRotate {
+.logo-area::before {
 
-            from {
-                rotate: 0deg;
-            }
+    content: "";
 
-            to {
-                rotate: 360deg;
-            }
+    position: absolute;
 
-        }
+    width: 280px;
 
+    height: 280px;
 
-        /* =========================================
-           CONTAINER
-        ========================================= */
+    left: 50%;
 
-        .container {
+    top: 50%;
 
-            position: relative;
+    transform:
+        translate(-50%, -50%);
 
-            z-index: 2;
+    border-radius: 50%;
 
-            width: 90%;
+    background:
 
-            max-width: 680px;
+        radial-gradient(
+            circle,
+            rgba(255, 122, 0, 0.24),
+            transparent 67%
+        );
 
-            text-align: center;
+    filter: blur(20px);
 
-            padding: 35px 0;
+    animation:
+        logoGlow
+        3.5s
+        ease-in-out
+        infinite;
 
-        }
+    pointer-events: none;
+}
 
 
-        /* =========================================
-           LOGO
-        ========================================= */
+/* =========================================================
+   LOGO
+========================================================= */
 
-        .logo-wrapper {
+.logo {
 
-            position: relative;
+    position: relative;
 
-            width: fit-content;
+    display: block;
 
-            margin: 0 auto 30px;
+    width: 210px;
 
-            animation:
-                logoEntrance 1s
-                cubic-bezier(.16,1,.3,1)
-                both;
+    height: auto;
 
-        }
+    max-width: 100%;
 
+    margin: 0;
 
-        .logo-wrapper::before {
+    object-fit: contain;
 
-            content: "";
+    z-index: 2;
 
-            position: absolute;
+    filter:
+        drop-shadow(
+            0 0 22px
+            rgba(255, 122, 0, 0.25)
+        );
 
-            inset: -45px;
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
+}
 
-            border-radius: 50%;
 
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(255, 122, 0, 0.25),
-                    transparent 65%
-                );
+.logo:hover {
 
-            filter: blur(18px);
+    transform:
+        scale(1.05);
 
-            animation:
-                logoGlow 3s ease-in-out infinite;
+    filter:
+        drop-shadow(
+            0 0 35px
+            rgba(255, 122, 0, 0.55)
+        );
+}
 
-            z-index: -1;
 
-        }
+@keyframes logoEntrance {
 
+    from {
 
-        .logo {
+        opacity: 0;
 
-            display: block;
+        transform:
+            translateY(-30px)
+            scale(0.82);
+    }
 
-            width: 210px;
+    to {
 
-            max-width: 70%;
+        opacity: 1;
 
-            height: auto;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
 
-            filter:
-                drop-shadow(
-                    0 0 20px
-                    rgba(255, 122, 0, 0.25)
-                );
 
-            transition:
-                transform 0.4s ease,
-                filter 0.4s ease;
+@keyframes logoGlow {
 
-        }
+    0%,
+    100% {
 
+        opacity: 0.45;
 
-        .logo:hover {
+        transform:
+            translate(-50%, -50%)
+            scale(0.9);
+    }
 
-            transform:
-                scale(1.05)
-                rotate(-1deg);
+    50% {
 
-            filter:
-                drop-shadow(
-                    0 0 32px
-                    rgba(255, 122, 0, 0.55)
-                );
+        opacity: 1;
 
-        }
+        transform:
+            translate(-50%, -50%)
+            scale(1.12);
+    }
+}
 
 
-        @keyframes logoEntrance {
+/* =========================================================
+   ERFOLGSBOX
+========================================================= */
 
-            from {
+.box {
 
-                opacity: 0;
+    position: relative;
 
-                transform:
-                    translateY(-35px)
-                    scale(0.8);
+    width: 100%;
 
-            }
+    padding:
+        42px
+        32px;
 
-            to {
+    background:
 
-                opacity: 1;
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(18, 18, 18, 0.96)
+        );
 
-                transform:
-                    translateY(0)
-                    scale(1);
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
 
-            }
+    border-radius: 22px;
 
-        }
+    box-shadow:
 
+        0 25px 70px
+        rgba(0, 0, 0, 0.48),
 
-        @keyframes logoGlow {
+        0 0 35px
+        rgba(255, 122, 0, 0.04);
 
-            0%,
-            100% {
+    backdrop-filter: blur(14px);
 
-                opacity: 0.5;
+    overflow: hidden;
 
-                transform: scale(0.9);
+    animation:
+        boxEntrance
+        0.9s
+        0.2s
+        cubic-bezier(.16,1,.3,1)
+        both;
+}
 
-            }
 
-            50% {
+.box::before {
 
-                opacity: 1;
+    content: "";
 
-                transform: scale(1.15);
+    position: absolute;
 
-            }
+    top: 0;
 
-        }
+    left: -120%;
 
+    width: 65%;
 
-        /* =========================================
-           SUCCESS BOX
-        ========================================= */
+    height: 100%;
 
-        .box {
+    background:
 
-            position: relative;
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 122, 0, 0.045),
+            transparent
+        );
 
-            padding: 45px 35px;
+    transform:
+        skewX(-20deg);
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255, 255, 255, 0.07),
-                    rgba(255, 255, 255, 0.025)
-                );
+    pointer-events: none;
 
-            border:
-                1px solid
-                rgba(255, 255, 255, 0.10);
+    animation:
+        boxShine
+        8s
+        ease-in-out
+        infinite;
+}
 
-            border-radius: 22px;
 
-            box-shadow:
-                0 25px 70px
-                rgba(0, 0, 0, 0.45);
+@keyframes boxEntrance {
 
-            backdrop-filter: blur(15px);
+    from {
 
-            overflow: hidden;
+        opacity: 0;
 
-            animation:
-                boxEntrance 0.9s 0.2s
-                cubic-bezier(.16,1,.3,1)
-                both;
+        transform:
+            translateY(30px)
+            scale(0.97);
+    }
 
-        }
+    to {
 
+        opacity: 1;
 
-        .box::before {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
 
-            content: "";
 
-            position: absolute;
+@keyframes boxShine {
 
-            top: 0;
-            left: -120%;
+    0%,
+    60% {
+        left: -120%;
+    }
 
-            width: 65%;
-            height: 100%;
+    80%,
+    100% {
+        left: 160%;
+    }
+}
 
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255, 255, 255, 0.06),
-                    transparent
-                );
 
-            transform: skewX(-20deg);
+/* =========================================================
+   CHECK
+========================================================= */
 
-            animation:
-                shine 6s ease-in-out infinite;
+.check {
 
-            pointer-events: none;
+    position: relative;
 
-        }
+    width: 78px;
 
+    height: 78px;
 
-        .box::after {
+    margin:
+        0
+        auto
+        25px;
 
-            content: "";
+    display: flex;
 
-            position: absolute;
+    align-items: center;
 
-            top: 0;
-            left: 15%;
-            right: 15%;
+    justify-content: center;
 
-            height: 1px;
+    border-radius: 50%;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255, 122, 0, 0.7),
-                    transparent
-                );
+    background:
 
-            box-shadow:
-                0 0 20px
-                rgba(255, 122, 0, 0.4);
+        linear-gradient(
+            135deg,
+            #ff9500,
+            #ff6200
+        );
 
-        }
+    color: #ffffff;
 
+    font-size: 42px;
 
-        @keyframes boxEntrance {
+    font-weight: 900;
 
-            from {
+    box-shadow:
 
-                opacity: 0;
+        0 12px 30px
+        rgba(0, 0, 0, 0.35),
 
-                transform:
-                    translateY(35px)
-                    scale(0.96);
+        0 0 30px
+        rgba(255, 122, 0, 0.28);
 
-            }
+    animation:
+        checkPop
+        0.8s
+        0.35s
+        cubic-bezier(.16,1,.3,1)
+        both;
+}
 
-            to {
 
-                opacity: 1;
+.check::after {
 
-                transform:
-                    translateY(0)
-                    scale(1);
+    content: "";
 
-            }
+    position: absolute;
 
-        }
+    inset: -8px;
 
+    border:
+        1px solid
+        rgba(255, 122, 0, 0.28);
 
-        @keyframes shine {
+    border-radius: 50%;
 
-            0%,
-            55% {
-                left: -120%;
-            }
+    animation:
+        checkRing
+        2.5s
+        ease-out
+        infinite;
+}
 
-            75%,
-            100% {
-                left: 160%;
-            }
 
-        }
+@keyframes checkPop {
 
+    from {
 
-        /* =========================================
-           CHECK CIRCLE
-        ========================================= */
+        opacity: 0;
 
-        .check-wrapper {
+        transform:
+            scale(0.4)
+            rotate(-20deg);
+    }
 
-            position: relative;
+    to {
 
-            width: 88px;
-            height: 88px;
+        opacity: 1;
 
-            margin: 0 auto 28px;
+        transform:
+            scale(1)
+            rotate(0deg);
+    }
+}
 
-        }
 
+@keyframes checkRing {
 
-        .check-wrapper::before,
-        .check-wrapper::after {
+    0% {
 
-            content: "";
+        opacity: 0.7;
 
-            position: absolute;
+        transform:
+            scale(0.9);
+    }
 
-            inset: 0;
+    100% {
 
-            border-radius: 50%;
+        opacity: 0;
 
-            border:
-                1px solid
-                rgba(255, 122, 0, 0.35);
+        transform:
+            scale(1.35);
+    }
+}
 
-            animation:
-                checkRing 2.5s ease-out infinite;
 
-        }
+/* =========================================================
+   TEXT
+========================================================= */
 
+h1 {
 
-        .check-wrapper::after {
+    margin:
+        0
+        0
+        15px;
 
-            animation-delay: 1.25s;
+    color: #ffffff;
 
-        }
+    font-size: 34px;
 
+    line-height: 1.2;
 
-        @keyframes checkRing {
+    font-weight: 900;
 
-            0% {
+    letter-spacing: -0.5px;
+}
 
-                transform: scale(0.8);
 
-                opacity: 0.8;
+.orange {
 
-            }
+    color: #ff7a00;
 
-            100% {
+    text-shadow:
+        0 0 20px
+        rgba(255, 122, 0, 0.22);
+}
 
-                transform: scale(1.8);
 
-                opacity: 0;
+.title-line {
 
-            }
+    width: 65px;
 
-        }
+    height: 4px;
 
+    margin:
+        18px
+        auto
+        25px;
 
-        .check {
+    border-radius: 10px;
 
-            position: relative;
+    background: #ff7a00;
 
-            width: 76px;
-            height: 76px;
+    box-shadow:
+        0 0 15px
+        rgba(255, 122, 0, 0.6);
 
-            margin: 6px;
+    animation:
+        lineGrow
+        0.8s
+        0.55s
+        cubic-bezier(.16,1,.3,1)
+        both;
+}
 
-            display: flex;
 
-            align-items: center;
+@keyframes lineGrow {
 
-            justify-content: center;
+    from {
+        width: 0;
+    }
 
-            border-radius: 50%;
+    to {
+        width: 65px;
+    }
+}
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff9500,
-                    #ff6200
-                );
 
-            box-shadow:
-                0 0 0 5px
-                    rgba(255, 122, 0, 0.08),
+p {
 
-                0 0 30px
-                    rgba(255, 122, 0, 0.35),
+    margin:
+        0
+        auto
+        16px;
 
-                0 12px 30px
-                    rgba(0, 0, 0, 0.4);
+    max-width: 560px;
 
-            font-size: 40px;
+    color: #bbb;
 
-            font-weight: bold;
+    font-size: 17px;
 
-            animation:
-                checkPop 0.8s 0.7s
-                cubic-bezier(.34,1.56,.64,1)
-                both;
+    line-height: 1.7;
+}
 
-        }
 
+.small {
 
-        @keyframes checkPop {
+    margin-top: 22px;
 
-            from {
+    color: #777;
 
-                opacity: 0;
+    font-size: 14px;
+}
 
-                transform:
-                    scale(0)
-                    rotate(-30deg);
 
-            }
+/* =========================================================
+   BUTTON
+========================================================= */
 
-            to {
+.button {
 
-                opacity: 1;
+    position: relative;
 
-                transform:
-                    scale(1)
-                    rotate(0deg);
+    display: inline-flex;
 
-            }
+    align-items: center;
 
-        }
+    justify-content: center;
 
+    margin-top: 25px;
 
-        /* =========================================
-           TITEL
-        ========================================= */
+    padding:
+        15px
+        26px;
 
-        h1 {
+    overflow: hidden;
 
-            margin: 0 0 18px;
+    background:
 
-            font-size: 34px;
+        linear-gradient(
+            135deg,
+            #ff9500,
+            #ff6200
+        );
 
-            line-height: 1.2;
+    color: #ffffff;
 
-            font-weight: 800;
+    text-decoration: none;
 
-            letter-spacing: -0.7px;
+    border-radius: 10px;
 
-            animation:
-                fadeUp 0.8s 0.75s
-                cubic-bezier(.16,1,.3,1)
-                both;
+    font-size: 16px;
 
-        }
+    font-weight: 900;
 
+    box-shadow:
+        0 12px 30px
+        rgba(0, 0, 0, 0.35),
 
-        .orange {
+        0 0 25px
+        rgba(255, 122, 0, 0.12);
 
-            color: #ff7a00;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
 
-            text-shadow:
-                0 0 20px
-                rgba(255, 122, 0, 0.25);
 
-        }
+.button::before {
 
+    content: "";
 
-        /* =========================================
-           TEXT
-        ========================================= */
+    position: absolute;
 
-        p {
+    top: 0;
 
-            margin: 0 auto 16px;
+    left: -120%;
 
-            max-width: 530px;
+    width: 60%;
 
-            color: #c4c4c4;
+    height: 100%;
 
-            font-size: 17px;
+    background:
 
-            line-height: 1.65;
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.25),
+            transparent
+        );
 
-            animation:
-                fadeUp 0.8s 0.9s
-                cubic-bezier(.16,1,.3,1)
-                both;
+    transform:
+        skewX(-20deg);
 
-        }
+    transition:
+        left 0.65s ease;
+}
 
 
-        p strong {
+.button:hover::before {
 
-            color: white;
+    left: 150%;
+}
 
-        }
 
+.button:hover {
 
-        .small {
+    transform:
+        translateY(-3px);
 
-            margin-top: 25px;
+    box-shadow:
 
-            color: #777;
+        0 17px 35px
+        rgba(0, 0, 0, 0.42),
 
-            font-size: 14px;
+        0 0 30px
+        rgba(255, 122, 0, 0.22);
+}
 
-            animation-delay: 1.05s;
 
-        }
+/* =========================================================
+   FOOTER
+========================================================= */
 
+.footer {
 
-        /* =========================================
-           BUTTON
-        ========================================= */
+    margin-top: 25px;
 
-        .button-wrapper {
+    color: #666;
 
-            margin-top: 28px;
+    font-size: 13px;
 
-            animation:
-                fadeUp 0.8s 1.15s
-                cubic-bezier(.16,1,.3,1)
-                both;
+    line-height: 1.7;
 
-        }
+    text-align: center;
+}
 
 
-        .button {
+/* =========================================================
+   MOBILE
+========================================================= */
 
-            position: relative;
+@media (max-width: 600px) {
 
-            display: inline-flex;
+    body {
 
-            align-items: center;
+        align-items: flex-start;
+    }
 
-            justify-content: center;
 
-            gap: 10px;
+    .container {
 
-            min-width: 210px;
+        width: 100%;
 
-            padding: 15px 27px;
+        padding:
+            25px
+            15px
+            35px;
+    }
 
-            overflow: hidden;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff7a00,
-                    #ff6200
-                );
+    .logo-container {
 
-            color: white;
+        margin-bottom: 25px;
+    }
 
-            text-decoration: none;
 
-            border-radius: 13px;
+    .logo-area {
 
-            font-size: 16px;
+        width: 210px;
 
-            font-weight: 800;
+        height: 210px;
+    }
 
-            border:
-                1px solid
-                rgba(255, 255, 255, 0.1);
 
-            box-shadow:
-                0 12px 28px
-                rgba(0, 0, 0, 0.35);
+    .logo-area::before {
 
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease;
+        width: 240px;
 
-        }
+        height: 240px;
+    }
 
 
-        .button::before {
+    .logo {
 
-            content: "";
+        width: 180px;
+    }
 
-            position: absolute;
 
-            top: 0;
-            left: -120%;
+    .box {
 
-            width: 65%;
-            height: 100%;
+        padding:
+            32px
+            20px;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255, 255, 255, 0.3),
-                    transparent
-                );
+        border-radius: 18px;
+    }
 
-            transform: skewX(-20deg);
 
-            transition:
-                left 0.6s ease;
+    .check {
 
-        }
+        width: 70px;
 
+        height: 70px;
 
-        .button:hover::before {
+        font-size: 36px;
+    }
 
-            left: 150%;
 
-        }
+    h1 {
 
+        font-size: 29px;
+    }
 
-        .button:hover {
 
-            transform:
-                translateY(-4px)
-                scale(1.03);
+    p {
 
-            color: white;
+        font-size: 16px;
+    }
 
-            text-shadow: none;
 
-            box-shadow:
-                0 18px 40px
-                rgba(0, 0, 0, 0.45),
+    .button {
 
-                0 0 28px
-                rgba(255, 122, 0, 0.28);
+        width: 100%;
 
-        }
+        padding:
+            15px
+            20px;
+    }
 
+}
 
-        .arrow {
 
-            transition:
-                transform 0.3s ease;
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
 
-        }
+@media (prefers-reduced-motion: reduce) {
 
+    *,
+    *::before,
+    *::after {
 
-        .button:hover .arrow {
+        animation-duration: 0.01ms !important;
 
-            transform:
-                translateX(5px);
+        animation-iteration-count: 1 !important;
 
-        }
+        transition-duration: 0.01ms !important;
+    }
 
+}
 
-        /* =========================================
-           FOOTER
-        ========================================= */
-
-        .footer {
-
-            margin-top: 25px;
-
-            color: #666;
-
-            font-size: 13px;
-
-            line-height: 1.7;
-
-            animation:
-                fadeUp 0.8s 1.25s
-                cubic-bezier(.16,1,.3,1)
-                both;
-
-        }
-
-
-        /* =========================================
-           ANIMATION
-        ========================================= */
-
-        @keyframes fadeUp {
-
-            from {
-
-                opacity: 0;
-
-                transform:
-                    translateY(20px);
-
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform:
-                    translateY(0);
-
-            }
-
-        }
-
-
-        /* =========================================
-           MOBILE
-        ========================================= */
-
-        @media (max-width: 600px) {
-
-            body {
-
-                overflow-y: auto;
-
-            }
-
-
-            .container {
-
-                width: 94%;
-
-                padding:
-                    25px 0 30px;
-
-            }
-
-
-            .logo {
-
-                width: 180px;
-
-            }
-
-
-            .box {
-
-                padding:
-                    35px 21px;
-
-                border-radius: 18px;
-
-            }
-
-
-            h1 {
-
-                font-size: 29px;
-
-            }
-
-
-            p {
-
-                font-size: 16px;
-
-            }
-
-
-            .check-wrapper {
-
-                margin-bottom: 23px;
-
-            }
-
-
-            .football {
-
-                font-size: 35px;
-
-            }
-
-
-            .football.two {
-
-                font-size: 45px;
-
-            }
-
-
-            .button {
-
-                width: 100%;
-
-            }
-
-        }
-
-
-        /* =========================================
-           REDUCED MOTION
-        ========================================= */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-
-                animation-duration: 0.01ms !important;
-
-                animation-iteration-count: 1 !important;
-
-                transition-duration: 0.01ms !important;
-
-            }
-
-        }
-
-    </style>
+</style>
 
 </head>
 
@@ -1134,101 +1066,92 @@
 <body>
 
 
-    <!-- =========================================
-         PARTIKEL
-    ========================================= -->
+<!-- =======================================================
+     PARTIKEL
+======================================================== -->
 
-    <div class="particles">
+<div class="particles">
 
-        <span
-            class="particle"
-            style="
-                left: 7%;
-                animation-duration: 9s;
-                animation-delay: -2s;
-            "
-        ></span>
+    <span
+        class="particle"
+        style="
+            left:7%;
+            animation-duration:10s;
+            animation-delay:-2s;
+        "
+    ></span>
 
-        <span
-            class="particle"
-            style="
-                left: 18%;
-                animation-duration: 12s;
-                animation-delay: -6s;
-            "
-        ></span>
+    <span
+        class="particle"
+        style="
+            left:18%;
+            animation-duration:13s;
+            animation-delay:-7s;
+        "
+    ></span>
 
-        <span
-            class="particle"
-            style="
-                left: 31%;
-                animation-duration: 10s;
-                animation-delay: -4s;
-            "
-        ></span>
+    <span
+        class="particle"
+        style="
+            left:31%;
+            animation-duration:11s;
+            animation-delay:-4s;
+        "
+    ></span>
 
-        <span
-            class="particle"
-            style="
-                left: 45%;
-                animation-duration: 14s;
-                animation-delay: -8s;
-            "
-        ></span>
+    <span
+        class="particle"
+        style="
+            left:45%;
+            animation-duration:15s;
+            animation-delay:-9s;
+        "
+    ></span>
 
-        <span
-            class="particle"
-            style="
-                left: 59%;
-                animation-duration: 11s;
-                animation-delay: -3s;
-            "
-        ></span>
+    <span
+        class="particle"
+        style="
+            left:59%;
+            animation-duration:12s;
+            animation-delay:-3s;
+        "
+    ></span>
 
-        <span
-            class="particle"
-            style="
-                left: 73%;
-                animation-duration: 13s;
-                animation-delay: -7s;
-            "
-        ></span>
+    <span
+        class="particle"
+        style="
+            left:73%;
+            animation-duration:14s;
+            animation-delay:-8s;
+        "
+    ></span>
 
-        <span
-            class="particle"
-            style="
-                left: 87%;
-                animation-duration: 10s;
-                animation-delay: -5s;
-            "
-        ></span>
+    <span
+        class="particle"
+        style="
+            left:87%;
+            animation-duration:10s;
+            animation-delay:-5s;
+        "
+    ></span>
 
-    </div>
-
-
-    <!-- =========================================
-         FUSSBÄLLE
-    ========================================= -->
-
-    <div class="football one">
-        ⚽
-    </div>
-
-    <div class="football two">
-        ⚽
-    </div>
+</div>
 
 
-    <!-- =========================================
-         HAUPTINHALT
-    ========================================= -->
+<!-- =======================================================
+     HAUPTINHALT
+======================================================== -->
 
-    <main class="container">
+<div class="container">
 
 
-        <!-- LOGO -->
+    <!-- ===================================================
+         LOGO
+    ==================================================== -->
 
-        <div class="logo-wrapper">
+    <div class="logo-container">
+
+        <div class="logo-area">
 
             <img
                 src="assets/logo.png"
@@ -1238,110 +1161,104 @@
 
         </div>
 
-
-        <!-- SUCCESS BOX -->
-
-        <section class="box">
+    </div>
 
 
-            <!-- ANIMIERTES HÄKCHEN -->
+    <!-- ===================================================
+         ERFOLGSBOX
+    ==================================================== -->
 
-            <div class="check-wrapper">
-
-                <div class="check">
-
-                    ✓
-
-                </div>
-
-            </div>
+    <div class="box">
 
 
-            <!-- TITEL -->
+        <!-- CHECK -->
 
-            <h1>
+        <div class="check">
 
-                Anfrage
-
-                <span class="orange">
-                    eingegangen
-                </span>
-
-            </h1>
-
-
-            <!-- TEXT -->
-
-            <p>
-
-                Vielen Dank für deine Anfrage bei der
-                Frey Football Academy.
-
-            </p>
-
-
-            <p>
-
-                Wir haben deine Anfrage erhalten und
-                melden uns schnellstmöglich bei dir,
-                um den gewünschten Trainingstermin
-                zu bestätigen.
-
-            </p>
-
-
-            <p class="small">
-
-                Bitte überprüfe gegebenenfalls auch
-                deinen Spam-Ordner.
-
-            </p>
-
-
-            <!-- BUTTON -->
-
-            <div class="button-wrapper">
-
-                <a
-                    href="index.html"
-                    class="button"
-                >
-
-                    <span>
-                        Zurück zur Startseite
-                    </span>
-
-                    <span class="arrow">
-                        →
-                    </span>
-
-                </a>
-
-            </div>
-
-
-        </section>
-
-
-        <!-- FOOTER -->
-
-        <div class="footer">
-
-            Frey Football Academy · Train. Develop. Succeed.
-
-            <br>
-
-            Fritz-Kohl-Str. 3c · 55122 Mainz
-
-            <br>
-
-            +49 173 3176916 ·
-            info@freyfootballacademy.com
+            ✓
 
         </div>
 
 
-    </main>
+        <!-- TITEL -->
+
+        <h1>
+
+            Anfrage
+
+            <span class="orange">
+                erfolgreich
+            </span>
+
+        </h1>
+
+
+        <div class="title-line"></div>
+
+
+        <!-- TEXT -->
+
+        <p>
+
+            Vielen Dank für deine Anfrage bei der
+            Frey Football Academy.
+
+        </p>
+
+
+        <p>
+
+            Wir haben deine Anfrage erhalten und
+            melden uns schnellstmöglich bei dir,
+            um den weiteren Ablauf und den
+            gewünschten Trainingstermin zu besprechen.
+
+        </p>
+
+
+        <p class="small">
+
+            Bitte überprüfe gegebenenfalls auch
+            deinen Spam-Ordner.
+
+        </p>
+
+
+        <!-- BUTTON -->
+
+        <a
+            href="index.html"
+            class="button"
+        >
+
+            ← Zurück zur Startseite
+
+        </a>
+
+
+    </div>
+
+
+    <!-- ===================================================
+         FOOTER
+    ==================================================== -->
+
+    <div class="footer">
+
+        Frey Football Academy · Train. Develop. Succeed.
+
+        <br>
+
+        Fritz-Kohl-Str. 3c · 55122 Mainz
+
+        <br>
+
+        +49 173 3176916 · info@freyfootballacademy.com
+
+    </div>
+
+
+</div>
 
 
 </body>
