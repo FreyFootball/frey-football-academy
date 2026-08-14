@@ -8,7 +8,6 @@
 
 <title>Fördertraining | Frey Football Academy</title>
 
-
 <style>
 
 /* =========================================================
@@ -348,7 +347,6 @@ body::after {
 
 /* =========================================================
    LOGO
-   EXAKT ZENTRIERT
 ========================================================= */
 
 .logo-wrapper {
@@ -612,7 +610,7 @@ h1 {
 
 
 /* =========================================================
-   INFO-BEREICH
+   INFO CARD
 ========================================================= */
 
 .info-card {
@@ -915,7 +913,7 @@ form::before {
 
 
 /* =========================================================
-   ABSCHNITTE
+   FORMULAR-ABSCHNITTE
 ========================================================= */
 
 .section {
@@ -929,7 +927,6 @@ form::before {
 
 
 .section:first-child {
-
     margin-top: 0;
 }
 
@@ -973,7 +970,7 @@ form::before {
 
 
 /* =========================================================
-   FORMULARFELDER
+   FELDER
 ========================================================= */
 
 .form-row {
@@ -1007,8 +1004,7 @@ label {
 
 
 input,
-select,
-textarea {
+select {
 
     width: 100%;
 
@@ -1040,23 +1036,18 @@ textarea {
 
 
 input:hover,
-select:hover,
-textarea:hover {
-
+select:hover {
     border-color: #666;
 }
 
 
-input::placeholder,
-textarea::placeholder {
-
+input::placeholder {
     color: #777;
 }
 
 
 input:focus,
-select:focus,
-textarea:focus {
+select:focus {
 
     outline: none;
 
@@ -1075,53 +1066,15 @@ textarea:focus {
 
 
 select {
-
     cursor: pointer;
 }
 
 
-input[type="date"],
-input[type="time"] {
+input[type="date"] {
 
     color-scheme: dark;
 
     cursor: pointer;
-}
-
-
-textarea {
-
-    min-height: 140px;
-
-    resize: vertical;
-}
-
-
-/* =========================================================
-   POSITIONEN
-========================================================= */
-
-.position-select {
-
-    min-height: 150px;
-
-    cursor: pointer;
-}
-
-
-.position-select option {
-
-    padding: 7px;
-}
-
-
-.position-hint {
-
-    margin-top: 7px;
-
-    color: #777;
-
-    font-size: 12px;
 }
 
 
@@ -1155,21 +1108,16 @@ textarea {
     font-size: 14px;
 
     line-height: 1.65;
-
-    box-shadow:
-        inset 0 0 25px
-        rgba(255, 122, 0, 0.025);
 }
 
 
 .info-box strong {
-
     color: #ffffff;
 }
 
 
 /* =========================================================
-   CHECKBOX
+   DATENSCHUTZ
 ========================================================= */
 
 .checkbox {
@@ -1224,13 +1172,39 @@ textarea {
 
 
 .checkbox a:hover {
-
     text-decoration: underline;
 }
 
 
 /* =========================================================
-   ABSENDE-BUTTON
+   FEHLER
+========================================================= */
+
+.form-error {
+
+    display: none;
+
+    margin-bottom: 20px;
+
+    padding: 14px 16px;
+
+    background:
+        rgba(255, 60, 60, 0.08);
+
+    border:
+        1px solid
+        rgba(255, 80, 80, 0.25);
+
+    border-radius: 10px;
+
+    color: #ffaaaa;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ABSENDEN
 ========================================================= */
 
 .submit {
@@ -1275,7 +1249,8 @@ textarea {
 
     transition:
         transform 0.3s ease,
-        box-shadow 0.3s ease;
+        box-shadow 0.3s ease,
+        opacity 0.3s ease;
 }
 
 
@@ -1310,7 +1285,6 @@ textarea {
 
 
 .submit:hover::before {
-
     left: 150%;
 }
 
@@ -1330,16 +1304,18 @@ textarea {
 }
 
 
-.submit:active {
+.submit:disabled {
 
-    transform:
-        translateY(0)
-        scale(0.99);
+    opacity: 0.65;
+
+    cursor: wait;
+
+    transform: none;
 }
 
 
 /* =========================================================
-   ZURÜCK-BUTTON
+   ZURÜCK
 ========================================================= */
 
 .back {
@@ -1477,7 +1453,7 @@ textarea {
 
     h1 {
 
-        font-size: 34px;
+        font-size: 32px;
 
         letter-spacing: -0.5px;
     }
@@ -1680,9 +1656,7 @@ textarea {
 <div class="container">
 
 
-    <!-- ===================================================
-         LOGO
-    ==================================================== -->
+    <!-- LOGO -->
 
     <div class="logo-wrapper">
 
@@ -1695,9 +1669,7 @@ textarea {
     </div>
 
 
-    <!-- ===================================================
-         TITEL
-    ==================================================== -->
+    <!-- TITEL -->
 
     <h1>
 
@@ -1713,13 +1685,13 @@ textarea {
 
     <p class="intro">
 
-        Gezielte Förderung für Spieler,
-        die ihr Spiel auf das nächste Level bringen möchten.
+        Gezielte Entwicklung für Spieler,
+        die den nächsten Schritt machen möchten.
 
         <br>
 
-        Individuelle Inhalte. Klare Ziele.
-        Nachhaltige Entwicklung.
+        Individuelles Coaching, klare Schwerpunkte
+        und professionelles Feedback.
 
     </p>
 
@@ -1732,10 +1704,10 @@ textarea {
 
         <h2>
 
-            Dein Weg zur
+            Potenzial erkennen.
 
             <span>
-                nächsten Stufe.
+                Potenzial entwickeln.
             </span>
 
         </h2>
@@ -1743,10 +1715,13 @@ textarea {
 
         <p>
 
-            Im Fördertraining arbeiten wir gezielt an
-            technischen, taktischen und individuellen
-            Fähigkeiten. Dabei steht die Entwicklung
-            des Spielers im Mittelpunkt.
+            Das Fördertraining richtet sich an Spieler,
+            die gezielt an ihren Fähigkeiten arbeiten
+            und sich fußballerisch weiterentwickeln möchten.
+            Gemeinsam analysieren wir deine Stärken,
+            identifizieren Entwicklungspotenziale und
+            arbeiten gezielt an den Bereichen, die dich
+            auf das nächste Level bringen.
 
         </p>
 
@@ -1763,7 +1738,7 @@ textarea {
         <div class="highlight">
 
             <span class="highlight-icon">
-                ⚡
+                🎯
             </span>
 
             <div>
@@ -1773,28 +1748,7 @@ textarea {
                 </strong>
 
                 <span>
-                    Training passend zum Spieler
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="highlight">
-
-            <span class="highlight-icon">
-                🎯
-            </span>
-
-            <div>
-
-                <strong>
-                    Klare Trainingsziele
-                </strong>
-
-                <span>
-                    Fokus auf konkrete Entwicklung
+                    Training passend zu deinem Entwicklungsstand
                 </span>
 
             </div>
@@ -1811,11 +1765,32 @@ textarea {
             <div>
 
                 <strong>
-                    Nachhaltige Entwicklung
+                    Entwicklung
                 </strong>
 
                 <span>
-                    Fortschritt langfristig aufbauen
+                    Gezielte Arbeit an deinen nächsten Schritten
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="highlight">
+
+            <span class="highlight-icon">
+                ⚡
+            </span>
+
+            <div>
+
+                <strong>
+                    Intensive Einheiten
+                </strong>
+
+                <span>
+                    Hohe Qualität und viele Ballkontakte
                 </span>
 
             </div>
@@ -1831,23 +1806,16 @@ textarea {
     ==================================================== -->
 
     <form
-        action="https://formspree.io/f/xoeadwwq"
-        method="POST"
+        id="foerdertraining-form"
     >
 
 
-        <input
-            type="hidden"
-            name="_subject"
-            value="Neue Anfrage – Fördertraining | Frey Football Academy"
-        >
+        <!-- Formspree Fehler -->
 
-
-        <input
-            type="hidden"
-            name="_next"
-            value="https://freyfootballacademy.com/anfrage-erfolgreich.html"
-        >
+        <div
+            class="form-error"
+            data-fs-error
+        ></div>
 
 
         <!-- ===============================================
@@ -1864,184 +1832,41 @@ textarea {
             </div>
 
 
-            <div class="form-row">
+            <div class="field">
 
+                <label for="spielername">
 
-                <div class="field">
+                    Name des Spielers *
 
-                    <label for="vorname">
+                </label>
 
-                        Vorname *
-
-                    </label>
-
-                    <input
-                        type="text"
-                        id="vorname"
-                        name="Vorname des Spielers"
-                        placeholder="Vorname"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="field">
-
-                    <label for="nachname">
-
-                        Nachname *
-
-                    </label>
-
-                    <input
-                        type="text"
-                        id="nachname"
-                        name="Nachname des Spielers"
-                        placeholder="Nachname"
-                        required
-                    >
-
-                </div>
-
-
-            </div>
-
-
-            <div class="form-row">
-
-
-                <div class="field">
-
-                    <label for="geburtsdatum">
-
-                        Geburtsdatum *
-
-                    </label>
-
-                    <input
-                        type="date"
-                        id="geburtsdatum"
-                        name="Geburtsdatum des Spielers"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="field">
-
-                    <label for="spielniveau">
-
-                        Spielniveau *
-
-                    </label>
-
-                    <select
-                        id="spielniveau"
-                        name="Spielniveau"
-                        required
-                    >
-
-                        <option value="">
-
-                            Bitte wählen
-
-                        </option>
-
-                        <option value="Anfänger">
-
-                            Anfänger
-
-                        </option>
-
-                        <option value="Fortgeschritten">
-
-                            Fortgeschritten
-
-                        </option>
-
-                        <option value="Leistungsbereich">
-
-                            Leistungsbereich
-
-                        </option>
-
-                    </select>
-
-                </div>
-
+                <input
+                    type="text"
+                    id="spielername"
+                    name="Name des Spielers"
+                    placeholder="Vor- und Nachname"
+                    data-fs-field
+                    required
+                >
 
             </div>
 
 
             <div class="field">
 
-                <label for="position">
+                <label for="geburtsdatum">
 
-                    Position *
+                    Geburtsdatum des Spielers *
 
                 </label>
 
-                <select
-                    id="position"
-                    name="Positionen"
-                    class="position-select"
-                    multiple
+                <input
+                    type="date"
+                    id="geburtsdatum"
+                    name="Geburtsdatum des Spielers"
+                    data-fs-field
                     required
                 >
-
-                    <option value="Torwart">
-
-                        Torwart
-
-                    </option>
-
-                    <option value="Innenverteidiger">
-
-                        Innenverteidiger
-
-                    </option>
-
-                    <option value="Außenverteidiger">
-
-                        Außenverteidiger
-
-                    </option>
-
-                    <option value="6/8er">
-
-                        6/8er
-
-                    </option>
-
-                    <option value="10er">
-
-                        10er
-
-                    </option>
-
-                    <option value="Flügelspieler">
-
-                        Flügelspieler
-
-                    </option>
-
-                    <option value="Stürmer">
-
-                        Stürmer
-
-                    </option>
-
-                </select>
-
-
-                <div class="position-hint">
-
-                    Mehrere Positionen können ausgewählt werden.
-                    Auf dem Handy gedrückt halten.
-
-                </div>
 
             </div>
 
@@ -2050,7 +1875,7 @@ textarea {
 
 
         <!-- ===============================================
-             TRAININGSWUNSCH
+             STARTTERMIN
         ================================================ -->
 
         <div class="section">
@@ -2058,115 +1883,26 @@ textarea {
 
             <div class="section-title">
 
-                Trainingswunsch
+                Starttermin
 
             </div>
 
 
             <div class="field">
 
-                <label for="standort">
+                <label for="starttermin">
 
-                    Standort *
+                    Gewünschter Starttermin *
 
                 </label>
 
-                <select
-                    id="standort"
-                    name="Standort"
+                <input
+                    type="date"
+                    id="starttermin"
+                    name="Gewünschter Starttermin"
+                    data-fs-field
                     required
                 >
-
-                    <option value="">
-
-                        Bitte Standort auswählen
-
-                    </option>
-
-                    <option value="Walluf">
-
-                        Walluf
-
-                    </option>
-
-                    <option value="Klein-Winternheim">
-
-                        Klein-Winternheim
-
-                    </option>
-
-                    <option value="Heidesheim">
-
-                        Heidesheim
-
-                    </option>
-
-                    <option value="Mainz-Bretzenheim">
-
-                        Mainz-Bretzenheim
-
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div class="form-row">
-
-
-                <div class="field">
-
-                    <label for="datum">
-
-                        Gewünschtes Trainingsdatum *
-
-                    </label>
-
-                    <input
-                        type="date"
-                        id="datum"
-                        name="Gewünschtes Trainingsdatum"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="field">
-
-                    <label for="uhrzeit">
-
-                        Wunschuhrzeit *
-
-                    </label>
-
-                    <input
-                        type="time"
-                        id="uhrzeit"
-                        name="Wunschuhrzeit"
-                        required
-                    >
-
-                </div>
-
-
-            </div>
-
-
-            <div class="field">
-
-                <label for="fokus">
-
-                    Trainingsfokus
-
-                </label>
-
-                <textarea
-                    id="fokus"
-                    name="Trainingsfokus"
-                    placeholder="Woran möchtest du besonders arbeiten? Welche Ziele möchtest du erreichen?"
-                ></textarea>
 
             </div>
 
@@ -2179,10 +1915,9 @@ textarea {
 
                 <br>
 
-                Die angegebene Zeit ist ein Wunsch.
-                Wir melden uns anschließend mit einer
-                Terminbestätigung bzw. einem passenden
-                Terminvorschlag.
+                Der angegebene Starttermin ist ein Wunsch.
+                Wir melden uns anschließend bei dir,
+                um den Starttermin gemeinsam abzustimmen.
 
             </div>
 
@@ -2217,6 +1952,7 @@ textarea {
                     id="erziehungsberechtigter"
                     name="Name des Erziehungsberechtigten"
                     placeholder="Vor- und Nachname"
+                    data-fs-field
                     required
                 >
 
@@ -2239,6 +1975,7 @@ textarea {
                         id="telefon"
                         name="Telefonnummer"
                         placeholder="+49 ..."
+                        data-fs-field
                         required
                     >
 
@@ -2258,6 +1995,7 @@ textarea {
                         id="email"
                         name="E-Mail-Adresse"
                         placeholder="name@email.de"
+                        data-fs-field
                         required
                     >
 
@@ -2282,6 +2020,7 @@ textarea {
                 id="datenschutz"
                 name="Datenschutz bestätigt"
                 value="Ja"
+                data-fs-field
                 required
             >
 
@@ -2315,6 +2054,7 @@ textarea {
         <button
             type="submit"
             class="submit"
+            data-fs-submit-btn
         >
 
             ⚡ FÖRDERTRAINING ANFRAGEN
@@ -2359,6 +2099,60 @@ textarea {
 
 
 </div>
+
+
+<!-- =======================================================
+     FORMSPREE AJAX
+======================================================== -->
+
+<script>
+
+window.formspree =
+    window.formspree ||
+    function () {
+
+        (formspree.q = formspree.q || []).push(arguments);
+
+    };
+
+
+formspree(
+    "initForm",
+    {
+
+        formElement:
+            "#foerdertraining-form",
+
+        formId:
+            "mnpaveen",
+
+        onSuccess:
+            function () {
+
+                window.location.href =
+                    "anfrage-erfolgreich.html";
+
+            },
+
+        onFailure:
+            function () {
+
+                alert(
+                    "Die Anfrage konnte gerade nicht gesendet werden. Bitte versuche es erneut."
+                );
+
+            }
+
+    }
+);
+
+</script>
+
+
+<script
+    src="https://unpkg.com/@formspree/ajax@1"
+    defer
+></script>
 
 
 </body>
