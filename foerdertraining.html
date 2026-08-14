@@ -8,7 +8,12 @@
 
 <title>Fördertraining | Frey Football Academy</title>
 
+
 <style>
+
+/* =========================================================
+   GRUNDLAGEN
+========================================================= */
 
 * {
     box-sizing: border-box;
@@ -26,7 +31,7 @@ body {
 
     min-height: 100vh;
 
-    color: white;
+    color: #ffffff;
 
     font-family:
         Arial,
@@ -42,17 +47,17 @@ body {
     background:
         radial-gradient(
             circle at 50% 5%,
-            rgba(255,122,0,0.28),
+            rgba(255, 122, 0, 0.28),
             transparent 32%
         ),
         radial-gradient(
             circle at 0% 55%,
-            rgba(255,122,0,0.07),
+            rgba(255, 122, 0, 0.07),
             transparent 30%
         ),
         radial-gradient(
             circle at 100% 85%,
-            rgba(255,122,0,0.06),
+            rgba(255, 122, 0, 0.06),
             transparent 30%
         ),
         linear-gradient(
@@ -64,9 +69,9 @@ body {
 }
 
 
-/* =========================================
-   ANIMIERTER BACKGROUND
-========================================= */
+/* =========================================================
+   ANIMIERTER HINTERGRUND
+========================================================= */
 
 body::before {
 
@@ -74,22 +79,26 @@ body::before {
 
     position: fixed;
 
-    inset: -50%;
+    width: 180vw;
+    height: 180vw;
+
+    top: -90vw;
+    left: -40vw;
 
     pointer-events: none;
 
     background:
         conic-gradient(
             from 0deg,
-            transparent,
-            rgba(255,122,0,0.045),
-            transparent,
-            rgba(255,255,255,0.018),
-            transparent
+            transparent 0deg,
+            rgba(255, 122, 0, 0.035) 70deg,
+            transparent 135deg,
+            rgba(255, 255, 255, 0.018) 220deg,
+            transparent 300deg
         );
 
     animation:
-        backgroundRotate 24s linear infinite;
+        backgroundRotate 28s linear infinite;
 
     z-index: 0;
 }
@@ -105,26 +114,26 @@ body::after {
     height: 650px;
 
     left: 50%;
-    top: 5%;
+    top: 0;
 
     transform:
-        translate(-50%,-50%);
+        translate(-50%, -45%);
 
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(255,122,0,0.14),
+            rgba(255, 122, 0, 0.16),
             transparent 68%
         );
 
-    filter: blur(30px);
+    filter: blur(35px);
 
     pointer-events: none;
 
     animation:
-        glowPulse 5s ease-in-out infinite;
+        mainGlow 5s ease-in-out infinite;
 
     z-index: 0;
 }
@@ -133,35 +142,33 @@ body::after {
 @keyframes backgroundRotate {
 
     from {
-        transform: rotate(0deg);
+        rotate: 0deg;
     }
 
     to {
-        transform: rotate(360deg);
+        rotate: 360deg;
     }
-
 }
 
 
-@keyframes glowPulse {
+@keyframes mainGlow {
 
     0%,
     100% {
-        opacity: 0.4;
-        scale: 0.9;
+        opacity: 0.45;
+        scale: 0.92;
     }
 
     50% {
         opacity: 1;
-        scale: 1.12;
+        scale: 1.08;
     }
-
 }
 
 
-/* =========================================
+/* =========================================================
    PARTIKEL
-========================================= */
+========================================================= */
 
 .particles {
 
@@ -181,7 +188,7 @@ body::after {
 
     position: absolute;
 
-    bottom: -10px;
+    bottom: -15px;
 
     width: 4px;
     height: 4px;
@@ -192,7 +199,7 @@ body::after {
 
     box-shadow:
         0 0 8px #ff7a00,
-        0 0 18px rgba(255,122,0,0.5);
+        0 0 18px rgba(255, 122, 0, 0.5);
 
     opacity: 0;
 
@@ -206,15 +213,14 @@ body::after {
     0% {
 
         transform:
-            translateY(0)
-            translateX(0)
+            translate3d(0, 0, 0)
             scale(0.4);
 
         opacity: 0;
     }
 
     10% {
-        opacity: 0.6;
+        opacity: 0.5;
     }
 
     50% {
@@ -222,25 +228,23 @@ body::after {
     }
 
     90% {
-        opacity: 0.35;
+        opacity: 0.3;
     }
 
     100% {
 
         transform:
-            translateY(-110vh)
-            translateX(90px)
+            translate3d(90px, -110vh, 0)
             scale(1.2);
 
         opacity: 0;
     }
-
 }
 
 
-/* =========================================
-   FUSSBÄLLE
-========================================= */
+/* =========================================================
+   SCHWEBENDE FUSSBÄLLE
+========================================================= */
 
 .football {
 
@@ -250,19 +254,22 @@ body::after {
 
     z-index: 0;
 
+    color: #ffffff;
+
     opacity: 0.045;
 
     font-size: 80px;
 
     animation:
-        ballFloat 7s ease-in-out infinite,
-        ballRotate 14s linear infinite;
+        footballFloat 7s ease-in-out infinite,
+        footballRotate 14s linear infinite;
 }
 
 
 .football.one {
 
     left: 2%;
+
     top: 18%;
 }
 
@@ -270,6 +277,7 @@ body::after {
 .football.two {
 
     right: 2%;
+
     top: 58%;
 
     font-size: 105px;
@@ -281,6 +289,7 @@ body::after {
 .football.three {
 
     left: 8%;
+
     bottom: 8%;
 
     font-size: 45px;
@@ -289,7 +298,7 @@ body::after {
 }
 
 
-@keyframes ballFloat {
+@keyframes footballFloat {
 
     0%,
     100% {
@@ -297,13 +306,12 @@ body::after {
     }
 
     50% {
-        translate: 0 -30px;
+        translate: 0 -28px;
     }
-
 }
 
 
-@keyframes ballRotate {
+@keyframes footballRotate {
 
     from {
         rotate: 0deg;
@@ -312,13 +320,12 @@ body::after {
     to {
         rotate: 360deg;
     }
-
 }
 
 
-/* =========================================
-   CONTAINER
-========================================= */
+/* =========================================================
+   HAUPTCONTAINER
+========================================================= */
 
 .container {
 
@@ -332,24 +339,40 @@ body::after {
 
     margin: 0 auto;
 
-    padding: 38px 0 60px;
+    padding:
+        38px
+        0
+        60px;
 }
 
 
-/* =========================================
+/* =========================================================
    LOGO
-========================================= */
+   EXAKT ZENTRIERT
+========================================================= */
 
 .logo-wrapper {
 
     position: relative;
 
-    width: fit-content;
+    display: flex;
 
-    margin: 0 auto 28px;
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    min-height: 230px;
+
+    margin:
+        0
+        auto
+        10px;
 
     animation:
-        logoEntrance 0.9s
+        logoEntrance
+        0.9s
         cubic-bezier(.16,1,.3,1)
         both;
 }
@@ -361,23 +384,35 @@ body::after {
 
     position: absolute;
 
-    inset: -45px;
+    width: 300px;
+    height: 300px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
 
     border-radius: 50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(255,122,0,0.25),
+            rgba(255, 122, 0, 0.25),
             transparent 65%
         );
 
-    filter: blur(18px);
+    filter: blur(22px);
 
-    animation:
-        logoGlow 3.5s ease-in-out infinite;
+    pointer-events: none;
 
     z-index: -1;
+
+    animation:
+        logoGlow
+        3.5s
+        ease-in-out
+        infinite;
 }
 
 
@@ -391,10 +426,16 @@ body::after {
 
     height: auto;
 
+    margin: 0;
+
+    position: relative;
+
+    z-index: 2;
+
     filter:
         drop-shadow(
             0 0 22px
-            rgba(255,122,0,0.25)
+            rgba(255, 122, 0, 0.25)
         );
 
     transition:
@@ -412,7 +453,7 @@ body::after {
     filter:
         drop-shadow(
             0 0 35px
-            rgba(255,122,0,0.55)
+            rgba(255, 122, 0, 0.55)
         );
 }
 
@@ -436,7 +477,6 @@ body::after {
             translateY(0)
             scale(1);
     }
-
 }
 
 
@@ -447,30 +487,38 @@ body::after {
 
         opacity: 0.45;
 
-        transform: scale(0.9);
+        transform:
+            translate(-50%, -50%)
+            scale(0.90);
     }
 
     50% {
 
         opacity: 1;
 
-        transform: scale(1.15);
+        transform:
+            translate(-50%, -50%)
+            scale(1.15);
     }
-
 }
 
 
-/* =========================================
+/* =========================================================
    TITEL
-========================================= */
+========================================================= */
 
 h1 {
 
-    margin: 0 0 12px;
+    margin:
+        0
+        0
+        12px;
 
     text-align: center;
 
-    font-size: 42px;
+    color: #ffffff;
+
+    font-size: 44px;
 
     line-height: 1.15;
 
@@ -479,7 +527,9 @@ h1 {
     letter-spacing: -1px;
 
     animation:
-        fadeUp 0.8s 0.2s
+        fadeUp
+        0.8s
+        0.2s
         cubic-bezier(.16,1,.3,1)
         both;
 }
@@ -491,7 +541,7 @@ h1 {
 
     text-shadow:
         0 0 25px
-        rgba(255,122,0,0.22);
+        rgba(255, 122, 0, 0.22);
 }
 
 
@@ -501,7 +551,10 @@ h1 {
 
     height: 4px;
 
-    margin: 18px auto 0;
+    margin:
+        18px
+        auto
+        0;
 
     border-radius: 10px;
 
@@ -509,10 +562,12 @@ h1 {
 
     box-shadow:
         0 0 15px
-        rgba(255,122,0,0.7);
+        rgba(255, 122, 0, 0.7);
 
     animation:
-        lineGrow 0.8s 0.5s
+        lineGrow
+        0.8s
+        0.5s
         cubic-bezier(.16,1,.3,1)
         both;
 }
@@ -527,7 +582,6 @@ h1 {
     to {
         width: 70px;
     }
-
 }
 
 
@@ -535,7 +589,10 @@ h1 {
 
     max-width: 680px;
 
-    margin: 18px auto 38px;
+    margin:
+        18px
+        auto
+        38px;
 
     text-align: center;
 
@@ -543,16 +600,210 @@ h1 {
 
     font-size: 18px;
 
+    line-height: 1.65;
+
     animation:
-        fadeUp 0.8s 0.35s
+        fadeUp
+        0.8s
+        0.35s
         cubic-bezier(.16,1,.3,1)
         both;
 }
 
 
-/* =========================================
+/* =========================================================
+   INFO-BEREICH
+========================================================= */
+
+.info-card {
+
+    position: relative;
+
+    margin-bottom: 25px;
+
+    padding: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 122, 0, 0.10),
+            rgba(18, 18, 18, 0.92)
+        );
+
+    border:
+        1px solid
+        rgba(255, 122, 0, 0.20);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(0, 0, 0, 0.30);
+
+    overflow: hidden;
+
+    animation:
+        fadeUp
+        0.8s
+        0.4s
+        cubic-bezier(.16,1,.3,1)
+        both;
+}
+
+
+.info-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -100px;
+    right: -80px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 122, 0, 0.18),
+            transparent 70%
+        );
+
+    filter: blur(10px);
+}
+
+
+.info-card h2 {
+
+    position: relative;
+
+    margin:
+        0
+        0
+        12px;
+
+    color: #ffffff;
+
+    font-size: 24px;
+
+    font-weight: 900;
+}
+
+
+.info-card h2 span {
+
+    color: #ff7a00;
+}
+
+
+.info-card p {
+
+    position: relative;
+
+    margin: 0;
+
+    color: #bbb;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   HIGHLIGHTS
+========================================================= */
+
+.highlights {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 35px;
+}
+
+
+.highlight {
+
+    padding: 20px 15px;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    border-radius: 13px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.highlight:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(255,122,0,0.28);
+
+    background:
+        rgba(255,122,0,0.055);
+}
+
+
+.highlight-icon {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #ff7a00;
+
+    font-size: 27px;
+
+    filter:
+        drop-shadow(
+            0 0 10px
+            rgba(255,122,0,0.25)
+        );
+}
+
+
+.highlight strong {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #ffffff;
+
+    font-size: 15px;
+}
+
+
+.highlight span {
+
+    color: #888;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
    FORMULAR
-========================================= */
+========================================================= */
 
 form {
 
@@ -560,33 +811,33 @@ form {
 
     width: 100%;
 
-    text-align: left;
+    padding: 34px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,0.055),
-            rgba(18,18,18,0.97)
+            rgba(255, 255, 255, 0.055),
+            rgba(18, 18, 18, 0.97)
         );
 
     border:
         1px solid
-        rgba(255,255,255,0.10);
+        rgba(255, 255, 255, 0.10);
 
     border-radius: 22px;
 
-    padding: 34px;
-
     box-shadow:
         0 25px 70px
-        rgba(0,0,0,0.48);
+        rgba(0, 0, 0, 0.48);
 
     backdrop-filter: blur(14px);
 
     overflow: hidden;
 
     animation:
-        formEntrance 0.9s 0.45s
+        formEntrance
+        0.9s
+        0.45s
         cubic-bezier(.16,1,.3,1)
         both;
 }
@@ -599,25 +850,31 @@ form::before {
     position: absolute;
 
     top: 0;
+
     left: -120%;
 
     width: 60%;
+
     height: 100%;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,122,0,0.045),
+            rgba(255, 122, 0, 0.045),
             transparent
         );
 
-    transform: skewX(-20deg);
-
-    animation:
-        formShine 9s ease-in-out infinite;
+    transform:
+        skewX(-20deg);
 
     pointer-events: none;
+
+    animation:
+        formShine
+        9s
+        ease-in-out
+        infinite;
 }
 
 
@@ -640,7 +897,6 @@ form::before {
             translateY(0)
             scale(1);
     }
-
 }
 
 
@@ -655,13 +911,12 @@ form::before {
     100% {
         left: 160%;
     }
-
 }
 
 
-/* =========================================
-   SECTIONS
-========================================= */
+/* =========================================================
+   ABSCHNITTE
+========================================================= */
 
 .section {
 
@@ -674,6 +929,7 @@ form::before {
 
 
 .section:first-child {
+
     margin-top: 0;
 }
 
@@ -688,7 +944,7 @@ form::before {
 
     margin-bottom: 20px;
 
-    color: white;
+    color: #ffffff;
 
     font-size: 21px;
 
@@ -704,19 +960,21 @@ form::before {
 
     height: 24px;
 
+    flex-shrink: 0;
+
     border-radius: 10px;
 
     background: #ff7a00;
 
     box-shadow:
         0 0 12px
-        rgba(255,122,0,0.55);
+        rgba(255, 122, 0, 0.55);
 }
 
 
-/* =========================================
-   FELDER
-========================================= */
+/* =========================================================
+   FORMULARFELDER
+========================================================= */
 
 .form-row {
 
@@ -749,16 +1007,17 @@ label {
 
 
 input,
-select {
+select,
+textarea {
 
     width: 100%;
 
     padding: 14px;
 
     background:
-        rgba(8,8,8,0.85);
+        rgba(8, 8, 8, 0.85);
 
-    color: white;
+    color: #ffffff;
 
     border:
         1px solid
@@ -781,32 +1040,34 @@ select {
 
 
 input:hover,
-select:hover {
+select:hover,
+textarea:hover {
 
     border-color: #666;
 }
 
 
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
 
     color: #777;
 }
 
 
 input:focus,
-select:focus {
+select:focus,
+textarea:focus {
 
     outline: none;
 
-    border-color:
-        #ff7a00;
+    border-color: #ff7a00;
 
     box-shadow:
         0 0 0 3px
-        rgba(255,122,0,0.08),
+        rgba(255, 122, 0, 0.08),
 
         0 0 25px
-        rgba(255,122,0,0.06);
+        rgba(255, 122, 0, 0.06);
 
     transform:
         translateY(-1px);
@@ -819,7 +1080,8 @@ select {
 }
 
 
-input[type="date"] {
+input[type="date"],
+input[type="time"] {
 
     color-scheme: dark;
 
@@ -827,117 +1089,59 @@ input[type="date"] {
 }
 
 
-/* =========================================
-   TEILNAHMEBEDINGUNGEN
-========================================= */
+textarea {
 
-.terms {
+    min-height: 140px;
+
+    resize: vertical;
+}
+
+
+/* =========================================================
+   POSITIONEN
+========================================================= */
+
+.position-select {
+
+    min-height: 150px;
+
+    cursor: pointer;
+}
+
+
+.position-select option {
+
+    padding: 7px;
+}
+
+
+.position-hint {
+
+    margin-top: 7px;
+
+    color: #777;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   INFO BOX
+========================================================= */
+
+.info-box {
 
     position: relative;
 
-    margin-top: 30px;
+    margin-top: 15px;
 
-    padding: 24px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,0.035),
-            rgba(10,10,10,0.82)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,0.08);
-
-    border-radius: 14px;
-
-    color: #bbb;
-
-    font-size: 15px;
-
-    line-height: 1.65;
-
-    overflow: hidden;
-}
-
-
-.terms::before {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 4px;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            180deg,
-            #ff9500,
-            #ff6200
-        );
-
-    box-shadow:
-        0 0 15px
-        rgba(255,122,0,0.4);
-}
-
-
-.terms-title {
-
-    color: #ff7a00;
-
-    font-size: 20px;
-
-    font-weight: 900;
-
-    margin-bottom: 15px;
-}
-
-
-.terms p {
-
-    margin: 0 0 15px;
-}
-
-
-.terms a {
-
-    color: #ff7a00;
-
-    text-decoration: none;
-
-    font-weight: 700;
-}
-
-
-.terms a:hover {
-
-    text-decoration: underline;
-}
-
-
-/* =========================================
-   SCHNUPPERTRAINING
-========================================= */
-
-.trial {
-
-    position: relative;
-
-    margin-top: 20px;
-
-    padding: 21px;
+    padding: 20px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(255,122,0,0.12),
-            rgba(255,122,0,0.025)
+            rgba(255, 122, 0, 0.11),
+            rgba(255, 122, 0, 0.025)
         );
 
     border-left:
@@ -948,51 +1152,25 @@ input[type="date"] {
 
     color: #ccc;
 
-    font-size: 15px;
+    font-size: 14px;
 
     line-height: 1.65;
 
     box-shadow:
         inset 0 0 25px
-        rgba(255,122,0,0.025);
+        rgba(255, 122, 0, 0.025);
 }
 
 
-.trial strong {
+.info-box strong {
 
-    color: white;
-
+    color: #ffffff;
 }
 
 
-.price {
-
-    display: inline-block;
-
-    margin-top: 10px;
-
-    padding: 5px 12px;
-
-    background:
-        rgba(255,122,0,0.14);
-
-    border:
-        1px solid
-        rgba(255,122,0,0.25);
-
-    border-radius: 20px;
-
-    color: #ff9500;
-
-    font-size: 16px;
-
-    font-weight: 900;
-}
-
-
-/* =========================================
+/* =========================================================
    CHECKBOX
-========================================= */
+========================================================= */
 
 .checkbox {
 
@@ -1019,8 +1197,7 @@ input[type="date"] {
 
     flex-shrink: 0;
 
-    accent-color:
-        #ff7a00;
+    accent-color: #ff7a00;
 
     cursor: pointer;
 }
@@ -1043,7 +1220,6 @@ input[type="date"] {
     color: #ff7a00;
 
     text-decoration: none;
-
 }
 
 
@@ -1053,9 +1229,9 @@ input[type="date"] {
 }
 
 
-/* =========================================
-   SUBMIT
-========================================= */
+/* =========================================================
+   ABSENDE-BUTTON
+========================================================= */
 
 .submit {
 
@@ -1076,7 +1252,7 @@ input[type="date"] {
             #ff6200
         );
 
-    color: white;
+    color: #ffffff;
 
     border: none;
 
@@ -1092,10 +1268,10 @@ input[type="date"] {
 
     box-shadow:
         0 12px 30px
-        rgba(0,0,0,0.35),
+        rgba(0, 0, 0, 0.35),
 
         0 0 25px
-        rgba(255,122,0,0.12);
+        rgba(255, 122, 0, 0.12);
 
     transition:
         transform 0.3s ease,
@@ -1110,9 +1286,11 @@ input[type="date"] {
     position: absolute;
 
     top: 0;
+
     left: -120%;
 
     width: 60%;
+
     height: 100%;
 
     background:
@@ -1145,10 +1323,10 @@ input[type="date"] {
 
     box-shadow:
         0 18px 40px
-        rgba(0,0,0,0.45),
+        rgba(0, 0, 0, 0.45),
 
         0 0 35px
-        rgba(255,122,0,0.25);
+        rgba(255, 122, 0, 0.25);
 }
 
 
@@ -1160,9 +1338,9 @@ input[type="date"] {
 }
 
 
-/* =========================================
-   BACK
-========================================= */
+/* =========================================================
+   ZURÜCK-BUTTON
+========================================================= */
 
 .back {
 
@@ -1174,9 +1352,14 @@ input[type="date"] {
 
     gap: 8px;
 
-    margin: 32px auto 0;
+    margin:
+        32px
+        auto
+        0;
 
-    padding: 13px 23px;
+    padding:
+        13px
+        23px;
 
     background:
         rgba(255,255,255,0.045);
@@ -1209,13 +1392,13 @@ input[type="date"] {
     border-color:
         rgba(255,122,0,0.25);
 
-    color: white;
+    color: #ffffff;
 }
 
 
-/* =========================================
+/* =========================================================
    FOOTER
-========================================= */
+========================================================= */
 
 .footer {
 
@@ -1231,9 +1414,9 @@ input[type="date"] {
 }
 
 
-/* =========================================
-   ANIMATIONEN
-========================================= */
+/* =========================================================
+   ANIMATION
+========================================================= */
 
 @keyframes fadeUp {
 
@@ -1252,13 +1435,12 @@ input[type="date"] {
         transform:
             translateY(0);
     }
-
 }
 
 
-/* =========================================
+/* =========================================================
    MOBILE
-========================================= */
+========================================================= */
 
 @media (max-width: 600px) {
 
@@ -1266,19 +1448,38 @@ input[type="date"] {
 
         width: 94%;
 
-        padding-top: 25px;
+        padding-top: 20px;
+    }
+
+
+    .logo-wrapper {
+
+        min-height: 195px;
+
+        margin-bottom: 5px;
     }
 
 
     .logo {
 
         width: 185px;
+
+        max-width: 78%;
+    }
+
+
+    .logo-wrapper::before {
+
+        width: 250px;
+        height: 250px;
     }
 
 
     h1 {
 
-        font-size: 31px;
+        font-size: 34px;
+
+        letter-spacing: -0.5px;
     }
 
 
@@ -1287,6 +1488,44 @@ input[type="date"] {
         font-size: 16px;
 
         margin-bottom: 30px;
+    }
+
+
+    .info-card {
+
+        padding: 22px;
+    }
+
+
+    .highlights {
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+
+    .highlight {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        text-align: left;
+    }
+
+
+    .highlight-icon {
+
+        margin: 0;
+
+        width: 38px;
+
+        flex-shrink: 0;
+
+        text-align: center;
     }
 
 
@@ -1304,18 +1543,6 @@ input[type="date"] {
     }
 
 
-    .terms {
-
-        padding: 20px;
-    }
-
-
-    .trial {
-
-        padding: 18px;
-    }
-
-
     .football {
 
         font-size: 38px;
@@ -1330,9 +1557,9 @@ input[type="date"] {
 }
 
 
-/* =========================================
+/* =========================================================
    REDUCED MOTION
-========================================= */
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1357,86 +1584,122 @@ input[type="date"] {
 <body>
 
 
-<!-- =========================================
+<!-- =======================================================
      PARTIKEL
-========================================= -->
+======================================================== -->
 
 <div class="particles">
 
     <span
         class="particle"
-        style="left:7%;animation-duration:10s;animation-delay:-2s;"
+        style="
+            left:7%;
+            animation-duration:10s;
+            animation-delay:-2s;
+        "
     ></span>
 
     <span
         class="particle"
-        style="left:18%;animation-duration:13s;animation-delay:-7s;"
+        style="
+            left:18%;
+            animation-duration:13s;
+            animation-delay:-7s;
+        "
     ></span>
 
     <span
         class="particle"
-        style="left:31%;animation-duration:11s;animation-delay:-4s;"
+        style="
+            left:31%;
+            animation-duration:11s;
+            animation-delay:-4s;
+        "
     ></span>
 
     <span
         class="particle"
-        style="left:45%;animation-duration:15s;animation-delay:-9s;"
+        style="
+            left:45%;
+            animation-duration:15s;
+            animation-delay:-9s;
+        "
     ></span>
 
     <span
         class="particle"
-        style="left:59%;animation-duration:12s;animation-delay:-3s;"
+        style="
+            left:59%;
+            animation-duration:12s;
+            animation-delay:-3s;
+        "
     ></span>
 
     <span
         class="particle"
-        style="left:73%;animation-duration:14s;animation-delay:-8s;"
+        style="
+            left:73%;
+            animation-duration:14s;
+            animation-delay:-8s;
+        "
     ></span>
 
     <span
         class="particle"
-        style="left:87%;animation-duration:10s;animation-delay:-5s;"
+        style="
+            left:87%;
+            animation-duration:10s;
+            animation-delay:-5s;
+        "
     ></span>
 
 </div>
 
 
-<!-- =========================================
+<!-- =======================================================
      SCHWEBENDE FUSSBÄLLE
-========================================= -->
+======================================================== -->
 
-<div class="football one">⚽</div>
+<div class="football one">
+    ⚽
+</div>
 
-<div class="football two">⚽</div>
+<div class="football two">
+    ⚽
+</div>
 
-<div class="football three">⚽</div>
+<div class="football three">
+    ⚽
+</div>
 
+
+<!-- =======================================================
+     HAUPTINHALT
+======================================================== -->
 
 <div class="container">
 
 
-    <!-- =========================================
+    <!-- ===================================================
          LOGO
-    ========================================== -->
+    ==================================================== -->
 
     <div class="logo-wrapper">
 
         <img
             src="assets/logo.png"
-            alt="Frey Football Academy Logo"
+            alt="Frey Football Academy"
             class="logo"
         >
 
     </div>
 
 
-    <!-- =========================================
+    <!-- ===================================================
          TITEL
-    ========================================== -->
+    ==================================================== -->
 
     <h1>
-
-        Anmeldung zum
 
         <span class="orange">
             Fördertraining
@@ -1450,32 +1713,133 @@ input[type="date"] {
 
     <p class="intro">
 
-        Melde hier dein Kind für das
-        Fördertraining der Frey Football Academy an.
+        Gezielte Förderung für Spieler,
+        die ihr Spiel auf das nächste Level bringen möchten.
 
         <br>
 
-        Individuelle Entwicklung.
-        Klare Ziele. Fußball mit System.
+        Individuelle Inhalte. Klare Ziele.
+        Nachhaltige Entwicklung.
 
     </p>
 
 
-    <!-- =========================================
+    <!-- ===================================================
+         INFO
+    ==================================================== -->
+
+    <div class="info-card">
+
+        <h2>
+
+            Dein Weg zur
+
+            <span>
+                nächsten Stufe.
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Im Fördertraining arbeiten wir gezielt an
+            technischen, taktischen und individuellen
+            Fähigkeiten. Dabei steht die Entwicklung
+            des Spielers im Mittelpunkt.
+
+        </p>
+
+    </div>
+
+
+    <!-- ===================================================
+         HIGHLIGHTS
+    ==================================================== -->
+
+    <div class="highlights">
+
+
+        <div class="highlight">
+
+            <span class="highlight-icon">
+                ⚡
+            </span>
+
+            <div>
+
+                <strong>
+                    Individuelle Förderung
+                </strong>
+
+                <span>
+                    Training passend zum Spieler
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="highlight">
+
+            <span class="highlight-icon">
+                🎯
+            </span>
+
+            <div>
+
+                <strong>
+                    Klare Trainingsziele
+                </strong>
+
+                <span>
+                    Fokus auf konkrete Entwicklung
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="highlight">
+
+            <span class="highlight-icon">
+                📈
+            </span>
+
+            <div>
+
+                <strong>
+                    Nachhaltige Entwicklung
+                </strong>
+
+                <span>
+                    Fortschritt langfristig aufbauen
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ===================================================
          FORMULAR
-    ========================================== -->
+    ==================================================== -->
 
     <form
-        action="https://formspree.io/f/mnpaveen"
+        action="https://formspree.io/f/xoeadwwq"
         method="POST"
-        id="foerdertraining-form"
     >
 
 
         <input
             type="hidden"
             name="_subject"
-            value="Neue Anmeldung – Fördertraining | Frey Football Academy"
+            value="Neue Anfrage – Fördertraining | Frey Football Academy"
         >
 
 
@@ -1486,47 +1850,16 @@ input[type="date"] {
         >
 
 
-        <!-- =========================================
+        <!-- ===============================================
              SPIELER
-        ========================================== -->
+        ================================================ -->
 
         <div class="section">
 
 
             <div class="section-title">
+
                 Angaben zum Spieler
-            </div>
-
-
-            <div class="field">
-
-                <label for="spielername">
-                    Name des Spielers *
-                </label>
-
-                <input
-                    type="text"
-                    id="spielername"
-                    name="Name des Spielers"
-                    placeholder="Vor- und Nachname"
-                    required
-                >
-
-            </div>
-
-
-            <div class="field">
-
-                <label for="geburtsdatum">
-                    Geburtsdatum des Spielers *
-                </label>
-
-                <input
-                    type="date"
-                    id="geburtsdatum"
-                    name="Geburtsdatum des Spielers"
-                    required
-                >
 
             </div>
 
@@ -1536,15 +1869,17 @@ input[type="date"] {
 
                 <div class="field">
 
-                    <label for="kleidergroesse">
-                        Kleidergröße *
+                    <label for="vorname">
+
+                        Vorname *
+
                     </label>
 
                     <input
                         type="text"
-                        id="kleidergroesse"
-                        name="Kleidergröße"
-                        placeholder="z. B. 152, 164, S, M"
+                        id="vorname"
+                        name="Vorname des Spielers"
+                        placeholder="Vorname"
                         required
                     >
 
@@ -1553,16 +1888,86 @@ input[type="date"] {
 
                 <div class="field">
 
-                    <label for="verein">
-                        Verein
+                    <label for="nachname">
+
+                        Nachname *
+
                     </label>
 
                     <input
                         type="text"
-                        id="verein"
-                        name="Verein"
-                        placeholder="Aktueller Verein"
+                        id="nachname"
+                        name="Nachname des Spielers"
+                        placeholder="Nachname"
+                        required
                     >
+
+                </div>
+
+
+            </div>
+
+
+            <div class="form-row">
+
+
+                <div class="field">
+
+                    <label for="geburtsdatum">
+
+                        Geburtsdatum *
+
+                    </label>
+
+                    <input
+                        type="date"
+                        id="geburtsdatum"
+                        name="Geburtsdatum des Spielers"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="spielniveau">
+
+                        Spielniveau *
+
+                    </label>
+
+                    <select
+                        id="spielniveau"
+                        name="Spielniveau"
+                        required
+                    >
+
+                        <option value="">
+
+                            Bitte wählen
+
+                        </option>
+
+                        <option value="Anfänger">
+
+                            Anfänger
+
+                        </option>
+
+                        <option value="Fortgeschritten">
+
+                            Fortgeschritten
+
+                        </option>
+
+                        <option value="Leistungsbereich">
+
+                            Leistungsbereich
+
+                        </option>
+
+                    </select>
 
                 </div>
 
@@ -1572,8 +1977,98 @@ input[type="date"] {
 
             <div class="field">
 
+                <label for="position">
+
+                    Position *
+
+                </label>
+
+                <select
+                    id="position"
+                    name="Positionen"
+                    class="position-select"
+                    multiple
+                    required
+                >
+
+                    <option value="Torwart">
+
+                        Torwart
+
+                    </option>
+
+                    <option value="Innenverteidiger">
+
+                        Innenverteidiger
+
+                    </option>
+
+                    <option value="Außenverteidiger">
+
+                        Außenverteidiger
+
+                    </option>
+
+                    <option value="6/8er">
+
+                        6/8er
+
+                    </option>
+
+                    <option value="10er">
+
+                        10er
+
+                    </option>
+
+                    <option value="Flügelspieler">
+
+                        Flügelspieler
+
+                    </option>
+
+                    <option value="Stürmer">
+
+                        Stürmer
+
+                    </option>
+
+                </select>
+
+
+                <div class="position-hint">
+
+                    Mehrere Positionen können ausgewählt werden.
+                    Auf dem Handy gedrückt halten.
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ===============================================
+             TRAININGSWUNSCH
+        ================================================ -->
+
+        <div class="section">
+
+
+            <div class="section-title">
+
+                Trainingswunsch
+
+            </div>
+
+
+            <div class="field">
+
                 <label for="standort">
+
                     Standort *
+
                 </label>
 
                 <select
@@ -1583,23 +2078,33 @@ input[type="date"] {
                 >
 
                     <option value="">
+
                         Bitte Standort auswählen
+
                     </option>
 
                     <option value="Walluf">
+
                         Walluf
+
                     </option>
 
                     <option value="Klein-Winternheim">
+
                         Klein-Winternheim
+
                     </option>
 
                     <option value="Heidesheim">
+
                         Heidesheim
+
                     </option>
 
-                    <option value="Bretzenheim">
-                        Bretzenheim
+                    <option value="Mainz-Bretzenheim">
+
+                        Mainz-Bretzenheim
+
                     </option>
 
                 </select>
@@ -1607,25 +2112,104 @@ input[type="date"] {
             </div>
 
 
+            <div class="form-row">
+
+
+                <div class="field">
+
+                    <label for="datum">
+
+                        Gewünschtes Trainingsdatum *
+
+                    </label>
+
+                    <input
+                        type="date"
+                        id="datum"
+                        name="Gewünschtes Trainingsdatum"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="uhrzeit">
+
+                        Wunschuhrzeit *
+
+                    </label>
+
+                    <input
+                        type="time"
+                        id="uhrzeit"
+                        name="Wunschuhrzeit"
+                        required
+                    >
+
+                </div>
+
+
+            </div>
+
+
+            <div class="field">
+
+                <label for="fokus">
+
+                    Trainingsfokus
+
+                </label>
+
+                <textarea
+                    id="fokus"
+                    name="Trainingsfokus"
+                    placeholder="Woran möchtest du besonders arbeiten? Welche Ziele möchtest du erreichen?"
+                ></textarea>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>
+                    Hinweis:
+                </strong>
+
+                <br>
+
+                Die angegebene Zeit ist ein Wunsch.
+                Wir melden uns anschließend mit einer
+                Terminbestätigung bzw. einem passenden
+                Terminvorschlag.
+
+            </div>
+
+
         </div>
 
 
-        <!-- =========================================
+        <!-- ===============================================
              ERZIEHUNGSBERECHTIGTER
-        ========================================== -->
+        ================================================ -->
 
         <div class="section">
 
 
             <div class="section-title">
+
                 Angaben zum Erziehungsberechtigten
+
             </div>
 
 
             <div class="field">
 
                 <label for="erziehungsberechtigter">
+
                     Name des Erziehungsberechtigten *
+
                 </label>
 
                 <input
@@ -1633,7 +2217,6 @@ input[type="date"] {
                     id="erziehungsberechtigter"
                     name="Name des Erziehungsberechtigten"
                     placeholder="Vor- und Nachname"
-                    autocomplete="name"
                     required
                 >
 
@@ -1645,16 +2228,17 @@ input[type="date"] {
 
                 <div class="field">
 
-                    <label for="email">
-                        E-Mail-Adresse *
+                    <label for="telefon">
+
+                        Telefonnummer *
+
                     </label>
 
                     <input
-                        type="email"
-                        id="email"
-                        name="E-Mail-Adresse"
-                        placeholder="name@email.de"
-                        autocomplete="email"
+                        type="tel"
+                        id="telefon"
+                        name="Telefonnummer"
+                        placeholder="+49 ..."
                         required
                     >
 
@@ -1663,16 +2247,17 @@ input[type="date"] {
 
                 <div class="field">
 
-                    <label for="telefon">
-                        Telefonnummer *
+                    <label for="email">
+
+                        E-Mail-Adresse *
+
                     </label>
 
                     <input
-                        type="tel"
-                        id="telefon"
-                        name="Telefonnummer"
-                        placeholder="+49 ..."
-                        autocomplete="tel"
+                        type="email"
+                        id="email"
+                        name="E-Mail-Adresse"
+                        placeholder="name@email.de"
                         required
                     >
 
@@ -1685,154 +2270,17 @@ input[type="date"] {
         </div>
 
 
-        <!-- =========================================
-             ANMELDUNG
-        ========================================== -->
-
-        <div class="section">
-
-
-            <div class="section-title">
-                Anmeldung
-            </div>
-
-
-            <div class="field">
-
-                <label for="anmeldedatum">
-                    Gewünschtes Startdatum *
-                </label>
-
-                <input
-                    type="date"
-                    id="anmeldedatum"
-                    name="Datum der Anmeldung"
-                    required
-                >
-
-            </div>
-
-
-        </div>
-
-
-        <!-- =========================================
-             TEILNAHMEBEDINGUNGEN
-        ========================================== -->
-
-        <div class="terms">
-
-
-            <div class="terms-title">
-                Teilnahmebedingungen
-            </div>
-
-
-            <p>
-
-                Mit der Anmeldung zum Fördertraining bestätige ich,
-                dass ich die Teilnahmebedingungen der Frey Football Academy
-                gelesen und verstanden habe und mit diesen einverstanden bin.
-
-            </p>
-
-
-            <p>
-
-                <a
-                    href="Teilnahmebedingungen.html"
-                    target="_blank"
-                    rel="noopener"
-                >
-
-                    Teilnahmebedingungen lesen
-
-                </a>
-
-            </p>
-
-
-            <!-- SCHNUPPERTRAINING -->
-
-            <div class="trial">
-
-                <strong>
-                    Kostenloses Schnuppertraining
-                </strong>
-
-                <br><br>
-
-                Das erste Training ist kostenfrei und dient als
-                Schnuppertraining.
-
-                Der Spieler und seine Erziehungsberechtigten erhalten
-                dadurch die Möglichkeit, das Fördertraining, die
-                Trainingsphilosophie und die Arbeitsweise der FFA
-                kennenzulernen.
-
-                <br><br>
-
-                Nach dem Schnuppertraining kann die Teilnahme am
-                Fördertraining widerrufen werden.
-
-                Erfolgt nach dem Schnuppertraining kein Widerruf,
-                beginnt die reguläre Teilnahme am Fördertraining.
-
-                <br><br>
-
-                Der erste Monat wird ab dem individuellen
-                Einstiegsdatum anteilsmäßig berechnet.
-
-                Ab dem darauffolgenden Monat wird der reguläre
-                Beitrag von
-
-                <br>
-
-                <span class="price">
-                    80 € / Monat
-                </span>
-
-                fällig.
-
-            </div>
-
-
-            <!-- ZUSTIMMUNG -->
-
-            <div class="checkbox">
-
-                <input
-                    type="checkbox"
-                    id="teilnahmebedingungen"
-                    name="Teilnahmebedingungen akzeptiert"
-                    value="Ja"
-                    required
-                >
-
-
-                <label for="teilnahmebedingungen">
-
-                    Ich habe die Teilnahmebedingungen gelesen,
-                    verstanden und akzeptiere diese. *
-
-                </label>
-
-            </div>
-
-
-        </div>
-
-
-        <!-- =========================================
+        <!-- ===============================================
              DATENSCHUTZ
-        ========================================== -->
+        ================================================ -->
 
         <div class="checkbox">
+
 
             <input
                 type="checkbox"
                 id="datenschutz"
-                name="Datenschutzerklärung bestätigt"
+                name="Datenschutz bestätigt"
                 value="Ja"
                 required
             >
@@ -1843,7 +2291,7 @@ input[type="date"] {
                 Ich habe die
 
                 <a
-                    href="Datenschutz.foerdertraining.html"
+                    href="datenschutz.html"
                     target="_blank"
                     rel="noopener"
                 >
@@ -1856,19 +2304,20 @@ input[type="date"] {
 
             </label>
 
+
         </div>
 
 
-        <!-- =========================================
+        <!-- ===============================================
              ABSENDEN
-        ========================================== -->
+        ================================================ -->
 
         <button
             type="submit"
             class="submit"
         >
 
-            ⚡ Jetzt verbindlich anmelden
+            ⚡ FÖRDERTRAINING ANFRAGEN
 
         </button>
 
@@ -1876,13 +2325,13 @@ input[type="date"] {
     </form>
 
 
-    <!-- =========================================
+    <!-- ===================================================
          ZURÜCK
-    ========================================== -->
+    ==================================================== -->
 
     <a
-        class="back"
         href="angebote.html"
+        class="back"
     >
 
         ← Zurück zu den Trainingsangeboten
@@ -1890,9 +2339,9 @@ input[type="date"] {
     </a>
 
 
-    <!-- =========================================
+    <!-- ===================================================
          FOOTER
-    ========================================== -->
+    ==================================================== -->
 
     <div class="footer">
 
