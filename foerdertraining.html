@@ -1081,6 +1081,77 @@ input[type="date"] {
 
 
 /* =========================================================
+   TRAININGSSET
+========================================================= */
+
+.training-set {
+
+    margin-top: 30px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,122,0,0.075),
+            rgba(10,10,10,0.92)
+        );
+
+    border-color:
+        rgba(255,122,0,0.20);
+}
+
+
+.training-set .terms-title {
+
+    margin-bottom: 12px;
+}
+
+
+.training-set p {
+
+    color: #c7c7c7;
+
+    margin-bottom: 10px;
+}
+
+
+.training-set strong {
+
+    color: #ffffff;
+}
+
+
+#kleidergroesse-wrapper {
+
+    animation:
+        sizeFieldIn
+        0.25s
+        ease
+        both;
+}
+
+
+@keyframes sizeFieldIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(-8px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
    ABSENDEN
 ========================================================= */
 
@@ -1540,7 +1611,9 @@ input[type="date"] {
     >
 
 
-        <!-- BETREFF FÜR FORMSPREE -->
+        <!-- ================================= -->
+        <!-- FORMSPREE BETREFF -->
+        <!-- ================================= -->
 
         <input
             type="hidden"
@@ -1593,41 +1666,18 @@ input[type="date"] {
             </div>
 
 
-            <div class="form-row">
+            <div class="field">
 
+                <label for="verein">
+                    Verein
+                </label>
 
-                <div class="field">
-
-                    <label for="kleidergroesse">
-                        Kleidergröße *
-                    </label>
-
-                    <input
-                        type="text"
-                        id="kleidergroesse"
-                        name="Kleidergröße"
-                        placeholder="z. B. 152, 164, S, M"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="field">
-
-                    <label for="verein">
-                        Verein
-                    </label>
-
-                    <input
-                        type="text"
-                        id="verein"
-                        name="Verein"
-                        placeholder="Aktueller Verein"
-                    >
-
-                </div>
-
+                <input
+                    type="text"
+                    id="verein"
+                    name="Verein"
+                    placeholder="Aktueller Verein"
+                >
 
             </div>
 
@@ -1700,8 +1750,43 @@ input[type="date"] {
             </div>
 
 
-            <div class="form-row">
+            <div class="field">
 
+                <label for="strasse">
+                    Straße (inkl. Hausnummer) *
+                </label>
+
+                <input
+                    type="text"
+                    id="strasse"
+                    name="Straße (inkl. Hausnummer)"
+                    placeholder="z. B. Musterstraße 12"
+                    autocomplete="street-address"
+                    required
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label for="plz_ort">
+                    PLZ & Ort *
+                </label>
+
+                <input
+                    type="text"
+                    id="plz_ort"
+                    name="PLZ & Ort"
+                    placeholder="z. B. 55122 Mainz"
+                    autocomplete="postal-code"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-row">
 
                 <div class="field">
 
@@ -1737,7 +1822,6 @@ input[type="date"] {
                     >
 
                 </div>
-
 
             </div>
 
@@ -1836,6 +1920,79 @@ input[type="date"] {
 
 
         <!-- ================================= -->
+        <!-- FFA ADIDAS TRAININGSSET -->
+        <!-- ================================= -->
+
+        <div class="terms training-set">
+
+
+            <div class="terms-title">
+                FFA adidas Trainingsset
+            </div>
+
+
+            <p>
+
+                Optional kannst du für dein Kind ein offizielles
+                FFA adidas Trainingsset bestehend aus
+
+                <strong>Trikot, Hose und Stutzen</strong>
+
+                für einmalig
+
+                <strong>40 €</strong>
+
+                bestellen.
+
+            </p>
+
+
+            <div class="checkbox">
+
+                <input
+                    type="checkbox"
+                    id="trainingsset"
+                    name="FFA adidas Trainingsset"
+                    value="Ja – 40 €"
+                >
+
+
+                <label for="trainingsset">
+
+                    Ja, ich möchte das FFA adidas Trainingsset
+                    für 40 € bestellen.
+
+                </label>
+
+            </div>
+
+
+            <!-- KLEIDERGRÖSSE -->
+
+            <div
+                class="field"
+                id="kleidergroesse-wrapper"
+                style="display: none; margin-top: 20px;"
+            >
+
+                <label for="kleidergroesse">
+                    Kleidergröße *
+                </label>
+
+                <input
+                    type="text"
+                    id="kleidergroesse"
+                    name="Kleidergröße"
+                    placeholder="z. B. 152, 164, S, M"
+                >
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ================================= -->
         <!-- DATENSCHUTZ -->
         <!-- ================================= -->
 
@@ -1870,7 +2027,7 @@ input[type="date"] {
 
 
         <!-- ================================= -->
-        <!-- ABSENDEN -->
+        <!-- VERBINDLICHE ANMELDUNG -->
         <!-- ================================= -->
 
         <button
@@ -1886,7 +2043,9 @@ input[type="date"] {
     </form>
 
 
+    <!-- ================================= -->
     <!-- ZURÜCK -->
+    <!-- ================================= -->
 
     <a
         class="back"
@@ -1898,7 +2057,9 @@ input[type="date"] {
     </a>
 
 
+    <!-- ================================= -->
     <!-- FOOTER -->
+    <!-- ================================= -->
 
     <div class="footer">
 
@@ -1926,6 +2087,70 @@ input[type="date"] {
 
 <script>
 
+
+/* =========================================================
+   TRAININGSSET / KLEIDERGRÖSSE
+========================================================= */
+
+const trainingsset =
+    document.getElementById(
+        "trainingsset"
+    );
+
+
+const kleidergroesseWrapper =
+    document.getElementById(
+        "kleidergroesse-wrapper"
+    );
+
+
+const kleidergroesse =
+    document.getElementById(
+        "kleidergroesse"
+    );
+
+
+trainingsset.addEventListener(
+    "change",
+    function() {
+
+
+        if (this.checked) {
+
+
+            kleidergroesseWrapper.style.display =
+                "block";
+
+
+            kleidergroesse.required =
+                true;
+
+
+        } else {
+
+
+            kleidergroesseWrapper.style.display =
+                "none";
+
+
+            kleidergroesse.required =
+                false;
+
+
+            kleidergroesse.value =
+                "";
+
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   FORMULAR
+========================================================= */
+
 const form =
     document.getElementById(
         "foerdertraining-form"
@@ -1936,24 +2161,30 @@ form.addEventListener(
     "submit",
     async function(event) {
 
+
         event.preventDefault();
 
 
         const button =
-            form.querySelector(".submit");
+            form.querySelector(
+                ".submit"
+            );
 
 
         const originalText =
             button.innerHTML;
 
 
-        button.disabled = true;
+        button.disabled =
+            true;
+
 
         button.innerHTML =
             "⏳ WIRD GESENDET ...";
 
 
         try {
+
 
             const response =
                 await fetch(
@@ -1978,8 +2209,10 @@ form.addEventListener(
 
             if (response.ok) {
 
+
                 window.location.href =
                     "anfrage-erfolgreich.html";
+
 
                 return;
 
@@ -1990,22 +2223,28 @@ form.addEventListener(
                 "Formular konnte nicht gesendet werden."
             );
 
+
         }
 
 
         catch (error) {
+
 
             alert(
                 "Die Anmeldung konnte gerade nicht gesendet werden. Bitte versuche es erneut."
             );
 
 
-            button.disabled = false;
+            button.disabled =
+                false;
+
 
             button.innerHTML =
                 originalText;
 
+
         }
+
 
     }
 );
