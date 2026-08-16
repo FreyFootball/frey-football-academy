@@ -243,6 +243,29 @@ body::after {
 }
 
 
+/* Zentrierung nach Entfernen der Vereinslogos */
+
+.logo-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-box-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.logo-box-center .header-logo {
+    margin: 0 auto;
+}
+
+.intro {
+    text-align: center;
+}
+
 .logo-wrapper::before {
     content: "";
     position: absolute;
@@ -596,28 +619,15 @@ select:disabled {
     }
 
     .logo-row {
-
         width: 100%;
-
-        grid-template-columns: 1fr 1fr 1fr;
-
-        gap: 6px;
-
+        display: flex;
+        justify-content: center;
     }
 
-    .logo-box,
-    .header-logo {
-
-        width: 82px;
-
-        height: 82px;
-
-    }
-
-    .header-logo {
-
-        flex-basis: 82px;
-
+    .logo-box-center,
+    .logo-box-center .header-logo {
+        width: 150px;
+        height: 150px;
     }
 
 }
@@ -650,28 +660,14 @@ select:disabled {
 
         <div class="logo-row">
 
-            <div class="logo-box">
-                <img
-                    src="assets/TSV Zornheim.png"
-                    alt="TSV Zornheim Logo"
-                    class="header-logo"
-                >
-            </div>
-
             <div class="logo-box logo-box-center">
+
                 <img
                     src="assets/logo.png"
                     alt="Frey Football Academy Logo"
                     class="header-logo"
                 >
-            </div>
 
-            <div class="logo-box">
-                <img
-                    src="assets/tus sörgenloch.png"
-                    alt="TuS Sörgenloch 1953 e.V. Logo"
-                    class="header-logo"
-                >
             </div>
 
         </div>
@@ -1066,10 +1062,6 @@ select:disabled {
         </button>
 
     </form>
-
-    <a class="back" href="leistungen.html">
-        ← Zurück zu unseren Trainingsangeboten
-    </a>
 
     <div class="footer">
         Frey Football Academy · Train. Develop. Succeed.
