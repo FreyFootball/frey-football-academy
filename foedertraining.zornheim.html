@@ -144,7 +144,7 @@ body::after {
 
     width: 100%;
 
-    min-height: 250px;
+    min-height: 220px;
 
     display: flex;
 
@@ -161,17 +161,17 @@ body::after {
 
 .logo-row {
 
-    width: min(100%, 760px);
+    width: min(100%, 720px);
 
     display: grid;
 
-    grid-template-columns: 1fr 1.35fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 
     align-items: center;
 
     justify-items: center;
 
-    column-gap: 24px;
+    gap: 20px;
 
     margin: 0 auto;
 
@@ -182,9 +182,17 @@ body::after {
 }
 
 
-.logo-slot {
+/*
+   Alle drei Logos bekommen exakt dieselbe Fläche.
+   Dadurch sind TSV Zornheim, FFA und TuS Sörgenloch
+   optisch gleich groß und sauber nebeneinander.
+*/
 
-    width: 100%;
+.logo-box {
+
+    width: 150px;
+
+    height: 150px;
 
     display: flex;
 
@@ -195,38 +203,19 @@ body::after {
 }
 
 
-.logo-slot-left {
+.header-logo {
 
-    grid-column: 1;
+    width: 150px;
 
-}
-
-
-.logo-slot-center {
-
-    grid-column: 2;
-
-}
-
-
-.logo-slot-right {
-
-    grid-column: 3;
-
-}
-
-
-.club-logo {
+    height: 150px;
 
     display: block;
 
-    width: 110px;
-
-    height: 110px;
-
     object-fit: contain;
 
-    flex: 0 0 auto;
+    object-position: center;
+
+    flex: 0 0 150px;
 
     filter:
         drop-shadow(
@@ -241,41 +230,13 @@ body::after {
 }
 
 
-.ffa-logo {
-
-    display: block;
-
-    width: 230px;
-
-    max-width: 100%;
-
-    height: auto;
-
-    object-fit: contain;
-
-    flex: 0 0 auto;
-
-    filter:
-        drop-shadow(
-            0 0 22px
-            rgba(255,122,0,0.25)
-        );
-
-    transition:
-        transform 0.3s ease,
-        filter 0.3s ease;
-
-}
-
-
-.club-logo:hover,
-.ffa-logo:hover {
+.header-logo:hover {
 
     transform: scale(1.05);
 
     filter:
         drop-shadow(
-            0 0 25px
+            0 0 24px
             rgba(255,122,0,0.35)
         );
 
@@ -635,19 +596,28 @@ select:disabled {
     }
 
     .logo-row {
+
         width: 100%;
-        grid-template-columns: 1fr 1.2fr 1fr;
-        column-gap: 8px;
+
+        grid-template-columns: 1fr 1fr 1fr;
+
+        gap: 6px;
+
     }
 
-    .club-logo {
-        width: 64px;
-        height: 64px;
+    .logo-box,
+    .header-logo {
+
+        width: 82px;
+
+        height: 82px;
+
     }
 
-    .ffa-logo {
-        width: 150px;
-        max-width: 100%;
+    .header-logo {
+
+        flex-basis: 82px;
+
     }
 
 }
@@ -680,29 +650,33 @@ select:disabled {
 
         <div class="logo-row">
 
-            <div class="logo-slot logo-slot-left">
+            <div class="logo-box">
                 <img
                     src="assets/TSV Zornheim.png"
                     alt="TSV Zornheim Logo"
-                    class="club-logo"
+                    class="header-logo"
                 >
             </div>
 
-            <div class="logo-slot logo-slot-center">
+            <div class="logo-box logo-box-center">
                 <img
                     src="assets/logo.png"
                     alt="Frey Football Academy Logo"
-                    class="ffa-logo"
+                    class="header-logo"
                 >
             </div>
 
-            <div class="logo-slot logo-slot-right">
+            <div class="logo-box">
                 <img
                     src="assets/tus sörgenloch.png"
                     alt="TuS Sörgenloch 1953 e.V. Logo"
-                    class="club-logo"
+                    class="header-logo"
                 >
             </div>
+
+        </div>
+
+    </div>
 
         </div>
 
