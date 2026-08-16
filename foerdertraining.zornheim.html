@@ -17,6 +17,10 @@
 
     <style>
 
+        /* =====================================================
+           GRUNDLAYOUT
+        ===================================================== */
+
         * {
             box-sizing: border-box;
         }
@@ -46,21 +50,25 @@
             overflow-x: hidden;
 
             background:
+
                 radial-gradient(
                     circle at 50% 5%,
                     rgba(255,122,0,.28),
                     transparent 32%
                 ),
+
                 radial-gradient(
                     circle at 0% 50%,
                     rgba(255,122,0,.07),
                     transparent 30%
                 ),
+
                 radial-gradient(
                     circle at 100% 80%,
                     rgba(255,122,0,.06),
                     transparent 30%
                 ),
+
                 linear-gradient(
                     180deg,
                     #181818 0%,
@@ -90,6 +98,7 @@
             pointer-events: none;
 
             background:
+
                 conic-gradient(
                     from 0deg,
                     transparent 0deg,
@@ -125,6 +134,7 @@
             border-radius: 50%;
 
             background:
+
                 radial-gradient(
                     circle,
                     rgba(255,122,0,.16),
@@ -241,7 +251,7 @@
 
 
         /* =====================================================
-           DEZENTE FUSSBÄLLE
+           FUSSBÄLLE
         ===================================================== */
 
         .football {
@@ -259,7 +269,10 @@
             font-size: 80px;
 
             animation:
-                footballFloat 7s ease-in-out infinite;
+                footballFloat
+                7s
+                ease-in-out
+                infinite;
 
         }
 
@@ -352,7 +365,10 @@
 
             position: relative;
 
-            margin-bottom: 10px;
+            margin:
+                0
+                auto
+                10px;
 
             text-align: center;
 
@@ -377,6 +393,7 @@
             border-radius: 50%;
 
             background:
+
                 radial-gradient(
                     circle,
                     rgba(255,122,0,.20),
@@ -392,7 +409,7 @@
         }
 
 
-        .header-logo {
+        .logo {
 
             position: relative;
 
@@ -420,7 +437,7 @@
 
 
         /* =====================================================
-           ÜBERSCHRIFT
+           TITEL
         ===================================================== */
 
         h1 {
@@ -446,10 +463,6 @@
 
         }
 
-
-        /* =====================================================
-           EINLEITUNG
-        ===================================================== */
 
         .intro {
 
@@ -540,6 +553,7 @@
             padding: 34px;
 
             background:
+
                 linear-gradient(
                     145deg,
                     rgba(255,255,255,.055),
@@ -713,8 +727,10 @@
             border-color: #ff7a00;
 
             box-shadow:
+
                 0 0 0 3px
                 rgba(255,122,0,.08),
+
                 0 0 25px
                 rgba(255,122,0,.06);
 
@@ -776,6 +792,7 @@
             padding: 24px;
 
             background:
+
                 linear-gradient(
                     145deg,
                     rgba(255,255,255,.04),
@@ -843,6 +860,7 @@
             padding: 21px;
 
             background:
+
                 linear-gradient(
                     135deg,
                     rgba(255,122,0,.11),
@@ -860,7 +878,8 @@
         }
 
 
-        .trial strong {
+        .trial strong,
+        .training-set strong {
 
             color: #fff;
 
@@ -876,6 +895,7 @@
             margin-top: 30px;
 
             background:
+
                 linear-gradient(
                     145deg,
                     rgba(255,122,0,.075),
@@ -925,6 +945,10 @@
             gap: 10px;
 
             margin-top: 20px;
+
+            position: relative;
+
+            z-index: 2;
 
         }
 
@@ -993,7 +1017,10 @@
 
             padding: 18px;
 
+            overflow: hidden;
+
             background:
+
                 linear-gradient(
                     135deg,
                     #ff9500,
@@ -1015,8 +1042,10 @@
             cursor: pointer;
 
             box-shadow:
+
                 0 12px 30px
                 rgba(0,0,0,.35),
+
                 0 0 25px
                 rgba(255,122,0,.12);
 
@@ -1034,8 +1063,10 @@
                 scale(1.01);
 
             box-shadow:
+
                 0 18px 40px
                 rgba(0,0,0,.45),
+
                 0 0 35px
                 rgba(255,122,0,.25);
 
@@ -1049,6 +1080,70 @@
             cursor: wait;
 
             transform: none;
+
+        }
+
+
+        /* =====================================================
+           ZURÜCK ZU UNSEREN TRAININGSANGEBOTEN
+           
+           Ursprünglicher Button
+        ===================================================== */
+
+        .back {
+
+            display: flex;
+
+            width: fit-content;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin:
+                32px
+                auto
+                0;
+
+            padding:
+                13px
+                23px;
+
+            background:
+                rgba(255,255,255,0.045);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.10);
+
+            color: #ddd;
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                border-color 0.3s ease,
+                color 0.3s ease;
+
+        }
+
+
+        .back:hover {
+
+            transform:
+                translateY(-3px);
+
+            background:
+                rgba(255,122,0,0.08);
+
+            border-color:
+                rgba(255,122,0,0.25);
+
+            color:
+                #ffffff;
 
         }
 
@@ -1085,38 +1180,39 @@
                 padding:
                     20px
                     0
-                    40px;
+                    45px;
 
             }
 
 
             .logo-wrapper {
 
-                min-height: 190px;
-
-                margin-bottom: 5px;
+                min-height: 195px;
 
             }
 
 
-            .header-logo {
+            .logo {
 
-                width: 180px;
+                width: 190px;
 
-                max-width: 72%;
+                max-width: 78%;
+
+            }
+
+
+            .logo-wrapper::before {
+
+                width: 250px;
+
+                height: 250px;
 
             }
 
 
             h1 {
 
-                font-size: 31px;
-
-                line-height: 1.2;
-
-                padding:
-                    0
-                    8px;
+                font-size: 30px;
 
             }
 
@@ -1125,11 +1221,7 @@
 
                 font-size: 16px;
 
-                padding:
-                    0
-                    8px;
-
-                margin-bottom: 28px;
+                margin-bottom: 30px;
 
             }
 
@@ -1142,84 +1234,70 @@
                     0
                     4px;
 
-                margin-bottom: 32px;
-
-            }
-
-
-            .training-info p {
-
-                margin-bottom: 22px;
-
             }
 
 
             form {
 
-                padding: 22px 18px;
+                padding: 22px;
 
-                border-radius: 18px;
-
-            }
-
-
-            .section-title {
-
-                font-size: 19px;
+                border-radius: 17px;
 
             }
 
 
             .terms {
 
-                padding: 18px;
-
-            }
-
-
-            .terms-title {
-
-                font-size: 18px;
-
-            }
-
-
-            .trial {
-
-                padding: 17px;
-
-            }
-
-
-            input,
-            select {
-
-                font-size: 16px;
-
-                padding: 13px;
-
-            }
-
-
-            .submit {
-
-                font-size: 17px;
-
-                padding: 16px;
+                padding: 20px;
 
             }
 
 
             .football {
 
-                font-size: 55px;
+                font-size: 38px;
 
             }
 
 
             .football.two {
 
-                font-size: 70px;
+                font-size: 50px;
+
+            }
+
+
+            .back {
+
+                width: fit-content;
+
+                max-width: 100%;
+
+                text-align: center;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCED MOTION
+        ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
 
             }
 
@@ -1234,8 +1312,8 @@
 
 
     <!-- =====================================================
-         HINTERGRUND-PARTIKEL
-    ====================================================== -->
+         PARTIKEL
+    ===================================================== -->
 
     <div class="particles">
 
@@ -1244,74 +1322,86 @@
             style="
                 left:7%;
                 animation-duration:10s;
-                animation-delay:-2s
+                animation-delay:-2s;
             "
         ></span>
+
 
         <span
             class="particle"
             style="
                 left:18%;
                 animation-duration:13s;
-                animation-delay:-7s
+                animation-delay:-7s;
             "
         ></span>
+
 
         <span
             class="particle"
             style="
                 left:31%;
                 animation-duration:11s;
-                animation-delay:-4s
+                animation-delay:-4s;
             "
         ></span>
+
 
         <span
             class="particle"
             style="
                 left:45%;
                 animation-duration:15s;
-                animation-delay:-9s
+                animation-delay:-9s;
             "
         ></span>
+
 
         <span
             class="particle"
             style="
                 left:59%;
                 animation-duration:12s;
-                animation-delay:-3s
+                animation-delay:-3s;
             "
         ></span>
+
 
         <span
             class="particle"
             style="
                 left:73%;
                 animation-duration:14s;
-                animation-delay:-8s
+                animation-delay:-8s;
             "
         ></span>
+
 
         <span
             class="particle"
             style="
                 left:87%;
                 animation-duration:10s;
-                animation-delay:-5s
+                animation-delay:-5s;
             "
         ></span>
 
     </div>
 
 
+    <!-- =====================================================
+         FUSSBÄLLE
+    ===================================================== -->
+
     <div class="football one">
         ⚽
     </div>
 
+
     <div class="football two">
         ⚽
     </div>
+
 
     <div class="football three">
         ⚽
@@ -1319,22 +1409,20 @@
 
 
     <!-- =====================================================
-         HAUPTBEREICH
-    ====================================================== -->
+         HAUPTINHALT
+    ===================================================== -->
 
     <div class="container">
 
 
-        <!-- =================================================
-             FFA LOGO
-        ================================================== -->
+        <!-- FFA LOGO -->
 
         <div class="logo-wrapper">
 
             <img
                 src="assets/logo.png"
                 alt="Frey Football Academy Logo"
-                class="header-logo"
+                class="logo"
             >
 
         </div>
@@ -1345,7 +1433,9 @@
         ================================================== -->
 
         <h1>
+
             Anmeldung zum Fördertraining
+
         </h1>
 
 
@@ -1362,6 +1452,7 @@
         ================================================== -->
 
         <div class="training-info">
+
 
             <p>
 
@@ -1418,6 +1509,7 @@
 
             </p>
 
+
         </div>
 
 
@@ -1454,6 +1546,7 @@
 
                 <div class="field">
 
+
                     <label for="spielername">
 
                         Name des Spielers *
@@ -1470,10 +1563,12 @@
                         required
                     >
 
+
                 </div>
 
 
                 <div class="field">
+
 
                     <label for="geburtsdatum">
 
@@ -1505,10 +1600,12 @@
 
                     </div>
 
+
                 </div>
 
 
-                <!-- TSV ZORNHEIM FEST -->
+                <!-- TSV ZORNHEIM FEST HINTERLEGT -->
+
                 <input
                     type="hidden"
                     name="Verein"
@@ -1551,7 +1648,7 @@
                         >
 
                             Montag · 16:30 – 17:45 Uhr
-                            (Jahrgang 2016 & 2017)
+                            (Jahrgang 2016 &amp; 2017)
 
                         </option>
 
@@ -1562,7 +1659,7 @@
                         >
 
                             Montag · 18:00 – 19:15 Uhr
-                            (Jahrgang 2014 & 2015)
+                            (Jahrgang 2014 &amp; 2015)
 
                         </option>
 
@@ -1589,6 +1686,7 @@
 
                 </div>
 
+
             </div>
 
 
@@ -1608,6 +1706,7 @@
 
                 <div class="field">
 
+
                     <label for="erziehungsberechtigter">
 
                         Name des Erziehungsberechtigten *
@@ -1624,10 +1723,12 @@
                         required
                     >
 
+
                 </div>
 
 
                 <div class="field">
+
 
                     <label for="strasse">
 
@@ -1645,10 +1746,12 @@
                         required
                     >
 
+
                 </div>
 
 
                 <div class="field">
+
 
                     <label for="plz_ort">
 
@@ -1666,10 +1769,12 @@
                         required
                     >
 
+
                 </div>
 
 
                 <div class="field">
+
 
                     <label for="email">
 
@@ -1687,10 +1792,12 @@
                         required
                     >
 
+
                 </div>
 
 
                 <div class="field">
+
 
                     <label for="telefon">
 
@@ -1708,7 +1815,9 @@
                         required
                     >
 
+
                 </div>
+
 
             </div>
 
@@ -1756,7 +1865,9 @@
 
 
                     <strong>
+
                         Kostenloses Schnuppertraining
+
                     </strong>
 
 
@@ -1802,9 +1913,7 @@
                     >
 
 
-                    <label
-                        for="teilnahmebedingungen"
-                    >
+                    <label for="teilnahmebedingungen">
 
                         Ich habe die Teilnahmebedingungen gelesen,
                         verstanden und akzeptiere diese. *
@@ -1819,7 +1928,7 @@
 
 
             <!-- =============================================
-                 TRAININGSSET
+                 FFA ADIDAS TRAININGSSET
             ============================================== -->
 
             <div class="terms training-set">
@@ -1849,7 +1958,9 @@
 
 
                     <strong>
+
                         Wichtig:
+
                     </strong>
 
 
@@ -1943,7 +2054,9 @@
                         target="_blank"
                         rel="noopener"
                     >
+
                         Datenschutzerklärung
+
                     </a>
 
                     gelesen und zur Kenntnis genommen. *
@@ -1971,9 +2084,23 @@
         </form>
 
 
-        <!-- =============================================
+        <!-- ================================================
+             ZURÜCK ZU DEN TRAININGSANGEBOTEN
+        ================================================= -->
+
+        <a
+            class="back"
+            href="leistungen.html"
+        >
+
+            ← Zurück zu unseren Trainingsangeboten
+
+        </a>
+
+
+        <!-- ================================================
              FOOTER
-        ============================================== -->
+        ================================================= -->
 
         <div class="footer">
 
@@ -1996,7 +2123,7 @@
 
     <!-- =====================================================
          JAVASCRIPT
-    ====================================================== -->
+    ===================================================== -->
 
     <script>
 
@@ -2050,7 +2177,7 @@
 
 
             /* =================================================
-               TRAININGSSET / KLEIDERGRÖSSE
+               TRAININGSSET
             ================================================== */
 
             trainingsset.addEventListener(
@@ -2060,25 +2187,19 @@
 
                     if (this.checked) {
 
-
                         kleidergroesseWrapper.style.display =
                             "block";
-
 
                         kleidergroesse.required =
                             true;
 
-
                     } else {
-
 
                         kleidergroesseWrapper.style.display =
                             "none";
 
-
                         kleidergroesse.required =
                             false;
-
 
                         kleidergroesse.value =
                             "";
@@ -2104,22 +2225,23 @@
 
                 if (digits.length <= 2) {
 
-
                     geburtsdatum.value =
                         digits;
 
+                }
 
-                } else if (digits.length <= 4) {
 
+                else if (digits.length <= 4) {
 
                     geburtsdatum.value =
                         digits.slice(0, 2)
                         + "."
                         + digits.slice(2);
 
+                }
 
-                } else {
 
+                else {
 
                     geburtsdatum.value =
                         digits.slice(0, 2)
@@ -2177,9 +2299,6 @@
                     );
 
 
-                /* Prüft auch ungültige Daten
-                   wie 31.02.2016 */
-
                 if (
 
                     date.getFullYear() !== year ||
@@ -2202,7 +2321,7 @@
 
 
             /* =================================================
-               TRAININGSZEIT AUTOMATISCH ZUORDNEN
+               TRAININGSZEIT ZUORDNEN
             ================================================== */
 
             function updateTrainingTime() {
@@ -2225,11 +2344,6 @@
                         'option[data-sonstiger-jahrgang="true"]'
                     );
 
-
-                /*
-                    Zunächst alle speziellen Optionen
-                    ausblenden.
-                */
 
                 regularOptions.forEach(
                     function (option) {
@@ -2256,44 +2370,38 @@
                     "";
 
 
-                /* =============================================
-                   NOCH KEIN DATUM
-                ============================================== */
+                /* ---------------------------------------------
+                   KEIN DATUM
+                --------------------------------------------- */
 
                 if (
                     !geburtsdatum.value.trim()
                 ) {
 
-
                     trainingszeit.disabled =
                         true;
 
-
                     trainingszeitHinweis.textContent =
                         "Bitte zuerst das Geburtsdatum eingeben.";
-
 
                     return;
 
                 }
 
 
-                /* =============================================
+                /* ---------------------------------------------
                    UNGÜLTIGES DATUM
-                ============================================== */
+                --------------------------------------------- */
 
                 if (
                     birthYear === null
                 ) {
 
-
                     trainingszeit.disabled =
                         true;
 
-
                     trainingszeitHinweis.textContent =
                         "Bitte ein gültiges Geburtsdatum im Format TT.MM.JJJJ eingeben.";
-
 
                     return;
 
@@ -2304,9 +2412,9 @@
                     null;
 
 
-                /* =============================================
-                   JAHRGANG 2016 / 2017
-                ============================================== */
+                /* ---------------------------------------------
+                   2016 / 2017
+                --------------------------------------------- */
 
                 if (
 
@@ -2328,13 +2436,12 @@
                         + birthYear
                         + " ist ausschließlich Montag, 16:30 – 17:45 Uhr vorgesehen.";
 
-
                 }
 
 
-                /* =============================================
-                   JAHRGANG 2014 / 2015
-                ============================================== */
+                /* ---------------------------------------------
+                   2014 / 2015
+                --------------------------------------------- */
 
                 else if (
 
@@ -2356,13 +2463,12 @@
                         + birthYear
                         + " ist ausschließlich Montag, 18:00 – 19:15 Uhr vorgesehen.";
 
-
                 }
 
 
-                /* =============================================
+                /* ---------------------------------------------
                    ALLE ANDEREN JAHRGÄNGE
-                ============================================== */
+                --------------------------------------------- */
 
                 else {
 
@@ -2394,9 +2500,9 @@
                 }
 
 
-                /* =============================================
-                   PASSENDE TRAININGSZEIT FREIGEBEN
-                ============================================== */
+                /* ---------------------------------------------
+                   PASSENDE OPTION FREIGEBEN
+                --------------------------------------------- */
 
                 allowedOption.hidden =
                     false;
@@ -2417,16 +2523,14 @@
 
 
             /* =================================================
-               GEBURTSDATUM – INPUT
+               DATUM INPUT
             ================================================== */
 
             geburtsdatum.addEventListener(
                 "input",
                 function () {
 
-
                     formatDateInput();
-
 
                     updateTrainingTime();
 
@@ -2457,11 +2561,6 @@
 
                     event.preventDefault();
 
-
-                    /*
-                        Vor dem Absenden nochmals
-                        die Trainingszeit prüfen.
-                    */
 
                     updateTrainingTime();
 
@@ -2547,7 +2646,10 @@
                         );
 
 
-                    } catch (error) {
+                    }
+
+
+                    catch (error) {
 
 
                         alert(
