@@ -4,7 +4,11 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Individualtraining | Frey Football Academy</title>
 
@@ -12,7 +16,7 @@
 <style>
 
 /* =========================================================
-   GRUNDLAGEN
+   RESET
 ========================================================= */
 
 * {
@@ -45,21 +49,25 @@ body {
     position: relative;
 
     background:
+
         radial-gradient(
             circle at 50% 5%,
             rgba(255, 122, 0, 0.28),
             transparent 32%
         ),
+
         radial-gradient(
-            circle at 0% 55%,
+            circle at 0% 50%,
             rgba(255, 122, 0, 0.07),
             transparent 30%
         ),
+
         radial-gradient(
-            circle at 100% 85%,
+            circle at 100% 80%,
             rgba(255, 122, 0, 0.06),
             transparent 30%
         ),
+
         linear-gradient(
             180deg,
             #181818 0%,
@@ -88,6 +96,7 @@ body::before {
     pointer-events: none;
 
     background:
+
         conic-gradient(
             from 0deg,
             transparent 0deg,
@@ -98,7 +107,10 @@ body::before {
         );
 
     animation:
-        backgroundRotate 28s linear infinite;
+        backgroundRotate
+        28s
+        linear
+        infinite;
 
     z-index: 0;
 }
@@ -122,6 +134,7 @@ body::after {
     border-radius: 50%;
 
     background:
+
         radial-gradient(
             circle,
             rgba(255, 122, 0, 0.16),
@@ -133,7 +146,10 @@ body::after {
     pointer-events: none;
 
     animation:
-        mainGlow 5s ease-in-out infinite;
+        mainGlow
+        5s
+        ease-in-out
+        infinite;
 
     z-index: 0;
 }
@@ -204,7 +220,9 @@ body::after {
     opacity: 0;
 
     animation:
-        particleFloat linear infinite;
+        particleFloat
+        linear
+        infinite;
 }
 
 
@@ -261,8 +279,15 @@ body::after {
     font-size: 80px;
 
     animation:
-        footballFloat 7s ease-in-out infinite,
-        footballRotate 14s linear infinite;
+        footballFloat
+        7s
+        ease-in-out
+        infinite,
+
+        footballRotate
+        14s
+        linear
+        infinite;
 }
 
 
@@ -321,7 +346,7 @@ body::after {
 
 
 /* =========================================================
-   HAUPTCONTAINER
+   CONTAINER
 ========================================================= */
 
 .container {
@@ -337,19 +362,25 @@ body::after {
     margin: 0 auto;
 
     padding:
-        38px
+        35px
         0
         60px;
+
+    text-align: center;
 }
 
 
 /* =========================================================
-   LOGO – EXAKT ZENTRIERT
+   LOGO
 ========================================================= */
 
 .logo-wrapper {
 
     position: relative;
+
+    width: 100%;
+
+    min-height: 225px;
 
     display: flex;
 
@@ -357,14 +388,10 @@ body::after {
 
     justify-content: center;
 
-    width: 100%;
-
-    min-height: 230px;
-
     margin:
         0
         auto
-        10px;
+        5px;
 
     animation:
         logoEntrance
@@ -392,6 +419,7 @@ body::after {
     border-radius: 50%;
 
     background:
+
         radial-gradient(
             circle,
             rgba(255, 122, 0, 0.25),
@@ -416,7 +444,7 @@ body::after {
 
     display: block;
 
-    width: 210px;
+    width: 220px;
 
     max-width: 75%;
 
@@ -505,20 +533,22 @@ body::after {
 
 h1 {
 
+    width: 100%;
+
     margin:
         0
-        0
+        auto
         12px;
-
-    text-align: center;
 
     color: #ffffff;
 
-    font-size: 44px;
+    font-size: 42px;
 
     line-height: 1.15;
 
     font-weight: 900;
+
+    text-align: center;
 
     letter-spacing: -1px;
 
@@ -532,71 +562,28 @@ h1 {
 
 
 .orange {
-
     color: #ff7a00;
-
-    text-shadow:
-        0 0 25px
-        rgba(255, 122, 0, 0.22);
-}
-
-
-.title-line {
-
-    width: 70px;
-
-    height: 4px;
-
-    margin:
-        18px
-        auto
-        0;
-
-    border-radius: 10px;
-
-    background: #ff7a00;
-
-    box-shadow:
-        0 0 15px
-        rgba(255, 122, 0, 0.7);
-
-    animation:
-        lineGrow
-        0.8s
-        0.5s
-        cubic-bezier(.16,1,.3,1)
-        both;
-}
-
-
-@keyframes lineGrow {
-
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 70px;
-    }
 }
 
 
 .intro {
 
-    max-width: 680px;
+    width: 100%;
+
+    max-width: 650px;
 
     margin:
-        18px
+        0
         auto
         38px;
-
-    text-align: center;
 
     color: #aaa;
 
     font-size: 18px;
 
     line-height: 1.65;
+
+    text-align: center;
 
     animation:
         fadeUp
@@ -617,24 +604,28 @@ form {
 
     width: 100%;
 
+    text-align: left;
+
     padding: 34px;
 
     background:
+
         linear-gradient(
             145deg,
-            rgba(255, 255, 255, 0.055),
-            rgba(18, 18, 18, 0.97)
+            rgba(255,255,255,0.055),
+            rgba(18,18,18,0.97)
         );
 
     border:
         1px solid
-        rgba(255, 255, 255, 0.10);
+        rgba(255,255,255,0.10);
 
     border-radius: 22px;
 
     box-shadow:
+
         0 25px 70px
-        rgba(0, 0, 0, 0.48);
+        rgba(0,0,0,0.48);
 
     backdrop-filter: blur(14px);
 
@@ -664,10 +655,11 @@ form::before {
     height: 100%;
 
     background:
+
         linear-gradient(
             90deg,
             transparent,
-            rgba(255, 122, 0, 0.045),
+            rgba(255,122,0,0.045),
             transparent
         );
 
@@ -726,9 +718,9 @@ form::before {
 
 .section {
 
-    position: relative;
+    margin-top: 32px;
 
-    margin-top: 35px;
+    position: relative;
 
     z-index: 1;
 }
@@ -773,7 +765,7 @@ form::before {
 
     box-shadow:
         0 0 12px
-        rgba(255, 122, 0, 0.55);
+        rgba(255,122,0,0.55);
 }
 
 
@@ -812,15 +804,14 @@ label {
 
 
 input,
-select,
-textarea {
+select {
 
     width: 100%;
 
     padding: 14px;
 
     background:
-        rgba(8, 8, 8, 0.85);
+        rgba(8,8,8,0.88);
 
     color: #ffffff;
 
@@ -845,32 +836,31 @@ textarea {
 
 
 input:hover,
-select:hover,
-textarea:hover {
+select:hover {
+
     border-color: #666;
 }
 
 
-input::placeholder,
-textarea::placeholder {
+input::placeholder {
     color: #777;
 }
 
 
 input:focus,
-select:focus,
-textarea:focus {
+select:focus {
 
     outline: none;
 
     border-color: #ff7a00;
 
     box-shadow:
+
         0 0 0 3px
-        rgba(255, 122, 0, 0.08),
+        rgba(255,122,0,0.08),
 
         0 0 25px
-        rgba(255, 122, 0, 0.06);
+        rgba(255,122,0,0.06);
 
     transform:
         translateY(-1px);
@@ -882,47 +872,11 @@ select {
 }
 
 
-input[type="date"],
-input[type="time"] {
+input[type="date"] {
 
     color-scheme: dark;
 
     cursor: pointer;
-}
-
-
-textarea {
-
-    min-height: 140px;
-
-    resize: vertical;
-}
-
-
-/* =========================================================
-   POSITIONEN
-========================================================= */
-
-.position-select {
-
-    min-height: 150px;
-
-    cursor: pointer;
-}
-
-
-.position-select option {
-    padding: 7px;
-}
-
-
-.position-hint {
-
-    margin-top: 7px;
-
-    color: #777;
-
-    font-size: 12px;
 }
 
 
@@ -932,18 +886,12 @@ textarea {
 
 .info-box {
 
-    position: relative;
+    margin-top: 5px;
 
-    margin-top: 15px;
-
-    padding: 20px;
+    padding: 19px;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(255, 122, 0, 0.11),
-            rgba(255, 122, 0, 0.025)
-        );
+        rgba(255,122,0,0.08);
 
     border-left:
         3px solid
@@ -951,7 +899,7 @@ textarea {
 
     border-radius: 9px;
 
-    color: #ccc;
+    color: #c7c7c7;
 
     font-size: 14px;
 
@@ -965,7 +913,7 @@ textarea {
 
 
 /* =========================================================
-   DATENSCHUTZ
+   CHECKBOX
 ========================================================= */
 
 .checkbox {
@@ -976,7 +924,7 @@ textarea {
 
     gap: 10px;
 
-    margin-top: 22px;
+    margin-top: 20px;
 
     position: relative;
 
@@ -987,6 +935,7 @@ textarea {
 .checkbox input {
 
     width: 18px;
+
     height: 18px;
 
     margin-top: 3px;
@@ -1020,42 +969,10 @@ textarea {
 
 
 .checkbox a:hover {
+
+    color: #ff9500;
+
     text-decoration: underline;
-}
-
-
-/* =========================================================
-   AJAX FEHLER
-========================================================= */
-
-[data-fs-error] {
-
-    color: #ff8a8a;
-
-    font-size: 14px;
-}
-
-
-.form-error {
-
-    display: none;
-
-    margin-top: 20px;
-
-    padding: 14px 16px;
-
-    background:
-        rgba(255, 60, 60, 0.08);
-
-    border:
-        1px solid
-        rgba(255, 80, 80, 0.25);
-
-    border-radius: 10px;
-
-    color: #ffaaaa;
-
-    font-size: 14px;
 }
 
 
@@ -1076,6 +993,7 @@ textarea {
     overflow: hidden;
 
     background:
+
         linear-gradient(
             135deg,
             #ff9500,
@@ -1097,16 +1015,16 @@ textarea {
     cursor: pointer;
 
     box-shadow:
+
         0 12px 30px
-        rgba(0, 0, 0, 0.35),
+        rgba(0,0,0,0.35),
 
         0 0 25px
-        rgba(255, 122, 0, 0.12);
+        rgba(255,122,0,0.12);
 
     transition:
         transform 0.3s ease,
-        box-shadow 0.3s ease,
-        opacity 0.3s ease;
+        box-shadow 0.3s ease;
 }
 
 
@@ -1125,6 +1043,7 @@ textarea {
     height: 100%;
 
     background:
+
         linear-gradient(
             90deg,
             transparent,
@@ -1152,11 +1071,12 @@ textarea {
         scale(1.01);
 
     box-shadow:
+
         0 18px 40px
-        rgba(0, 0, 0, 0.45),
+        rgba(0,0,0,0.45),
 
         0 0 35px
-        rgba(255, 122, 0, 0.25);
+        rgba(255,122,0,0.25);
 }
 
 
@@ -1234,9 +1154,9 @@ textarea {
 
 .footer {
 
-    margin-top: 42px;
-
     text-align: center;
+
+    margin-top: 42px;
 
     color: #666;
 
@@ -1280,21 +1200,22 @@ textarea {
 
         width: 94%;
 
-        padding-top: 20px;
+        padding:
+            20px
+            0
+            45px;
     }
 
 
     .logo-wrapper {
 
         min-height: 195px;
-
-        margin-bottom: 5px;
     }
 
 
     .logo {
 
-        width: 185px;
+        width: 190px;
 
         max-width: 78%;
     }
@@ -1303,15 +1224,14 @@ textarea {
     .logo-wrapper::before {
 
         width: 250px;
+
         height: 250px;
     }
 
 
     h1 {
 
-        font-size: 32px;
-
-        letter-spacing: -0.5px;
+        font-size: 30px;
     }
 
 
@@ -1325,23 +1245,26 @@ textarea {
 
     form {
 
-        padding: 21px;
+        padding: 22px;
 
         border-radius: 17px;
     }
 
 
     .form-row {
+
         display: block;
     }
 
 
     .football {
+
         font-size: 38px;
     }
 
 
     .football.two {
+
         font-size: 50px;
     }
 
@@ -1377,7 +1300,7 @@ textarea {
 
 <!-- =======================================================
      PARTIKEL
-======================================================== -->
+========================================================= -->
 
 <div class="particles">
 
@@ -1449,7 +1372,7 @@ textarea {
 
 <!-- =======================================================
      SCHWEBENDE FUSSBÄLLE
-======================================================== -->
+========================================================= -->
 
 <div class="football one">
     ⚽
@@ -1466,7 +1389,7 @@ textarea {
 
 <!-- =======================================================
      HAUPTINHALT
-======================================================== -->
+========================================================= -->
 
 <div class="container">
 
@@ -1477,7 +1400,7 @@ textarea {
 
         <img
             src="assets/logo.png"
-            alt="Frey Football Academy"
+            alt="Frey Football Academy Logo"
             class="logo"
         >
 
@@ -1493,46 +1416,40 @@ textarea {
     </h1>
 
 
-    <div class="title-line"></div>
-
-
     <p class="intro">
 
-        Du möchtest gezielt an deinem Fußballspiel arbeiten?
-
-        <br>
-
-        Fülle das Formular aus und erzähl uns kurz etwas
-        über dich und deine Ziele.
-
-        <br>
-
-        Wir melden uns anschließend persönlich bei dir.
+        Individuelle Förderung, gezielte Entwicklung
+        und intensives Training – abgestimmt auf
+        die persönlichen Ziele des Spielers.
 
     </p>
 
 
-    <!-- ===================================================
+    <!-- =====================================================
          FORMULAR
-    ==================================================== -->
+    ====================================================== -->
 
     <form
+        method="POST"
         id="individualtraining-form"
     >
 
-        <!-- Formspree AJAX Fehler -->
 
-        <div
-            class="form-error"
-            data-fs-error
-        ></div>
+        <!-- FORMSPREE BETREFF -->
+
+        <input
+            type="hidden"
+            name="_subject"
+            value="Neue Anfrage – Individualtraining | Frey Football Academy"
+        >
 
 
-        <!-- ===============================================
+        <!-- =========================================
              SPIELER
-        ================================================ -->
+        ========================================== -->
 
         <div class="section">
+
 
             <div class="section-title">
                 Angaben zum Spieler
@@ -1550,13 +1467,8 @@ textarea {
                     id="spielername"
                     name="Name des Spielers"
                     placeholder="Vor- und Nachname"
-                    data-fs-field
                     required
                 >
-
-                <span
-                    data-fs-error="Name des Spielers"
-                ></span>
 
             </div>
 
@@ -1571,16 +1483,56 @@ textarea {
                     type="date"
                     id="geburtsdatum"
                     name="Geburtsdatum des Spielers"
-                    data-fs-field
                     required
                 >
 
-                <span
-                    data-fs-error="Geburtsdatum des Spielers"
-                ></span>
+            </div>
+
+
+            <div class="form-row">
+
+
+                <!-- POSITION -->
+
+                <div class="field">
+
+                    <label for="position">
+                        Position *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="position"
+                        name="Position"
+                        placeholder="z. B. Stürmer, Mittelfeld, Innenverteidiger"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- VEREIN -->
+
+                <div class="field">
+
+                    <label for="verein">
+                        Verein
+                    </label>
+
+                    <input
+                        type="text"
+                        id="verein"
+                        name="Verein"
+                        placeholder="Aktueller Verein"
+                    >
+
+                </div>
+
 
             </div>
 
+
+            <!-- SPIELNIVEAU -->
 
             <div class="field">
 
@@ -1591,12 +1543,11 @@ textarea {
                 <select
                     id="spielniveau"
                     name="Spielniveau"
-                    data-fs-field
                     required
                 >
 
                     <option value="">
-                        Bitte wählen
+                        Bitte auswählen
                     </option>
 
                     <option value="Anfänger">
@@ -1613,80 +1564,25 @@ textarea {
 
                 </select>
 
-                <span
-                    data-fs-error="Spielniveau"
-                ></span>
-
             </div>
 
-
-            <div class="field">
-
-                <label for="position">
-                    Position *
-                </label>
-
-                <select
-                    id="position"
-                    name="Positionen"
-                    class="position-select"
-                    multiple
-                    data-fs-field
-                    required
-                >
-
-                    <option value="Torwart">
-                        Torwart
-                    </option>
-
-                    <option value="Innenverteidiger">
-                        Innenverteidiger
-                    </option>
-
-                    <option value="Außenverteidiger">
-                        Außenverteidiger
-                    </option>
-
-                    <option value="6/8er">
-                        6/8er
-                    </option>
-
-                    <option value="10er">
-                        10er
-                    </option>
-
-                    <option value="Flügelspieler">
-                        Flügelspieler
-                    </option>
-
-                    <option value="Stürmer">
-                        Stürmer
-                    </option>
-
-                </select>
-
-                <div class="position-hint">
-
-                    Mehrere Positionen können ausgewählt werden.
-                    Auf dem Handy gedrückt halten.
-
-                </div>
-
-            </div>
 
         </div>
 
 
-        <!-- ===============================================
+        <!-- =========================================
              TRAININGSWUNSCH
-        ================================================ -->
+        ========================================== -->
 
         <div class="section">
+
 
             <div class="section-title">
                 Trainingswunsch
             </div>
 
+
+            <!-- STANDORT -->
 
             <div class="field">
 
@@ -1697,7 +1593,6 @@ textarea {
                 <select
                     id="standort"
                     name="Standort"
-                    data-fs-field
                     required
                 >
 
@@ -1705,20 +1600,8 @@ textarea {
                         Bitte Standort auswählen
                     </option>
 
-                    <option value="Walluf">
-                        Walluf
-                    </option>
-
-                    <option value="Zornheim">
-                        Zornheim
-                    </option>
-
-                    <option value="Heidesheim">
-                        Heidesheim
-                    </option>
-
-                    <option value="Mainz-Bretzenheim">
-                        Mainz-Bretzenheim
+                    <option value="Sörgenloch">
+                        Sörgenloch
                     </option>
 
                 </select>
@@ -1726,56 +1609,20 @@ textarea {
             </div>
 
 
-            <div class="form-row">
-
-                <div class="field">
-
-                    <label for="datum">
-                        Gewünschtes Trainingsdatum *
-                    </label>
-
-                    <input
-                        type="date"
-                        id="datum"
-                        name="Gewünschtes Trainingsdatum"
-                        data-fs-field
-                        required
-                    >
-
-                </div>
-
-
-                <div class="field">
-
-                    <label for="uhrzeit">
-                        Wunschuhrzeit *
-                    </label>
-
-                    <input
-                        type="time"
-                        id="uhrzeit"
-                        name="Wunschuhrzeit"
-                        data-fs-field
-                        required
-                    >
-
-                </div>
-
-            </div>
-
+            <!-- STARTTERMIN -->
 
             <div class="field">
 
-                <label for="fokus">
-                    Worauf soll der Trainingsfokus liegen?
+                <label for="starttermin">
+                    Gewünschter Starttermin *
                 </label>
 
-                <textarea
-                    id="fokus"
-                    name="Trainingsfokus"
-                    placeholder="z. B. erster Kontakt, Abschluss, Dribbling, 1 gegen 1, Technik ..."
-                    data-fs-field
-                ></textarea>
+                <input
+                    type="date"
+                    id="starttermin"
+                    name="Gewünschter Starttermin"
+                    required
+                >
 
             </div>
 
@@ -1788,21 +1635,23 @@ textarea {
 
                 <br>
 
-                Die angegebene Zeit ist ein Wunsch.
+                Der angegebene Starttermin ist ein Wunsch.
                 Wir melden uns anschließend mit einer
                 Terminbestätigung bzw. einem passenden
                 Terminvorschlag.
 
             </div>
 
+
         </div>
 
 
-        <!-- ===============================================
+        <!-- =========================================
              ERZIEHUNGSBERECHTIGTER
-        ================================================ -->
+        ========================================== -->
 
         <div class="section">
+
 
             <div class="section-title">
                 Angaben zum Erziehungsberechtigten
@@ -1820,31 +1669,56 @@ textarea {
                     id="erziehungsberechtigter"
                     name="Name des Erziehungsberechtigten"
                     placeholder="Vor- und Nachname"
-                    data-fs-field
+                    autocomplete="name"
                     required
                 >
 
             </div>
 
 
+            <!-- STRASSE -->
+
+            <div class="field">
+
+                <label for="strasse">
+                    Straße (inkl. Hausnummer) *
+                </label>
+
+                <input
+                    type="text"
+                    id="strasse"
+                    name="Straße (inkl. Hausnummer)"
+                    placeholder="z. B. Musterstraße 12"
+                    autocomplete="street-address"
+                    required
+                >
+
+            </div>
+
+
+            <!-- PLZ + ORT -->
+
+            <div class="field">
+
+                <label for="plz_ort">
+                    PLZ & Ort *
+                </label>
+
+                <input
+                    type="text"
+                    id="plz_ort"
+                    name="PLZ & Ort"
+                    placeholder="z. B. 55122 Mainz"
+                    autocomplete="postal-code"
+                    required
+                >
+
+            </div>
+
+
+            <!-- KONTAKT -->
+
             <div class="form-row">
-
-                <div class="field">
-
-                    <label for="telefon">
-                        Telefonnummer *
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="telefon"
-                        name="Telefonnummer"
-                        placeholder="+49 ..."
-                        data-fs-field
-                        required
-                    >
-
-                </div>
 
 
                 <div class="field">
@@ -1858,31 +1732,52 @@ textarea {
                         id="email"
                         name="E-Mail-Adresse"
                         placeholder="name@email.de"
-                        data-fs-field
+                        autocomplete="email"
                         required
                     >
 
                 </div>
 
+
+                <div class="field">
+
+                    <label for="telefon">
+                        Telefonnummer *
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="telefon"
+                        name="Telefonnummer"
+                        placeholder="+49 ..."
+                        autocomplete="tel"
+                        required
+                    >
+
+                </div>
+
+
             </div>
+
 
         </div>
 
 
-        <!-- ===============================================
+        <!-- =========================================
              DATENSCHUTZ
-        ================================================ -->
+        ========================================== -->
 
         <div class="checkbox">
+
 
             <input
                 type="checkbox"
                 id="datenschutz"
                 name="Datenschutz bestätigt"
                 value="Ja"
-                data-fs-field
                 required
             >
+
 
             <label for="datenschutz">
 
@@ -1900,20 +1795,20 @@ textarea {
 
             </label>
 
+
         </div>
 
 
-        <!-- ===============================================
+        <!-- =========================================
              ABSENDEN
-        ================================================ -->
+        ========================================== -->
 
         <button
             type="submit"
             class="submit"
-            data-fs-submit-btn
         >
 
-            ⚡ TRAINING ANFRAGEN
+            TRAINING ANFRAGEN
 
         </button>
 
@@ -1921,12 +1816,12 @@ textarea {
     </form>
 
 
-    <!-- ===================================================
+    <!-- =========================================
          ZURÜCK
-    ==================================================== -->
+    ========================================== -->
 
     <a
-        href="leistungen.html"
+        href="trainingsangebote.html"
         class="back"
     >
 
@@ -1935,9 +1830,9 @@ textarea {
     </a>
 
 
-    <!-- ===================================================
+    <!-- =========================================
          FOOTER
-    ==================================================== -->
+    ========================================== -->
 
     <div class="footer">
 
@@ -1946,6 +1841,8 @@ textarea {
         <br><br>
 
         Fritz-Kohl-Str. 3c · 55122 Mainz
+
+        <br>
 
         · +49 173 3176916
 
@@ -1958,59 +1855,111 @@ textarea {
 
 
 <!-- =======================================================
-     FORMSPREE AJAX
-======================================================== -->
+     FORMSPREE + BESTÄTIGUNGSSEITE
+========================================================= -->
 
 <script>
 
-window.formspree =
-    window.formspree ||
-    function () {
 
-        (formspree.q = formspree.q || []).push(arguments);
-
-    };
+const form =
+    document.getElementById(
+        "individualtraining-form"
+    );
 
 
-formspree(
-    "initForm",
-    {
-
-        formElement:
-            "#individualtraining-form",
-
-        formId:
-            "xoeadwwq",
+form.addEventListener(
+    "submit",
+    async function(event) {
 
 
-        onSuccess:
-            function () {
+        event.preventDefault();
+
+
+        const button =
+            form.querySelector(
+                ".submit"
+            );
+
+
+        const originalText =
+            button.innerHTML;
+
+
+        button.disabled =
+            true;
+
+
+        button.innerHTML =
+            "⏳ WIRD GESENDET ...";
+
+
+        try {
+
+
+            const response =
+                await fetch(
+                    "https://formspree.io/f/xoeadwwq",
+                    {
+
+                        method: "POST",
+
+                        body:
+                            new FormData(form),
+
+                        headers: {
+
+                            "Accept":
+                                "application/json"
+
+                        }
+
+                    }
+                );
+
+
+            if (response.ok) {
+
 
                 window.location.href =
                     "anfrage-erfolgreich.html";
 
-            },
 
-
-        onFailure:
-            function () {
-
-                alert(
-                    "Die Anfrage konnte gerade nicht gesendet werden. Bitte versuche es erneut."
-                );
+                return;
 
             }
+
+
+            throw new Error(
+                "Formular konnte nicht gesendet werden."
+            );
+
+
+        }
+
+
+        catch (error) {
+
+
+            alert(
+                "Die Anfrage konnte gerade nicht gesendet werden. Bitte versuche es erneut."
+            );
+
+
+            button.disabled =
+                false;
+
+
+            button.innerHTML =
+                originalText;
+
+
+        }
+
 
     }
 );
 
 </script>
-
-
-<script
-    src="https://unpkg.com/@formspree/ajax@1"
-    defer
-></script>
 
 
 </body>
