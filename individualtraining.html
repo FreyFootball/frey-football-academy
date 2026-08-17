@@ -595,6 +595,184 @@ h1 {
 
 
 /* =========================================================
+   PERFORMANCE CHECK LINK
+========================================================= */
+
+.performance-link {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    max-width: 650px;
+
+    margin:
+        -15px
+        auto
+        32px;
+
+    padding:
+        16px
+        18px;
+
+    gap: 14px;
+
+    text-align: left;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,122,0,0.12),
+            rgba(255,255,255,0.035)
+        );
+
+    border:
+        1px solid
+        rgba(255,122,0,0.30);
+
+    border-radius: 13px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,0.20);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+
+    animation:
+        fadeUp
+        0.8s
+        0.5s
+        cubic-bezier(.16,1,.3,1)
+        both;
+}
+
+
+.performance-link:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,122,0,0.19),
+            rgba(255,255,255,0.055)
+        );
+
+    border-color:
+        rgba(255,122,0,0.60);
+
+    box-shadow:
+        0 17px 38px
+        rgba(0,0,0,0.32),
+
+        0 0 24px
+        rgba(255,122,0,0.10);
+}
+
+
+.performance-link-icon {
+
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        #ff7a00;
+
+    box-shadow:
+        0 0 18px
+        rgba(255,122,0,0.22);
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.performance-link:hover
+.performance-link-icon {
+
+    transform:
+        rotate(-6deg)
+        scale(1.06);
+}
+
+
+.performance-link-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1px;
+
+    flex: 1;
+}
+
+
+.performance-link-text strong {
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 900;
+}
+
+
+.performance-link-text small {
+
+    color: #aaa;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+}
+
+
+.performance-link-arrow {
+
+    color: #ff7a00;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.performance-link:hover
+.performance-link-arrow {
+
+    transform:
+        translateX(5px);
+}
+
+
+/* =========================================================
    FORMULAR
 ========================================================= */
 
@@ -1244,6 +1422,33 @@ input[type="time"] {
     }
 
 
+    .performance-link {
+
+        margin-top: -8px;
+
+        padding: 14px;
+
+    }
+
+
+    .performance-link-text strong {
+
+        font-size: 14px;
+    }
+
+
+    .performance-link-text small {
+
+        font-size: 11px;
+    }
+
+
+    .performance-link-arrow {
+
+        font-size: 22px;
+    }
+
+
     form {
 
         padding: 22px;
@@ -1424,6 +1629,52 @@ input[type="time"] {
         die persönlichen Ziele des Spielers.
 
     </p>
+
+
+    <!-- PERFORMANCE CHECK -->
+
+    <a
+        href="performance-check.html"
+        class="performance-link"
+    >
+
+        <span class="performance-link-icon">
+
+            <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+            >
+
+                <path
+                    d="M12 3L14.3 8.1L20 8.8L15.8 12.6L16.9 18.2L12 15.3L7.1 18.2L8.2 12.6L4 8.8L9.7 8.1L12 3Z"
+                    stroke="white"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                />
+
+            </svg>
+
+        </span>
+
+        <span class="performance-link-text">
+
+            <strong>FFA Performance Check</strong>
+
+            <small>
+                Dein Einstieg ins Individualtraining · Mehr erfahren
+            </small>
+
+        </span>
+
+        <span class="performance-link-arrow">
+            →
+        </span>
+
+    </a>
 
 
     <!-- =====================================================
