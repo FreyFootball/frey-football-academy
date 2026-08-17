@@ -872,7 +872,8 @@ select {
 }
 
 
-input[type="date"] {
+input[type="date"],
+input[type="time"] {
 
     color-scheme: dark;
 
@@ -1609,20 +1610,46 @@ input[type="date"] {
             </div>
 
 
-            <!-- STARTTERMIN -->
+            <!-- TRAININGSTERMIN + UHRZEIT -->
 
-            <div class="field">
+            <div class="form-row">
 
-                <label for="Trainingstermin">
-                    Gewünschter Trainingstermin *
-                </label>
 
-                <input
-                    type="date"
-                    id="Trainingstermin"
-                    name="Gewünschter Trainingstermin"
-                    required
-                >
+                <!-- DATUM -->
+
+                <div class="field">
+
+                    <label for="Trainingstermin">
+                        Gewünschter Trainingstermin *
+                    </label>
+
+                    <input
+                        type="date"
+                        id="Trainingstermin"
+                        name="Gewünschter Trainingstermin"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- UHRZEIT -->
+
+                <div class="field">
+
+                    <label for="Uhrzeit">
+                        Uhrzeit *
+                    </label>
+
+                    <input
+                        type="time"
+                        id="Uhrzeit"
+                        name="Uhrzeit"
+                        required
+                    >
+
+                </div>
+
 
             </div>
 
@@ -1635,9 +1662,8 @@ input[type="date"] {
 
                 <br>
 
-                Der angegebene Trainingstermin ist ein Wunsch.
-                Wir melden uns anschließend mit einer
-                Terminbestätigung bzw. einem passenden
+                Der angegebene Trainingstermin ist ein Wunsch. Wir melden uns anschließend
+                mit einer Terminbestätigung bzw. einem passenden
                 Terminvorschlag.
 
             </div>
