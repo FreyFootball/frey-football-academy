@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Über mich & die FFA | Frey Football Academy</title>
+<meta name="description" content="Jan Frey und die Frey Football Academy: über 14 Jahre Erfahrung in der Nachwuchsentwicklung, die Philosophie der FFA und individuelle Spielerentwicklung.">
+
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100%;min-height:100%;scroll-behavior:smooth}
+body{
+    min-height:100vh;color:#fff;font-family:Arial,Helvetica,sans-serif;
+    line-height:1.6;overflow-x:hidden;
+    background:
+      radial-gradient(circle at 50% 5%,rgba(255,122,0,.28),transparent 32%),
+      radial-gradient(circle at 5% 55%,rgba(255,122,0,.06),transparent 28%),
+      radial-gradient(circle at 95% 85%,rgba(255,122,0,.05),transparent 28%),
+      linear-gradient(180deg,#181818 0%,#0b0b0b 55%,#030303 100%);
+    position:relative;
+}
+body::before{
+    content:"";position:fixed;inset:-50%;pointer-events:none;
+    background:conic-gradient(from 0deg,transparent,rgba(255,122,0,.055),transparent,rgba(255,255,255,.02),transparent);
+    animation:rotateBackground 22s linear infinite;z-index:0;
+}
+body::after{
+    content:"";position:fixed;width:650px;height:650px;left:50%;top:5%;
+    transform:translate(-50%,-50%);border-radius:50%;
+    background:radial-gradient(circle,rgba(255,122,0,.12),transparent 68%);
+    filter:blur(30px);pointer-events:none;animation:backgroundPulse 5s ease-in-out infinite;z-index:0;
+}
+@keyframes rotateBackground{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes backgroundPulse{0%,100%{opacity:.4;scale:.9}50%{opacity:1;scale:1.12}}
+
+.particles{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.particle{position:absolute;bottom:-10px;width:4px;height:4px;border-radius:50%;background:#ff7a00;
+box-shadow:0 0 8px #ff7a00,0 0 18px rgba(255,122,0,.5);opacity:0;animation:particleFloat linear infinite}
+@keyframes particleFloat{
+0%{transform:translateY(0) translateX(0) scale(.4);opacity:0}
+10%{opacity:.6}50%{opacity:1}90%{opacity:.4}
+100%{transform:translateY(-110vh) translateX(90px) scale(1.2);opacity:0}
+}
+
+.football{position:fixed;pointer-events:none;z-index:0;font-size:70px;opacity:.045;
+animation:footballFloat 7s ease-in-out infinite,footballRotate 14s linear infinite}
+.football.one{left:2%;top:18%}.football.two{right:2%;top:48%;font-size:95px;animation-delay:-3s}
+.football.three{left:8%;bottom:8%;font-size:45px;animation-delay:-5s}
+@keyframes footballFloat{0%,100%{translate:0 0}50%{translate:0 -28px}}
+@keyframes footballRotate{from{rotate:0}to{rotate:360deg}}
+
+.container{position:relative;z-index:2;width:92%;max-width:1100px;margin:0 auto;padding:40px 0 65px}
+.logo-wrapper{position:relative;width:fit-content;margin:0 auto 28px;animation:logoEntrance 1s cubic-bezier(.16,1,.3,1) both}
+.logo-wrapper::before{content:"";position:absolute;inset:-45px;border-radius:50%;
+background:radial-gradient(circle,rgba(255,122,0,.25),transparent 65%);filter:blur(18px);
+animation:logoGlow 3.5s ease-in-out infinite;z-index:-1}
+.logo{display:block;width:190px;max-width:70%;height:auto;margin:0 auto;
+filter:drop-shadow(0 0 20px rgba(255,122,0,.25));transition:.4s ease}
+.logo:hover{transform:scale(1.06) rotate(-1deg);filter:drop-shadow(0 0 32px rgba(255,122,0,.55))}
+@keyframes logoEntrance{from{opacity:0;transform:translateY(-35px) scale(.8)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes logoGlow{0%,100%{opacity:.45;transform:scale(.9)}50%{opacity:1;transform:scale(1.15)}}
+
+h1{margin:0;text-align:center;font-size:46px;line-height:1.12;font-weight:900;letter-spacing:-1.5px;animation:fadeUp .8s .2s cubic-bezier(.16,1,.3,1) both}
+.orange{color:#ff7a00;text-shadow:0 0 25px rgba(255,122,0,.25)}
+h1::after{content:"";display:block;width:70px;height:4px;margin:18px auto 0;border-radius:10px;background:#ff7a00;
+box-shadow:0 0 15px rgba(255,122,0,.7)}
+.subtitle{max-width:780px;margin:20px auto 48px;text-align:center;color:#aaa;font-size:18px;animation:fadeUp .8s .35s cubic-bezier(.16,1,.3,1) both}
+
+.story{position:relative;margin-bottom:38px;background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(18,18,18,.96));
+border:1px solid rgba(255,255,255,.09);border-radius:20px;overflow:hidden;box-shadow:0 20px 55px rgba(0,0,0,.38);
+backdrop-filter:blur(12px);animation:fadeUp .9s cubic-bezier(.16,1,.3,1) both}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;min-height:420px}
+.story.reverse .story-grid{direction:rtl}
+.story.reverse .story-copy{direction:ltr}
+.story-image{min-height:420px;overflow:hidden;position:relative}
+.story-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+.story:hover .story-image img{transform:scale(1.035)}
+.story-image::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.04),rgba(255,122,0,.08))}
+.story-copy{padding:48px 42px;display:flex;flex-direction:column;justify-content:center}
+.kicker{display:inline-flex;align-items:center;gap:8px;color:#ff7a00;font-size:13px;font-weight:900;letter-spacing:1.3px;text-transform:uppercase;margin-bottom:12px}
+.kicker::before{content:"";width:28px;height:3px;background:#ff7a00;border-radius:5px}
+.story h2{font-size:35px;line-height:1.12;margin:0 0 18px;font-weight:900}
+.story h2 span{color:#ff7a00}
+.story p{color:#c9c9c9;margin:0 0 14px;font-size:17px}
+.story strong{color:#fff}
+.quote{margin:18px 0 0;padding:18px 20px;border-left:3px solid #ff7a00;background:rgba(255,122,0,.06);
+border-radius:8px;color:#eee;font-size:18px;font-weight:700}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:38px 0}
+.stat{padding:27px 20px;text-align:center;border:1px solid rgba(255,255,255,.09);border-radius:15px;
+background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(10,10,10,.8));}
+.stat .number{color:#ff7a00;font-size:37px;font-weight:900;line-height:1.1}
+.stat .label{color:#aaa;margin-top:6px;font-size:14px}
+
+.philosophy{margin:38px 0;padding:48px 38px;text-align:center;border:1px solid rgba(255,122,0,.28);
+border-radius:20px;background:linear-gradient(135deg,rgba(255,122,0,.11),rgba(20,20,20,.95));
+box-shadow:0 20px 55px rgba(0,0,0,.35)}
+.philosophy h2{margin:0 0 14px;font-size:34px}
+.philosophy p{max-width:780px;margin:0 auto;color:#ccc;font-size:20px}
+.philosophy .highlight{color:#ff7a00;font-weight:900}
+
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:38px 0}
+.value{padding:25px 22px;border:1px solid rgba(255,255,255,.08);border-radius:15px;background:rgba(255,255,255,.035)}
+.value .icon{font-size:26px;color:#ff7a00;margin-bottom:8px}
+.value h3{margin:0 0 6px;font-size:19px}
+.value p{margin:0;color:#aaa;font-size:15px}
+
+.cta{position:relative;margin-top:50px;padding:44px 28px;text-align:center;border:1px solid rgba(255,122,0,.22);
+border-radius:19px;background:linear-gradient(135deg,rgba(255,122,0,.12),rgba(20,20,20,.95));
+box-shadow:0 20px 55px rgba(0,0,0,.35);overflow:hidden}
+.cta h2{position:relative;margin:0 0 10px;font-size:31px;line-height:1.2}
+.cta p{position:relative;margin:0;color:#aaa}
+.button{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:9px;margin:24px 6px 0;
+padding:14px 25px;background:linear-gradient(135deg,#ff7a00,#ff6200);color:#fff;text-decoration:none;border-radius:11px;
+font-size:16px;font-weight:800;border:1px solid rgba(255,255,255,.08);box-shadow:0 10px 25px rgba(0,0,0,.3);transition:.3s ease}
+.button:hover{background:linear-gradient(135deg,#ff9500,#ff6d00);transform:translateY(-4px) scale(1.02);
+box-shadow:0 16px 35px rgba(0,0,0,.42),0 0 25px rgba(255,122,0,.25)}
+.button-secondary{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15)}
+.button-secondary:hover{background:rgba(255,255,255,.1)}
+
+.footer{margin-top:42px;text-align:center;color:#666;font-size:13px;line-height:1.7}
+.back{display:flex;width:fit-content;align-items:center;gap:8px;margin:35px auto 0;padding:12px 22px;background:rgba(255,255,255,.045);
+border:1px solid rgba(255,255,255,.1);color:#ddd;text-decoration:none;border-radius:10px;transition:.3s ease}
+.back:hover{transform:translateY(-3px);background:rgba(255,122,0,.08);border-color:rgba(255,122,0,.25);color:#fff}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:850px){
+.story-grid{grid-template-columns:1fr}.story-image{min-height:330px}.story.reverse .story-grid{direction:ltr}
+.values{grid-template-columns:1fr}.stats{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+.container{width:94%;padding-top:28px}.logo{width:170px}h1{font-size:34px}
+.subtitle{font-size:16px;margin-bottom:32px}.story-copy{padding:32px 22px}.story h2{font-size:28px}.story p{font-size:16px}
+.story-image{min-height:270px}.philosophy{padding:34px 22px}.philosophy h2{font-size:28px}.philosophy p{font-size:18px}
+.cta{padding:30px 20px}.button{display:flex;margin:12px 0 0;width:100%}.football{font-size:35px}.football.two{font-size:45px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+
+<body>
+<div class="particles">
+<span class="particle" style="left:7%;animation-duration:10s;animation-delay:-2s"></span>
+<span class="particle" style="left:18%;animation-duration:13s;animation-delay:-7s"></span>
+<span class="particle" style="left:31%;animation-duration:11s;animation-delay:-4s"></span>
+<span class="particle" style="left:45%;animation-duration:15s;animation-delay:-9s"></span>
+<span class="particle" style="left:59%;animation-duration:12s;animation-delay:-3s"></span>
+<span class="particle" style="left:73%;animation-duration:14s;animation-delay:-8s"></span>
+<span class="particle" style="left:87%;animation-duration:10s;animation-delay:-5s"></span>
+</div>
+<div class="football one">⚽</div>
+<div class="football two">⚽</div>
+<div class="football three">⚽</div>
+
+<main class="container">
+<div class="logo-wrapper">
+<img src="assets/logo.png" alt="Frey Football Academy" class="logo"
+     onerror="this.style.display='none'">
+</div>
+
+<h1>Über mich & <span class="orange">die FFA</span></h1>
+<p class="subtitle">
+Eine persönliche Geschichte darüber, warum Jan Frey die Frey Football Academy gegründet hat
+und welche Idee hinter der individuellen Entwicklung jedes Spielers steht.
+</p>
+
+<section class="story">
+<div class="story-grid">
+<div class="story-image"><img src="assets/jan-mainz-05.jpg" alt="Jan Frey im Umfeld von Mainz 05"></div>
+<div class="story-copy">
+<div class="kicker">Der Anfang</div>
+<h2>Warum gründe ich nach 3 Jahren im NLZ von <span>Mainz 05</span> meine eigene Fußballakademie?</h2>
+<p>Nach Jahren im Nachwuchsleistungszentrum und der täglichen Arbeit mit jungen Spielern entstand der Wunsch, noch zielgerichteter auf den einzelnen Spieler eingehen zu können.</p>
+<p>Aus dieser Überzeugung ist die <strong>Frey Football Academy</strong> entstanden.</p>
+</div>
+</div>
+</section>
+
+<section class="story reverse">
+<div class="story-grid">
+<div class="story-image"><img src="assets/jan-coaching.jpg" alt="Jan Frey bei der Arbeit mit Nachwuchsspielern"></div>
+<div class="story-copy">
+<div class="kicker">Meine Erkenntnis</div>
+<h2>Mir wurde <span>etwas klar.</span></h2>
+<p><strong>Jeder Spieler ist anders.</strong></p>
+<p>Trotzdem trainieren wir Spieler oft nach denselben Mustern.</p>
+<p>Ich wollte noch zielgerichteter am einzelnen Spieler arbeiten – und genau hier setzt die FFA an.</p>
+</div>
+</div>
+</section>
+
+<div class="stats">
+<div class="stat"><div class="number">14+</div><div class="label">Jahre Erfahrung in der Nachwuchsentwicklung</div></div>
+<div class="stat"><div class="number">300+</div><div class="label">Spieler begleitet</div></div>
+<div class="stat"><div class="number">3</div><div class="label">Jahre Erfahrung im NLZ von Mainz 05</div></div>
+</div>
+
+<section class="philosophy">
+<h2>Deshalb die <span class="orange">FFA.</span></h2>
+<p>
+Eine Fußballakademie, in der die <span class="highlight">Stärken jedes Spielers</span>
+noch mehr im Mittelpunkt stehen.
+</p>
+</section>
+
+<section class="story">
+<div class="story-grid">
+<div class="story-image"><img src="assets/ffa-player.jpg" alt="Spieler im FFA Training"></div>
+<div class="story-copy">
+<div class="kicker">Meine Überzeugung</div>
+<h2>Jeder Spieler bringt <span>Stärken</span> mit.</h2>
+<p>Seit über 14 Jahren begleite ich Nachwuchsspieler auf ihrem Entwicklungsweg.</p>
+<p>Dabei durfte ich Erfahrungen im <strong>Nachwuchsleistungszentrum von Mainz 05</strong>, beim <strong>SV Waldhof Mannheim</strong> und mit über <strong>300 Spielern</strong> sammeln.</p>
+<div class="quote">„Meine Aufgabe ist es, die Stärken jedes Spielers gezielt weiterzuentwickeln – denn genau sie machen den Unterschied.“</div>
+</div>
+</div>
+</section>
+
+<section class="story reverse">
+<div class="story-grid">
+<div class="story-image"><img src="assets/jan-instagram.jpg" alt="Jan Frey – Gründer der Frey Football Academy"></div>
+<div class="story-copy">
+<div class="kicker">Die Trainingsphilosophie</div>
+<h2>Nicht nur trainieren. <span>Entwickeln.</span></h2>
+<p>Bei der FFA steht nicht isoliertes Techniktraining im Mittelpunkt.</p>
+<p>Stattdessen geht es um modernes Training mit <strong>Wahrnehmen, Entscheiden und Umsetzen</strong> – immer mit Leidenschaft, Demut und Fleiß.</p>
+<p>Die Entwicklung soll dabei zum Spieler passen und seine individuellen Stärken gezielt weiterbringen.</p>
+</div>
+</div>
+</section>
+
+<section class="values">
+<div class="value"><div class="icon">◉</div><h3>Individuell</h3><p>Jeder Spieler ist anders. Deshalb steht der einzelne Spieler im Mittelpunkt.</p></div>
+<div class="value"><div class="icon">◎</div><h3>Modern</h3><p>Wahrnehmen, Entscheiden und Umsetzen statt isolierter Trainingsmuster.</p></div>
+<div class="value"><div class="icon">↗</div><h3>Entwicklung</h3><p>Stärken erkennen, gezielt weiterentwickeln und gemeinsam den nächsten Schritt gehen.</p></div>
+</section>
+
+<div class="cta">
+<h2>Bereit für den nächsten <span class="orange">Schritt?</span></h2>
+<p>Ich freue mich darauf, gemeinsam mit euch den nächsten Schritt zu gehen.</p>
+<a href="index.html" class="button">Zur FFA</a>
+<a href="individualtraining.html" class="button button-secondary">Training entdecken</a>
+</div>
+
+<a href="index.html" class="back">← Zurück zur Startseite</a>
+
+<div class="footer">
+Frey Football Academy · Train. Develop. Succeed.
+<br><br>
+Fritz-Kohl-Str. 3c · 55122 Mainz · +49 173 3176916 · info@freyfootballacademy.com
+</div>
+</main>
+</body>
+</html>
