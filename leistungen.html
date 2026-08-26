@@ -649,6 +649,36 @@
             outline: none;
         }
 
+        .training-nav-link.nav-highlight {
+            flex: 1 1 100%;
+            max-width: 520px;
+            min-height: 60px;
+            margin: 4px auto 0;
+            padding: 16px 28px;
+            border: 1px solid rgba(255, 122, 0, 0.55);
+            background: linear-gradient(135deg, rgba(255, 122, 0, 0.18), rgba(18, 18, 18, 0.96));
+            color: #fff;
+            font-size: 17px;
+            font-weight: 900;
+            letter-spacing: 0.1px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.28), 0 0 24px rgba(255,122,0,0.10);
+        }
+
+        .training-nav-link.nav-highlight:hover,
+        .training-nav-link.nav-highlight:focus-visible {
+            border-color: rgba(255, 122, 0, 0.9);
+            background: linear-gradient(135deg, rgba(255, 122, 0, 0.28), rgba(18, 18, 18, 0.96));
+            box-shadow: 0 14px 36px rgba(0,0,0,0.35), 0 0 30px rgba(255,122,0,0.18);
+        }
+
+        @media (max-width: 600px) {
+            .training-nav-link.nav-highlight {
+                max-width: none;
+                min-height: 58px;
+                font-size: 16px;
+            }
+        }
+
         #individualtraining,
         #duo-kleingruppentraining,
         #foerdertraining {
@@ -1962,6 +1992,7 @@
             <a href="#individualtraining" class="training-nav-link">Individualtraining</a>
             <a href="#duo-kleingruppentraining" class="training-nav-link">Duo- &amp; Kleingruppentraining</a>
             <a href="#foerdertraining" class="training-nav-link">Fördertraining</a>
+            <a href="trainingsformen.html" class="training-nav-link nav-highlight">Welche Trainingsform ist die richtige für mich?</a>
         </nav>
 
 
