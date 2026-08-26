@@ -1,0 +1,2190 @@
+Klar. Lade die HTML-Datei hier hoch. Ich schaue mir den bestehenden Aufbau, CSS, Farben, Abstände, Schriften und Komponenten an und erstelle die neue Seite so, dass sie visuell exakt zum vorhandenen Stil passt.
+
+Am besten sagst du mir zusätzlich kurz, was auf der neuen Seite stehen bzw. was sie können soll.
+
+Auf der neuen Seite soll stehen:
+Individualtraining ist ideal für dich, wenn …
+
+du gezielt an einer bestimmten Fähigkeit arbeiten möchtest
+du intensive individuelle Betreuung suchst
+du an deinen persönlichen Schwächen arbeiten möchtest
+
+Duo & Kleingruppe ist ideal für dich, wenn …
+
+du gerne mit Freunden oder Teamkollegen trainierst
+du Wettbewerb und Motivation möchtest
+du trotzdem eine kleine Trainingsgruppe möchtest
+
+Fördertraining ist ideal für dich, wenn …
+
+du regelmäßig trainieren möchtest
+du dich langfristig entwickeln möchtest
+du von einer festen Trainingsstruktur profitieren möchtest
+IndividualDuo/KleingruppeFördertraining			
+Betreuung	1:1	2–4 Spieler	max. 10
+Dauer	60 Min.	60 Min.	75 Min./Woche
+Fokus	Individuell	Individuell + Wettbewerb	Langfristige Entwicklung
+Frequenz	flexibel	flexibel	regelmäßig
+Preis	ab 50 €	ab 30 €/Person	80 €/Monat
+
+Perfekt. Lade jetzt bitte die bestehende HTML-Datei hoch. Dann kann ich die neue Seite direkt im gleichen Stil aufbauen.
+
+Ich übernehme dabei insbesondere:
+
+Header / Navigation
+Schriftarten und Typografie
+Farben
+Abstände und Größen
+Buttons
+Karten bzw. Sections
+responsive Darstellung für Handy und Desktop
+den vorhandenen Footer
+
+Den von dir gelieferten Inhalt würde ich auf der neuen Seite in drei übersichtlichen Bereichen plus Vergleichstabelle strukturieren.
+
+Eingefügter Text(20260826-164552).txt
+Dokument
+Bitte dann auch ein zurück button ganz unten zur seite leistungen.html
+
+Fertig. Ich habe die neue Seite im gleichen Stil wie deine bestehende HTML-Seite aufgebaut – inklusive Hintergrundanimationen, Partikeln, Fußbällen, Logo, Karten, Hover-Effekten und responsiver Darstellung. Der Zurück-Button führt ganz unten zu leistungen.html.
+
+trainingsformen.html herunterladen
+
+Die Datei erwartet dein bestehendes Logo weiterhin unter assets/logo.png, genau wie die Vorlage. 
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trainingsformen | Frey Football Academy</title>
+    <style>
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            color: white;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            line-height: 1.6;
+
+            overflow-x: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 50% 5%,
+                    rgba(255, 122, 0, 0.28),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 5% 55%,
+                    rgba(255, 122, 0, 0.06),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 95% 85%,
+                    rgba(255, 122, 0, 0.05),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    180deg,
+                    #181818 0%,
+                    #0b0b0b 55%,
+                    #030303 100%
+                );
+
+            position: relative;
+
+        }
+
+
+        /* =========================================
+           ANIMIERTER BACKGROUND
+        ========================================= */
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            inset: -50%;
+
+            pointer-events: none;
+
+            background:
+                conic-gradient(
+                    from 0deg,
+                    transparent,
+                    rgba(255, 122, 0, 0.055),
+                    transparent,
+                    rgba(255, 255, 255, 0.02),
+                    transparent
+                );
+
+            animation:
+                rotateBackground 22s linear infinite;
+
+            z-index: 0;
+
+        }
+
+
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            width: 650px;
+            height: 650px;
+
+            left: 50%;
+            top: 5%;
+
+            transform:
+                translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255, 122, 0, 0.12),
+                    transparent 68%
+                );
+
+            filter: blur(30px);
+
+            pointer-events: none;
+
+            animation:
+                backgroundPulse 5s ease-in-out infinite;
+
+            z-index: 0;
+
+        }
+
+
+        @keyframes rotateBackground {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        @keyframes backgroundPulse {
+
+            0%,
+            100% {
+
+                opacity: 0.4;
+
+                scale: 0.9;
+
+            }
+
+            50% {
+
+                opacity: 1;
+
+                scale: 1.12;
+
+            }
+
+        }
+
+
+        /* =========================================
+           PARTIKEL
+        ========================================= */
+
+        .particles {
+
+            position: fixed;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+        }
+
+
+        .particle {
+
+            position: absolute;
+
+            bottom: -10px;
+
+            width: 4px;
+            height: 4px;
+
+            border-radius: 50%;
+
+            background: #ff7a00;
+
+            box-shadow:
+                0 0 8px #ff7a00,
+                0 0 18px rgba(255, 122, 0, 0.5);
+
+            opacity: 0;
+
+            animation:
+                particleFloat linear infinite;
+
+        }
+
+
+        @keyframes particleFloat {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    translateX(0)
+                    scale(0.4);
+
+                opacity: 0;
+
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 0.4;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-110vh)
+                    translateX(90px)
+                    scale(1.2);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        /* =========================================
+           FUSSBÄLLE
+        ========================================= */
+
+        .football {
+
+            position: fixed;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+            font-size: 70px;
+
+            opacity: 0.045;
+
+            animation:
+                footballFloat 7s ease-in-out infinite,
+                footballRotate 14s linear infinite;
+
+        }
+
+
+        .football.one {
+
+            left: 2%;
+
+            top: 18%;
+
+        }
+
+
+        .football.two {
+
+            right: 2%;
+
+            top: 48%;
+
+            font-size: 95px;
+
+            animation-delay: -3s;
+
+        }
+
+
+        .football.three {
+
+            left: 8%;
+
+            bottom: 8%;
+
+            font-size: 45px;
+
+            animation-delay: -5s;
+
+        }
+
+
+        @keyframes footballFloat {
+
+            0%,
+            100% {
+
+                translate: 0 0;
+
+            }
+
+            50% {
+
+                translate: 0 -28px;
+
+            }
+
+        }
+
+
+        @keyframes footballRotate {
+
+            from {
+                rotate: 0deg;
+            }
+
+            to {
+                rotate: 360deg;
+            }
+
+        }
+
+
+        /* =========================================
+           CONTAINER
+        ========================================= */
+
+        .container {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 92%;
+
+            max-width: 1100px;
+
+            margin: 0 auto;
+
+            padding: 40px 0 65px;
+
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .logo-wrapper {
+
+            position: relative;
+
+            width: fit-content;
+
+            margin: 0 auto 28px;
+
+            animation:
+                logoEntrance 1s
+                cubic-bezier(.16,1,.3,1)
+                both;
+
+        }
+
+
+        .logo-wrapper::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: -45px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255, 122, 0, 0.25),
+                    transparent 65%
+                );
+
+            filter: blur(18px);
+
+            animation:
+                logoGlow 3.5s ease-in-out infinite;
+
+            z-index: -1;
+
+        }
+
+
+        .logo {
+
+            display: block;
+
+            width: 190px;
+
+            max-width: 70%;
+
+            height: auto;
+
+            margin: 0 auto;
+
+            filter:
+                drop-shadow(
+                    0 0 20px
+                    rgba(255, 122, 0, 0.25)
+                );
+
+            transition:
+                transform 0.4s ease,
+                filter 0.4s ease;
+
+        }
+
+
+        .logo:hover {
+
+            transform:
+                scale(1.06)
+                rotate(-1deg);
+
+            filter:
+                drop-shadow(
+                    0 0 32px
+                    rgba(255, 122, 0, 0.55)
+                );
+
+        }
+
+
+        @keyframes logoEntrance {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(-35px)
+                    scale(0.8);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+        }
+
+
+        @keyframes logoGlow {
+
+            0%,
+            100% {
+
+                opacity: 0.45;
+
+                transform: scale(0.9);
+
+            }
+
+            50% {
+
+                opacity: 1;
+
+                transform: scale(1.15);
+
+            }
+
+        }
+
+
+        /* =========================================
+           TITEL
+        ========================================= */
+
+        h1 {
+
+            margin: 0;
+
+            text-align: center;
+
+            font-size: 44px;
+
+            line-height: 1.15;
+
+            font-weight: 900;
+
+            letter-spacing: -1px;
+
+            animation:
+                fadeUp 0.8s 0.2s
+                cubic-bezier(.16,1,.3,1)
+                both;
+
+        }
+
+
+        .orange {
+
+            color: #ff7a00;
+
+            text-shadow:
+                0 0 25px
+                rgba(255, 122, 0, 0.25);
+
+        }
+
+
+        h1::after {
+
+            content: "";
+
+            display: block;
+
+            width: 70px;
+
+            height: 4px;
+
+            margin: 18px auto 0;
+
+            border-radius: 10px;
+
+            background: #ff7a00;
+
+            box-shadow:
+                0 0 15px
+                rgba(255, 122, 0, 0.7);
+
+            animation:
+                lineGrow 0.8s 0.6s
+                cubic-bezier(.16,1,.3,1)
+                both;
+
+        }
+
+
+        @keyframes lineGrow {
+
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 70px;
+            }
+
+        }
+
+
+        /* =========================================
+           INTRO
+        ========================================= */
+
+        .intro {
+
+            max-width: 700px;
+
+            margin: 18px auto 50px;
+
+            text-align: center;
+
+            color: #aaa;
+
+            font-size: 18px;
+
+            animation:
+                fadeUp 0.8s 0.35s
+                cubic-bezier(.16,1,.3,1)
+                both;
+
+        }
+
+
+        /* =========================================
+           SCHNELLNAVIGATION
+        ========================================= */
+
+        .training-nav {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            flex-wrap: wrap;
+            gap: 12px;
+            max-width: 900px;
+            margin: -20px auto 50px;
+            position: relative;
+            z-index: 5;
+            animation: fadeUp 0.8s 0.5s cubic-bezier(.16,1,.3,1) both;
+        }
+
+        .training-nav-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 13px 20px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.055), rgba(18,18,18,0.92));
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 11px;
+            color: #ddd;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 800;
+            text-align: center;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s ease,
+                        background 0.3s ease, color 0.3s ease,
+                        box-shadow 0.3s ease;
+        }
+
+        .training-nav-link:hover,
+        .training-nav-link:focus-visible {
+            transform: translateY(-3px);
+            border-color: rgba(255,122,0,0.45);
+            background: linear-gradient(145deg, rgba(255,122,0,0.10), rgba(18,18,18,0.96));
+            color: white;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.32), 0 0 20px rgba(255,122,0,0.08);
+            outline: none;
+        }
+
+        #individualtraining,
+        #duo-kleingruppentraining,
+        #foerdertraining {
+            scroll-margin-top: 20px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* =========================================
+           ANGEBOT
+        ========================================= */
+
+        .offer {
+
+            position: relative;
+
+            margin-bottom: 38px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.065),
+                    rgba(18, 18, 18, 0.96)
+                );
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.09);
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 20px 55px
+                rgba(0, 0, 0, 0.38);
+
+            backdrop-filter: blur(12px);
+
+            transition:
+                transform 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+
+            animation:
+                offerEntrance 0.9s
+                cubic-bezier(.16,1,.3,1)
+                both;
+
+        }
+
+
+        .offer:nth-of-type(1) {
+            animation-delay: 0.45s;
+        }
+
+
+        .offer:nth-of-type(2) {
+            animation-delay: 0.6s;
+        }
+
+
+        .offer:nth-of-type(3) {
+            animation-delay: 0.75s;
+        }
+
+
+        .offer:hover {
+
+            transform:
+                translateY(-7px);
+
+            border-color:
+                rgba(255, 122, 0, 0.28);
+
+            box-shadow:
+                0 30px 75px
+                rgba(0, 0, 0, 0.48),
+
+                0 0 35px
+                rgba(255, 122, 0, 0.07);
+
+        }
+
+
+        .offer::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -120%;
+
+            width: 60%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 122, 0, 0.045),
+                    transparent
+                );
+
+            transform: skewX(-20deg);
+
+            animation:
+                cardShine 8s ease-in-out infinite;
+
+            pointer-events: none;
+
+        }
+
+
+        @keyframes cardShine {
+
+            0%,
+            55% {
+                left: -120%;
+            }
+
+            75%,
+            100% {
+                left: 160%;
+            }
+
+        }
+
+
+        @keyframes offerEntrance {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(35px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        /* =========================================
+           OFFER HEADER
+        ========================================= */
+
+        .offer-header {
+
+            position: relative;
+
+            padding: 30px 32px;
+
+            border-bottom:
+                1px solid
+                rgba(255, 255, 255, 0.08);
+
+        }
+
+
+        .offer-header h2 {
+
+            margin: 0;
+
+            color: white;
+
+            font-size: 30px;
+
+            line-height: 1.2;
+
+            font-weight: 850;
+
+        }
+
+
+        .offer-header p {
+
+            margin: 8px 0 0;
+
+            color: #999;
+
+            font-size: 16px;
+
+        }
+
+
+        /* =========================================
+           PREISE
+        ========================================= */
+
+        .prices {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+
+            padding: 25px 30px;
+
+        }
+
+
+        .price-card {
+
+            position: relative;
+
+            min-height: 155px;
+
+            padding: 20px;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.10);
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.045),
+                    rgba(10, 10, 10, 0.8)
+                );
+
+            text-align: center;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            overflow: hidden;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                background 0.3s ease;
+
+        }
+
+
+        .price-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -100%;
+
+            width: 60%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 122, 0, 0.08),
+                    transparent
+                );
+
+            transform: skewX(-20deg);
+
+            transition:
+                left 0.6s ease;
+
+        }
+
+
+        .price-card:hover::before {
+
+            left: 140%;
+
+        }
+
+
+        .price-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            border-color:
+                rgba(255, 122, 0, 0.35);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 122, 0, 0.07),
+                    rgba(10, 10, 10, 0.9)
+                );
+
+        }
+
+
+        .price-title {
+
+            color: #ddd;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            margin-bottom: 9px;
+
+        }
+
+
+        .price {
+
+            color: #ff7a00;
+
+            font-size: 32px;
+
+            font-weight: 900;
+
+            line-height: 1.1;
+
+            text-shadow:
+                0 0 18px
+                rgba(255, 122, 0, 0.12);
+
+        }
+
+
+        .price-sub {
+
+            margin-top: 7px;
+
+            color: #888;
+
+            font-size: 13px;
+
+        }
+
+
+        /* =========================================
+           CONTENT
+        ========================================= */
+
+        .offer-content {
+
+            padding: 0 30px 30px;
+
+        }
+
+
+        .offer-content h3 {
+
+            margin: 5px 0 13px;
+
+            color: #ff7a00;
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+        }
+
+
+        .offer-content ul {
+
+            margin: 0;
+
+            padding-left: 22px;
+
+            color: #ccc;
+
+        }
+
+
+        .offer-content li {
+
+            margin-bottom: 8px;
+
+            transition:
+                transform 0.2s ease,
+                color 0.2s ease;
+
+        }
+
+
+        .offer-content li::marker {
+
+            color: #ff7a00;
+
+        }
+
+
+        .offer-content li:hover {
+
+            transform:
+                translateX(4px);
+
+            color: white;
+
+        }
+
+
+        /* =========================================
+           INFO BOX
+        ========================================= */
+
+        .info-box {
+
+            position: relative;
+
+            margin-top: 23px;
+
+            padding: 19px 21px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 122, 0, 0.10),
+                    rgba(255, 122, 0, 0.035)
+                );
+
+            border-left:
+                3px solid #ff7a00;
+
+            border-radius: 9px;
+
+            color: #ccc;
+
+            box-shadow:
+                inset 0 0 20px
+                rgba(255, 122, 0, 0.025);
+
+        }
+
+
+        .info-box strong {
+
+            color: white;
+
+        }
+
+
+        /* =========================================
+           BUTTON
+        ========================================= */
+
+        .button {
+
+            position: relative;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            margin-top: 26px;
+
+            padding: 14px 25px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff7a00,
+                    #ff6200
+                );
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 11px;
+
+            font-size: 16px;
+
+            font-weight: 800;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.08);
+
+            box-shadow:
+                0 10px 25px
+                rgba(0, 0, 0, 0.3);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+
+        }
+
+
+        .button::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -120%;
+
+            width: 65%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.28),
+                    transparent
+                );
+
+            transform: skewX(-20deg);
+
+            transition:
+                left 0.6s ease;
+
+        }
+
+
+        .button:hover::before {
+
+            left: 150%;
+
+        }
+
+
+        .button:hover {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff9500,
+                    #ff6d00
+                );
+
+            color: white;
+
+            transform:
+                translateY(-4px)
+                scale(1.02);
+
+            box-shadow:
+                0 16px 35px
+                rgba(0, 0, 0, 0.42),
+
+                0 0 25px
+                rgba(255, 122, 0, 0.25);
+
+        }
+
+
+        /* =========================================
+           FEATURED FÖRDERTRAINING
+        ========================================= */
+
+        .featured {
+
+            border:
+                1px solid
+                rgba(255, 122, 0, 0.65);
+
+            box-shadow:
+                0 0 45px
+                rgba(255, 122, 0, 0.09),
+
+                0 20px 55px
+                rgba(0, 0, 0, 0.4);
+
+        }
+
+
+        .featured::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            border-radius: 20px;
+
+            pointer-events: none;
+
+            box-shadow:
+                inset 0 0 45px
+                rgba(255, 122, 0, 0.035);
+
+            animation:
+                featuredPulse 3s ease-in-out infinite;
+
+        }
+
+
+        @keyframes featuredPulse {
+
+            0%,
+            100% {
+
+                opacity: 0.5;
+
+            }
+
+            50% {
+
+                opacity: 1;
+
+            }
+
+        }
+
+
+        .featured-label {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            margin-bottom: 13px;
+
+            padding: 7px 13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff9500,
+                    #ff6200
+                );
+
+            color: white;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: 900;
+
+            letter-spacing: 0.7px;
+
+            box-shadow:
+                0 0 20px
+                rgba(255, 122, 0, 0.18);
+
+            animation:
+                labelPulse 2.5s ease-in-out infinite;
+
+        }
+
+
+        .featured-label::before {
+
+            content: "";
+
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: white;
+
+            box-shadow:
+                0 0 8px white;
+
+            animation:
+                dotPulse 1.5s ease-in-out infinite;
+
+        }
+
+
+        @keyframes labelPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.025);
+            }
+
+        }
+
+
+        @keyframes dotPulse {
+
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+        }
+
+
+        /* =========================================
+           FEATURES
+        ========================================= */
+
+        .features {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 13px;
+
+            margin-top: 21px;
+
+        }
+
+
+        .feature {
+
+            position: relative;
+
+            padding: 16px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.045),
+                    rgba(10, 10, 10, 0.7)
+                );
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.08);
+
+            border-radius: 10px;
+
+            color: #ccc;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
+
+        }
+
+
+        .feature:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                rgba(255, 122, 0, 0.30);
+
+        }
+
+
+        .feature strong {
+
+            display: block;
+
+            color: white;
+
+            margin-bottom: 4px;
+
+        }
+
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .cta {
+
+            position: relative;
+
+            margin-top: 55px;
+
+            padding: 42px 28px;
+
+            text-align: center;
+
+            border:
+                1px solid
+                rgba(255, 122, 0, 0.22);
+
+            border-radius: 19px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255, 122, 0, 0.12),
+                    rgba(20, 20, 20, 0.95)
+                );
+
+            box-shadow:
+                0 20px 55px
+                rgba(0, 0, 0, 0.35);
+
+            overflow: hidden;
+
+            animation:
+                fadeUp 0.8s 1s
+                cubic-bezier(.16,1,.3,1)
+                both;
+
+        }
+
+
+        .cta::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: -100px;
+            left: 50%;
+
+            width: 300px;
+            height: 300px;
+
+            transform:
+                translateX(-50%);
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255, 122, 0, 0.13),
+                    transparent 70%
+                );
+
+            animation:
+                ctaGlow 4s ease-in-out infinite;
+
+        }
+
+
+        @keyframes ctaGlow {
+
+            0%,
+            100% {
+                scale: 0.8;
+                opacity: 0.5;
+            }
+
+            50% {
+                scale: 1.15;
+                opacity: 1;
+            }
+
+        }
+
+
+        .cta h2 {
+
+            position: relative;
+
+            margin: 0 0 10px;
+
+            font-size: 29px;
+
+            line-height: 1.2;
+
+        }
+
+
+        .cta p {
+
+            position: relative;
+
+            margin: 0;
+
+            color: #aaa;
+
+        }
+
+
+        .cta .button {
+
+            margin-left: 6px;
+
+            margin-right: 6px;
+
+        }
+
+
+        .button-secondary {
+
+            background:
+                rgba(255, 255, 255, 0.05);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.15);
+
+        }
+
+
+        .button-secondary:hover {
+
+            background:
+                rgba(255, 255, 255, 0.10);
+
+        }
+
+
+        /* =========================================
+           BACK BUTTON
+        ========================================= */
+
+        .back {
+
+            display: flex;
+
+            width: fit-content;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin: 35px auto 0;
+
+            padding: 12px 22px;
+
+            background:
+                rgba(255, 255, 255, 0.045);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.10);
+
+            color: #ddd;
+
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                border-color 0.3s ease;
+
+        }
+
+
+        .back:hover {
+
+            transform:
+                translateY(-3px);
+
+            background:
+                rgba(255, 122, 0, 0.08);
+
+            border-color:
+                rgba(255, 122, 0, 0.25);
+
+            color: white;
+
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .footer {
+
+            margin-top: 42px;
+
+            text-align: center;
+
+            color: #666;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            animation:
+                fadeUp 0.8s 1.1s
+                cubic-bezier(.16,1,.3,1)
+                both;
+
+        }
+
+
+        /* =========================================
+           FADE UP
+        ========================================= */
+
+        @keyframes fadeUp {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(22px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (max-width: 850px) {
+
+            .prices {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        /* =========================================
+           HANDY
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .container {
+
+                width: 94%;
+
+                padding-top: 28px;
+
+            }
+
+
+            .logo {
+
+                width: 170px;
+
+            }
+
+
+            h1 {
+
+                font-size: 33px;
+
+            }
+
+
+            .intro {
+
+                font-size: 16px;
+
+                margin-bottom: 32px;
+
+            }
+
+            .training-nav {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                margin: -8px auto 35px;
+            }
+
+            .training-nav-link {
+                width: 100%;
+                min-height: 54px;
+                padding: 14px 16px;
+                font-size: 15px;
+            }
+
+
+            .offer-header {
+
+                padding: 24px 20px;
+
+            }
+
+
+            .offer-header h2 {
+
+                font-size: 25px;
+
+            }
+
+
+            .prices {
+
+                grid-template-columns: 1fr;
+
+                padding: 20px;
+
+            }
+
+
+            .price-card {
+
+                min-height: 125px;
+
+            }
+
+
+            .offer-content {
+
+                padding:
+                    0 20px 25px;
+
+            }
+
+
+            .features {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .cta {
+
+                padding:
+                    30px 20px;
+
+            }
+
+
+            .cta .button {
+
+                display: flex;
+
+                margin:
+                    12px 0 0;
+
+                width: 100%;
+
+            }
+
+
+            .football {
+
+                font-size: 35px;
+
+            }
+
+
+            .football.two {
+
+                font-size: 45px;
+
+            }
+
+        }
+
+
+        /* =========================================
+           REDUCED MOTION
+        ========================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration: 0.01ms !important;
+
+                animation-iteration-count: 1 !important;
+
+                transition-duration: 0.01ms !important;
+
+            }
+
+        }
+
+    
+
+        /* Neue Seite: Vergleich */
+        .intro {
+            max-width: 780px;
+        }
+
+        .training-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .training-card {
+            position: relative;
+            padding: 28px 25px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.065), rgba(18,18,18,0.96));
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 20px;
+            box-shadow: 0 20px 55px rgba(0,0,0,0.38);
+            backdrop-filter: blur(12px);
+            overflow: hidden;
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+            animation: offerEntrance 0.9s cubic-bezier(.16,1,.3,1) both;
+        }
+
+        .training-card:nth-child(1) { animation-delay: .45s; }
+        .training-card:nth-child(2) { animation-delay: .6s; }
+        .training-card:nth-child(3) { animation-delay: .75s; }
+
+        .training-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(255,122,0,0.28);
+            box-shadow: 0 30px 75px rgba(0,0,0,0.48), 0 0 35px rgba(255,122,0,0.07);
+        }
+
+        .training-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,122,0,0.045), transparent);
+            transform: skewX(-20deg);
+            animation: cardShine 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .training-card h2 {
+            margin: 0 0 18px;
+            color: white;
+            font-size: 25px;
+            line-height: 1.25;
+            font-weight: 850;
+        }
+
+        .training-card h2 span {
+            color: #ff7a00;
+        }
+
+        .training-card ul {
+            margin: 0;
+            padding-left: 22px;
+            color: #ccc;
+        }
+
+        .training-card li {
+            margin-bottom: 10px;
+        }
+
+        .training-card li::marker {
+            color: #ff7a00;
+        }
+
+        .comparison {
+            margin-top: 55px;
+            animation: fadeUp 0.8s 0.9s cubic-bezier(.16,1,.3,1) both;
+        }
+
+        .comparison h2 {
+            margin: 0 0 22px;
+            text-align: center;
+            font-size: 30px;
+            line-height: 1.2;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 20px 55px rgba(0,0,0,0.38);
+        }
+
+        .comparison-table {
+            width: 100%;
+            min-width: 720px;
+            border-collapse: collapse;
+            background: linear-gradient(145deg, rgba(255,255,255,0.055), rgba(18,18,18,0.96));
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 17px 18px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .comparison-table th {
+            color: white;
+            font-size: 16px;
+            font-weight: 850;
+            background: rgba(255,122,0,0.07);
+        }
+
+        .comparison-table th:not(:first-child) {
+            color: #ff7a00;
+        }
+
+        .comparison-table td {
+            color: #ccc;
+        }
+
+        .comparison-table td:first-child {
+            color: white;
+            font-weight: 800;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .comparison-table tbody tr {
+            transition: background .25s ease;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: rgba(255,122,0,0.045);
+        }
+
+        @media (max-width: 850px) {
+            .training-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .training-card {
+                padding: 24px 20px;
+            }
+
+            .comparison {
+                margin-top: 40px;
+            }
+
+            .comparison h2 {
+                font-size: 26px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="particles">
+        <span class="particle" style="left:7%; animation-duration:10s; animation-delay:-2s;"></span>
+        <span class="particle" style="left:18%; animation-duration:13s; animation-delay:-7s;"></span>
+        <span class="particle" style="left:31%; animation-duration:11s; animation-delay:-4s;"></span>
+        <span class="particle" style="left:45%; animation-duration:15s; animation-delay:-9s;"></span>
+        <span class="particle" style="left:59%; animation-duration:12s; animation-delay:-3s;"></span>
+        <span class="particle" style="left:73%; animation-duration:14s; animation-delay:-8s;"></span>
+        <span class="particle" style="left:87%; animation-duration:10s; animation-delay:-5s;"></span>
+    </div>
+
+    <div class="football one">⚽</div>
+    <div class="football two">⚽</div>
+    <div class="football three">⚽</div>
+
+    <main class="container">
+        <div class="logo-wrapper">
+            <img src="assets/logo.png" alt="Frey Football Academy" class="logo">
+        </div>
+
+        <h1>
+            Welches Training passt zu
+            <span class="orange">dir?</span>
+        </h1>
+
+        <p class="intro">
+            Finde die Trainingsform, die am besten zu deinen Zielen,
+            deinem Trainingsalltag und deiner persönlichen Entwicklung passt.
+        </p>
+
+        <section class="training-grid">
+            <article class="training-card">
+                <h2>Individualtraining ist ideal für <span>dich</span>, wenn …</h2>
+                <ul>
+                    <li>du gezielt an einer bestimmten Fähigkeit arbeiten möchtest</li>
+                    <li>du intensive individuelle Betreuung suchst</li>
+                    <li>du an deinen persönlichen Schwächen arbeiten möchtest</li>
+                </ul>
+            </article>
+
+            <article class="training-card">
+                <h2>Duo &amp; Kleingruppe ist ideal für <span>dich</span>, wenn …</h2>
+                <ul>
+                    <li>du gerne mit Freunden oder Teamkollegen trainierst</li>
+                    <li>du Wettbewerb und Motivation möchtest</li>
+                    <li>du trotzdem eine kleine Trainingsgruppe möchtest</li>
+                </ul>
+            </article>
+
+            <article class="training-card">
+                <h2>Fördertraining ist ideal für <span>dich</span>, wenn …</h2>
+                <ul>
+                    <li>du regelmäßig trainieren möchtest</li>
+                    <li>du dich langfristig entwickeln möchtest</li>
+                    <li>du von einer festen Trainingsstruktur profitieren möchtest</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="comparison">
+            <h2>Die Trainingsformen im <span class="orange">Vergleich</span></h2>
+
+            <div class="table-wrap">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Individual</th>
+                            <th>Duo/Kleingruppe</th>
+                            <th>Fördertraining</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Betreuung</td>
+                            <td>1:1</td>
+                            <td>2–4 Spieler</td>
+                            <td>max. 10</td>
+                        </tr>
+                        <tr>
+                            <td>Dauer</td>
+                            <td>60 Min.</td>
+                            <td>60 Min.</td>
+                            <td>75 Min./Woche</td>
+                        </tr>
+                        <tr>
+                            <td>Fokus</td>
+                            <td>Individuell</td>
+                            <td>Individuell + Wettbewerb</td>
+                            <td>Langfristige Entwicklung</td>
+                        </tr>
+                        <tr>
+                            <td>Frequenz</td>
+                            <td>flexibel</td>
+                            <td>flexibel</td>
+                            <td>regelmäßig</td>
+                        </tr>
+                        <tr>
+                            <td>Preis</td>
+                            <td>ab 50 €</td>
+                            <td>ab 30 €/Person</td>
+                            <td>80 €/Monat</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <a href="leistungen.html" class="back">
+            <span>←</span>
+            Zurück zu unseren Spielfeldern
+        </a>
+
+        <div class="footer">
+            Frey Football Academy · Train. Develop. Succeed.
+            <br><br>
+            Fritz-Kohl-Str. 3c · 55122 Mainz
+            · +49 173 3176916
+            · info@freyfootballacademy.com
+        </div>
+    </main>
+</body>
+</html>
+trainingsformen.html
+HTML
