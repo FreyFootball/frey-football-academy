@@ -1,3 +1,43 @@
+ich habe eine html datei
+
+Klar. Lade die HTML-Datei hier hoch und sag mir kurz, was du damit machen möchtest – z. B. analysieren, Fehler finden, Inhalte ändern oder in ein anderes Format umwandeln.
+
+Eingefügter Text(20260826-163415).txt
+Dokument
+
+Ich habe die HTML-Datei erhalten und kann sie lesen. Sie enthält die Seite „Trainingsangebote | Frey Football Academy“ mit Individualtraining, Duo-/Kleingruppentraining und Fördertraining.
+
+Sag mir einfach, was ich daran ändern oder machen soll – zum Beispiel:
+
+Design/Optik verbessern
+Texte ändern
+Preise oder Angebote anpassen
+Buttons/Links ändern
+Mobile Darstellung verbessern
+Animationen optimieren
+Fehler im HTML/CSS finden
+eine neue Funktion einbauen
+die komplette HTML-Datei überarbeiten
+Kannst du mir ganz oben nach Individuelle Förderung..... jedes Spielrs. Links zu Individualtraing, Duo-& Kleingruppentraining & Fördertraining einbauen? Durch den Klick auf eines der drei soll man direkt zur entsprechenden TExtpassage springen können. Geht das?  
+
+ich brauche dann die komplette html datei nochmal
+
+Ja, genau so geht es. Ich habe die drei Links direkt unter dem Einleitungstext eingebaut. Beim Klick springt die Seite jeweils direkt zum passenden Trainingsangebot.
+
+Zusätzlich sind die Links auf dem Handy untereinander angeordnet, damit sie sauber aussehen.
+
+Hier ist die komplette fertige HTML-Datei:
+
+HTML-Datei herunterladen
+
+Die drei Sprungziele sind:
+
+Individualtraining
+Duo- & Kleingruppentraining
+Fördertraining
+
+Die vorhandenen Inhalte, Preise, Animationen und das Design habe ich ansonsten beibehalten. 
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -596,6 +636,131 @@
                 fadeUp 0.8s 0.35s
                 cubic-bezier(.16,1,.3,1)
                 both;
+
+        }
+
+
+        /* =========================================
+           SCHNELLNAVIGATION
+        ========================================= */
+
+        .training-nav {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: stretch;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            max-width: 900px;
+
+            margin: -20px auto 50px;
+
+            animation:
+                fadeUp 0.8s 0.5s
+                cubic-bezier(.16,1,.3,1)
+                both;
+
+        }
+
+
+        .training-nav-link {
+
+            position: relative;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 48px;
+
+            padding: 12px 20px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.055),
+                    rgba(18, 18, 18, 0.92)
+                );
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.12);
+
+            border-radius: 11px;
+
+            color: #ddd;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            text-align: center;
+
+            box-shadow:
+                0 8px 24px
+                rgba(0, 0, 0, 0.22);
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                background 0.3s ease,
+                color 0.3s ease,
+                box-shadow 0.3s ease;
+
+        }
+
+
+        .training-nav-link:hover {
+
+            transform: translateY(-3px);
+
+            border-color:
+                rgba(255, 122, 0, 0.45);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 122, 0, 0.10),
+                    rgba(18, 18, 18, 0.96)
+                );
+
+            color: white;
+
+            box-shadow:
+                0 12px 30px
+                rgba(0, 0, 0, 0.32),
+
+                0 0 20px
+                rgba(255, 122, 0, 0.08);
+
+        }
+
+
+        .training-nav-link:focus-visible {
+
+            outline: 2px solid #ff7a00;
+
+            outline-offset: 3px;
+
+        }
+
+
+        /* Zielpositionen beim Anspringen */
+
+        #individualtraining,
+        #duo-kleingruppentraining,
+        #foerdertraining {
+
+            scroll-margin-top: 25px;
 
         }
 
@@ -1671,6 +1836,25 @@
             }
 
 
+            .training-nav {
+
+                flex-direction: column;
+
+                gap: 9px;
+
+                margin:
+                    -8px auto 35px;
+
+            }
+
+
+            .training-nav-link {
+
+                width: 100%;
+
+            }
+
+
             .offer-header {
 
                 padding: 24px 20px;
@@ -1881,6 +2065,24 @@
             den Zielen und dem Entwicklungsstand jedes Spielers.
 
         </p>
+
+        <!-- =========================================
+             SCHNELLAUSWAHL
+        ========================================== -->
+
+        <nav class="training-nav" aria-label="Trainingsangebote">
+            <a href="#individualtraining" class="training-nav-link">
+                Individualtraining
+            </a>
+
+            <a href="#duo-kleingruppentraining" class="training-nav-link">
+                Duo- &amp; Kleingruppentraining
+            </a>
+
+            <a href="#foerdertraining" class="training-nav-link">
+                Fördertraining
+            </a>
+        </nav>
 
 
         <!-- =====================================================
@@ -2240,3 +2442,5 @@
 </body>
 
 </html>
+Frey_Football_Academy_Trainingsangebote_mit_Navigation.html
+HTML
