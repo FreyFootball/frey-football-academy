@@ -159,8 +159,185 @@ h1:after{content:"";display:block;width:72px;height:4px;margin:18px auto 0;borde
 }
 </script>
 
+<style>
+
+/* ===== FFA DESIGN SYSTEM — abgestimmt auf die Startseite ===== */
+:root{
+  --orange:#ff6a00;
+  --orange2:#ff9b3d;
+  --bg:#050505;
+  --panel:rgba(18,18,18,.72);
+  --line:rgba(255,255,255,.10);
+  --muted:#a8a8a8;
+  --white:#fff;
+}
+html{scroll-behavior:smooth}
+body{
+  color:var(--white)!important;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif!important;
+  background:
+    radial-gradient(circle at 50% -5%,rgba(255,106,0,.25),transparent 28%),
+    radial-gradient(circle at 0% 55%,rgba(255,106,0,.10),transparent 25%),
+    linear-gradient(180deg,#141414 0%,#080808 38%,#030303 100%)!important;
+}
+body:before{
+  content:""!important;
+  position:fixed!important;inset:0!important;pointer-events:none!important;z-index:0!important;
+  opacity:.35!important;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px)!important;
+  background-size:72px 72px!important;
+  mask-image:linear-gradient(to bottom,black,transparent 82%)!important;
+}
+body:after{
+  content:""!important;
+  position:fixed!important;inset:-40%!important;pointer-events:none!important;z-index:0!important;
+  background:conic-gradient(from 0deg,transparent 0 70%,rgba(255,106,0,.07),transparent 80%)!important;
+  animation:ffaSpin 24s linear infinite!important;
+}
+@keyframes ffaSpin{to{transform:rotate(360deg)}}
+.particles,.football{display:none!important}
+
+.ffa-topbar{
+  position:relative;z-index:10;
+  width:min(1080px,92%);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:10px 0 22px;border-bottom:1px solid var(--line);
+}
+.ffa-brand{
+  display:flex;align-items:center;gap:10px;
+  color:#cfcfcf;text-decoration:none;font-size:12px;
+  letter-spacing:.16em;text-transform:uppercase;
+}
+.ffa-dot{
+  width:8px;height:8px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 18px var(--orange);
+  animation:ffaPulse 2.4s infinite;
+}
+@keyframes ffaPulse{
+  50%{box-shadow:0 0 0 9px rgba(255,106,0,0),0 0 35px rgba(255,106,0,.22)}
+}
+.ffa-nav{display:flex;gap:8px;align-items:center}
+.ffa-nav a{
+  color:#888;text-decoration:none;font-size:13px;
+  padding:8px 11px;border-radius:10px;transition:.25s;
+}
+.ffa-nav a:hover,.ffa-nav a.active{
+  color:#fff;background:rgba(255,106,0,.08);
+}
+.ffa-nav .cta-link{
+  color:#fff;background:linear-gradient(135deg,#ff7a18,#ff5d00);
+  box-shadow:0 8px 24px rgba(255,106,0,.18);
+}
+.ffa-nav .cta-link:hover{transform:translateY(-2px);background:linear-gradient(135deg,#ff8428,#ff6408)}
+
+.container,.shell{
+  position:relative!important;z-index:2!important;
+}
+.container{width:min(1080px,92%)!important;padding:30px 0 55px!important}
+.logo-wrapper{margin-bottom:24px!important}
+.logo{width:185px!important;filter:drop-shadow(0 0 24px rgba(255,106,0,.28))!important}
+h1{
+  font-size:clamp(38px,7vw,62px)!important;
+  line-height:.98!important;letter-spacing:-.055em!important;font-weight:900!important;
+}
+.orange{
+  background:linear-gradient(100deg,#fff 10%,#ff8a32 78%);
+  -webkit-background-clip:text;background-clip:text;color:transparent!important;
+  text-shadow:none!important;
+}
+h1:after{
+  width:70px!important;height:4px!important;margin:18px auto 0!important;
+  background:var(--orange)!important;box-shadow:0 0 15px rgba(255,106,0,.7)!important;
+}
+.intro,.subtitle{
+  max-width:760px!important;color:#b9b9b9!important;
+  font-size:clamp(16px,2.2vw,19px)!important;line-height:1.7!important;
+}
+.card,.personal-intro,.story,.offer,.philosophy,.cta{
+  border:1px solid var(--line)!important;
+  border-radius:24px!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(18,18,18,.78))!important;
+  box-shadow:0 25px 80px rgba(0,0,0,.28)!important;
+  backdrop-filter:blur(14px)!important;
+}
+.personal-intro{max-width:900px!important}
+.story{overflow:hidden!important}
+.story-copy{padding:42px!important}
+.story h2,.offer-header h2,.seo-intro h2,.faq h2{
+  letter-spacing:-.04em!important;
+}
+.kicker,.section-kicker{
+  color:#ff8b3b!important;
+  letter-spacing:.18em!important;
+}
+.story h2 span{color:var(--orange)!important}
+.story p,.seo-intro p,.faq-item p{color:#aaa!important}
+.quote{
+  border-left:3px solid var(--orange)!important;
+  background:rgba(255,106,0,.065)!important;
+}
+.stat,.value,.price-card,.training-nav-link{
+  border:1px solid var(--line)!important;
+  border-radius:18px!important;
+  background:rgba(255,255,255,.035)!important;
+  backdrop-filter:blur(12px)!important;
+}
+.stat .number{color:var(--orange)!important}
+.value:hover,.training-nav-link:hover,.training-nav-link:focus-visible{
+  border-color:rgba(255,106,0,.45)!important;
+  background:rgba(255,106,0,.075)!important;
+  box-shadow:0 20px 45px rgba(0,0,0,.28)!important;
+}
+.philosophy,.cta{
+  border-color:rgba(255,106,0,.28)!important;
+  background:linear-gradient(135deg,rgba(255,106,0,.12),rgba(17,17,17,.95))!important;
+}
+.button,.button-primary{
+  border-radius:14px!important;
+  background:linear-gradient(135deg,#ff7a18,#ff5d00)!important;
+  box-shadow:0 14px 40px rgba(255,106,0,.22)!important;
+}
+.button-secondary{
+  background:rgba(255,255,255,.045)!important;
+  border:1px solid var(--line)!important;
+  box-shadow:none!important;
+}
+.back{
+  border-radius:14px!important;background:rgba(255,255,255,.045)!important;
+  border:1px solid var(--line)!important;
+}
+.footer{
+  border-top:1px solid var(--line)!important;
+  padding-top:24px!important;color:#666!important;
+}
+a{ -webkit-tap-highlight-color:transparent; }
+@media(max-width:760px){
+  .ffa-topbar{width:92%;padding-top:18px;padding-bottom:16px}
+  .ffa-nav a:not(.cta-link){display:none}
+  .ffa-nav .cta-link{font-size:12px;padding:8px 10px}
+  .container{width:92%!important;padding-top:28px!important}
+  .story-copy{padding:30px 24px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+
+</style>
 </head>
 <body>
+
+<header class="ffa-topbar">
+  <a class="ffa-brand" href="index.html"><span class="ffa-dot"></span> Frey Football Academy</a>
+  <nav class="ffa-nav" aria-label="Hauptnavigation">
+    <a href="index.html">Startseite</a>
+    <a class="active" href="ueber-mich.html">Über mich</a>
+    <a href="leistungen.html">Training</a>
+    <a class="cta-link" href="leistungen.html">Training anfragen ↗</a>
+  </nav>
+</header>
+
 <div class="particles">
   <span class="particle" style="left:7%;animation-duration:10s;animation-delay:-2s"></span>
   <span class="particle" style="left:18%;animation-duration:13s;animation-delay:-7s"></span>
