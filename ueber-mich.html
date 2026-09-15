@@ -158,7 +158,87 @@ h1:after{content:"";display:block;width:72px;height:4px;margin:18px auto 0;borde
   "description":"Ich bin Jan Frey, Gründer der Frey Football Academy in Mainz. Ich begleite Nachwuchsfußballer mit individuellem Fußballtraining und gezielter Talententwicklung."
 }
 </script>
+ /* Persönliches Portrait im Bereich Mein Weg zur FFA */
+ .personal-intro-with-portrait {
+  max-width: 1080px;
+  margin: 0 auto 34px;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 36px;
+  align-items: center;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,.065),
+    rgba(14,14,14,.88)
+  );
+  box-shadow: 0 25px 70px rgba(0,0,0,.28);
+  backdrop-filter: blur(14px);
+}
 
+.portrait-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  aspect-ratio: 3 / 4;
+  border: 1px solid rgba(255,106,0,.25);
+  box-shadow: 0 15px 45px rgba(0,0,0,.35);
+}
+
+.portrait-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+
+.portrait-wrapper:hover img {
+  transform: scale(1.03);
+}
+
+.personal-intro-content h2 {
+  margin: 0 0 18px;
+  font-size: clamp(25px, 4vw, 32px);
+  letter-spacing: -.035em;
+}
+
+.personal-intro-content p {
+  margin: 0 0 12px;
+  color: #c3c3c3;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.personal-intro-content p:last-child {
+  margin-bottom: 0;
+}
+
+.personal-intro-content strong {
+  color: #fff;
+}
+
+@media (max-width: 850px) {
+  .personal-intro-with-portrait {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    text-align: center;
+  }
+
+  .portrait-wrapper {
+    width: min(280px, 100%);
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .personal-intro-with-portrait {
+    padding: 25px 20px;
+  }
+}
 <style>
 
 /* ===== FFA DESIGN SYSTEM — abgestimmt auf die Startseite ===== */
@@ -360,55 +440,58 @@ a{ -webkit-tap-highlight-color:transparent; }
    <strong>Denn Entwicklung beginnt dort, wo Training individuell wird.</strong>
   </p>
 
-  <section class="personal-intro" aria-labelledby="jan-frey-intro">
-  <h2 id="jan-frey-intro">Mein Weg zur FFA</h2>
+ <section class="personal-intro-with-portrait"
+         aria-labelledby="jan-frey-intro">
 
-  <p>
-    Ich bin Jan Frey und mit der Gründung der
-    <strong>Frey Football Academy</strong> habe ich mir einen lang gehegten Traum erfüllt:
-    meine Erfahrung und meine Leidenschaft für den Fußball zu verbinden und junge Spieler
-    auf ihrem Weg bestmöglich zu begleiten.
-  </p>
+  <div class="portrait-wrapper">
+    <img
+      src="assets/jan-portrait.jpg"
+      alt="Jan Frey – Gründer der Frey Football Academy"
+      loading="lazy"
+    >
+  </div>
 
-  <p>
-    Geprägt haben mich unter anderem meine Zeit im
-    <strong>Nachwuchsleistungszentrum von Mainz 05</strong>,
-    beim <strong>SV Waldhof Mannheim</strong> sowie die wertvolle Arbeit mit über
-    <strong>300 Spielern</strong>. Diese Erfahrungen haben meinen Blick für die individuelle
-    Entwicklung eines Spielers geschärft.
-  </p>
+  <div class="personal-intro-content">
 
-  <p>
-    Heute nutze ich dieses Wissen jeden Tag, um Nachwuchsspieler gezielt zu fördern,
-    ihre Stärken weiterzuentwickeln und sie dabei zu unterstützen,
-    <strong>ihr eigenes Potenzial auszuschöpfen.</strong>
-  </p>
+    <h2 id="jan-frey-intro">Mein Weg zur FFA</h2>
 
-  <p>
-    Fußball ist für mich weit mehr als nur ein Sport –
-    <strong>Fußball ist meine Passion.</strong> Genau diese Begeisterung möchte ich bei der
-    FFA weitergeben. Mir geht es nicht darum, jeden Spieler gleich zu entwickeln,
-    sondern darum, <strong>jeden Spieler individuell dort abzuholen, wo er gerade steht,
-    und ihn nachhaltig besser zu machen.</strong>
-  </p>
+    <p>
+      Ich bin Jan Frey und mit der Gründung der
+      <strong>Frey Football Academy</strong> habe ich mir einen lang gehegten Traum erfüllt:
+      meine Erfahrung und meine Leidenschaft für den Fußball zu verbinden und junge Spieler
+      auf ihrem Weg bestmöglich zu begleiten.
+    </p>
 
-  <p>
-    Die FFA steht für <strong>individuelle Förderung, nachhaltige Entwicklung
-    und die Leidenschaft für den Fußball.</strong>
-  </p>
+    <p>
+      Geprägt haben mich unter anderem meine Zeit im
+      <strong>Nachwuchsleistungszentrum von Mainz 05</strong>,
+      beim <strong>SV Waldhof Mannheim</strong> sowie die wertvolle Arbeit mit über
+      <strong>300 Spielern</strong>. Diese Erfahrungen haben meinen Blick für die individuelle
+      Entwicklung eines Spielers geschärft.
+    </p>
+
+    <p>
+      Heute nutze ich dieses Wissen jeden Tag, um Nachwuchsspieler gezielt zu fördern,
+      ihre Stärken weiterzuentwickeln und sie dabei zu unterstützen,
+      <strong>ihr eigenes Potenzial auszuschöpfen.</strong>
+    </p>
+
+    <p>
+      Fußball ist für mich weit mehr als nur ein Sport –
+      <strong>Fußball ist meine Passion.</strong> Genau diese Begeisterung möchte ich bei der
+      FFA weitergeben. Mir geht es nicht darum, jeden Spieler gleich zu entwickeln,
+      sondern darum, <strong>jeden Spieler individuell dort abzuholen, wo er gerade steht,
+      und ihn nachhaltig besser zu machen.</strong>
+    </p>
+
+    <p>
+      Die FFA steht für <strong>individuelle Förderung, nachhaltige Entwicklung
+      und die Leidenschaft für den Fußball.</strong>
+    </p>
+
+  </div>
+
 </section>
-  <section class="story">
-    <div class="story-grid">
-      <div class="story-image"><img src="assets/jan-mainz-05.jpg" alt="Jan Frey – Fußballtrainer mit Erfahrung im Nachwuchsleistungszentrum von Mainz 05"></div>
-      <div class="story-copy">
-        <div class="kicker">Der Anfang</div>
-        <h2>Von der Erfahrung im NLZ zur <span>eigenen Akademie</span></h2>
-        <p>Nach drei Jahren im Nachwuchsleistungszentrum von <strong>Mainz 05</strong> wurde mir klar, dass ich noch individueller mit Spielern arbeiten möchte.</p>
-        <p>Aus diesem Anspruch ist die <strong>Frey Football Academy</strong> entstanden.</p>
-      </div>
-    </div>
-  </section>
-
   <section class="story reverse">
     <div class="story-grid">
       <div class="story-image"><img src="assets/jan-coaching.jpg" alt="Jan Frey beim Fußballtraining mit Nachwuchsspielern"></div>
