@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Standorte | Frey Football Academy</title>
+
+  <meta
+    name="description"
+    content="Die Standorte der Frey Football Academy in Mainz und Umgebung. Individuelles Fußballtraining für ambitionierte Nachwuchsspieler in Sörgenloch, Bodenheim und zukünftig weiteren Standorten."
+  >
+
+  <meta name="theme-color" content="#080808">
+
+  <style>
+    :root{
+      --orange:#ff6a00;
+      --orange2:#ff9b3d;
+      --bg:#080808;
+      --bg2:#0d0d0d;
+      --card:#111111;
+      --card2:#151515;
+      --text:#f5f5f5;
+      --muted:#a5a5a5;
+      --line:rgba(255,255,255,.10);
+      --line2:rgba(255,106,0,.22);
+      --shadow:0 24px 70px rgba(0,0,0,.45);
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(circle at 50% -10%, rgba(255,106,0,.13), transparent 35%),
+        radial-gradient(circle at 85% 30%, rgba(255,106,0,.05), transparent 25%),
+        linear-gradient(180deg,#090909 0%,#080808 100%);
+
+      color:var(--text);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.035;
+
+      background-image:
+        linear-gradient(rgba(255,255,255,.8) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.8) 1px, transparent 1px);
+
+      background-size:55px 55px;
+      mask-image:linear-gradient(to bottom,black,transparent 80%);
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .container{
+      width:92%;
+      max-width:1080px;
+      margin:0 auto;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .ffa-topbar{
+      position:relative;
+      z-index:10;
+
+      width:100%;
+      border-bottom:1px solid rgba(255,255,255,.07);
+
+      background:rgba(8,8,8,.78);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+    }
+
+    .ffa-header-inner{
+      width:92%;
+      max-width:1080px;
+      min-height:78px;
+      margin:0 auto;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:30px;
+    }
+
+    .ffa-brand{
+      display:flex;
+      align-items:center;
+      gap:11px;
+
+      font-size:15px;
+      font-weight:800;
+      letter-spacing:.02em;
+      white-space:nowrap;
+    }
+
+    .ffa-dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--orange);
+
+      box-shadow:
+        0 0 0 5px rgba(255,106,0,.08),
+        0 0 24px rgba(255,106,0,.65);
+    }
+
+    .ffa-nav{
+      display:flex;
+      align-items:center;
+      gap:28px;
+    }
+
+    .ffa-nav a{
+      color:#a9a9a9;
+      font-size:13px;
+      font-weight:700;
+
+      transition:
+        color .2s ease,
+        transform .2s ease;
+    }
+
+    .ffa-nav a:hover{
+      color:#fff;
+      transform:translateY(-1px);
+    }
+
+    .ffa-nav a.active{
+      color:#fff;
+    }
+
+    .ffa-nav .ffa-nav-cta{
+      color:#fff;
+
+      padding:11px 17px;
+      border-radius:999px;
+
+      background:
+        linear-gradient(135deg,
+        rgba(255,106,0,.98),
+        rgba(255,140,55,.98));
+
+      box-shadow:
+        0 10px 30px rgba(255,106,0,.18),
+        inset 0 1px 0 rgba(255,255,255,.2);
+    }
+
+    .ffa-nav .ffa-nav-cta:hover{
+      color:#fff;
+      transform:translateY(-2px);
+      box-shadow:
+        0 14px 36px rgba(255,106,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.2);
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero{
+      position:relative;
+      padding:105px 0 80px;
+      text-align:center;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+
+      width:520px;
+      height:520px;
+
+      top:-210px;
+      left:50%;
+      transform:translateX(-50%);
+
+      background:radial-gradient(
+        circle,
+        rgba(255,106,0,.16),
+        rgba(255,106,0,.05) 35%,
+        transparent 70%
+      );
+
+      filter:blur(15px);
+      pointer-events:none;
+    }
+
+    .eyebrow{
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+
+      padding:8px 13px;
+      margin-bottom:22px;
+
+      border:1px solid rgba(255,106,0,.20);
+      border-radius:999px;
+
+      background:rgba(255,106,0,.055);
+
+      color:#d0d0d0;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .eyebrow span{
+      color:var(--orange);
+      font-size:10px;
+      text-shadow:0 0 14px rgba(255,106,0,.8);
+    }
+
+    .hero h1{
+      position:relative;
+
+      max-width:900px;
+      margin:0 auto;
+
+      font-size:clamp(42px,6vw,72px);
+      line-height:1.02;
+      letter-spacing:-.045em;
+      font-weight:900;
+    }
+
+    .hero h1 span{
+      display:block;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ff6a00 0%,
+          #ff8b2b 50%,
+          #ffb06a 100%
+        );
+
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero h1::after{
+      content:"";
+
+      display:block;
+
+      width:74px;
+      height:4px;
+
+      margin:28px auto 0;
+
+      border-radius:999px;
+
+      background:linear-gradient(
+        90deg,
+        var(--orange),
+        var(--orange2)
+      );
+
+      box-shadow:0 0 25px rgba(255,106,0,.35);
+    }
+
+    .hero-text{
+      position:relative;
+
+      max-width:650px;
+      margin:27px auto 0;
+
+      color:#a9a9a9;
+      font-size:17px;
+      line-height:1.75;
+    }
+
+    .hero-text strong{
+      color:#e8e8e8;
+      font-weight:700;
+    }
+
+
+    /* =========================
+       LOCATIONS
+    ========================= */
+
+    .locations{
+      padding:10px 0 95px;
+    }
+
+    .location-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:22px;
+    }
+
+    .location-card{
+      position:relative;
+
+      padding:34px;
+
+      border:1px solid var(--line);
+      border-radius:22px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.055),
+          rgba(255,255,255,.018)
+        );
+
+      box-shadow:var(--shadow);
+
+      overflow:hidden;
+
+      transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .location-card::before{
+      content:"";
+
+      position:absolute;
+
+      width:190px;
+      height:190px;
+
+      top:-100px;
+      right:-90px;
+
+      background:radial-gradient(
+        circle,
+        rgba(255,106,0,.15),
+        transparent 70%
+      );
+
+      pointer-events:none;
+    }
+
+    .location-card:hover{
+      transform:translateY(-5px);
+
+      border-color:rgba(255,106,0,.34);
+
+      box-shadow:
+        0 28px 70px rgba(0,0,0,.52),
+        0 0 35px rgba(255,106,0,.07);
+    }
+
+    .location-number{
+      position:relative;
+
+      color:var(--orange);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+
+      margin-bottom:18px;
+    }
+
+    .location-card h2{
+      position:relative;
+
+      font-size:28px;
+      line-height:1.15;
+      letter-spacing:-.025em;
+
+      margin-bottom:12px;
+    }
+
+    .location-address{
+      position:relative;
+
+      color:#a8a8a8;
+      font-size:15px;
+      line-height:1.6;
+
+      min-height:49px;
+    }
+
+    .location-divider{
+      width:100%;
+      height:1px;
+
+      background:var(--line);
+
+      margin:26px 0 23px;
+    }
+
+    .location-action{
+      position:relative;
+
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+
+      color:#fff;
+
+      font-size:13px;
+      font-weight:800;
+
+      transition:
+        color .2s ease,
+        gap .2s ease;
+    }
+
+    .location-action span{
+      color:var(--orange);
+      font-size:16px;
+    }
+
+    .location-action:hover{
+      color:var(--orange2);
+      gap:13px;
+    }
+
+
+    /* =========================
+       MORE LOCATIONS
+    ========================= */
+
+    .future-locations{
+      margin-top:24px;
+
+      position:relative;
+
+      padding:30px 34px;
+
+      border-radius:22px;
+
+      border:1px solid rgba(255,106,0,.18);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,106,0,.075),
+          rgba(255,255,255,.018)
+        );
+
+      overflow:hidden;
+    }
+
+    .future-locations::before{
+      content:"";
+
+      position:absolute;
+
+      left:0;
+      top:0;
+      bottom:0;
+
+      width:3px;
+
+      background:linear-gradient(
+        180deg,
+        var(--orange),
+        rgba(255,106,0,.1)
+      );
+    }
+
+    .future-content{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:30px;
+    }
+
+    .future-copy h3{
+      font-size:20px;
+      margin-bottom:7px;
+      letter-spacing:-.02em;
+    }
+
+    .future-copy p{
+      color:#a4a4a4;
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .future-badge{
+      flex-shrink:0;
+
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+
+      padding:10px 14px;
+
+      border:1px solid rgba(255,106,0,.25);
+      border-radius:999px;
+
+      background:rgba(255,106,0,.07);
+
+      color:#ddd;
+      font-size:12px;
+      font-weight:800;
+    }
+
+    .future-badge span{
+      width:7px;
+      height:7px;
+      border-radius:50%;
+
+      background:var(--orange);
+
+      box-shadow:0 0 12px rgba(255,106,0,.7);
+    }
+
+
+    /* =========================
+       INTRO BLOCK
+    ========================= */
+
+    .intro-section{
+      padding:0 0 95px;
+    }
+
+    .intro-box{
+      position:relative;
+
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:50px;
+      align-items:center;
+
+      padding:55px;
+
+      border:1px solid var(--line);
+      border-radius:25px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.045),
+          rgba(255,255,255,.015)
+        );
+
+      overflow:hidden;
+    }
+
+    .intro-box::after{
+      content:"";
+
+      position:absolute;
+
+      width:360px;
+      height:360px;
+
+      right:-180px;
+      bottom:-210px;
+
+      background:radial-gradient(
+        circle,
+        rgba(255,106,0,.12),
+        transparent 68%
+      );
+
+      pointer-events:none;
+    }
+
+    .section-label{
+      color:var(--orange);
+
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+
+      margin-bottom:16px;
+    }
+
+    .intro-box h2{
+      font-size:clamp(28px,4vw,42px);
+      line-height:1.08;
+      letter-spacing:-.035em;
+
+      margin-bottom:20px;
+    }
+
+    .intro-box h2 span{
+      color:var(--orange);
+    }
+
+    .intro-box p{
+      color:#a7a7a7;
+
+      font-size:15px;
+      line-height:1.8;
+    }
+
+    .intro-points{
+      position:relative;
+      z-index:1;
+
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .intro-point{
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+
+      padding:17px;
+
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:15px;
+
+      background:rgba(255,255,255,.025);
+    }
+
+    .intro-point-icon{
+      width:32px;
+      height:32px;
+
+      flex-shrink:0;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border-radius:10px;
+
+      background:rgba(255,106,0,.10);
+      color:var(--orange);
+
+      font-weight:900;
+      font-size:14px;
+    }
+
+    .intro-point strong{
+      display:block;
+
+      color:#f0f0f0;
+      font-size:14px;
+
+      margin-bottom:3px;
+    }
+
+    .intro-point span{
+      color:#929292;
+      font-size:13px;
+      line-height:1.5;
+    }
+
+
+    /* =========================
+       BENEFITS
+    ========================= */
+
+    .benefits{
+      padding:0 0 95px;
+    }
+
+    .section-heading{
+      text-align:center;
+      max-width:650px;
+      margin:0 auto 38px;
+    }
+
+    .section-heading h2{
+      font-size:clamp(30px,4vw,44px);
+      letter-spacing:-.035em;
+      margin-bottom:13px;
+    }
+
+    .section-heading p{
+      color:#999;
+      font-size:15px;
+      line-height:1.7;
+    }
+
+    .benefit-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .benefit-card{
+      padding:29px 25px;
+
+      border:1px solid var(--line);
+      border-radius:19px;
+
+      background:rgba(255,255,255,.025);
+
+      transition:
+        transform .22s ease,
+        border-color .22s ease,
+        background .22s ease;
+    }
+
+    .benefit-card:hover{
+      transform:translateY(-4px);
+
+      border-color:rgba(255,106,0,.25);
+
+      background:rgba(255,255,255,.035);
+    }
+
+    .benefit-icon{
+      width:42px;
+      height:42px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      margin-bottom:18px;
+
+      border-radius:12px;
+
+      color:var(--orange);
+      background:rgba(255,106,0,.09);
+
+      font-size:16px;
+      font-weight:900;
+    }
+
+    .benefit-card h3{
+      font-size:17px;
+      margin-bottom:8px;
+    }
+
+    .benefit-card p{
+      color:#919191;
+      font-size:13px;
+      line-height:1.65;
+    }
+
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta-section{
+      padding:0 0 95px;
+    }
+
+    .cta{
+      position:relative;
+
+      padding:55px 45px;
+
+      border-radius:25px;
+
+      border:1px solid rgba(255,106,0,.20);
+
+      background:
+        radial-gradient(
+          circle at 80% 50%,
+          rgba(255,106,0,.13),
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          rgba(255,106,0,.08),
+          rgba(255,255,255,.025)
+        );
+
+      text-align:center;
+
+      overflow:hidden;
+    }
+
+    .cta h2{
+      font-size:clamp(28px,4vw,42px);
+      letter-spacing:-.035em;
+      margin-bottom:14px;
+    }
+
+    .cta p{
+      max-width:600px;
+      margin:0 auto 27px;
+
+      color:#a4a4a4;
+      font-size:15px;
+      line-height:1.7;
+    }
+
+    .cta-button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+
+      padding:14px 21px;
+
+      border-radius:999px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--orange),
+          var(--orange2)
+        );
+
+      color:#fff;
+
+      font-size:13px;
+      font-weight:900;
+
+      box-shadow:
+        0 15px 35px rgba(255,106,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.18);
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .cta-button:hover{
+      transform:translateY(-2px);
+
+      box-shadow:
+        0 20px 45px rgba(255,106,0,.32),
+        inset 0 1px 0 rgba(255,255,255,.18);
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer{
+      border-top:1px solid rgba(255,255,255,.07);
+
+      padding:34px 0 38px;
+
+      background:rgba(0,0,0,.20);
+    }
+
+    .footer-inner{
+      width:92%;
+      max-width:1080px;
+      margin:0 auto;
+
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:40px;
+    }
+
+    .footer-brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+
+      font-size:14px;
+      font-weight:800;
+    }
+
+    .footer-description{
+      margin-top:10px;
+
+      max-width:330px;
+
+      color:#777;
+      font-size:12px;
+      line-height:1.6;
+    }
+
+    .footer-right{
+      text-align:right;
+    }
+
+    .footer-right p{
+      color:#777;
+      font-size:12px;
+      line-height:1.8;
+    }
+
+    .footer-right a{
+      color:#aaa;
+      transition:color .2s ease;
+    }
+
+    .footer-right a:hover{
+      color:var(--orange);
+    }
+
+    .copyright{
+      width:92%;
+      max-width:1080px;
+      margin:25px auto 0;
+      padding-top:20px;
+
+      border-top:1px solid rgba(255,255,255,.055);
+
+      color:#555;
+      font-size:11px;
+      text-align:center;
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media(max-width:850px){
+
+      .ffa-nav{
+        gap:17px;
+      }
+
+      .ffa-nav a{
+        font-size:12px;
+      }
+
+      .location-grid{
+        grid-template-columns:1fr;
+      }
+
+      .intro-box{
+        grid-template-columns:1fr;
+        gap:35px;
+        padding:40px;
+      }
+
+      .benefit-grid{
+        grid-template-columns:1fr;
+      }
+
+      .future-content{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+    }
+
+
+    @media(max-width:760px){
+
+      .ffa-header-inner{
+        min-height:72px;
+      }
+
+      .ffa-brand{
+        font-size:13px;
+      }
+
+      .ffa-nav{
+        gap:12px;
+      }
+
+      .ffa-nav a:not(.ffa-nav-cta){
+        display:none;
+      }
+
+      .ffa-nav .ffa-nav-cta{
+        padding:10px 14px;
+      }
+
+      .hero{
+        padding:80px 0 65px;
+      }
+
+      .hero h1{
+        font-size:clamp(38px,10vw,58px);
+      }
+
+      .hero-text{
+        font-size:15px;
+      }
+
+      .locations,
+      .intro-section,
+      .benefits,
+      .cta-section{
+        padding-bottom:70px;
+      }
+
+      .location-card{
+        padding:28px;
+      }
+
+      .intro-box{
+        padding:30px;
+      }
+
+      .cta{
+        padding:42px 25px;
+      }
+
+      .footer-inner{
+        flex-direction:column;
+        gap:25px;
+      }
+
+      .footer-right{
+        text-align:left;
+      }
+    }
+
+
+    @media(max-width:600px){
+
+      .container{
+        width:90%;
+      }
+
+      .hero{
+        padding-top:65px;
+      }
+
+      .eyebrow{
+        font-size:10px;
+      }
+
+      .location-card h2{
+        font-size:25px;
+      }
+
+      .future-locations{
+        padding:25px;
+      }
+
+      .intro-box{
+        padding:27px;
+      }
+
+      .intro-box h2{
+        font-size:30px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header class="ffa-topbar">
+    <div class="ffa-header-inner">
+
+      <a href="index.html" class="ffa-brand">
+        <span class="ffa-dot"></span>
+        Frey Football Academy
+      </a>
+
+      <nav class="ffa-nav">
+
+        <a href="index.html">
+          Startseite
+        </a>
+
+        <a href="ueber-mich.html">
+          Über Mich
+        </a>
+
+        <a href="standorte.html" class="active">
+          Standorte
+        </a>
+
+        <a href="training.html" class="ffa-nav-cta">
+          Training entdecken
+        </a>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+      <div class="container">
+
+        <div class="eyebrow">
+          <span>●</span>
+          Frey Football Academy · Mainz &amp; Umgebung
+        </div>
+
+        <h1>
+          Unsere
+          <span>Standorte.</span>
+        </h1>
+
+        <p class="hero-text">
+          Fußballtraining dort, wo es für dich passt.
+          <strong>
+            Aktuell trainieren wir an zwei Standorten in Mainz und Umgebung.
+          </strong>
+          Weitere Standorte sind bereits in Planung.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         LOCATIONS
+    ========================= -->
+
+    <section class="locations">
+
+      <div class="container">
+
+        <div class="location-grid">
+
+
+          <!-- SÖRGENLOCH -->
+
+          <article class="location-card">
+
+            <div class="location-number">
+              Standort 01
+            </div>
+
+            <h2>
+              TuS Sörgenloch
+            </h2>
+
+            <p class="location-address">
+              Mühlweg am Sportplatz<br>
+              55270 Sörgenloch
+            </p>
+
+            <div class="location-divider"></div>
+
+            <a
+              class="location-action"
+              href="https://www.google.com/maps?sca_esv=e2130cf16db8d2a2&rlz=1C1GCEA_enDE1166DE1166&sxsrf=APpeQnsstSw36mGMIwpwSxbkAOJ6GyZUAQ:1791460022830&biw=2133&bih=1012&uact=5&gs_lp=Egxnd3Mtd2l6LXNlcnAiIm3DvGhsd2VnIGFtIHNwb3J0cGxhdHogc8O2cmdlbmxvY2gyBRAhGKABMgUQIRigATIFECEYnwVI8ClQAFieKHAAeAGQAQCYAWagAZsRqgEEMzEuMbgBA8gBAPgBAZgCIKAC6hLCAgsQABiABBixAxiDAcICCBAuGIAEGLEDwgIaEC4YgAQYigUYjQYYsQMYgwEYxwEYrwEYjgXCAhEQABiABBiKBRiNBhixAxiDAcICDhAuGIAEGLEDGMcBGNEDwgILEC4YgAQYsQMYgwHCAg4QLhiABBiKBRixAxiDAcICCBAAGIAEGLEDwgIQEC4YgAQYigUYQxjHARivAcICExAuGIAEGIoFGEMYsQMYxwEY0QPCAgUQABiABMICDRAAGIAEGIoFGEMYsQPCAg0QLhiABBiKBRhDGLEDwgIOEC4YgAQYxwEYrwEYjgXCAhEQLhiABBjHARivARiYBRiZBcICBRAuGIAEwgIOEC4YgAQYxwEYrwEYmAXCAgsQLhiABBjHARivAcICAhAmwgIGEAAYFhgewgIFEAAY7wXCAggQABiABBiiBMICBBAhGBXCAgcQIRgKGKABmAMAkgcEMzEuMaAHnr4BsgcEMzEuMbgH6hLCBwkwLjE3LjEzLjLIB26ACAE&um=1&ie=UTF-8&fb=1&gl=de&sa=X&geocode=KTddYMQQjr1HMeA1_ulzR-So&daddr=M%C3%BChlweg+21,+55270+S%C3%B6rgenloch"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Route planen
+              <span>↗</span>
+            </a>
+
+          </article>
+
+
+          <!-- BODENHEIM -->
+
+          <article class="location-card">
+
+            <div class="location-number">
+              Standort 02
+            </div>
+
+            <h2>
+              VfB Bodenheim
+            </h2>
+
+            <p class="location-address">
+              Laubenheimer Str. 18<br>
+              55294 Bodenheim
+            </p>
+
+            <div class="location-divider"></div>
+
+            <a
+              class="location-action"
+              href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x47bd9a7b614a093b:0x3c07f757ac5851e6?sa=X&ved=1t:8290&ictx=111"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Route planen
+              <span>↗</span>
+            </a>
+
+          </article>
+
+
+        </div>
+
+
+        <!-- WEITERE STANDORTE -->
+
+        <div class="future-locations">
+
+          <div class="future-content">
+
+            <div class="future-copy">
+
+              <h3>
+                Weitere Standorte folgen.
+              </h3>
+
+              <p>
+                Die Frey Football Academy wächst weiter.
+                Wir arbeiten daran, zukünftig noch mehr Spielern
+                in Mainz und Umgebung kurze Wege zu unserem Training
+                zu ermöglichen.
+              </p>
+
+            </div>
+
+            <div class="future-badge">
+              <span></span>
+              In Planung
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         INTRO
+    ========================= -->
+
+    <section class="intro-section">
+
+      <div class="container">
+
+        <div class="intro-box">
+
+          <div>
+
+            <div class="section-label">
+              Training vor Ort
+            </div>
+
+            <h2>
+              Gute Entwicklung braucht
+              <span>den richtigen Rahmen.</span>
+            </h2>
+
+            <p>
+              Unsere Trainingsstandorte bieten die Grundlage für
+              gezieltes und konzentriertes Fußballtraining.
+              Dabei steht nicht nur der Platz im Mittelpunkt,
+              sondern vor allem der Spieler und seine individuelle Entwicklung.
+            </p>
+
+          </div>
+
+
+          <div class="intro-points">
+
+            <div class="intro-point">
+
+              <div class="intro-point-icon">
+                ✓
+              </div>
+
+              <div>
+                <strong>
+                  Individuelles Training
+                </strong>
+
+                <span>
+                  Inhalte werden auf den jeweiligen Spieler und
+                  seine Entwicklungsziele abgestimmt.
+                </span>
+              </div>
+
+            </div>
+
+
+            <div class="intro-point">
+
+              <div class="intro-point-icon">
+                ✓
+              </div>
+
+              <div>
+                <strong>
+                  Mainz &amp; Umgebung
+                </strong>
+
+                <span>
+                  Aktuell an mehreren Standorten in der Region
+                  erreichbar.
+                </span>
+              </div>
+
+            </div>
+
+
+            <div class="intro-point">
+
+              <div class="intro-point-icon">
+                ✓
+              </div>
+
+              <div>
+                <strong>
+                  Persönliche Betreuung
+                </strong>
+
+                <span>
+                  Kleine Gruppen und individuelles Coaching
+                  statt Training von der Stange.
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         BENEFITS
+    ========================= -->
+
+    <section class="benefits">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="section-label">
+            Frey Football Academy
+          </div>
+
+          <h2>
+            Mehr als nur ein Trainingsplatz.
+          </h2>
+
+          <p>
+            Entscheidend ist nicht nur, wo trainiert wird,
+            sondern wie trainiert wird.
+          </p>
+
+        </div>
+
+
+        <div class="benefit-grid">
+
+
+          <article class="benefit-card">
+
+            <div class="benefit-icon">
+              01
+            </div>
+
+            <h3>
+              Gezielt trainieren
+            </h3>
+
+            <p>
+              Wir arbeiten an den Fähigkeiten, die einen Spieler
+              auf dem Platz tatsächlich weiterbringen.
+            </p>
+
+          </article>
+
+
+          <article class="benefit-card">
+
+            <div class="benefit-icon">
+              02
+            </div>
+
+            <h3>
+              Individuell entwickeln
+            </h3>
+
+            <p>
+              Jeder Spieler bringt andere Voraussetzungen,
+              Stärken und Entwicklungsfelder mit.
+            </p>
+
+          </article>
+
+
+          <article class="benefit-card">
+
+            <div class="benefit-icon">
+              03
+            </div>
+
+            <h3>
+              Nachhaltig besser werden
+            </h3>
+
+            <p>
+              Unser Ziel ist nicht nur eine gute Trainingseinheit,
+              sondern langfristige fußballerische Entwicklung.
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <section class="cta-section">
+
+      <div class="container">
+
+        <div class="cta">
+
+          <h2>
+            Du möchtest mit uns trainieren?
+          </h2>
+
+          <p>
+            Entdecke unsere Trainingsangebote und finde heraus,
+            welches Training zu deinem Spieler passt.
+          </p>
+
+          <a
+            href="training.html"
+            class="cta-button"
+          >
+            Training entdecken
+            <span>→</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footer-inner">
+
+      <div>
+
+        <div class="footer-brand">
+          <span class="ffa-dot"></span>
+          Frey Football Academy
+        </div>
+
+        <p class="footer-description">
+          Train. Develop. Succeed.<br>
+          Individuelles Fußballtraining für ambitionierte Nachwuchsspieler
+          in Mainz und Umgebung.
+        </p>
+
+      </div>
+
+
+      <div class="footer-right">
+
+        <p>
+          Frey Football Academy
+        </p>
+
+        <p>
+          Mainz &amp; Umgebung
+        </p>
+
+        <p>
+          <a href="mailto:info@freyfootballacademy.com">
+            info@freyfootballacademy.com
+          </a>
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+      © 2026 Frey Football Academy · Alle Rechte vorbehalten
+    </div>
+
+  </footer>
+
+
+</body>
+</html>
