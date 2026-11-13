@@ -1,2134 +1,874 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trainingsformen | Frey Football Academy</title>
-    <style>
-
-
-        * {
-            box-sizing: border-box;
-        }
-
-
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            min-height: 100%;
-        }
-
-
-        body {
-
-            min-height: 100vh;
-
-            color: white;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            line-height: 1.6;
-
-            overflow-x: hidden;
-
-            background:
-                radial-gradient(
-                    circle at 50% 5%,
-                    rgba(255, 122, 0, 0.28),
-                    transparent 32%
-                ),
-                radial-gradient(
-                    circle at 5% 55%,
-                    rgba(255, 122, 0, 0.06),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 95% 85%,
-                    rgba(255, 122, 0, 0.05),
-                    transparent 28%
-                ),
-                linear-gradient(
-                    180deg,
-                    #181818 0%,
-                    #0b0b0b 55%,
-                    #030303 100%
-                );
-
-            position: relative;
-
-        }
-
-
-        /* =========================================
-           ANIMIERTER BACKGROUND
-        ========================================= */
-
-        body::before {
-
-            content: "";
-
-            position: fixed;
-
-            inset: -50%;
-
-            pointer-events: none;
-
-            background:
-                conic-gradient(
-                    from 0deg,
-                    transparent,
-                    rgba(255, 122, 0, 0.055),
-                    transparent,
-                    rgba(255, 255, 255, 0.02),
-                    transparent
-                );
-
-            animation:
-                rotateBackground 22s linear infinite;
-
-            z-index: 0;
-
-        }
-
-
-        body::after {
-
-            content: "";
-
-            position: fixed;
-
-            width: 650px;
-            height: 650px;
-
-            left: 50%;
-            top: 5%;
-
-            transform:
-                translate(-50%, -50%);
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(255, 122, 0, 0.12),
-                    transparent 68%
-                );
-
-            filter: blur(30px);
-
-            pointer-events: none;
-
-            animation:
-                backgroundPulse 5s ease-in-out infinite;
-
-            z-index: 0;
-
-        }
-
-
-        @keyframes rotateBackground {
-
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-
-        }
-
-
-        @keyframes backgroundPulse {
-
-            0%,
-            100% {
-
-                opacity: 0.4;
-
-                scale: 0.9;
-
-            }
-
-            50% {
-
-                opacity: 1;
-
-                scale: 1.12;
-
-            }
-
-        }
-
-
-        /* =========================================
-           PARTIKEL
-        ========================================= */
-
-        .particles {
-
-            position: fixed;
-
-            inset: 0;
-
-            overflow: hidden;
-
-            pointer-events: none;
-
-            z-index: 0;
-
-        }
-
-
-        .particle {
-
-            position: absolute;
-
-            bottom: -10px;
-
-            width: 4px;
-            height: 4px;
-
-            border-radius: 50%;
-
-            background: #ff7a00;
-
-            box-shadow:
-                0 0 8px #ff7a00,
-                0 0 18px rgba(255, 122, 0, 0.5);
-
-            opacity: 0;
-
-            animation:
-                particleFloat linear infinite;
-
-        }
-
-
-        @keyframes particleFloat {
-
-            0% {
-
-                transform:
-                    translateY(0)
-                    translateX(0)
-                    scale(0.4);
-
-                opacity: 0;
-
-            }
-
-            10% {
-                opacity: 0.6;
-            }
-
-            50% {
-                opacity: 1;
-            }
-
-            90% {
-                opacity: 0.4;
-            }
-
-            100% {
-
-                transform:
-                    translateY(-110vh)
-                    translateX(90px)
-                    scale(1.2);
-
-                opacity: 0;
-
-            }
-
-        }
-
-
-        /* =========================================
-           FUSSBÄLLE
-        ========================================= */
-
-        .football {
-
-            position: fixed;
-
-            pointer-events: none;
-
-            z-index: 0;
-
-            font-size: 70px;
-
-            opacity: 0.045;
-
-            animation:
-                footballFloat 7s ease-in-out infinite,
-                footballRotate 14s linear infinite;
-
-        }
-
-
-        .football.one {
-
-            left: 2%;
-
-            top: 18%;
-
-        }
-
-
-        .football.two {
-
-            right: 2%;
-
-            top: 48%;
-
-            font-size: 95px;
-
-            animation-delay: -3s;
-
-        }
-
-
-        .football.three {
-
-            left: 8%;
-
-            bottom: 8%;
-
-            font-size: 45px;
-
-            animation-delay: -5s;
-
-        }
-
-
-        @keyframes footballFloat {
-
-            0%,
-            100% {
-
-                translate: 0 0;
-
-            }
-
-            50% {
-
-                translate: 0 -28px;
-
-            }
-
-        }
-
-
-        @keyframes footballRotate {
-
-            from {
-                rotate: 0deg;
-            }
-
-            to {
-                rotate: 360deg;
-            }
-
-        }
-
-
-        /* =========================================
-           CONTAINER
-        ========================================= */
-
-        .container {
-
-            position: relative;
-
-            z-index: 2;
-
-            width: 92%;
-
-            max-width: 1100px;
-
-            margin: 0 auto;
-
-            padding: 40px 0 65px;
-
-        }
-
-
-        /* =========================================
-           LOGO
-        ========================================= */
-
-        .logo-wrapper {
-
-            position: relative;
-
-            width: fit-content;
-
-            margin: 0 auto 28px;
-
-            animation:
-                logoEntrance 1s
-                cubic-bezier(.16,1,.3,1)
-                both;
-
-        }
-
-
-        .logo-wrapper::before {
-
-            content: "";
-
-            position: absolute;
-
-            inset: -45px;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(255, 122, 0, 0.25),
-                    transparent 65%
-                );
-
-            filter: blur(18px);
-
-            animation:
-                logoGlow 3.5s ease-in-out infinite;
-
-            z-index: -1;
-
-        }
-
-
-        .logo {
-
-            display: block;
-
-            width: 190px;
-
-            max-width: 70%;
-
-            height: auto;
-
-            margin: 0 auto;
-
-            filter:
-                drop-shadow(
-                    0 0 20px
-                    rgba(255, 122, 0, 0.25)
-                );
-
-            transition:
-                transform 0.4s ease,
-                filter 0.4s ease;
-
-        }
-
-
-        .logo:hover {
-
-            transform:
-                scale(1.06)
-                rotate(-1deg);
-
-            filter:
-                drop-shadow(
-                    0 0 32px
-                    rgba(255, 122, 0, 0.55)
-                );
-
-        }
-
-
-        @keyframes logoEntrance {
-
-            from {
-
-                opacity: 0;
-
-                transform:
-                    translateY(-35px)
-                    scale(0.8);
-
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform:
-                    translateY(0)
-                    scale(1);
-
-            }
-
-        }
-
-
-        @keyframes logoGlow {
-
-            0%,
-            100% {
-
-                opacity: 0.45;
-
-                transform: scale(0.9);
-
-            }
-
-            50% {
-
-                opacity: 1;
-
-                transform: scale(1.15);
-
-            }
-
-        }
-
-
-        /* =========================================
-           TITEL
-        ========================================= */
-
-        h1 {
-
-            margin: 0;
-
-            text-align: center;
-
-            font-size: 44px;
-
-            line-height: 1.15;
-
-            font-weight: 900;
-
-            letter-spacing: -1px;
-
-            animation:
-                fadeUp 0.8s 0.2s
-                cubic-bezier(.16,1,.3,1)
-                both;
-
-        }
-
-
-        .orange {
-
-            color: #ff7a00;
-
-            text-shadow:
-                0 0 25px
-                rgba(255, 122, 0, 0.25);
-
-        }
-
-
-        h1::after {
-
-            content: "";
-
-            display: block;
-
-            width: 70px;
-
-            height: 4px;
-
-            margin: 18px auto 0;
-
-            border-radius: 10px;
-
-            background: #ff7a00;
-
-            box-shadow:
-                0 0 15px
-                rgba(255, 122, 0, 0.7);
-
-            animation:
-                lineGrow 0.8s 0.6s
-                cubic-bezier(.16,1,.3,1)
-                both;
-
-        }
-
-
-        @keyframes lineGrow {
-
-            from {
-                width: 0;
-            }
-
-            to {
-                width: 70px;
-            }
-
-        }
-
-
-        /* =========================================
-           INTRO
-        ========================================= */
-
-        .intro {
-
-            max-width: 700px;
-
-            margin: 18px auto 50px;
-
-            text-align: center;
-
-            color: #aaa;
-
-            font-size: 18px;
-
-            animation:
-                fadeUp 0.8s 0.35s
-                cubic-bezier(.16,1,.3,1)
-                both;
-
-        }
-
-
-        /* =========================================
-           SCHNELLNAVIGATION
-        ========================================= */
-
-        .training-nav {
-            display: flex;
-            justify-content: center;
-            align-items: stretch;
-            flex-wrap: wrap;
-            gap: 12px;
-            max-width: 900px;
-            margin: -20px auto 50px;
-            position: relative;
-            z-index: 5;
-            animation: fadeUp 0.8s 0.5s cubic-bezier(.16,1,.3,1) both;
-        }
-
-        .training-nav-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 52px;
-            padding: 13px 20px;
-            background: linear-gradient(145deg, rgba(255,255,255,0.055), rgba(18,18,18,0.92));
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 11px;
-            color: #ddd;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 800;
-            text-align: center;
-            -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation;
-            cursor: pointer;
-            transition: transform 0.3s ease, border-color 0.3s ease,
-                        background 0.3s ease, color 0.3s ease,
-                        box-shadow 0.3s ease;
-        }
-
-        .training-nav-link:hover,
-        .training-nav-link:focus-visible {
-            transform: translateY(-3px);
-            border-color: rgba(255,122,0,0.45);
-            background: linear-gradient(145deg, rgba(255,122,0,0.10), rgba(18,18,18,0.96));
-            color: white;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.32), 0 0 20px rgba(255,122,0,0.08);
-            outline: none;
-        }
-
-        #individualtraining,
-        #duo-kleingruppentraining,
-        #foerdertraining {
-            scroll-margin-top: 20px;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* =========================================
-           ANGEBOT
-        ========================================= */
-
-        .offer {
-
-            position: relative;
-
-            margin-bottom: 38px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255, 255, 255, 0.065),
-                    rgba(18, 18, 18, 0.96)
-                );
-
-            border:
-                1px solid
-                rgba(255, 255, 255, 0.09);
-
-            border-radius: 20px;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 20px 55px
-                rgba(0, 0, 0, 0.38);
-
-            backdrop-filter: blur(12px);
-
-            transition:
-                transform 0.4s ease,
-                border-color 0.4s ease,
-                box-shadow 0.4s ease;
-
-            animation:
-                offerEntrance 0.9s
-                cubic-bezier(.16,1,.3,1)
-                both;
-
-        }
-
-
-        .offer:nth-of-type(1) {
-            animation-delay: 0.45s;
-        }
-
-
-        .offer:nth-of-type(2) {
-            animation-delay: 0.6s;
-        }
-
-
-        .offer:nth-of-type(3) {
-            animation-delay: 0.75s;
-        }
-
-
-        .offer:hover {
-
-            transform:
-                translateY(-7px);
-
-            border-color:
-                rgba(255, 122, 0, 0.28);
-
-            box-shadow:
-                0 30px 75px
-                rgba(0, 0, 0, 0.48),
-
-                0 0 35px
-                rgba(255, 122, 0, 0.07);
-
-        }
-
-
-        .offer::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-            left: -120%;
-
-            width: 60%;
-            height: 100%;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255, 122, 0, 0.045),
-                    transparent
-                );
-
-            transform: skewX(-20deg);
-
-            animation:
-                cardShine 8s ease-in-out infinite;
-
-            pointer-events: none;
-
-        }
-
-
-        @keyframes cardShine {
-
-            0%,
-            55% {
-                left: -120%;
-            }
-
-            75%,
-            100% {
-                left: 160%;
-            }
-
-        }
-
-
-        @keyframes offerEntrance {
-
-            from {
-
-                opacity: 0;
-
-                transform:
-                    translateY(35px);
-
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform:
-                    translateY(0);
-
-            }
-
-        }
-
-
-        /* =========================================
-           OFFER HEADER
-        ========================================= */
-
-        .offer-header {
-
-            position: relative;
-
-            padding: 30px 32px;
-
-            border-bottom:
-                1px solid
-                rgba(255, 255, 255, 0.08);
-
-        }
-
-
-        .offer-header h2 {
-
-            margin: 0;
-
-            color: white;
-
-            font-size: 30px;
-
-            line-height: 1.2;
-
-            font-weight: 850;
-
-        }
-
-
-        .offer-header p {
-
-            margin: 8px 0 0;
-
-            color: #999;
-
-            font-size: 16px;
-
-        }
-
-
-        /* =========================================
-           PREISE
-        ========================================= */
-
-        .prices {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 15px;
-
-            padding: 25px 30px;
-
-        }
-
-
-        .price-card {
-
-            position: relative;
-
-            min-height: 155px;
-
-            padding: 20px;
-
-            border:
-                1px solid
-                rgba(255, 255, 255, 0.10);
-
-            border-radius: 14px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255, 255, 255, 0.045),
-                    rgba(10, 10, 10, 0.8)
-                );
-
-            text-align: center;
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: center;
-
-            overflow: hidden;
-
-            transition:
-                transform 0.3s ease,
-                border-color 0.3s ease,
-                background 0.3s ease;
-
-        }
-
-
-        .price-card::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-            left: -100%;
-
-            width: 60%;
-            height: 100%;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255, 122, 0, 0.08),
-                    transparent
-                );
-
-            transform: skewX(-20deg);
-
-            transition:
-                left 0.6s ease;
-
-        }
-
-
-        .price-card:hover::before {
-
-            left: 140%;
-
-        }
-
-
-        .price-card:hover {
-
-            transform:
-                translateY(-5px);
-
-            border-color:
-                rgba(255, 122, 0, 0.35);
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255, 122, 0, 0.07),
-                    rgba(10, 10, 10, 0.9)
-                );
-
-        }
-
-
-        .price-title {
-
-            color: #ddd;
-
-            font-size: 15px;
-
-            font-weight: 800;
-
-            margin-bottom: 9px;
-
-        }
-
-
-        .price {
-
-            color: #ff7a00;
-
-            font-size: 32px;
-
-            font-weight: 900;
-
-            line-height: 1.1;
-
-            text-shadow:
-                0 0 18px
-                rgba(255, 122, 0, 0.12);
-
-        }
-
-
-        .price-sub {
-
-            margin-top: 7px;
-
-            color: #888;
-
-            font-size: 13px;
-
-        }
-
-
-        /* =========================================
-           CONTENT
-        ========================================= */
-
-        .offer-content {
-
-            padding: 0 30px 30px;
-
-        }
-
-
-        .offer-content h3 {
-
-            margin: 5px 0 13px;
-
-            color: #ff7a00;
-
-            font-size: 20px;
-
-            font-weight: 800;
-
-        }
-
-
-        .offer-content ul {
-
-            margin: 0;
-
-            padding-left: 22px;
-
-            color: #ccc;
-
-        }
-
-
-        .offer-content li {
-
-            margin-bottom: 8px;
-
-            transition:
-                transform 0.2s ease,
-                color 0.2s ease;
-
-        }
-
-
-        .offer-content li::marker {
-
-            color: #ff7a00;
-
-        }
-
-
-        .offer-content li:hover {
-
-            transform:
-                translateX(4px);
-
-            color: white;
-
-        }
-
-
-        /* =========================================
-           INFO BOX
-        ========================================= */
-
-        .info-box {
-
-            position: relative;
-
-            margin-top: 23px;
-
-            padding: 19px 21px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255, 122, 0, 0.10),
-                    rgba(255, 122, 0, 0.035)
-                );
-
-            border-left:
-                3px solid #ff7a00;
-
-            border-radius: 9px;
-
-            color: #ccc;
-
-            box-shadow:
-                inset 0 0 20px
-                rgba(255, 122, 0, 0.025);
-
-        }
-
-
-        .info-box strong {
-
-            color: white;
-
-        }
-
-
-        /* =========================================
-           BUTTON
-        ========================================= */
-
-        .button {
-
-            position: relative;
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 9px;
-
-            margin-top: 26px;
-
-            padding: 14px 25px;
-
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff7a00,
-                    #ff6200
-                );
-
-            color: white;
-
-            text-decoration: none;
-
-            border-radius: 11px;
-
-            font-size: 16px;
-
-            font-weight: 800;
-
-            border:
-                1px solid
-                rgba(255, 255, 255, 0.08);
-
-            box-shadow:
-                0 10px 25px
-                rgba(0, 0, 0, 0.3);
-
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease;
-
-        }
-
-
-        .button::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-            left: -120%;
-
-            width: 65%;
-            height: 100%;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255, 255, 255, 0.28),
-                    transparent
-                );
-
-            transform: skewX(-20deg);
-
-            transition:
-                left 0.6s ease;
-
-        }
-
-
-        .button:hover::before {
-
-            left: 150%;
-
-        }
-
-
-        .button:hover {
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff9500,
-                    #ff6d00
-                );
-
-            color: white;
-
-            transform:
-                translateY(-4px)
-                scale(1.02);
-
-            box-shadow:
-                0 16px 35px
-                rgba(0, 0, 0, 0.42),
-
-                0 0 25px
-                rgba(255, 122, 0, 0.25);
-
-        }
-
-
-        /* =========================================
-           FEATURED FÖRDERTRAINING
-        ========================================= */
-
-        .featured {
-
-            border:
-                1px solid
-                rgba(255, 122, 0, 0.65);
-
-            box-shadow:
-                0 0 45px
-                rgba(255, 122, 0, 0.09),
-
-                0 20px 55px
-                rgba(0, 0, 0, 0.4);
-
-        }
-
-
-        .featured::after {
-
-            content: "";
-
-            position: absolute;
-
-            inset: 0;
-
-            border-radius: 20px;
-
-            pointer-events: none;
-
-            box-shadow:
-                inset 0 0 45px
-                rgba(255, 122, 0, 0.035);
-
-            animation:
-                featuredPulse 3s ease-in-out infinite;
-
-        }
-
-
-        @keyframes featuredPulse {
-
-            0%,
-            100% {
-
-                opacity: 0.5;
-
-            }
-
-            50% {
-
-                opacity: 1;
-
-            }
-
-        }
-
-
-        .featured-label {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 7px;
-
-            margin-bottom: 13px;
-
-            padding: 7px 13px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff9500,
-                    #ff6200
-                );
-
-            color: white;
-
-            border-radius: 20px;
-
-            font-size: 12px;
-
-            font-weight: 900;
-
-            letter-spacing: 0.7px;
-
-            box-shadow:
-                0 0 20px
-                rgba(255, 122, 0, 0.18);
-
-            animation:
-                labelPulse 2.5s ease-in-out infinite;
-
-        }
-
-
-        .featured-label::before {
-
-            content: "";
-
-            width: 6px;
-            height: 6px;
-
-            border-radius: 50%;
-
-            background: white;
-
-            box-shadow:
-                0 0 8px white;
-
-            animation:
-                dotPulse 1.5s ease-in-out infinite;
-
-        }
-
-
-        @keyframes labelPulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.025);
-            }
-
-        }
-
-
-        @keyframes dotPulse {
-
-            0%,
-            100% {
-                opacity: 0.5;
-            }
-
-            50% {
-                opacity: 1;
-            }
-
-        }
-
-
-        /* =========================================
-           FEATURES
-        ========================================= */
-
-        .features {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 13px;
-
-            margin-top: 21px;
-
-        }
-
-
-        .feature {
-
-            position: relative;
-
-            padding: 16px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255, 255, 255, 0.045),
-                    rgba(10, 10, 10, 0.7)
-                );
-
-            border:
-                1px solid
-                rgba(255, 255, 255, 0.08);
-
-            border-radius: 10px;
-
-            color: #ccc;
-
-            transition:
-                transform 0.3s ease,
-                border-color 0.3s ease;
-
-        }
-
-
-        .feature:hover {
-
-            transform:
-                translateY(-4px);
-
-            border-color:
-                rgba(255, 122, 0, 0.30);
-
-        }
-
-
-        .feature strong {
-
-            display: block;
-
-            color: white;
-
-            margin-bottom: 4px;
-
-        }
-
-
-        /* =========================================
-           CTA
-        ========================================= */
-
-        .cta {
-
-            position: relative;
-
-            margin-top: 55px;
-
-            padding: 42px 28px;
-
-            text-align: center;
-
-            border:
-                1px solid
-                rgba(255, 122, 0, 0.22);
-
-            border-radius: 19px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255, 122, 0, 0.12),
-                    rgba(20, 20, 20, 0.95)
-                );
-
-            box-shadow:
-                0 20px 55px
-                rgba(0, 0, 0, 0.35);
-
-            overflow: hidden;
-
-            animation:
-                fadeUp 0.8s 1s
-                cubic-bezier(.16,1,.3,1)
-                both;
-
-        }
-
-
-        .cta::before {
-
-            content: "";
-
-            position: absolute;
-
-            top: -100px;
-            left: 50%;
-
-            width: 300px;
-            height: 300px;
-
-            transform:
-                translateX(-50%);
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(255, 122, 0, 0.13),
-                    transparent 70%
-                );
-
-            animation:
-                ctaGlow 4s ease-in-out infinite;
-
-        }
-
-
-        @keyframes ctaGlow {
-
-            0%,
-            100% {
-                scale: 0.8;
-                opacity: 0.5;
-            }
-
-            50% {
-                scale: 1.15;
-                opacity: 1;
-            }
-
-        }
-
-
-        .cta h2 {
-
-            position: relative;
-
-            margin: 0 0 10px;
-
-            font-size: 29px;
-
-            line-height: 1.2;
-
-        }
-
-
-        .cta p {
-
-            position: relative;
-
-            margin: 0;
-
-            color: #aaa;
-
-        }
-
-
-        .cta .button {
-
-            margin-left: 6px;
-
-            margin-right: 6px;
-
-        }
-
-
-        .button-secondary {
-
-            background:
-                rgba(255, 255, 255, 0.05);
-
-            border:
-                1px solid
-                rgba(255, 255, 255, 0.15);
-
-        }
-
-
-        .button-secondary:hover {
-
-            background:
-                rgba(255, 255, 255, 0.10);
-
-        }
-
-
-        /* =========================================
-           BACK BUTTON
-        ========================================= */
-
-        .back {
-
-            display: flex;
-
-            width: fit-content;
-
-            align-items: center;
-
-            gap: 8px;
-
-            margin: 35px auto 0;
-
-            padding: 12px 22px;
-
-            background:
-                rgba(255, 255, 255, 0.045);
-
-            border:
-                1px solid
-                rgba(255, 255, 255, 0.10);
-
-            color: #ddd;
-
-            text-decoration: none;
-
-            border-radius: 10px;
-
-            transition:
-                transform 0.3s ease,
-                background 0.3s ease,
-                border-color 0.3s ease;
-
-        }
-
-
-        .back:hover {
-
-            transform:
-                translateY(-3px);
-
-            background:
-                rgba(255, 122, 0, 0.08);
-
-            border-color:
-                rgba(255, 122, 0, 0.25);
-
-            color: white;
-
-        }
-
-
-        /* =========================================
-           FOOTER
-        ========================================= */
-
-        .footer {
-
-            margin-top: 42px;
-
-            text-align: center;
-
-            color: #666;
-
-            font-size: 13px;
-
-            line-height: 1.7;
-
-            animation:
-                fadeUp 0.8s 1.1s
-                cubic-bezier(.16,1,.3,1)
-                both;
-
-        }
-
-
-        /* =========================================
-           FADE UP
-        ========================================= */
-
-        @keyframes fadeUp {
-
-            from {
-
-                opacity: 0;
-
-                transform:
-                    translateY(22px);
-
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform:
-                    translateY(0);
-
-            }
-
-        }
-
-
-        /* =========================================
-           TABLET
-        ========================================= */
-
-        @media (max-width: 850px) {
-
-            .prices {
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-
-            }
-
-        }
-
-
-        /* =========================================
-           HANDY
-        ========================================= */
-
-        @media (max-width: 600px) {
-
-            .container {
-
-                width: 94%;
-
-                padding-top: 28px;
-
-            }
-
-
-            .logo {
-
-                width: 170px;
-
-            }
-
-
-            h1 {
-
-                font-size: 33px;
-
-            }
-
-
-            .intro {
-
-                font-size: 16px;
-
-                margin-bottom: 32px;
-
-            }
-
-            .training-nav {
-                flex-direction: column;
-                gap: 10px;
-                width: 100%;
-                margin: -8px auto 35px;
-            }
-
-            .training-nav-link {
-                width: 100%;
-                min-height: 54px;
-                padding: 14px 16px;
-                font-size: 15px;
-            }
-
-
-            .offer-header {
-
-                padding: 24px 20px;
-
-            }
-
-
-            .offer-header h2 {
-
-                font-size: 25px;
-
-            }
-
-
-            .prices {
-
-                grid-template-columns: 1fr;
-
-                padding: 20px;
-
-            }
-
-
-            .price-card {
-
-                min-height: 125px;
-
-            }
-
-
-            .offer-content {
-
-                padding:
-                    0 20px 25px;
-
-            }
-
-
-            .features {
-
-                grid-template-columns: 1fr;
-
-            }
-
-
-            .cta {
-
-                padding:
-                    30px 20px;
-
-            }
-
-
-            .cta .button {
-
-                display: flex;
-
-                margin:
-                    12px 0 0;
-
-                width: 100%;
-
-            }
-
-
-            .football {
-
-                font-size: 35px;
-
-            }
-
-
-            .football.two {
-
-                font-size: 45px;
-
-            }
-
-        }
-
-
-        /* =========================================
-           REDUCED MOTION
-        ========================================= */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-
-                animation-duration: 0.01ms !important;
-
-                animation-iteration-count: 1 !important;
-
-                transition-duration: 0.01ms !important;
-
-            }
-
-        }
-
-    
-
-        /* Neue Seite: Vergleich */
-        .intro {
-            max-width: 780px;
-        }
-
-        .training-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 35px;
-        }
-
-        .training-card {
-            position: relative;
-            padding: 28px 25px;
-            background: linear-gradient(145deg, rgba(255,255,255,0.065), rgba(18,18,18,0.96));
-            border: 1px solid rgba(255,255,255,0.09);
-            border-radius: 20px;
-            box-shadow: 0 20px 55px rgba(0,0,0,0.38);
-            backdrop-filter: blur(12px);
-            overflow: hidden;
-            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-            animation: offerEntrance 0.9s cubic-bezier(.16,1,.3,1) both;
-        }
-
-        .training-card:nth-child(1) { animation-delay: .45s; }
-        .training-card:nth-child(2) { animation-delay: .6s; }
-        .training-card:nth-child(3) { animation-delay: .75s; }
-
-        .training-card:hover {
-            transform: translateY(-7px);
-            border-color: rgba(255,122,0,0.28);
-            box-shadow: 0 30px 75px rgba(0,0,0,0.48), 0 0 35px rgba(255,122,0,0.07);
-        }
-
-        .training-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -120%;
-            width: 60%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,122,0,0.045), transparent);
-            transform: skewX(-20deg);
-            animation: cardShine 8s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        .training-card h2 {
-            margin: 0 0 18px;
-            color: white;
-            font-size: 25px;
-            line-height: 1.25;
-            font-weight: 850;
-        }
-
-        .training-card h2 span {
-            color: #ff7a00;
-        }
-
-        .training-card ul {
-            margin: 0;
-            padding-left: 22px;
-            color: #ccc;
-        }
-
-        .training-card li {
-            margin-bottom: 10px;
-        }
-
-        .training-card li::marker {
-            color: #ff7a00;
-        }
-
-        .comparison {
-            margin-top: 55px;
-            animation: fadeUp 0.8s 0.9s cubic-bezier(.16,1,.3,1) both;
-        }
-
-        .comparison h2 {
-            margin: 0 0 22px;
-            text-align: center;
-            font-size: 30px;
-            line-height: 1.2;
-        }
-
-        .table-wrap {
-            overflow-x: auto;
-            border-radius: 18px;
-            border: 1px solid rgba(255,255,255,0.09);
-            box-shadow: 0 20px 55px rgba(0,0,0,0.38);
-        }
-
-        .comparison-table {
-            width: 100%;
-            min-width: 720px;
-            border-collapse: collapse;
-            background: linear-gradient(145deg, rgba(255,255,255,0.055), rgba(18,18,18,0.96));
-        }
-
-        .comparison-table th,
-        .comparison-table td {
-            padding: 17px 18px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .comparison-table th {
-            color: white;
-            font-size: 16px;
-            font-weight: 850;
-            background: rgba(255,122,0,0.07);
-        }
-
-        .comparison-table th:not(:first-child) {
-            color: #ff7a00;
-        }
-
-        .comparison-table td {
-            color: #ccc;
-        }
-
-        .comparison-table td:first-child {
-            color: white;
-            font-weight: 800;
-        }
-
-        .comparison-table tr:last-child td {
-            border-bottom: 0;
-        }
-
-        .comparison-table tbody tr {
-            transition: background .25s ease;
-        }
-
-        .comparison-table tbody tr:hover {
-            background: rgba(255,122,0,0.045);
-        }
-
-        @media (max-width: 850px) {
-            .training-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .training-card {
-                padding: 24px 20px;
-            }
-
-            .comparison {
-                margin-top: 40px;
-            }
-
-            .comparison h2 {
-                font-size: 26px;
-            }
-
-            .comparison-table th,
-            .comparison-table td {
-                padding: 14px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trainingsformen | Frey Football Academy</title>
+  <meta name="description" content="Vergleiche Individualtraining, Duo- und Kleingruppentraining sowie Fördertraining der Frey Football Academy.">
+  <meta name="theme-color" content="#080808">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <style>
+
+    :root {
+      --orange: #FF8C00;
+      --black: #080808;
+      --panel: #111111;
+      --panel-soft: #151515;
+      --white: #F7F7F5;
+      --muted: #A1A1A1;
+      --line: rgba(255,255,255,.11);
+      --sidebar-width: 248px;
+      --content-width: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--black);
+      color: var(--white);
+      font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 4px;
+    }
+
+    /* Fixed desktop navigation */
+    .sidebar {
+      position: fixed;
+      inset: 0 auto 0 0;
+      z-index: 30;
+      width: var(--sidebar-width);
+      display: flex;
+      flex-direction: column;
+      padding: 30px 22px 24px;
+      background: #050505;
+      border-right: 1px solid var(--line);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 2px 4px 36px;
+      text-decoration: none;
+    }
+    .brand img { width: 48px; height: 48px; object-fit: contain; }
+    .brand-copy {
+      font-size: 10px;
+      line-height: 1.5;
+      letter-spacing: .16em;
+      color: #D5D5D5;
+      font-weight: 800;
+    }
+    .brand-copy span { display: block; color: var(--orange); }
+    .nav-caption {
+      padding: 0 11px 12px;
+      color: #666;
+      font-size: 9px;
+      letter-spacing: .2em;
+      font-weight: 800;
+    }
+    .side-nav { display: grid; gap: 5px; }
+    .side-nav a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 46px;
+      padding: 0 12px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      color: #999;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 650;
+      transition: color .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .side-nav a:hover,
+    .side-nav a.active {
+      color: #fff;
+      background: rgba(255,140,0,.09);
+      border-color: rgba(255,140,0,.2);
+    }
+    .nav-symbol {
+      display: inline-grid;
+      place-items: center;
+      width: 22px;
+      color: var(--orange);
+      font-size: 16px;
+    }
+    .sidebar-bottom { margin-top: auto; }
+    .sidebar-note {
+      border-top: 1px solid var(--line);
+      padding: 17px 5px 14px;
+      color: #777;
+      font-size: 9px;
+      line-height: 1.7;
+      letter-spacing: .12em;
+    }
+    .sidebar-note strong { color: #ddd; display: block; font-size: 10px; }
+    .sidebar-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 14px;
+      background: var(--orange);
+      color: #090909;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 900;
+      border-radius: 6px;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .sidebar-cta:hover { transform: translateY(-2px); background: #FFA126; }
+    .sidebar-social {
+      display: block;
+      margin: 17px 5px 0;
+      color: #777;
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .14em;
+    }
+    .sidebar-social:hover { color: var(--orange); }
+
+    /* Main page frame */
+    .page {
+      margin-left: var(--sidebar-width);
+      min-height: 100vh;
+    }
+    .topline {
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(24px, 5vw, 76px);
+      border-bottom: 1px solid var(--line);
+      color: #858585;
+      font-size: 10px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .topline strong { color: #ddd; font-weight: 800; }
+    .topline a {
+      text-decoration: none;
+      color: #aaa;
+      transition: color .2s ease;
+    }
+    .topline a:hover { color: var(--orange); }
+    .container {
+      width: min(var(--content-width), calc(100% - 2 * clamp(24px, 5vw, 76px)));
+      margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 660px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(280px, .82fr);
+      align-items: center;
+      gap: clamp(30px, 5vw, 76px);
+      padding: 82px 0 76px;
+      isolation: isolate;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: -15%;
+      width: 70%;
+      height: 100%;
+      background: radial-gradient(ellipse at 60% 42%, rgba(255,140,0,.13), transparent 62%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 24px;
+      color: var(--orange);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 30px; height: 1px; background: var(--orange); }
+    h1 {
+      max-width: 780px;
+      margin: 0;
+      font-size: clamp(48px, 6.3vw, 88px);
+      line-height: .96;
+      letter-spacing: -.065em;
+      font-weight: 900;
+    }
+    h1 span { color: var(--orange); }
+    .hero-lead {
+      max-width: 620px;
+      margin: 27px 0 0;
+      color: #B1B1B1;
+      font-size: clamp(16px, 1.45vw, 19px);
+      line-height: 1.75;
+    }
+    .hero-lead strong { color: #fff; font-weight: 700; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .04em;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--orange); color: #080808; }
+    .button-primary:hover { background: #FFA126; }
+    .button-secondary { color: #eee; border-color: rgba(255,255,255,.2); background: rgba(255,255,255,.025); }
+    .button-secondary:hover { border-color: var(--orange); }
+
+    .hero-visual {
+      position: relative;
+      min-height: 430px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 4px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.06), transparent 55%),
+        #101010;
+    }
+    .hero-visual::before,
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(255,140,0,.18);
+      transform: rotate(-32deg);
+      pointer-events: none;
+    }
+    .hero-visual::before { width: 440px; height: 170px; }
+    .hero-visual::after { width: 440px; height: 170px; transform: rotate(-32deg) translateY(30px); opacity: .45; }
+    .hero-logo {
+      position: relative;
+      z-index: 1;
+      width: min(66%, 270px);
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 45px rgba(0,0,0,.6));
+    }
+    .visual-tag {
+      position: absolute;
+      z-index: 2;
+      left: 20px;
+      bottom: 19px;
+      color: #888;
+      font-size: 9px;
+      letter-spacing: .18em;
+      font-weight: 800;
+    }
+    .visual-index {
+      position: absolute;
+      z-index: 2;
+      right: 20px;
+      top: 18px;
+      color: var(--orange);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .15em;
+    }
+
+    /* Credibility strip */
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 105px;
+    }
+    .proof-item { padding: 24px 20px 24px 0; }
+    .proof-item + .proof-item { border-left: 1px solid var(--line); padding-left: 25px; }
+    .proof-item strong { display: block; color: #fff; font-size: 17px; font-weight: 900; }
+    .proof-item span { display: block; margin-top: 6px; color: #777; font-size: 10px; line-height: 1.5; }
+
+    /* Sections */
+    .section { margin: 0 0 110px; }
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 25px;
+      margin-bottom: 28px;
+    }
+    .section-kicker {
+      color: var(--orange);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .section-title {
+      margin: 10px 0 0;
+      font-size: clamp(31px, 4vw, 48px);
+      line-height: 1;
+      letter-spacing: -.05em;
+      font-weight: 900;
+    }
+    .section-intro {
+      max-width: 420px;
+      margin: 0;
+      color: #898989;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .development-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .development-card {
+      position: relative;
+      min-height: 225px;
+      padding: 26px 24px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, #151515, #0c0c0c);
+      transition: border-color .25s ease, transform .25s ease;
+    }
+    .development-card:hover { transform: translateY(-4px); border-color: rgba(255,140,0,.45); }
+    .card-number { color: var(--orange); font-size: 10px; font-weight: 900; letter-spacing: .15em; }
+    .card-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin: 25px 0 22px;
+      border: 1px solid rgba(255,140,0,.3);
+      color: var(--orange);
+      font-size: 19px;
+    }
+    .development-card h3 { margin: 0 0 9px; font-size: 18px; letter-spacing: -.02em; }
+    .development-card p { margin: 0; color: #888; font-size: 12px; line-height: 1.7; }
+
+    /* Academy introduction */
+    .academy-panel {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      border: 1px solid var(--line);
+      background: #101010;
+    }
+    .academy-copy { padding: clamp(28px, 4vw, 54px); }
+    .academy-copy h2 {
+      margin: 12px 0 20px;
+      max-width: 550px;
+      font-size: clamp(30px, 3.6vw, 45px);
+      line-height: 1.03;
+      letter-spacing: -.05em;
+    }
+    .academy-copy p { max-width: 650px; color: #999; font-size: 13px; line-height: 1.85; }
+    .academy-copy strong { color: #fff; }
+    .academy-aside {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 330px;
+      padding: clamp(28px, 4vw, 48px);
+      border-left: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 100% 0, rgba(255,140,0,.13), transparent 45%),
+        #0b0b0b;
+    }
+    .aside-symbol { color: rgba(255,140,0,.28); font-size: 92px; line-height: .8; font-weight: 900; }
+    .academy-aside h3 { margin: 30px 0 10px; font-size: 23px; letter-spacing: -.04em; }
+    .academy-aside p { margin: 0 0 23px; color: #888; font-size: 12px; line-height: 1.7; }
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      width: fit-content;
+      color: var(--orange);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .text-link:hover { color: #fff; }
+
+    /* Shop feature */
+    .shop-feature {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+      padding: clamp(28px, 4vw, 52px);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: #0d0d0d;
+    }
+    .shop-feature::before {
+      content: "FFA";
+      position: absolute;
+      right: 35%;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255,255,255,.025);
+      font-size: clamp(130px, 22vw, 300px);
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -.1em;
+      pointer-events: none;
+    }
+    .shop-copy, .shop-art { position: relative; z-index: 1; }
+    .shop-label { color: var(--orange); font-size: 9px; font-weight: 900; letter-spacing: .2em; }
+    .shop-copy h2 { margin: 15px 0; font-size: clamp(35px, 5vw, 62px); line-height: .95; letter-spacing: -.06em; }
+    .shop-copy h2 span { color: var(--orange); }
+    .shop-copy p { max-width: 470px; color: #999; font-size: 13px; line-height: 1.8; }
+    .shop-art {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 250px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,.13);
+      background: #000;
+    }
+    .shop-art img { display: block; width: 100%; max-width: 560px; height: auto; object-fit: contain; }
+
+    /* Quick links */
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .quick-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 22px 18px 22px 0;
+      color: #ddd;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 800;
+      transition: color .2s ease;
+    }
+    .quick-links a + a { border-left: 1px solid var(--line); padding-left: 20px; }
+    .quick-links a span { color: var(--orange); font-size: 17px; }
+    .quick-links a:hover { color: var(--orange); }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 25px 0 35px;
+      border-top: 1px solid var(--line);
+      color: #666;
+      font-size: 10px;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    footer a { color: #777; text-decoration: none; }
+    footer a:hover { color: var(--orange); }
+
+    /* Mobile header and layout */
+    .mobile-header { display: none; }
+    @media (max-width: 1050px) {
+      :root { --sidebar-width: 210px; }
+      .sidebar { padding-inline: 15px; }
+      .hero { min-height: 580px; gap: 28px; }
+      .hero-visual { min-height: 360px; }
+      .proof-item { padding-right: 12px; }
+      .proof-item + .proof-item { padding-left: 15px; }
+    }
+    @media (max-width: 760px) {
+      .sidebar { display: none; }
+      .page { margin-left: 0; }
+      .mobile-header {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 66px;
+        padding: 9px 20px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(5,5,5,.96);
+        backdrop-filter: blur(14px);
+      }
+      .mobile-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+      .mobile-brand img { width: 39px; height: 39px; object-fit: contain; }
+      .mobile-brand span { font-size: 9px; font-weight: 900; letter-spacing: .14em; }
+      .mobile-brand strong { color: var(--orange); }
+      .mobile-shop {
+        padding: 10px 12px;
+        border-radius: 4px;
+        background: var(--orange);
+        color: #080808;
+        text-decoration: none;
+        font-size: 10px;
+        font-weight: 900;
+      }
+      .topline { height: 43px; padding: 0 20px; font-size: 8px; }
+      .container { width: calc(100% - 40px); }
+      .hero { min-height: auto; grid-template-columns: 1fr; padding: 65px 0 50px; gap: 35px; }
+      h1 { font-size: clamp(47px, 12vw, 70px); }
+      .hero-visual { min-height: 280px; }
+      .hero-logo { width: min(52%, 210px); }
+      .proof-strip { grid-template-columns: repeat(2, 1fr); margin-bottom: 75px; }
+      .proof-item { padding: 18px 10px 18px 0; }
+      .proof-item:nth-child(3) { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+      .proof-item:nth-child(4) { border-top: 1px solid var(--line); }
+      .proof-item + .proof-item { padding-left: 14px; }
+      .proof-item:nth-child(3) { padding-left: 0; }
+      .section { margin-bottom: 78px; }
+      .section-heading { display: block; }
+      .section-intro { margin-top: 17px; }
+      .development-grid { grid-template-columns: 1fr; }
+      .development-card { min-height: 190px; }
+      .academy-panel { grid-template-columns: 1fr; }
+      .academy-aside { border-left: 0; border-top: 1px solid var(--line); min-height: 270px; }
+      .shop-feature { grid-template-columns: 1fr; gap: 25px; }
+      .shop-art { min-height: 190px; }
+      .quick-links { grid-template-columns: 1fr; }
+      .quick-links a { padding: 17px 0; }
+      .quick-links a + a { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; }
+      footer { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  
+
+    /* Trainingsformen – page-specific layout */
+    .training-hero {
+      position: relative;
+      padding: clamp(54px, 7vw, 92px) 0 54px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .training-hero::after {
+      content: "FFA";
+      position: absolute;
+      z-index: -1;
+      right: -12px;
+      top: 14px;
+      color: rgba(255,255,255,.025);
+      font-size: clamp(150px, 24vw, 310px);
+      line-height: .85;
+      font-weight: 900;
+      letter-spacing: -.1em;
+      pointer-events: none;
+    }
+    .training-hero .eyebrow { margin-bottom: 22px; }
+    .training-hero h1 {
+      max-width: 900px;
+      font-size: clamp(42px, 6.2vw, 78px);
+      line-height: .98;
+      letter-spacing: -.065em;
+    }
+    .training-hero h1 span { color: var(--orange); }
+    .training-intro {
+      max-width: 650px;
+      margin: 23px 0 0;
+      color: #A1A1A1;
+      font-size: clamp(15px, 1.35vw, 18px);
+      line-height: 1.8;
+    }
+    .training-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 12px 0 100px;
+    }
+    .training-card {
+      position: relative;
+      min-height: 300px;
+      padding: 28px 25px 30px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, #151515, #0c0c0c);
+      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+      overflow: hidden;
+    }
+    .training-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+    }
+    .training-card:hover { transform: translateY(-5px); border-color: rgba(255,140,0,.4); }
+    .training-card:hover::before { transform: scaleX(1); }
+    .training-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 36px;
+    }
+    .training-number { color: var(--orange); font-size: 10px; font-weight: 900; letter-spacing: .18em; }
+    .training-icon {
+      display: grid;
+      place-items: center;
+      width: 42px; height: 42px;
+      border: 1px solid rgba(255,140,0,.3);
+      color: var(--orange);
+      font-size: 18px;
+    }
+    .training-card h2 {
+      margin: 0 0 17px;
+      color: var(--white);
+      font-size: clamp(20px, 2vw, 25px);
+      line-height: 1.2;
+      letter-spacing: -.04em;
+    }
+    .training-card h2 span { color: var(--orange); }
+    .training-card ul { margin: 0; padding: 0; list-style: none; }
+    .training-card li {
+      position: relative;
+      margin: 0 0 12px;
+      padding-left: 17px;
+      color: #999;
+      font-size: 12px;
+      line-height: 1.65;
+    }
+    .training-card li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: .65em;
+      width: 5px; height: 5px;
+      background: var(--orange);
+      border-radius: 50%;
+    }
+    .comparison-section { margin: 0 0 95px; }
+    .comparison-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 26px;
+    }
+    .comparison-heading h2 {
+      margin: 9px 0 0;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1;
+      letter-spacing: -.055em;
+    }
+    .comparison-heading h2 span { color: var(--orange); }
+    .comparison-note { max-width: 300px; margin: 0; color: #777; font-size: 11px; line-height: 1.7; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); background: #101010; }
+    .comparison-table { width: 100%; min-width: 680px; border-collapse: collapse; }
+    .comparison-table th, .comparison-table td {
+      padding: 19px 21px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      font-size: 12px;
+    }
+    .comparison-table th {
+      color: var(--orange);
+      background: rgba(255,140,0,.055);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .comparison-table th:first-child { color: #777; }
+    .comparison-table td { color: #999; }
+    .comparison-table td:first-child { color: #eee; font-weight: 800; }
+    .comparison-table tbody tr { transition: background .2s ease; }
+    .comparison-table tbody tr:hover { background: rgba(255,140,0,.035); }
+    .comparison-table tr:last-child td { border-bottom: 0; }
+    .training-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      margin: 0 0 80px;
+      padding: clamp(26px, 4vw, 44px);
+      border: 1px solid rgba(255,140,0,.25);
+      background: radial-gradient(circle at 100% 0, rgba(255,140,0,.12), transparent 45%), #101010;
+    }
+    .training-cta h2 { margin: 0 0 9px; font-size: clamp(23px, 3vw, 34px); letter-spacing: -.045em; }
+    .training-cta p { margin: 0; color: #888; font-size: 12px; line-height: 1.7; }
+    .training-cta .button { flex: 0 0 auto; }
+    .training-footer-contact {
+      margin: 0 0 25px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: #777;
+      font-size: 11px;
+      line-height: 1.9;
+    }
+    @media (max-width: 900px) {
+      .training-grid { grid-template-columns: 1fr 1fr; }
+      .training-card:last-child { grid-column: 1 / -1; min-height: auto; }
+    }
+    @media (max-width: 760px) {
+      .training-hero { padding-top: 45px; }
+      .training-grid { grid-template-columns: 1fr; margin-bottom: 65px; }
+      .training-card:last-child { grid-column: auto; }
+      .training-card { min-height: auto; }
+      .comparison-heading { display: block; }
+      .comparison-note { margin-top: 15px; }
+      .comparison-section { margin-bottom: 65px; }
+      .training-cta { display: block; margin-bottom: 55px; }
+      .training-cta .button { margin-top: 22px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+
+  </style>
 </head>
-
 <body>
-    <div class="particles">
-        <span class="particle" style="left:7%; animation-duration:10s; animation-delay:-2s;"></span>
-        <span class="particle" style="left:18%; animation-duration:13s; animation-delay:-7s;"></span>
-        <span class="particle" style="left:31%; animation-duration:11s; animation-delay:-4s;"></span>
-        <span class="particle" style="left:45%; animation-duration:15s; animation-delay:-9s;"></span>
-        <span class="particle" style="left:59%; animation-duration:12s; animation-delay:-3s;"></span>
-        <span class="particle" style="left:73%; animation-duration:14s; animation-delay:-8s;"></span>
-        <span class="particle" style="left:87%; animation-duration:10s; animation-delay:-5s;"></span>
+  <aside class="sidebar" aria-label="Hauptnavigation">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Frey Football Academy Logo">
+      <span class="brand-copy">FREY FOOTBALL<span>ACADEMY</span></span>
+    </a>
+
+    <div class="nav-caption">NAVIGATION</div>
+    <nav class="side-nav">
+      <a href="index.html"><span class="nav-symbol">⌂</span> Startseite</a>
+      <a href="ueber-mich.html"><span class="nav-symbol">◎</span> Über mich</a>
+      <a class="active" href="leistungen.html"><span class="nav-symbol">↗</span> Trainingsangebote</a>
+      <a href="standorte.html"><span class="nav-symbol">⌖</span> Standorte</a>
+      <a href="https://frey-football-academy.fan12.de/" target="_blank" rel="noopener"><span class="nav-symbol">▣</span> FFA Shop ↗</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="sidebar-note">
+        <strong>FREY FOOTBALL ACADEMY</strong>
+        INDIVIDUELL · ZIELGERICHTET · NACHHALTIG
+      </div>
+      <a class="sidebar-cta" href="leistungen.html">Training anfragen <span>↗</span></a>
+      <a class="sidebar-social" href="https://www.instagram.com/ffa.footballacademy" target="_blank" rel="noopener">INSTAGRAM ↗</a>
+    </div>
+  </aside>
+
+  <div class="mobile-header">
+    <a class="mobile-brand" href="index.html">
+      <img src="assets/logo.png" alt="">
+      <span>FREY FOOTBALL<br><strong>ACADEMY</strong></span>
+    </a>
+    <a class="mobile-shop" href="https://frey-football-academy.fan12.de/" target="_blank" rel="noopener">FFA SHOP ↗</a>
+  </div>
+
+  <div class="page">
+
+  <div class="page">
+    <div class="topline">
+      <span><strong>Frey Football Academy</strong> <span aria-hidden="true">/</span> Player Development</span>
+      <a href="https://www.instagram.com/ffa.footballacademy" target="_blank" rel="noopener">Folge der FFA auf Instagram ↗</a>
     </div>
 
-    <div class="football one">⚽</div>
-    <div class="football two">⚽</div>
-    <div class="football three">⚽</div>
-
     <main class="container">
-        <div class="logo-wrapper">
-            <img src="assets/logo.png" alt="Frey Football Academy" class="logo">
-        </div>
-
-        <h1>
-            Welches Training passt zu
-            <span class="orange">dir?</span>
-        </h1>
-
-        <p class="intro">
-            Finde die Trainingsform, die am besten zu deinen Zielen,
-            deinem Trainingsalltag und deiner persönlichen Entwicklung passt.
+      <section class="training-hero" aria-labelledby="training-title">
+        <div class="eyebrow">Finde deinen Weg · FFA Training</div>
+        <h1 id="training-title">WELCHES TRAINING<br>PASST ZU <span>DIR?</span></h1>
+        <p class="training-intro">
+          Finde die Trainingsform, die am besten zu deinen Zielen,
+          deinem Trainingsalltag und deiner persönlichen Entwicklung passt.
         </p>
+      </section>
 
-        <section class="training-grid">
-            <article class="training-card">
-                <h2>Individualtraining ist ideal für <span>dich</span>, wenn …</h2>
-                <ul>
-                    <li>du gezielt an einer bestimmten Fähigkeit arbeiten möchtest</li>
-                    <li>du intensive individuelle Betreuung suchst</li>
-                    <li>du an deinen persönlichen Stärken & Schwächen arbeiten möchtest</li>
-                </ul>
-            </article>
+      <section class="training-grid" aria-label="Trainingsformen und ihre Vorteile">
+        <article class="training-card">
+          <div class="training-card-top"><span class="training-number">01 / INDIVIDUELL</span><span class="training-icon" aria-hidden="true">◎</span></div>
+          <h2>Individualtraining ist ideal für <span>dich</span>, wenn …</h2>
+          <ul>
+            <li>du gezielt an einer bestimmten Fähigkeit arbeiten möchtest</li>
+            <li>du intensive individuelle Betreuung suchst</li>
+            <li>du an deinen persönlichen Stärken &amp; Schwächen arbeiten möchtest</li>
+          </ul>
+        </article>
 
-            <article class="training-card">
-                <h2>Duo &amp; Kleingruppe ist ideal für <span>dich</span>, wenn …</h2>
-                <ul>
-                    <li>du gerne mit Freunden oder Teamkollegen trainierst</li>
-                    <li>du Wettbewerb und Motivation möchtest</li>
-                    <li>du trotzdem eine kleine Trainingsgruppe möchtest</li>
-                </ul>
-            </article>
+        <article class="training-card">
+          <div class="training-card-top"><span class="training-number">02 / GEMEINSAM</span><span class="training-icon" aria-hidden="true">↗</span></div>
+          <h2>Duo &amp; Kleingruppe ist ideal für <span>dich</span>, wenn …</h2>
+          <ul>
+            <li>du gerne mit Freunden oder Teamkollegen trainierst</li>
+            <li>du Wettbewerb und Motivation möchtest</li>
+            <li>du trotzdem eine kleine Trainingsgruppe möchtest</li>
+          </ul>
+        </article>
 
-            <article class="training-card">
-                <h2>Fördertraining ist ideal für <span>dich</span>, wenn …</h2>
-                <ul>
-                    <li>du regelmäßig trainieren möchtest</li>
-                    <li>du dich langfristig entwickeln möchtest</li>
-                    <li>du von einer festen Trainingsstruktur profitieren möchtest</li>
-                </ul>
-            </article>
-        </section>
+        <article class="training-card">
+          <div class="training-card-top"><span class="training-number">03 / LANGFRISTIG</span><span class="training-icon" aria-hidden="true">✳</span></div>
+          <h2>Fördertraining ist ideal für <span>dich</span>, wenn …</h2>
+          <ul>
+            <li>du regelmäßig trainieren möchtest</li>
+            <li>du dich langfristig entwickeln möchtest</li>
+            <li>du von einer festen Trainingsstruktur profitieren möchtest</li>
+          </ul>
+        </article>
+      </section>
 
-        <section class="comparison">
-            <h2>Die Trainingsformen im <span class="orange">Vergleich</span></h2>
-
-            <div class="table-wrap">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Individual</th>
-                            <th>Duo/Kleingruppe</th>
-                            <th>Fördertraining</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Betreuung</td>
-                            <td>1:1</td>
-                            <td>2–4 Spieler</td>
-                            <td>max. 10</td>
-                        </tr>
-                        <tr>
-                            <td>Dauer</td>
-                            <td>60 Min.</td>
-                            <td>60 Min.</td>
-                            <td>75 Min./Woche</td>
-                        </tr>
-                        <tr>
-                            <td>Fokus</td>
-                            <td>Individuell</td>
-                            <td>Individuell + Wettbewerb</td>
-                            <td>Langfristige Entwicklung</td>
-                        </tr>
-                        <tr>
-                            <td>Frequenz</td>
-                            <td>flexibel</td>
-                            <td>flexibel</td>
-                            <td>regelmäßig</td>
-                        </tr>
-                        <tr>
-                            <td>Preis</td>
-                            <td>ab 75 €</td>
-                            <td>ab 30 €/Person</td>
-                            <td>80 €/Monat</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <a href="leistungen.html" class="back">
-            <span>←</span>
-            Zurück zu den Spielfeldern
-        </a>
-
-        <div class="footer">
-            Frey Football Academy · Train. Develop. Succeed.
-            <br><br>
-            Fritz-Kohl-Str. 3c · 55122 Mainz
-            · +49 173 3176916
-            · info@freyfootballacademy.com
+      <section class="comparison-section" aria-labelledby="comparison-title">
+        <div class="comparison-heading">
+          <div>
+            <div class="section-kicker">Auf einen Blick</div>
+            <h2 id="comparison-title">DIE TRAININGSFORMEN IM <span>VERGLEICH</span></h2>
+          </div>
+          <p class="comparison-note">Die wichtigsten Unterschiede im direkten Überblick – damit du die passende Trainingsform für deine Entwicklung findest.</p>
         </div>
+        <div class="table-wrap">
+          <table class="comparison-table">
+            <thead>
+              <tr><th></th><th>Individual</th><th>Duo / Kleingruppe</th><th>Fördertraining</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Betreuung</td><td>1:1</td><td>2–4 Spieler</td><td>max. 10</td></tr>
+              <tr><td>Dauer</td><td>60 Min.</td><td>60 Min.</td><td>75 Min./Woche</td></tr>
+              <tr><td>Fokus</td><td>Individuell</td><td>Individuell + Wettbewerb</td><td>Langfristige Entwicklung</td></tr>
+              <tr><td>Frequenz</td><td>flexibel</td><td>flexibel</td><td>regelmäßig</td></tr>
+              <tr><td>Preis</td><td>ab 75 €</td><td>ab 30 €/Person</td><td>80 €/Monat</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="training-cta">
+        <div>
+          <div class="section-kicker">Dein nächster Schritt</div>
+          <h2>Bereit für deine nächste Entwicklungsstufe?</h2>
+          <p>Finde gemeinsam mit uns heraus, welche Trainingsform zu deinen Zielen passt.</p>
+        </div>
+        <a class="button button-primary" href="leistungen.html">TRAINING ANFRAGEN <span>↗</span></a>
+      </section>
+
+      <div class="training-footer-contact">
+        <strong style="color:#ddd;">Frey Football Academy</strong><br>
+        Fritz-Kohl-Str. 3c · 55122 Mainz<br>
+        +49 173 3176916 · info@freyfootballacademy.com<br>
+        Train. Develop. Succeed.
+      </div>
+
+      <footer>
+        <span>© 2026 Frey Football Academy</span>
+        <div class="footer-links">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="https://www.instagram.com/ffa.footballacademy" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://frey-football-academy.fan12.de/" target="_blank" rel="noopener">FFA Shop</a>
+        </div>
+      </footer>
     </main>
+  </div>
+
 </body>
 </html>
