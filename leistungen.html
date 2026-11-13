@@ -22,7 +22,7 @@
   --line:rgba(255,255,255,.10);
   --muted:#a4a4a4;
   --white:#fff;
-  --sidebar:252px;
+  --sidebar:248px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:100px}
@@ -198,6 +198,145 @@ h1 span,.accent{color:var(--orange)}
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
+
+/* CANONICAL FFA SIDEBAR: exakt aus index.html übernommen */
+    .sidebar {
+      position: fixed;
+      inset: 0 auto 0 0;
+      z-index: 30;
+      width: var(--sidebar-width);
+      display: flex;
+      flex-direction: column;
+      padding: 30px 22px 24px;
+      background: #050505;
+      border-right: 1px solid var(--line);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 2px 4px 36px;
+      text-decoration: none;
+    }
+    .brand img { width: 48px; height: 48px; object-fit: contain; }
+    .brand-copy {
+      font-size: 10px;
+      line-height: 1.5;
+      letter-spacing: .16em;
+      color: #D5D5D5;
+      font-weight: 800;
+    }
+    .brand-copy span { display: block; color: var(--orange); }
+    .nav-caption {
+      padding: 0 11px 12px;
+      color: #666;
+      font-size: 9px;
+      letter-spacing: .2em;
+      font-weight: 800;
+    }
+    .side-nav { display: grid; gap: 5px; }
+    .side-nav a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 46px;
+      padding: 0 12px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      color: #999;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 650;
+      transition: color .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .side-nav a:hover,
+    .side-nav a.active {
+      color: #fff;
+      background: rgba(255,140,0,.09);
+      border-color: rgba(255,140,0,.2);
+    }
+    .nav-symbol {
+      display: inline-grid;
+      place-items: center;
+      width: 22px;
+      color: var(--orange);
+      font-size: 16px;
+    }
+    .sidebar-bottom { margin-top: auto; }
+    .sidebar-note {
+      border-top: 1px solid var(--line);
+      padding: 17px 5px 14px;
+      color: #777;
+      font-size: 9px;
+      line-height: 1.7;
+      letter-spacing: .12em;
+    }
+    .sidebar-note strong { color: #ddd; display: block; font-size: 10px; }
+    .sidebar-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 14px;
+      background: var(--orange);
+      color: #090909;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 900;
+      border-radius: 6px;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .sidebar-cta:hover { transform: translateY(-2px); background: #FFA126; }
+    .sidebar-social {
+      display: block;
+      margin: 17px 5px 0;
+      color: #777;
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .14em;
+    }
+    .sidebar-social:hover { color: var(--orange); }
+
+
+    .mobile-header { display: none; }
+    @media (max-width: 1050px) {
+      :root { --sidebar-width: 210px; }
+      .sidebar { padding-inline: 15px; }
+    }
+    @media (max-width: 760px) {
+      .sidebar { display: none; }
+      main { margin-left: 0; }
+      .page { margin-left: 0; }
+      .mobile-header {
+      .mobile-header {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 66px;
+        padding: 9px 20px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(5,5,5,.96);
+        backdrop-filter: blur(14px);
+      }
+      .mobile-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+      .mobile-brand img { width: 39px; height: 39px; object-fit: contain; }
+      .mobile-brand span { font-size: 9px; font-weight: 900; letter-spacing: .14em; }
+      .mobile-brand strong { color: var(--orange); }
+      .mobile-shop {
+        padding: 10px 12px;
+        border-radius: 4px;
+        background: var(--orange);
+        color: #080808;
+        text-decoration: none;
+        font-size: 10px;
+        font-weight: 900;
+      }
+      }
+    }
+
 </style>
 <script type="application/ld+json">
 {
@@ -211,28 +350,37 @@ h1 span,.accent{color:var(--orange)}
 </script>
 </head>
 <body>
-<aside class="sidebar" aria-label="Seitennavigation">
-  <a class="brand" href="index.html">
-    <img src="assets/logo.png" alt="Frey Football Academy Logo">
-    <span class="brand-copy"><strong>Frey Football Academy</strong><span>Train. Develop. Succeed.</span></span>
-  </a>
-  <div class="nav-label">Navigation</div>
-  <nav class="side-nav">
-    <a href="index.html"><span class="nav-mark"></span>Startseite</a>
-    <a href="ueber-mich.html"><span class="nav-mark"></span>Über mich</a>
-    <a class="active" href="leistungen.html"><span class="nav-mark"></span>Leistungen</a>
-    <a href="standorte.html"><span class="nav-mark"></span>Standorte</a>
-    <a href="trainingsformen.html"><span class="nav-mark"></span>Trainingsformen</a>
-  </nav>
-  <div class="sidebar-bottom">
-    <div class="sidebar-note"><small>Dein nächster Schritt</small><p>Finde das Training, das zu deinen Zielen und deiner Entwicklung passt.</p></div>
-    <div class="sidebar-foot">© Frey Football Academy</div>
+  <aside class="sidebar" aria-label="Hauptnavigation">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Frey Football Academy Logo">
+      <span class="brand-copy">FREY FOOTBALL<span>ACADEMY</span></span>
+    </a>
+
+    <div class="nav-caption">NAVIGATION</div>
+    <nav class="side-nav">
+      <a href="index.html"><span class="nav-symbol">⌂</span> Startseite</a>
+      <a href="ueber-mich.html"><span class="nav-symbol">◎</span> Über mich</a>
+      <a class="active" href="leistungen.html"><span class="nav-symbol">↗</span> Trainingsangebote</a>
+      <a href="standorte.html"><span class="nav-symbol">⌖</span> Standorte</a>
+      <a href="https://frey-football-academy.fan12.de/" target="_blank" rel="noopener"><span class="nav-symbol">▣</span> FFA Shop ↗</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="sidebar-note">
+        <strong>FREY FOOTBALL ACADEMY</strong>
+        INDIVIDUELL · ZIELGERICHTET · NACHHALTIG
+      </div>
+      <a class="sidebar-cta" href="leistungen.html">Training anfragen <span>↗</span></a>
+      <a class="sidebar-social" href="https://www.instagram.com/ffa.footballacademy" target="_blank" rel="noopener">INSTAGRAM ↗</a>
+    </div>
+  </aside>
+  <div class="mobile-header">
+    <a class="mobile-brand" href="index.html">
+      <img src="assets/logo.png" alt="">
+      <span>FREY FOOTBALL<br><strong>ACADEMY</strong></span>
+    </a>
+    <a class="mobile-shop" href="https://frey-football-academy.fan12.de/" target="_blank" rel="noopener">FFA SHOP ↗</a>
   </div>
-</aside>
-<header class="mobile-header">
-  <a class="mobile-brand" href="index.html"><img src="assets/logo.png" alt=""><span>Frey Football Academy</span></a>
-  <a href="#angebote">Training entdecken ↘</a>
-</header>
 <main>
 <div class="page-wrap">
   <div class="topline"><strong>FFA / Leistungen</strong><a href="index.html">Zur Startseite ↗</a></div>
