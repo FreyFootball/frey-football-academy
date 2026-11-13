@@ -3,1447 +3,292 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Frey Football Academy | Fußballtraining &amp; Individuelle Förderung in Mainz, Wiesbaden und Umgebung </title>
-
-<link rel="icon" type="image/png" href="assets/logo.png">
-
+<title>Frey Football Academy | Fußballtraining &amp; individuelle Förderung</title>
 <meta name="description" content="Frey Football Academy – individuelles Fußballtraining, Förderung und Coaching für ambitionierte Nachwuchsfußballer in Mainz und Umgebung.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://freyfootballacademy.com/">
-
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
-<meta property="og:title" content="Frey Football Academy | Fußballtraining &amp; Individuelle Förderung in Mainz, Wiesbaden und Umgebung">
-<meta property="og:description" content="Individuelles Fußballtraining, Entwicklung und professionelles Coaching für ambitionierte Nachwuchsfußballer in Mainz, Wiesbaden und Umgebung.">
+<meta property="og:title" content="Frey Football Academy | Fußballtraining &amp; individuelle Förderung">
+<meta property="og:description" content="Individuelles Fußballtraining, Entwicklung und professionelles Coaching für ambitionierte Nachwuchsfußballer in Mainz und Umgebung.">
 <meta property="og:url" content="https://freyfootballacademy.com/">
 <meta property="og:image" content="https://freyfootballacademy.com/assets/logo.png">
-
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Frey Football Academy | Fußballtraining &amp; Individuelle Förderung in Mainz">
-<meta name="twitter:description" content="Individuelles Fußballtraining, Entwicklung und Coaching für ambitionierte Nachwuchsfußballer in Mainz, Wiesbaden und Umgebung.">
-
+<meta name="theme-color" content="#080808">
+<link rel="icon" type="image/png" href="assets/logo.png">
 <style>
-
 :root{
-  --orange:#ff6a00;
-  --orange2:#ff9b3d;
-  --bg:#050505;
-  --panel:rgba(18,18,18,.72);
-  --line:rgba(255,255,255,.10);
-  --muted:#a8a8a8;
-  --white:#fff;
-}
-
-*{
-  box-sizing:border-box
-}
-
-html{
-  scroll-behavior:smooth
-}
-
-body{
-  margin:0;
-  min-height:100vh;
-  overflow-x:hidden;
-  color:var(--white);
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  background:
-    radial-gradient(circle at 50% -5%,rgba(255,106,0,.25),transparent 28%),
-    radial-gradient(circle at 0% 55%,rgba(255,106,0,.10),transparent 25%),
-    linear-gradient(180deg,#141414 0%,#080808 38%,#030303 100%);
-}
-
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:0;
-  opacity:.35;
-  background-image:
-    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
-  background-size:72px 72px;
-  mask-image:linear-gradient(to bottom,black,transparent 82%);
-}
-
-body:after{
-  content:"";
-  position:fixed;
-  inset:-40%;
-  pointer-events:none;
-  z-index:0;
-  background:conic-gradient(
-    from 0deg,
-    transparent 0 70%,
-    rgba(255,106,0,.07),
-    transparent 80%
-  );
-  animation:spin 24s linear infinite;
-}
-
-@keyframes spin{
-  to{
-    transform:rotate(360deg)
-  }
-}
-
-@keyframes float{
-  50%{
-    transform:translateY(-12px)
-  }
-}
-
-@keyframes rise{
-  from{
-    opacity:0;
-    transform:translateY(24px)
-  }
-  to{
-    opacity:1;
-    transform:none
-  }
-}
-
-@keyframes pulse{
-  50%{
-    box-shadow:
-      0 0 0 9px rgba(255,106,0,0),
-      0 0 35px rgba(255,106,0,.22)
-  }
-}
-
-.shell{
-  position:relative;
-  z-index:2;
-  width:min(1080px,92%);
-  margin:auto;
-  padding:28px 0 45px
-}
-
-.topbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  padding:10px 0 22px;
-  border-bottom:1px solid var(--line);
-}
-
-.mini-brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:12px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:#cfcfcf
-}
-
-.dot{
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--orange);
-  box-shadow:0 0 18px var(--orange);
-  animation:pulse 2.4s infinite
-}
-
-.top-link{
-  color:#aaa;
-  text-decoration:none;
-  font-size:13px;
-  transition:.25s
-}
-
-.top-link:hover{
-  color:white
-}
-
-.hero{
-  min-height:620px;
-  display:grid;
-  place-items:center;
-  text-align:center;
-  padding:58px 0 30px
-}
-
-.hero-inner{
-  max-width:850px;
-  animation:rise .9s cubic-bezier(.16,1,.3,1) both
-}
-
-.logo-wrap{
-  position:relative;
-  width:100%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin:0 auto 25px;
-}
-
-.logo-wrap:before{
-  content:"";
-  position:absolute;
-  inset:-45px;
-  border-radius:50%;
-  background:radial-gradient(
-    circle,
-    rgba(255,106,0,.28),
-    transparent 65%
-  );
-  filter:blur(16px);
-  animation:glow 3.5s ease-in-out infinite;
-}
-
-@keyframes glow{
-  50%{
-    transform:scale(1.16);
-    opacity:.7
-  }
-}
-
-.logo{
-  position:relative;
-  display:block;
-  width:min(280px,72vw);
-  height:auto;
-  margin:0 auto;
-  filter:drop-shadow(0 0 24px rgba(255,106,0,.28));
-}
-
-.eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-  padding:8px 13px;
-  margin:5px 0 18px;
-  border:1px solid rgba(255,106,0,.28);
-  border-radius:999px;
-  background:rgba(255,106,0,.07);
-  color:#ffb36f;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:.17em;
-  text-transform:uppercase;
-}
-
-h1{
-  font-size:clamp(38px,7vw,72px);
-  line-height:.98;
-  letter-spacing:-.055em;
-  margin:0 auto 20px;
-  max-width:900px;
-  font-weight:900
-}
-
-h1 span{
-  background:linear-gradient(100deg,#fff 20%,#ff8a32 75%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent
-}
-
-.lead{
-  max-width:720px;
-  margin:0 auto;
-  color:#b9b9b9;
-  font-size:clamp(17px,2.4vw,21px);
-  line-height:1.65
-}
-
-.lead strong{
-  color:#fff;
-}
-
-.hero-actions{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:30px
-}
-
-.btn{
-  min-height:52px;
-  padding:14px 22px;
-  border-radius:14px;
-  text-decoration:none;
-  font-weight:800;
-  font-size:15px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  transition:.28s
-}
-
-.btn-primary{
-  background:linear-gradient(135deg,#ff7a18,#ff5d00);
-  color:white;
-  box-shadow:0 14px 40px rgba(255,106,0,.22)
-}
-
-.btn-secondary{
-  color:white;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.045);
-  backdrop-filter:blur(12px)
-}
-
-.btn:hover{
-  transform:translateY(-3px);
-  filter:brightness(1.06)
-}
-
-
-/* =========================================
-   TRUST BAR
-   ========================================= */
-
-.trust-bar{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:0;
-  margin:32px auto 0;
-  padding:14px 20px;
-  width:max-content;
-  max-width:100%;
-  border:1px solid rgba(255,255,255,.09);
-  border-radius:999px;
-  background:rgba(255,255,255,.035);
-  backdrop-filter:blur(14px);
-  box-shadow:0 12px 35px rgba(0,0,0,.18);
-}
-
-.trust-item{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  color:#d6d6d6;
-  font-size:12px;
-  font-weight:700;
-  white-space:nowrap;
-}
-
-.trust-item strong{
-  color:#fff;
-}
-
-.trust-dot{
-  width:4px;
-  height:4px;
-  margin:0 14px;
-  border-radius:50%;
-  background:var(--orange);
-  box-shadow:0 0 10px rgba(255,106,0,.65);
-}
-
-
-/* =========================================
-   STATS
-   ========================================= */
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin:18px 0 70px;
-}
-
-.stat{
-  padding:21px;
-  border:1px solid var(--line);
-  border-radius:18px;
-  background:rgba(255,255,255,.035);
-  backdrop-filter:blur(12px);
-}
-
-.stat strong{
-  display:block;
-  font-size:17px;
-  margin-bottom:5px
-}
-
-.stat span{
-  color:#888;
-  font-size:12px
-}
-
-
-/* =========================================
-   SECTIONS
-   ========================================= */
-
-.section-head{
-  display:flex;
-  align-items:end;
-  justify-content:space-between;
-  gap:20px;
-  margin-bottom:22px
-}
-
-.section-kicker{
-  color:#ff8b3b;
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:.18em;
-  text-transform:uppercase
-}
-
-.section-title{
-  font-size:clamp(28px,5vw,46px);
-  letter-spacing:-.04em;
-  margin:6px 0 0
-}
-
-.intro{
-  display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:16px;
-  margin-bottom:18px;
-}
-
-.card{
-  position:relative;
-  overflow:hidden;
-  border:1px solid var(--line);
-  border-radius:24px;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.065),
-      rgba(255,255,255,.025)
-    );
-  box-shadow:0 25px 80px rgba(0,0,0,.28);
-  backdrop-filter:blur(14px);
-}
-
-.card:before{
-  content:"";
-  position:absolute;
-  width:180px;
-  height:180px;
-  right:-80px;
-  top:-80px;
-  background:rgba(255,106,0,.13);
-  filter:blur(35px);
-  border-radius:50%
-}
-
-.copy{
-  padding:32px
-}
-
-.copy h2{
-  font-size:25px;
-  margin:0 0 15px;
-  letter-spacing:-.025em
-}
-
-.copy p{
-  color:#aaa;
-  line-height:1.75;
-  margin:0 0 13px;
-  font-size:15px
-}
-
-.copy strong{
-  color:#fff
-}
-
-.side-card{
-  padding:28px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  min-height:100%
-}
-
-.side-card .number{
-  font-size:74px;
-  line-height:.8;
-  font-weight:900;
-  color:rgba(255,106,0,.16);
-  letter-spacing:-.08em
-}
-
-.side-card h3{
-  font-size:21px;
-  margin:18px 0 8px
-}
-
-.side-card p{
-  color:#929292;
-  line-height:1.6;
-  font-size:14px;
-  margin:0
-}
-
-
-/* =========================================
-   NAVIGATION CARDS
-   ========================================= */
-
-.nav-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-  margin-top:16px
-}
-
-.nav-card{
-  min-height:106px;
-  padding:22px;
-  border:1px solid var(--line);
-  border-radius:19px;
-  text-decoration:none;
-  color:white;
-  background:rgba(255,255,255,.035);
-  display:flex;
-  align-items:center;
-  gap:17px;
-  position:relative;
-  overflow:hidden;
-  transition:.3s
-}
-
-.nav-card:after{
-  content:"→";
-  position:absolute;
-  right:20px;
-  top:50%;
-  transform:translateY(-50%);
-  font-size:22px;
-  color:#777;
-  transition:.3s
-}
-
-.nav-card:hover{
-  transform:translateY(-4px);
-  border-color:rgba(255,106,0,.45);
-  background:rgba(255,106,0,.075);
-  box-shadow:0 20px 45px rgba(0,0,0,.28)
-}
-
-.nav-card:hover:after{
-  right:15px;
-  color:var(--orange)
-}
-
-.icon{
-  width:46px;
-  height:46px;
-  flex:0 0 46px;
-  border-radius:14px;
-  display:grid;
-  place-items:center;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,106,0,.22),
-      rgba(255,106,0,.06)
-    );
-  border:1px solid rgba(255,106,0,.22)
-}
-
-.icon svg{
-  width:23px;
-  height:23px
-}
-
-.nav-text{
-  padding-right:28px
-}
-
-.nav-text strong{
-  display:block;
-  font-size:16px;
-  margin-bottom:4px
-}
-
-.nav-text span{
-  font-size:12px;
-  color:#777
-}
-
-
-/* =========================================
-   FOOTER
-   ========================================= */
-
-.footer{
-  margin-top:65px;
-  padding-top:24px;
-  border-top:1px solid var(--line);
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  color:#666;
-  font-size:12px
-}
-
-.footer a{
-  color:#777;
-  text-decoration:none
-}
-
-.footer a:hover{
-  color:white
-}
-
-
-/* =========================================
-   NAVIGATION
-   ========================================= */
-
-.ffa-nav{
-  display:flex;
-  gap:8px;
-  align-items:center
-}
-
-.ffa-nav a{
-  color:#888;
-  text-decoration:none;
-  font-size:13px;
-  padding:8px 11px;
-  border-radius:10px;
-  transition:.25s
-}
-
-.ffa-nav a:hover,
-.ffa-nav a.active{
-  color:#fff;
-  background:rgba(255,106,0,.08)
-}
-
-.ffa-nav .cta-link{
-  color:#fff;
-  background:linear-gradient(135deg,#ff7a18,#ff5d00);
-  box-shadow:0 8px 24px rgba(255,106,0,.18)
-}
-
-.ffa-nav .cta-link:hover{
-  transform:translateY(-2px);
-  background:linear-gradient(135deg,#ff8428,#ff6408)
-}
-
-
-/* =========================================
-   FFA SHOP
-   ========================================= */
-
-.shop-section{
-  position:relative;
-  display:grid;
-  grid-template-columns:1.05fr .95fr;
-  align-items:center;
-  gap:34px;
-  margin:26px 0 72px;
-  padding:clamp(26px,5vw,52px);
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.13);
-  border-radius:28px;
-  background:
-    radial-gradient(circle at 88% 15%,rgba(255,106,0,.18),transparent 34%),
-    linear-gradient(135deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
-  box-shadow:0 25px 80px rgba(0,0,0,.30);
-}
-
-.shop-section:after{
-  content:"";
-  position:absolute;
-  width:310px;
-  height:310px;
-  right:-145px;
-  bottom:-190px;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:50%;
-  box-shadow:0 0 0 35px rgba(255,255,255,.018),0 0 0 70px rgba(255,255,255,.012);
-  pointer-events:none;
-}
-
-.shop-copy,.shop-art{
-  position:relative;
-  z-index:1;
-}
-
-.shop-kicker{
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-  margin-bottom:17px;
-  color:#ffad70;
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:.19em;
-  text-transform:uppercase;
-}
-
-.shop-kicker:before{
-  content:"";
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:var(--orange);
-  box-shadow:0 0 14px var(--orange);
-}
-
-.shop-title{
-  margin:0 0 15px;
-  font-size:clamp(34px,5vw,58px);
-  line-height:.98;
-  letter-spacing:-.055em;
-  font-weight:950;
-}
-
-.shop-title span{
-  color:var(--orange2);
-}
-
-.shop-description{
-  max-width:510px;
-  margin:0;
-  color:#aaa;
-  font-size:15px;
-  line-height:1.75;
-}
-
-.shop-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:25px;
-}
-
-.shop-art{
-  min-height:230px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:22px;
-  background:#050505;
-}
-
-.shop-collab-logo{
-  display:block;
-  width:100%;
-  height:auto;
-  max-width:680px;
-  object-fit:contain;
-}
-
-.shop-nav-link{
-  color:#ffad70!important;
-  border:1px solid rgba(255,106,0,.25);
-  background:rgba(255,106,0,.07);
-}
-
-.shop-nav-link:hover{
-  color:#fff!important;
-  background:rgba(255,106,0,.15)!important;
-}
-
+  --bg:#080808;--panel:#111;--panel2:#151515;--line:rgba(255,255,255,.10);
+  --text:#f5f5f5;--muted:#969696;--accent:#ff6a00;--sidebar:252px;
+  --ease:cubic-bezier(.2,.75,.25,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:28px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 70% 0%,rgba(255,106,0,.10),transparent 35%),linear-gradient(135deg,#0c0c0c,#050505 70%)}
+a{color:inherit}
+button{font:inherit}
+.progress{position:fixed;z-index:1000;top:0;left:0;height:3px;width:0;background:var(--accent)}
+.sidebar{position:fixed;z-index:100;inset:0 auto 0 0;width:var(--sidebar);padding:30px 20px 22px;background:rgba(9,9,9,.94);border-right:1px solid var(--line);display:flex;flex-direction:column;backdrop-filter:blur(18px)}
+.brand{display:flex;align-items:center;gap:12px;padding:4px 9px 30px;text-decoration:none}
+.brand img{width:48px;height:48px;object-fit:contain}
+.brand-copy strong{display:block;font-size:12px;letter-spacing:.13em;text-transform:uppercase}
+.brand-copy span{display:block;margin-top:5px;color:#777;font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+.nav-label{padding:0 12px;margin:13px 0 10px;color:#5f5f5f;font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+.side-nav{display:grid;gap:5px}
+.side-nav a{display:flex;align-items:center;gap:13px;padding:12px;border:1px solid transparent;border-radius:11px;color:#929292;text-decoration:none;font-size:13px;font-weight:650;transition:.25s var(--ease)}
+.side-nav a:hover,.side-nav a.active{color:#fff;background:#171717;border-color:rgba(255,255,255,.07)}
+.side-nav a.active .nav-icon,.side-nav a:hover .nav-icon{color:var(--accent)}
+.nav-icon{width:19px;text-align:center;color:#696969;font-size:16px;transition:.25s}
+.sidebar-spacer{flex:1}
+.sidebar-shop{display:block;padding:17px;margin:20px 0;border:1px solid rgba(255,106,0,.25);border-radius:14px;background:linear-gradient(135deg,rgba(255,106,0,.12),rgba(255,106,0,.025));text-decoration:none}
+.sidebar-shop small{display:block;color:#ff9a55;font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.sidebar-shop strong{display:block;margin:7px 0 4px;font-size:14px}
+.sidebar-shop span{color:#888;font-size:11px}
+.sidebar-bottom{padding:16px 10px 0;border-top:1px solid var(--line);color:#666;font-size:10px;line-height:1.8}
+.sidebar-bottom a{color:#888;text-decoration:none}
+.sidebar-bottom a:hover{color:#fff}
+.main{margin-left:var(--sidebar);min-height:100vh}
+.content{width:min(1160px,calc(100% - 88px));margin:0 auto}
+.mobile-top{display:none}
+.hero{min-height:720px;display:flex;align-items:center;position:relative;padding:80px 0 70px;overflow:hidden}
+.hero:after{content:"FFA";position:absolute;right:-.02em;bottom:-.22em;font-size:clamp(220px,32vw,500px);font-weight:950;letter-spacing:-.1em;line-height:1;color:rgba(255,255,255,.025);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:850px}
+.hero-topline{display:flex;align-items:center;gap:10px;color:#aaa;font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+.hero-topline:before{content:"";width:25px;height:2px;background:var(--accent)}
+.hero-logo{width:min(185px,45vw);height:auto;object-fit:contain;display:block;margin:34px 0 25px;filter:drop-shadow(0 10px 35px rgba(0,0,0,.5))}
+h1{max-width:900px;margin:0;font-size:clamp(44px,7vw,88px);line-height:.94;letter-spacing:-.075em;font-weight:950}
+h1 span{color:var(--accent)}
+.hero-lead{max-width:640px;margin:25px 0 0;color:#aaa;font-size:clamp(15px,1.5vw,18px);line-height:1.8}
+.hero-lead strong{color:#fff}
+.actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:30px}
+.btn{min-height:50px;padding:0 20px;display:inline-flex;align-items:center;justify-content:center;gap:12px;border-radius:8px;text-decoration:none;font-size:12px;font-weight:850;letter-spacing:.02em;transition:transform .25s var(--ease),background .25s,border-color .25s}
+.btn:hover{transform:translateY(-3px)}
+.btn-primary{background:var(--accent);color:white;box-shadow:0 12px 35px rgba(255,106,0,.16)}
+.btn-primary:hover{background:#ff8128}
+.btn-outline{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.035);color:#eee}
+.btn-outline:hover{border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.08)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:0;margin-top:48px;border-top:1px solid var(--line);max-width:760px}
+.meta-item{padding:18px 28px 0 0;margin-right:28px;border-right:1px solid var(--line);color:#777;font-size:10px;letter-spacing:.05em}
+.meta-item:last-child{border:0}
+.meta-item strong{display:block;margin-bottom:5px;color:#fff;font-size:14px;letter-spacing:0}
+.section{padding:85px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:28px}
+.kicker{color:var(--accent);font-size:10px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}
+.section-title{margin:9px 0 0;font-size:clamp(30px,4vw,52px);line-height:1;letter-spacing:-.06em;font-weight:900}
+.section-note{max-width:330px;color:#858585;font-size:12px;line-height:1.7}
+.focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.focus-card{min-height:205px;padding:25px;border:1px solid var(--line);border-radius:13px;background:linear-gradient(145deg,#151515,#0d0d0d);position:relative;overflow:hidden;transition:.3s var(--ease)}
+.focus-card:hover{transform:translateY(-5px);border-color:rgba(255,106,0,.4)}
+.focus-number{color:rgba(255,106,0,.65);font-size:10px;font-weight:900;letter-spacing:.15em}
+.focus-card h3{margin:48px 0 9px;font-size:20px;letter-spacing:-.03em}
+.focus-card p{margin:0;color:#858585;font-size:12px;line-height:1.7}
+.shop-section{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;padding:clamp(25px,5vw,55px);border:1px solid rgba(255,255,255,.12);border-radius:17px;background:#101010;margin:35px 0 25px;overflow:hidden}
+.shop-kicker{color:#ff9b5b;font-size:10px;font-weight:900;letter-spacing:.19em;text-transform:uppercase}
+.shop-title{margin:15px 0;font-size:clamp(38px,5vw,64px);line-height:.94;letter-spacing:-.07em;font-weight:950}
+.shop-title span{color:var(--accent)}
+.shop-description{max-width:480px;color:#999;font-size:13px;line-height:1.8}
+.shop-art{min-height:250px;display:flex;align-items:center;justify-content:center;background:#000;border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden}
+.shop-art img{display:block;width:100%;height:auto;max-width:650px;object-fit:contain}
+.about-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:13px}
+.panel{padding:clamp(25px,4vw,40px);border:1px solid var(--line);border-radius:14px;background:linear-gradient(145deg,#151515,#0d0d0d)}
+.panel h3{margin:0 0 17px;font-size:25px;letter-spacing:-.04em}
+.panel p{margin:0 0 13px;color:#999;font-size:13px;line-height:1.85}
+.panel p:last-child{margin-bottom:0}
+.panel strong{color:#fff}
+.potential{display:flex;flex-direction:column;justify-content:space-between;min-height:100%}
+.potential .infinity{color:rgba(255,106,0,.5);font-size:80px;font-weight:900;line-height:.8}
+.potential h3{margin-top:35px}
+.potential p{margin-bottom:22px}
+.quick-links{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.quick-link{min-height:115px;padding:20px;border:1px solid var(--line);border-radius:12px;background:#101010;text-decoration:none;transition:.25s}
+.quick-link:hover{transform:translateY(-4px);border-color:rgba(255,106,0,.4);background:#15110e}
+.quick-link .q-icon{color:var(--accent);font-size:18px}
+.quick-link strong{display:block;margin:13px 0 5px;font-size:13px}
+.quick-link span{color:#777;font-size:11px}
+.footer{margin-top:60px;padding:25px 0 35px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;color:#666;font-size:10px}
+.footer a{color:#888;text-decoration:none;margin-left:13px}
+.footer a:hover{color:#fff}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.visible{opacity:1;transform:none}
+.backtop{position:fixed;right:24px;bottom:24px;z-index:50;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:#151515;color:#fff;cursor:pointer;opacity:0;pointer-events:none;transition:.25s}
+.backtop.show{opacity:1;pointer-events:auto}
+.backtop:hover{border-color:var(--accent);color:var(--accent)}
+@media(max-width:1050px){:root{--sidebar:220px}.content{width:calc(100% - 60px)}.hero{min-height:660px}.meta-item{margin-right:16px;padding-right:16px}}
 @media(max-width:760px){
-  .shop-section{
-    grid-template-columns:1fr;
-    gap:22px;
-    margin:12px 0 52px;
-    padding:25px 20px;
-  }
-
-  .shop-art{
-    min-height:0;
-  }
-
-  .shop-collab-logo{
-    width:100%;
-  }
-
-  .shop-nav-link{
-    display:inline-flex!important;
-    font-size:12px!important;
-    padding:8px 10px!important;
-  }
+  :root{--sidebar:0px}
+  .sidebar{width:min(310px,86vw);transform:translateX(-105%);transition:transform .3s var(--ease);box-shadow:20px 0 70px rgba(0,0,0,.5)}
+  body.menu-open .sidebar{transform:translateX(0)}
+  .main{margin-left:0}
+  .mobile-top{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;border-bottom:1px solid var(--line);background:rgba(8,8,8,.88);position:sticky;top:0;z-index:90;backdrop-filter:blur(16px)}
+  .mobile-brand{display:flex;align-items:center;gap:9px;text-decoration:none;font-size:10px;font-weight:850;letter-spacing:.12em}
+  .mobile-brand img{width:34px;height:34px;object-fit:contain}
+  .menu-toggle{width:40px;height:40px;border:1px solid var(--line);border-radius:9px;background:#111;color:white;font-size:20px;cursor:pointer}
+  .content{width:calc(100% - 40px)}
+  .hero{min-height:0;padding:65px 0 55px}
+  .hero-logo{width:135px;margin:25px 0}
+  h1{font-size:clamp(43px,12vw,68px)}
+  .hero-meta{margin-top:35px}
+  .meta-item{width:50%;margin:0;padding:14px 10px 0 0;border-right:0}
+  .section{padding:58px 0}
+  .section-head{display:block}
+  .section-note{margin-top:15px}
+  .focus-grid{grid-template-columns:1fr}
+  .focus-card{min-height:160px}
+  .focus-card h3{margin-top:28px}
+  .shop-section{grid-template-columns:1fr;gap:22px;margin:15px 0;padding:25px 20px}
+  .shop-art{min-height:0}
+  .about-grid{grid-template-columns:1fr}
+  .potential{min-height:210px}
+  .quick-links{grid-template-columns:1fr}
+  .quick-link{min-height:95px}
+  .footer{flex-direction:column}
+  .footer a{margin:0 12px 0 0}
 }
-
-/* =========================================
-   MOBILE
-   ========================================= */
-
-@media(max-width:760px){
-
-  .shell{
-    width:92%;
-    padding-top:18px
-  }
-
-  .topbar{
-    padding-bottom:16px
-  }
-
-  .top-link{
-    display:none
-  }
-
-  .hero{
-    min-height:auto;
-    padding:52px 0 36px
-  }
-
-  .stats{
-    grid-template-columns:1fr;
-    margin-bottom:48px
-  }
-
-  .intro{
-    grid-template-columns:1fr
-  }
-
-  .side-card{
-    min-height:190px
-  }
-
-  .nav-grid{
-    grid-template-columns:1fr
-  }
-
-  .copy{
-    padding:25px
-  }
-
-  .footer{
-    flex-direction:column
-  }
-
-  /* Trust Bar Mobile */
-
-  .trust-bar{
-    width:100%;
-    border-radius:18px;
-    padding:14px 12px;
-    gap:8px 0;
-  }
-
-  .trust-item{
-    font-size:11px;
-  }
-
-  .trust-dot{
-    margin:0 9px;
-  }
-
-  /* Mobile Navigation */
-
-  .ffa-nav a:not(.cta-link){
-    display:none
-  }
-
-  .ffa-nav .cta-link{
-    font-size:12px;
-    padding:8px 10px
-  }
-
-}
-
-
-/* =========================================
-   REDUCED MOTION
-   ========================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-  *,
-  *:before,
-  *:after{
-    animation:none!important;
-    transition:none!important;
-    scroll-behavior:auto!important
-  }
-
-}
-
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
-
-
 <script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"SportsActivityLocation",
-  "name":"Frey Football Academy",
-  "url":"https://freyfootballacademy.com/",
-  "logo":"https://freyfootballacademy.com/assets/logo.png",
-  "description":"es Fußballtraining, Talentförderung und Coaching für Nachwuchsfußballer in Mainz und Umgebung."
-}
+{"@context":"https://schema.org","@type":"SportsActivityLocation","name":"Frey Football Academy","url":"https://freyfootballacademy.com/","logo":"https://freyfootballacademy.com/assets/logo.png","description":"Fußballtraining, Talentförderung und Coaching für Nachwuchsfußballer in Mainz und Umgebung."}
 </script>
-
 </head>
-
-
 <body>
+<div class="progress" id="progress"></div>
 
-<main class="shell">
+<aside class="sidebar" aria-label="Seitennavigation">
+  <a class="brand" href="index.html">
+    <img src="assets/logo.png" alt="FFA Logo">
+    <span class="brand-copy"><strong>Frey Football Academy</strong><span>Individual development</span></span>
+  </a>
+  <div class="nav-label">Navigation</div>
+  <nav class="side-nav">
+    <a class="active" href="index.html"><span class="nav-icon">⌂</span>Startseite</a>
+    <a href="ueber-mich.html"><span class="nav-icon">◉</span>Über uns</a>
+    <a href="leistungen.html"><span class="nav-icon">✳</span>Trainingsangebote</a>
+    <a href="standorte.html"><span class="nav-icon">⌖</span>Standorte</a>
+  </nav>
+  <div class="nav-label">FFA Community</div>
+  <nav class="side-nav">
+    <a href="https://www.instagram.com/ffa.footballacademy" target="_blank" rel="noopener"><span class="nav-icon">◎</span>Instagram</a>
+  </nav>
+  <div class="sidebar-spacer"></div>
+  <a class="sidebar-shop" href="https://frey-football-academy.fan12.de/" target="_blank" rel="noopener">
+    <small>Official teamwear</small><strong>FFA x adidas Shop ↗</strong><span>Entdecke die offizielle Kollektion</span>
+  </a>
+  <div class="sidebar-bottom">© 2026 Frey Football Academy<br><a href="impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="datenschutz.html">Datenschutz</a></div>
+</aside>
 
+<header class="mobile-top">
+  <a class="mobile-brand" href="index.html"><img src="assets/logo.png" alt=""><span>FREY FOOTBALL ACADEMY</span></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+</header>
 
-  <!-- =====================================
-       HEADER
-       ===================================== -->
-
-  <header class="topbar">
-
-    <div class="mini-brand">
-      <span class="dot"></span>
-      Frey Football Academy
-    </div>
-
-    <nav class="ffa-nav" aria-label="Hauptnavigation">
-
-      <a href="index.html">
-        Startseite
-      </a>
-
-      <a href="ueber-mich.html">
-        Über Mich
-      </a>
-
-      <a class="shop-nav-link" href="https://frey-football-academy.fan12.de/" target="_blank" rel="noopener">
-        FFA Shop ↗
-      </a>
-
-      <a class="cta-link" href="leistungen.html">
-        Training entdecken ↗
-      </a>
-
-    </nav>
-
-  </header>
-
-
-  <!-- =====================================
-       HERO
-       ===================================== -->
-
+<main class="main">
   <section class="hero">
-
-    <div class="hero-inner">
-
-
-      <div class="logo-wrap">
-
-        <img
-          src="assets/logo.png"
-          alt="Frey Football Academy – Fußballtraining und Talentförderung in Mainz"
-          class="logo"
-        >
-
+    <div class="content">
+      <div class="hero-inner">
+        <div class="hero-topline">Individuell · Zielgerichtet · Nachhaltig</div>
+        <img class="hero-logo" src="assets/logo.png" alt="Frey Football Academy – Fußballtraining und Talentförderung in Mainz">
+        <h1>Fußballtraining für <span>ambitionierte Nachwuchsspieler.</span></h1>
+        <p class="hero-lead"><strong>Gezielte Entwicklung. Individuell auf den Spieler abgestimmt.</strong><br>
+          Mit den Erfahrungen von über 14 Jahren aus dem leistungsorientierten Jugendfußball und aus einem der <strong>besten Nachwuchsleistungszentren Deutschlands.</strong>
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="leistungen.html">Training anfragen <span>↗</span></a>
+          <a class="btn btn-outline" href="ueber-mich.html">Über Jan Frey &amp; die FFA</a>
+          <a class="btn btn-outline" href="standorte.html">Unsere Standorte</a>
+        </div>
+        <div class="hero-meta" aria-label="Erfahrung und Referenzen">
+          <div class="meta-item"><strong>14+ Jahre</strong>Erfahrung</div>
+          <div class="meta-item"><strong>300+ Spieler</strong>begleitet</div>
+          <div class="meta-item"><strong>1. FSV Mainz 05</strong>Erfahrung</div>
+          <div class="meta-item"><strong>SV Waldhof Mannheim 07</strong>Erfahrung</div>
+        </div>
       </div>
-
-
-      <div class="eyebrow">
-        Individuell · Zielgerichtet · Nachhaltig 
-      </div>
-
-
-      <h1>
-        Fußballtraining für
-        <span>ambitionierte Nachwuchsspieler.</span>
-      </h1>
-
-
-      <p class="lead">
-        <strong>Gezielte Entwicklung. Individuell auf den Spieler abgestimmt.</strong>
-
-        <p>
-        Mit den Erfahrungen von über 14+ Jahren aus dem leistungsorientierten Jugendfußball und aus einem der
-        <strong>besten Nachwuchsleistungszentren Deutschlands.</strong>
-      </p>
-
-
-      <div class="hero-actions">
-
-        <a class="btn btn-primary" href="leistungen.html">
-          Training anfragen
-          <span>↗</span>
-        </a>
-
-        <a class="btn btn-secondary" href="ueber-mich.html">
-          Über Jan Frey &amp; die FFA
-        </a>
-
-         <a class="btn btn-secondary" href="standorte.html">
-          Unsere Standorte
-        </a>
-
-      </div>
-
-
-      <!-- =================================
-           TRUST BAR
-           ================================= -->
-
-      <div
-        class="trust-bar"
-        aria-label="Erfahrung und Referenzen"
-      >
-
-        <span class="trust-item">
-          <strong>14+ Jahre</strong>
-          Erfahrung
-        </span>
-
-        <span class="trust-dot"></span>
-
-        <span class="trust-item">
-          <strong>300+ Spieler</strong>
-          begleitet
-        </span>
-
-        <span class="trust-dot"></span>
-
-        <span class="trust-item">
-          <strong>1. FSV Mainz 05</strong>
-        </span>
-
-        <span class="trust-dot"></span>
-
-        <span class="trust-item">
-          <strong>SV Waldhof Mannheim 07</strong>
-        </span>
-
-      </div>
-
-
     </div>
-
   </section>
 
-
-  <!-- =====================================
-       STATS
-       ===================================== -->
-
-  <section class="stats" aria-label="Schwerpunkte">
-
-    <div class="stat">
-      <strong>Technik</strong>
-      <span>
-        Erster Kontakt · Dribbling · Passspiel · Abschluss
-      </span>
+  <section class="section">
+    <div class="content">
+      <div class="section-head reveal">
+        <div><div class="kicker">Unser Trainingsfokus</div><h2 class="section-title">Details entscheiden.</h2></div>
+        <p class="section-note">Wir arbeiten gezielt an den Fähigkeiten, die Spieler auf dem Platz wirklich weiterbringen.</p>
+      </div>
+      <div class="focus-grid">
+        <article class="focus-card reveal"><div class="focus-number">01 / TECHNIK</div><h3>Technik</h3><p>Erster Kontakt · Dribbling · Passspiel · Abschluss</p></article>
+        <article class="focus-card reveal"><div class="focus-number">02 / DUELL</div><h3>1 gegen 1</h3><p>Gegner überwinden · Lösungen unter Druck</p></article>
+        <article class="focus-card reveal"><div class="focus-number">03 / GAME IQ</div><h3>Spielintelligenz</h3><p>Situationen erkennen · Entscheidungen treffen · Umsetzen</p></article>
+      </div>
     </div>
-
-    <div class="stat">
-      <strong>1 gegen 1</strong>
-      <span>
-        Gegner überwinden · Lösungen unter Druck
-      </span>
-    </div>
-
-    <div class="stat">
-      <strong>Spielintelligenz</strong>
-      <span>
-        Situationen erkennen · Entscheidungen treffen · Umsetzen
-      </span>
-    </div>
-
   </section>
 
-
-  <!-- =====================================
-       FFA SHOP
-       ===================================== -->
-
-  <section class="shop-section" aria-labelledby="shop-title">
+  <section class="content shop-section reveal" aria-labelledby="shop-title">
     <div class="shop-copy">
       <div class="shop-kicker">Der offizielle FFA Shop</div>
-
-      <h2 class="shop-title" id="shop-title">
-        WEAR THE <span>FFA</span> SPIRIT.
-      </h2>
-
-      <p class="shop-description">
-        Entdecke die offizielle FFA-Kollektion in Zusammenarbeit mit adidas und FAN12.
-        Von Trainingsbekleidung bis Merchandise – zeige, wofür die Frey Football Academy steht.
-      </p>
-
-      <div class="shop-actions">
-        <a class="btn btn-primary"
-           href="https://frey-football-academy.fan12.de/"
-           target="_blank"
-           rel="noopener">
-          Jetzt shoppen <span>↗</span>
-        </a>
-      </div>
+      <h2 class="shop-title" id="shop-title">WEAR THE <span>FFA</span> SPIRIT.</h2>
+      <p class="shop-description">Entdecke die offizielle FFA-Kollektion in Zusammenarbeit mit adidas und FAN12. Von Trainingsbekleidung bis Merchandise – zeige, wofür die Frey Football Academy steht.</p>
+      <div class="actions"><a class="btn btn-primary" href="https://frey-football-academy.fan12.de/" target="_blank" rel="noopener">Jetzt shoppen <span>↗</span></a></div>
     </div>
-
     <div class="shop-art" aria-label="FFA x adidas – offizielle Kooperation">
-      <img
-        class="shop-collab-logo"
-        src="assets/ffa-x-adidas.png.png"
-        alt="FFA x adidas – Frey Football Academy und adidas"
-        loading="lazy"
-      >
+      <img src="assets/ffa-x-adidas.png.png" alt="FFA x adidas – Frey Football Academy und adidas" loading="lazy">
     </div>
   </section>
 
-
-  <!-- =====================================
-       FFA SECTION
-       ===================================== -->
-
-  <section>
-
-    <div class="section-head">
-
-      <div>
-
-        <div class="section-kicker">
-          Die FFA
-        </div>
-
-        <h2 class="section-title">
-          Entwicklung mit System.
-        </h2>
-
+  <section class="section">
+    <div class="content">
+      <div class="section-head reveal">
+        <div><div class="kicker">Die FFA</div><h2 class="section-title">Entwicklung mit System.</h2></div>
       </div>
-
+      <div class="about-grid">
+        <article class="panel reveal">
+          <h3>Mehr als nur Training.</h3>
+          <p>Die <strong>Frey Football Academy</strong> steht für individuelles Fußballtraining, gezielte Talentförderung und persönliches Coaching für Nachwuchsfußballer im <strong>Rhein-Main-Gebiet</strong>.</p>
+          <p>Unser Ziel ist es, junge Fußballer dabei zu unterstützen, ihre Fähigkeiten kontinuierlich weiterzuentwickeln – technisch, taktisch und persönlich.</p>
+          <p>Dabei steht jeder Spieler mit seinen individuellen Stärken, Zielen und Entwicklungsmöglichkeiten im Mittelpunkt.</p>
+        </article>
+        <aside class="panel potential reveal">
+          <div class="infinity">∞</div>
+          <div><h3>Dein Potenzial im Fokus.</h3><p>Entdecke unsere Trainingsangebote und finde heraus, wie du dein Fußballtraining gezielt auf das nächste Level bringen kannst.</p><a class="btn btn-primary" href="leistungen.html">Training entdecken ↗</a></div>
+        </aside>
+      </div>
+      <div class="quick-links">
+        <a class="quick-link reveal" href="ueber-mich.html"><span class="q-icon">◉</span><strong>Über Jan Frey &amp; die FFA</strong><span>Die Academy kennenlernen ↗</span></a>
+        <a class="quick-link reveal" href="leistungen.html"><span class="q-icon">✳</span><strong>Training anfragen</strong><span>Trainingsangebote entdecken ↗</span></a>
+        <a class="quick-link reveal" href="https://www.instagram.com/ffa.footballacademy" target="_blank" rel="noopener"><span class="q-icon">◎</span><strong>Instagram</strong><span>Einblicke &amp; Updates ↗</span></a>
+      </div>
     </div>
-
-
-    <div class="intro">
-
-
-      <article class="card copy">
-
-        <h2>
-          Mehr als nur Training.
-        </h2>
-
-        <p>
-          Die <strong>Frey Football Academy</strong> steht für
-          individuelles Fußballtraining, gezielte Talentförderung
-          und persönliches Coaching für Nachwuchsfußballer im 
-          <strong>Rhein-Main-Gebiet</strong>.
-        </p>
-
-        <p>
-          Unser Ziel ist es, junge Fußballer dabei zu unterstützen,
-          ihre Fähigkeiten kontinuierlich weiterzuentwickeln –
-          technisch, taktisch und persönlich.
-        </p>
-
-        <p>
-          Dabei steht jeder Spieler mit seinen individuellen
-          Stärken, Zielen und Entwicklungsmöglichkeiten im Mittelpunkt.
-        </p>
-
-      </article>
-
-
-      <aside class="card side-card">
-
-        <div class="number">
-          ∞
-        </div>
-
-        <div>
-
-          <h3>
-            Dein Potenzial im Fokus.
-          </h3>
-
-          <p>
-            Entdecke unsere Trainingsangebote und finde heraus,
-            wie du dein Fußballtraining gezielt auf das nächste
-            Level bringen kannst.
-          </p>
-
-        </div>
-
-      </aside>
-
-
-    </div>
-
-
-    <!-- =================================
-         NAVIGATION CARDS
-         ================================= -->
-
-    <nav class="nav-grid" aria-label="Hauptnavigation">
-
-
-      <a class="nav-card" href="ueber-mich.html">
-
-        <span class="icon">
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-
-            <circle
-              cx="12"
-              cy="8"
-              r="4"
-              stroke="white"
-              stroke-width="2"
-            />
-
-            <path
-              d="M4 21C4.8 16.8 7.5 14 12 14C16.5 14 19.2 16.8 20 21"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
-
-          </svg>
-
-        </span>
-
-        <span class="nav-text">
-
-          <strong>
-            Über Jan Frey &amp; die FFA
-          </strong>
-
-          <span>
-            Die Academy kennenlernen
-          </span>
-
-        </span>
-
-      </a>
-
-
-      <a class="nav-card" href="leistungen.html">
-
-        <span class="icon">
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-
-            <path
-              d="M12 3L14.7 8.45L20.7 9.32L16.35 13.57L17.38 19.57L12 16.75L6.62 19.57L7.65 13.57L3.3 9.32L9.3 8.45L12 3Z"
-              stroke="white"
-              stroke-width="2"
-              stroke-linejoin="round"
-            />
-
-          </svg>
-
-        </span>
-
-        <span class="nav-text">
-
-          <strong>
-            Training anfragen
-          </strong>
-
-          <span>
-            Trainingsangebote entdecken
-          </span>
-
-        </span>
-
-      </a>
-
-
-      <a
-        class="nav-card"
-        href="https://www.instagram.com/ffa.footballacademy"
-        target="_blank"
-        rel="noopener"
-      >
-
-        <span class="icon">
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-
-            <rect
-              x="3"
-              y="3"
-              width="18"
-              height="18"
-              rx="5"
-              stroke="white"
-              stroke-width="2"
-            />
-
-            <circle
-              cx="12"
-              cy="12"
-              r="4"
-              stroke="white"
-              stroke-width="2"
-            />
-
-            <circle
-              cx="17.5"
-              cy="6.5"
-              r="1.2"
-              fill="white"
-            />
-
-          </svg>
-
-        </span>
-
-        <span class="nav-text">
-
-          <strong>
-            Instagram
-          </strong>
-
-          <span>
-            Einblicke &amp; Updates der FFA
-          </span>
-
-        </span>
-
-      </a>
-
-
-      <a class="nav-card" href="impressum.html">
-
-        <span class="icon">
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-
-            <path
-              d="M6 3H15L19 7V21H6V3Z"
-              stroke="white"
-              stroke-width="2"
-              stroke-linejoin="round"
-            />
-
-            <path
-              d="M14 3V8H19M9 12H16M9 16H16"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-
-          </svg>
-
-        </span>
-
-        <span class="nav-text">
-
-          <strong>
-            Impressum
-          </strong>
-
-          <span>
-            Rechtliche Informationen
-          </span>
-
-        </span>
-
-      </a>
-
-
-      <a class="nav-card" href="datenschutz.html">
-
-        <span class="icon">
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-
-            <path
-              d="M12 3L19 6V11C19 15.5 16.2 19.2 12 21C7.8 19.2 5 15.5 5 11V6L12 3Z"
-              stroke="white"
-              stroke-width="2"
-              stroke-linejoin="round"
-            />
-
-            <path
-              d="M9 12L11 14L15 10"
-              stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
-
-          </svg>
-
-        </span>
-
-        <span class="nav-text">
-
-          <strong>
-            Datenschutz
-          </strong>
-
-          <span>
-            Datenschutzerklärung
-          </span>
-
-        </span>
-
-      </a>
-
-
-    </nav>
-
   </section>
 
-
-  <!-- =====================================
-       FOOTER
-       ===================================== -->
-
-  <footer class="footer">
-
-    <span>
-      © 2026 Frey Football Academy
-    </span>
-
-    <span>
-
-      <a href="impressum.html">
-        Impressum
-      </a>
-
-      ·
-
-      <a href="datenschutz.html">
-        Datenschutz
-      </a>
-
-      ·
-
-      <a href="https://frey-football-academy.fan12.de/" target="_blank" rel="noopener">
-        FFA Shop
-      </a>
-
-    </span>
-
+  <footer class="content footer">
+    <span>© 2026 Frey Football Academy</span>
+    <span><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="https://frey-football-academy.fan12.de/" target="_blank" rel="noopener">FFA Shop ↗</a></span>
   </footer>
-
-
 </main>
 
+<button class="backtop" id="backtop" aria-label="Nach oben">↑</button>
+<script>
+const menuToggle=document.getElementById('menuToggle');
+menuToggle?.addEventListener('click',()=>{
+  const open=document.body.classList.toggle('menu-open');
+  menuToggle.setAttribute('aria-expanded',String(open));
+  menuToggle.textContent=open?'×':'☰';
+  menuToggle.setAttribute('aria-label',open?'Menü schließen':'Menü öffnen');
+});
+document.querySelectorAll('.side-nav a').forEach(link=>link.addEventListener('click',()=>{
+  document.body.classList.remove('menu-open');
+  if(menuToggle){menuToggle.textContent='☰';menuToggle.setAttribute('aria-expanded','false');}
+}));
+const progress=document.getElementById('progress'),backtop=document.getElementById('backtop');
+function onScroll(){
+  const max=document.documentElement.scrollHeight-window.innerHeight;
+  progress.style.width=(max>0?window.scrollY/max*100:0)+'%';
+  backtop.classList.toggle('show',window.scrollY>500);
+}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+backtop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+  if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
+}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
 </body>
 </html>
