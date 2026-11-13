@@ -337,6 +337,181 @@ h1 span,.accent{color:var(--orange)}
       }
     }
 
+
+/* ===== GLOBAL FFA NAVIGATION: identisch zu index.html ===== */
+:root {
+  --sidebar-width: 248px;
+  --line: rgba(255,255,255,.11);
+}
+    .sidebar {
+      position: fixed;
+      inset: 0 auto 0 0;
+      z-index: 30;
+      width: var(--sidebar-width);
+      display: flex;
+      flex-direction: column;
+      padding: 30px 22px 24px;
+      background: #050505;
+      border-right: 1px solid var(--line);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 2px 4px 36px;
+      text-decoration: none;
+    }
+    .brand img { width: 48px; height: 48px; object-fit: contain; }
+    .brand-copy {
+      font-size: 10px;
+      line-height: 1.5;
+      letter-spacing: .16em;
+      color: #D5D5D5;
+      font-weight: 800;
+    }
+    .brand-copy span { display: block; color: var(--orange); }
+    .nav-caption {
+      padding: 0 11px 12px;
+      color: #666;
+      font-size: 9px;
+      letter-spacing: .2em;
+      font-weight: 800;
+    }
+    .side-nav { display: grid; gap: 5px; }
+    .side-nav a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 46px;
+      padding: 0 12px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      color: #999;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 650;
+      transition: color .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .side-nav a:hover,
+    .side-nav a.active {
+      color: #fff;
+      background: rgba(255,140,0,.09);
+      border-color: rgba(255,140,0,.2);
+    }
+    .nav-symbol {
+      display: inline-grid;
+      place-items: center;
+      width: 22px;
+      color: var(--orange);
+      font-size: 16px;
+    }
+    .sidebar-bottom { margin-top: auto; }
+    .sidebar-note {
+      border-top: 1px solid var(--line);
+      padding: 17px 5px 14px;
+      color: #777;
+      font-size: 9px;
+      line-height: 1.7;
+      letter-spacing: .12em;
+    }
+    .sidebar-note strong { color: #ddd; display: block; font-size: 10px; }
+    .sidebar-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 14px;
+      background: var(--orange);
+      color: #090909;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 900;
+      border-radius: 6px;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .sidebar-cta:hover { transform: translateY(-2px); background: #FFA126; }
+    .sidebar-social {
+      display: block;
+      margin: 17px 5px 0;
+      color: #777;
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .14em;
+    }
+    .sidebar-social:hover { color: var(--orange); }
+
+
+    .mobile-header { display: none; }
+    @media (max-width: 1050px) {
+      :root { --sidebar-width: 210px; }
+      .sidebar { padding-inline: 15px; }
+    }
+    @media (max-width: 760px) {
+      .sidebar { display: none; }
+      .page { margin-left: 0; }
+      main { margin-left: 0; }
+    .mobile-header {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 66px;
+        padding: 9px 20px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(5,5,5,.96);
+        backdrop-filter: blur(14px);
+      }
+      .mobile-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+      .mobile-brand img { width: 39px; height: 39px; object-fit: contain; }
+      .mobile-brand span { font-size: 9px; font-weight: 900; letter-spacing: .14em; }
+      .mobile-brand strong { color: var(--orange); }
+      .mobile-shop {
+        padding: 10px 12px;
+        border-radius: 4px;
+        background: var(--orange);
+        color: #080808;
+        text-decoration: none;
+        font-size: 10px;
+        font-weight: 900;
+      }
+    }
+
+
+/* Content frame offset follows the exact index.html sidebar width. */
+.page { margin-left: var(--sidebar-width); }
+main { margin-left: var(--sidebar-width); }
+@media (max-width: 760px) {
+  .page, main { margin-left: 0; }
+}
+
+
+/* ===== PAGE HEADER: identisches Format wie index.html ===== */
+    .topline {
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(24px, 5vw, 76px);
+      border-bottom: 1px solid var(--line);
+      color: #858585;
+      font-size: 10px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .topline strong { color: #ddd; font-weight: 800; }
+    .topline a {
+      text-decoration: none;
+      color: #aaa;
+      transition: color .2s ease;
+    }
+    .topline a:hover { color: var(--orange); }
+
+@media (max-width: 760px) {
+  .topline { height: 43px; padding: 0 20px; font-size: 8px; }
+}
+
 </style>
 <script type="application/ld+json">
 {
@@ -350,7 +525,7 @@ h1 span,.accent{color:var(--orange)}
 </script>
 </head>
 <body>
-  <aside class="sidebar" aria-label="Hauptnavigation">
+    <aside class="sidebar" aria-label="Hauptnavigation">
     <a class="brand" href="index.html">
       <img src="assets/logo.png" alt="Frey Football Academy Logo">
       <span class="brand-copy">FREY FOOTBALL<span>ACADEMY</span></span>
@@ -374,7 +549,7 @@ h1 span,.accent{color:var(--orange)}
       <a class="sidebar-social" href="https://www.instagram.com/ffa.footballacademy" target="_blank" rel="noopener">INSTAGRAM ↗</a>
     </div>
   </aside>
-  <div class="mobile-header">
+    <div class="mobile-header">
     <a class="mobile-brand" href="index.html">
       <img src="assets/logo.png" alt="">
       <span>FREY FOOTBALL<br><strong>ACADEMY</strong></span>
@@ -382,8 +557,8 @@ h1 span,.accent{color:var(--orange)}
     <a class="mobile-shop" href="https://frey-football-academy.fan12.de/" target="_blank" rel="noopener">FFA SHOP ↗</a>
   </div>
 <main>
+<div class="topline"><strong>FFA / Leistungen</strong><a href="index.html">Zur Startseite ↗</a></div>
 <div class="page-wrap">
-  <div class="topline"><strong>FFA / Leistungen</strong><a href="index.html">Zur Startseite ↗</a></div>
   <section class="hero">
     <div class="eyebrow">Dein Training. Deine Entwicklung.</div>
     <h1>Finde deinen Weg.<br><span>Entwickle dein Spiel.</span></h1>
