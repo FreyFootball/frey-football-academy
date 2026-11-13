@@ -726,74 +726,18 @@ h1 span{
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
-  border:1px solid rgba(255,255,255,.10);
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);
   border-radius:22px;
-  background:
-    linear-gradient(145deg,rgba(255,255,255,.07),rgba(0,0,0,.25));
-}
-
-.shop-art-inner{
-  padding:24px;
-}
-
-.shop-brandline{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:18px;
-  color:#fff;
-  font-size:clamp(25px,4vw,42px);
-  font-weight:950;
-  letter-spacing:-.06em;
-}
-
-.shop-brandline .shop-x{
-  color:var(--orange);
-  font-weight:500;
-}
-
-.ffa-wordmark{
-  letter-spacing:-.07em;
-}
-
-.adidas-wordmark{
-  display:inline-flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-end;
-  gap:5px;
-  font-size:.67em;
-  line-height:1;
-  font-weight:900;
-  letter-spacing:-.045em;
-}
-
-.adidas-mark{
-  display:inline-flex;
-  align-items:flex-end;
-  gap:4px;
-  height:31px;
-  transform:skew(-25deg);
-}
-
-.adidas-mark i{
-  display:block;
-  width:8px;
   background:#fff;
 }
 
-.adidas-mark i:nth-child(1){height:13px}
-.adidas-mark i:nth-child(2){height:21px}
-.adidas-mark i:nth-child(3){height:29px}
-
-.shop-art-caption{
-  margin-top:17px;
-  color:#888;
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:.22em;
-  text-transform:uppercase;
+.shop-collab-logo{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:680px;
+  object-fit:contain;
 }
 
 .shop-nav-link{
@@ -816,15 +760,11 @@ h1 span{
   }
 
   .shop-art{
-    min-height:165px;
+    min-height:0;
   }
 
-  .shop-art-inner{
-    padding:18px;
-  }
-
-  .shop-brandline{
-    font-size:32px;
+  .shop-collab-logo{
+    width:100%;
   }
 
   .shop-nav-link{
@@ -1142,20 +1082,13 @@ h1 span{
       </div>
     </div>
 
-    <div class="shop-art" aria-label="FFA x adidas">
-      <div class="shop-art-inner">
-        <div class="shop-brandline" aria-label="FFA x adidas">
-          <span class="ffa-wordmark">FFA</span>
-          <span class="shop-x">×</span>
-          <span class="adidas-wordmark">
-            <span class="adidas-mark" aria-hidden="true">
-              <i></i><i></i><i></i>
-            </span>
-            <span>adidas</span>
-          </span>
-        </div>
-        <div class="shop-art-caption">Official teamwear & merchandise</div>
-      </div>
+    <div class="shop-art" aria-label="FFA x adidas – offizielle Kooperation">
+      <img
+        class="shop-collab-logo"
+        src="assets/ffa-x-adidas.jpeg"
+        alt="FFA x adidas – Frey Football Academy und adidas"
+        loading="lazy"
+      >
     </div>
   </section>
 
