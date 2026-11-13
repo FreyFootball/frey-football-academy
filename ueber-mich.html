@@ -27,8 +27,8 @@
 
 <style>
 :root{
-  --orange:#ff6a00;
-  --orange2:#ff9b3d;
+  --orange:#FF8C00;
+  --orange2:#FF8C00;
   --bg:#050505;
   --line:rgba(255,255,255,.10);
   --muted:#aaa;
@@ -54,8 +54,8 @@ body{
   overflow-x:hidden;
   position:relative;
   background:
-    radial-gradient(circle at 50% -5%,rgba(255,106,0,.24),transparent 30%),
-    radial-gradient(circle at 0 55%,rgba(255,106,0,.08),transparent 25%),
+    radial-gradient(circle at 50% -5%,rgba(255,140,0,.24),transparent 30%),
+    radial-gradient(circle at 0 55%,rgba(255,140,0,.08),transparent 25%),
     linear-gradient(180deg,#141414 0%,#080808 48%,#030303 100%);
 }
 
@@ -82,7 +82,7 @@ body:after{
   background:conic-gradient(
     from 0deg,
     transparent 0 70%,
-    rgba(255,106,0,.065),
+    rgba(255,140,0,.065),
     transparent 80%
   );
   animation:spin 24s linear infinite;
@@ -138,8 +138,8 @@ body:after{
 @keyframes ffaPulse{
   50%{
     box-shadow:
-      0 0 0 9px rgba(255,106,0,0),
-      0 0 35px rgba(255,106,0,.22);
+      0 0 0 9px rgba(255,140,0,0),
+      0 0 35px rgba(255,140,0,.22);
   }
 }
 
@@ -196,18 +196,18 @@ body:after{
 .ffa-nav a:hover,
 .ffa-nav a.active{
   color:#fff;
-  background:rgba(255,106,0,.08);
+  background:rgba(255,140,0,.08);
 }
 
 .ffa-nav .cta-link{
   color:#fff;
-  background:linear-gradient(135deg,#ff7a18,#ff5d00);
-  box-shadow:0 8px 24px rgba(255,106,0,.18);
+  background:linear-gradient(135deg,#FF8C00,#FF8C00);
+  box-shadow:0 8px 24px rgba(255,140,0,.18);
 }
 
 .ffa-nav .cta-link:hover{
   transform:translateY(-2px);
-  background:linear-gradient(135deg,#ff8428,#ff6408);
+  background:linear-gradient(135deg,#FF8C00,#FF8C00);
 }
 
 /* ===== Grundlayout ===== */
@@ -234,7 +234,7 @@ body:after{
   border-radius:50%;
   background:radial-gradient(
     circle,
-    rgba(255,106,0,.27),
+    rgba(255,140,0,.27),
     transparent 65%
   );
   filter:blur(18px);
@@ -248,7 +248,7 @@ body:after{
   max-width:70%;
   height:auto;
   margin:auto;
-  filter:drop-shadow(0 0 24px rgba(255,106,0,.28));
+  filter:drop-shadow(0 0 24px rgba(255,140,0,.28));
   transition:.4s;
 }
 
@@ -267,7 +267,7 @@ h1{
 }
 
 .orange{
-  background:linear-gradient(100deg,#fff 10%,#ff8a32 78%);
+  background:linear-gradient(100deg,#fff 10%,#FF8C00 78%);
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
@@ -281,7 +281,7 @@ h1:after{
   margin:18px auto 0;
   border-radius:10px;
   background:var(--orange);
-  box-shadow:0 0 15px rgba(255,106,0,.7);
+  box-shadow:0 0 15px rgba(255,140,0,.7);
 }
 
 .subtitle{
@@ -326,7 +326,7 @@ h1:after{
   overflow:hidden;
   border-radius:20px;
   aspect-ratio:3 / 4;
-  border:1px solid rgba(255,106,0,.25);
+  border:1px solid rgba(255,140,0,.25);
   box-shadow:0 15px 45px rgba(0,0,0,.35);
 }
 
@@ -421,7 +421,7 @@ h1:after{
   background:linear-gradient(
     90deg,
     rgba(0,0,0,.05),
-    rgba(255,106,0,.09)
+    rgba(255,140,0,.09)
   );
 }
 
@@ -436,7 +436,7 @@ h1:after{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  color:#ff8b3b;
+  color:#FF8C00;
   font-size:11px;
   font-weight:900;
   letter-spacing:.18em;
@@ -480,7 +480,7 @@ h1:after{
   padding:18px 20px;
   border-left:3px solid var(--orange);
   border-radius:8px;
-  background:rgba(255,106,0,.065);
+  background:rgba(255,140,0,.065);
   color:#eee;
   font-size:17px;
   font-weight:750;
@@ -525,11 +525,11 @@ h1:after{
   margin:35px 0;
   padding:50px 35px;
   text-align:center;
-  border:1px solid rgba(255,106,0,.28);
+  border:1px solid rgba(255,140,0,.28);
   border-radius:25px;
   background:linear-gradient(
     135deg,
-    rgba(255,106,0,.12),
+    rgba(255,140,0,.12),
     rgba(17,17,17,.95)
   );
   box-shadow:0 25px 70px rgba(0,0,0,.32);
@@ -576,8 +576,8 @@ h1:after{
 
 .value:hover{
   transform:translateY(-4px);
-  border-color:rgba(255,106,0,.3);
-  background:rgba(255,106,0,.06);
+  border-color:rgba(255,140,0,.3);
+  background:rgba(255,140,0,.06);
 }
 
 .value .icon{
@@ -605,11 +605,11 @@ h1:after{
   margin-top:45px;
   padding:48px 28px;
   text-align:center;
-  border:1px solid rgba(255,106,0,.24);
+  border:1px solid rgba(255,140,0,.24);
   border-radius:24px;
   background:linear-gradient(
     135deg,
-    rgba(255,106,0,.11),
+    rgba(255,140,0,.11),
     rgba(17,17,17,.96)
   );
   box-shadow:0 25px 70px rgba(0,0,0,.35);
@@ -625,7 +625,7 @@ h1:after{
   top:50%;
   transform:translate(-50%,-50%);
   border-radius:50%;
-  background:rgba(255,106,0,.08);
+  background:rgba(255,140,0,.08);
   filter:blur(35px);
 }
 
@@ -653,7 +653,7 @@ h1:after{
   gap:9px;
   margin:24px 5px 0;
   padding:14px 24px;
-  background:linear-gradient(135deg,#ff7a18,#ff5d00);
+  background:linear-gradient(135deg,#FF8C00,#FF8C00);
   color:#fff;
   text-decoration:none;
   border-radius:13px;
@@ -669,7 +669,7 @@ h1:after{
   filter:brightness(1.07);
   box-shadow:
     0 17px 38px rgba(0,0,0,.42),
-    0 0 25px rgba(255,106,0,.2);
+    0 0 25px rgba(255,140,0,.2);
 }
 
 .button-secondary{
@@ -696,8 +696,8 @@ h1:after{
 
 .back:hover{
   transform:translateY(-3px);
-  border-color:rgba(255,106,0,.28);
-  background:rgba(255,106,0,.07);
+  border-color:rgba(255,140,0,.28);
+  background:rgba(255,140,0,.07);
 }
 
 .footer{
@@ -729,7 +729,7 @@ h1:after{
   background:var(--orange);
   box-shadow:
     0 0 8px var(--orange),
-    0 0 18px rgba(255,106,0,.5);
+    0 0 18px rgba(255,140,0,.5);
   opacity:0;
   animation:particleFloat linear infinite;
 }
@@ -888,6 +888,107 @@ h1:after{
     scroll-behavior:auto!important;
   }
 }
+
+/* ===== FFA PROFESSIONAL SYSTEM – shared with homepage ===== */
+:root {
+  --orange:#FF8C00;
+  --orange2:#FF8C00;
+  --bg:#080808;
+  --line:rgba(255,255,255,.11);
+}
+body {
+  background:#080808;
+  color:#F7F7F5;
+  font-family:Inter,"Helvetica Neue",Arial,sans-serif;
+}
+body:before, body:after { display:none; }
+.sidebar {
+  position:fixed; inset:0 auto 0 0; z-index:30; width:248px;
+  display:flex; flex-direction:column; padding:30px 22px 24px;
+  background:#050505; border-right:1px solid var(--line);
+}
+.brand { display:flex; align-items:center; gap:12px; padding:2px 4px 36px; color:#ddd; text-decoration:none; }
+.brand img { width:48px; height:48px; object-fit:contain; }
+.brand span { font-size:10px; line-height:1.5; letter-spacing:.16em; font-weight:800; }
+.brand strong { color:var(--orange); }
+.nav-caption { padding:0 11px 12px; color:#666; font-size:9px; letter-spacing:.2em; font-weight:800; }
+.side-nav { display:grid; gap:5px; }
+.side-nav a { display:flex; align-items:center; gap:12px; min-height:46px; padding:0 12px; border:1px solid transparent; border-radius:8px; color:#999; text-decoration:none; font-size:12px; font-weight:650; transition:.2s; }
+.side-nav a:hover,.side-nav a.active { color:#fff; background:rgba(255,140,0,.09); border-color:rgba(255,140,0,.2); }
+.side-nav i { width:22px; color:var(--orange); font-style:normal; font-size:16px; }
+.sidebar-bottom { margin-top:auto; }
+.sidebar-note { border-top:1px solid var(--line); padding:17px 5px 14px; color:#777; font-size:9px; line-height:1.7; letter-spacing:.12em; }
+.sidebar-note strong { display:block; color:#ddd; font-size:10px; }
+.sidebar-cta { display:flex; justify-content:space-between; padding:14px; border-radius:5px; background:var(--orange); color:#080808; text-decoration:none; font-size:11px; font-weight:900; }
+.sidebar-social { display:block; margin:17px 5px 0; color:#777; text-decoration:none; font-size:9px; font-weight:800; letter-spacing:.14em; }
+.sidebar-social:hover { color:var(--orange); }
+.page { margin-left:248px; min-height:100vh; }
+.topline { height:62px; display:flex; align-items:center; justify-content:space-between; padding:0 clamp(24px,5vw,76px); border-bottom:1px solid var(--line); color:#858585; font-size:10px; letter-spacing:.13em; text-transform:uppercase; }
+.topline strong { color:#ddd; }
+.topline a { color:#aaa; text-decoration:none; }
+.topline a:hover { color:var(--orange); }
+.container { width:min(1120px,calc(100% - 2 * clamp(24px,5vw,76px))); margin:0 auto; padding:36px 0 55px; }
+.about-hero { display:grid; grid-template-columns:1.1fr .9fr; align-items:center; gap:35px; min-height:390px; padding:30px 0 55px; }
+.about-hero-copy { text-align:left; }
+.about-hero .eyebrow { color:var(--orange); font-size:10px; font-weight:900; letter-spacing:.2em; }
+.about-hero h1 { text-align:left; font-size:clamp(48px,6.5vw,82px); line-height:.96; letter-spacing:-.065em; }
+.about-hero h1:after { margin:20px 0 0; width:42px; }
+.about-hero .subtitle { margin:17px 0 0; text-align:left; font-size:16px; }
+.about-hero-logo { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:300px; border:1px solid var(--line); background:linear-gradient(145deg,#151515,#090909); }
+.about-hero-logo .logo { width:min(58%,230px); }
+.about-hero-logo span { margin-top:22px; color:#777; font-size:9px; font-weight:800; letter-spacing:.18em; }
+.personal-intro-with-portrait,.story,.philosophy,.value,.stat,.cta {
+  border-radius:4px; box-shadow:none; backdrop-filter:none;
+}
+.personal-intro-with-portrait,.story {
+  border-color:var(--line); background:#101010;
+}
+.portrait-wrapper { border-radius:3px; border-color:rgba(255,140,0,.35); }
+.story { margin-bottom:16px; }
+.story-copy { padding:clamp(28px,4vw,48px); }
+.kicker { color:var(--orange); }
+.story-image:after { background:linear-gradient(90deg,rgba(0,0,0,.03),rgba(255,140,0,.06)); }
+.stats { gap:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.stat { border:0; border-radius:0; background:transparent; }
+.stat + .stat { border-left:1px solid var(--line); }
+.stat .number { color:var(--orange); }
+.philosophy { border:1px solid rgba(255,140,0,.28); background:#101010; }
+.value { border-radius:4px; background:#101010; }
+.value:hover { border-color:rgba(255,140,0,.45); background:#15110b; }
+.button { border-radius:4px; background:var(--orange); color:#080808; box-shadow:none; }
+.button:hover { filter:brightness(1.06); box-shadow:0 10px 25px rgba(255,140,0,.14); }
+.button-secondary { color:#eee; background:rgba(255,255,255,.05); border-color:var(--line); }
+.cta { border:1px solid rgba(255,140,0,.25); background:#101010; }
+.back { border-radius:4px; }
+.footer { text-align:left; }
+.mobile-header { display:none; }
+@media(max-width:1050px) {
+  .sidebar { width:210px; padding-inline:15px; }
+  .page { margin-left:210px; }
+}
+@media(max-width:760px) {
+  .sidebar { display:none; }
+  .page { margin-left:0; }
+  .mobile-header { position:sticky; top:0; z-index:40; display:flex; align-items:center; justify-content:space-between; min-height:66px; padding:9px 20px; border-bottom:1px solid var(--line); background:rgba(5,5,5,.97); }
+  .mobile-brand { display:flex; align-items:center; gap:10px; color:#fff; text-decoration:none; }
+  .mobile-brand img { width:39px; height:39px; object-fit:contain; }
+  .mobile-brand span { font-size:9px; font-weight:900; letter-spacing:.14em; }
+  .mobile-brand strong { color:var(--orange); }
+  .mobile-shop { padding:10px 12px; border-radius:4px; background:var(--orange); color:#080808; text-decoration:none; font-size:10px; font-weight:900; }
+  .topline { height:43px; padding:0 20px; font-size:8px; }
+  .container { width:92%; padding-top:25px; }
+  .about-hero { grid-template-columns:1fr; gap:24px; padding:25px 0 38px; }
+  .about-hero-logo { min-height:230px; }
+  .personal-intro-with-portrait { padding:24px 20px; }
+  .story-grid { grid-template-columns:1fr; }
+  .story.reverse .story-grid { direction:ltr; }
+  .story-image { min-height:260px; }
+  .stats { grid-template-columns:1fr; }
+  .stat + .stat { border-left:0; border-top:1px solid var(--line); }
+  .values { grid-template-columns:1fr; }
+  .footer { text-align:left; }
+}
+
 </style>
 
 <script type="application/ld+json">
@@ -918,52 +1019,49 @@ h1:after{
 
 <body>
 
-<header class="ffa-topbar">
 
-  <a class="ffa-brand" href="index.html">
-    <span class="ffa-dot"></span>
-    Frey Football Academy
-  </a>
-
-  <nav class="ffa-nav" aria-label="Hauptnavigation">
-    <a href="index.html">Startseite</a>
-    <a href="ueber-mich.html" class="active">Über Mich</a>
-    <a class="cta-link" href="leistungen.html">
-      Training entdecken ↗
+  <aside class="sidebar" aria-label="Hauptnavigation">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Frey Football Academy Logo">
+      <span>FREY FOOTBALL<br><strong>ACADEMY</strong></span>
     </a>
-  </nav>
-
-</header>
-
-<div class="particles" aria-hidden="true">
-  <span class="particle" style="left:7%;animation-duration:10s;animation-delay:-2s"></span>
-  <span class="particle" style="left:18%;animation-duration:13s;animation-delay:-7s"></span>
-  <span class="particle" style="left:31%;animation-duration:11s;animation-delay:-4s"></span>
-  <span class="particle" style="left:45%;animation-duration:15s;animation-delay:-9s"></span>
-  <span class="particle" style="left:59%;animation-duration:12s;animation-delay:-3s"></span>
-  <span class="particle" style="left:73%;animation-duration:14s;animation-delay:-8s"></span>
-  <span class="particle" style="left:87%;animation-duration:10s;animation-delay:-5s"></span>
-</div>
-
-<div class="football one" aria-hidden="true">⚽</div>
-<div class="football two" aria-hidden="true">⚽</div>
-<div class="football three" aria-hidden="true">⚽</div>
-
-<main class="container">
-
-  <div class="logo-wrapper">
-    <img
-      src="assets/logo.png"
-      alt="Frey Football Academy"
-      class="logo"
-      onerror="this.style.display='none'"
-    >
+    <div class="nav-caption">NAVIGATION</div>
+    <nav class="side-nav">
+      <a href="index.html"><i>⌂</i> Startseite</a>
+      <a class="active" href="ueber-mich.html"><i>◎</i> Über mich</a>
+      <a href="leistungen.html"><i>↗</i> Trainingsangebote</a>
+      <a href="standorte.html"><i>⌖</i> Standorte</a>
+      <a href="https://frey-football-academy.fan12.de/" target="_blank" rel="noopener"><i>▣</i> FFA Shop ↗</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-note"><strong>FREY FOOTBALL ACADEMY</strong>INDIVIDUELL · ZIELGERICHTET · NACHHALTIG</div>
+      <a class="sidebar-cta" href="leistungen.html">Training anfragen <span>↗</span></a>
+      <a class="sidebar-social" href="https://www.instagram.com/ffa.footballacademy" target="_blank" rel="noopener">INSTAGRAM ↗</a>
+    </div>
+  </aside>
+  <div class="mobile-header">
+    <a class="mobile-brand" href="index.html"><img src="assets/logo.png" alt=""><span>FREY FOOTBALL<br><strong>ACADEMY</strong></span></a>
+    <a class="mobile-shop" href="https://frey-football-academy.fan12.de/" target="_blank" rel="noopener">FFA SHOP ↗</a>
   </div>
 
-  <h1>
-    Willkommen bei der
-    <span class="orange">Frey Football Academy!</span>
-  </h1>
+
+
+
+<div class="page">
+    <div class="topline"><span><strong>Frey Football Academy</strong> / About</span><a href="https://www.instagram.com/ffa.footballacademy" target="_blank" rel="noopener">Folge der FFA auf Instagram ↗</a></div>
+    <main class="container">
+
+  <section class="about-hero" aria-labelledby="about-title">
+    <div class="about-hero-copy">
+      <div class="eyebrow">DER MENSCH HINTER DER FFA</div>
+      <h1 id="about-title">FUSSBALL IST<br>MEINE <span class="orange">PASSION.</span></h1>
+      <p class="subtitle">Jan Frey · Gründer der Frey Football Academy</p>
+    </div>
+    <div class="about-hero-logo">
+      <img src="assets/logo.png" alt="Frey Football Academy" class="logo">
+      <span>PLAYER DEVELOPMENT · RHEIN-MAIN</span>
+    </div>
+  </section>
 
   <p class="subtitle">
     Schön, dass du hier bist.
@@ -1300,6 +1398,7 @@ h1:after{
   </div>
 
 </main>
+  </div>
 
 </body>
 </html>
