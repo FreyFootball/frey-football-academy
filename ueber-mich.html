@@ -1302,6 +1302,64 @@ main { margin-left: var(--sidebar-width); }
   .topline { height: 43px; padding: 0 20px; font-size: 8px; }
 }
 
+
+/* Einheitliche, sauber gefüllte Bildrahmen */
+.story-grid {
+  min-height: 0;
+  align-items: stretch;
+}
+.story-image {
+  min-height: 0;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  align-self: stretch;
+  background: #080808;
+}
+.story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.portrait-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  height: auto;
+}
+.portrait-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+/* Die Laufbahn-Grafik bleibt vollständig sichtbar und wird nicht abgeschnitten. */
+.journey-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #050505;
+}
+.journey-image img {
+  object-fit: contain;
+  object-position: center;
+  padding: 8px;
+}
+@media (max-width: 850px) {
+  .story-image {
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+  }
+}
+@media (max-width: 600px) {
+  .story-image {
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+  }
+  .portrait-wrapper {
+    width: min(100%, 420px);
+    margin: 0 auto;
+  }
+}
+
 </style>
 
 <script type="application/ld+json">
@@ -1397,10 +1455,10 @@ main { margin-left: var(--sidebar-width); }
     aria-labelledby="jan-frey-intro"
   >
 
-    <div class="portrait-wrapper">
+    <div class="portrait-wrapper journey-image">
       <img
-        src="assets/logo.png"
-        alt="Jan Frey – Gründer der Frey Football Academy"
+        src="assets/ffa-trainerlaufbahn.png"
+        alt="Trainerlaufbahn: VfB Bodenheim, SV Waldhof Mannheim, 1. FSV Mainz 05 und Frey Football Academy"
         loading="lazy"
       >
     </div>
