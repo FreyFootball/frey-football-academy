@@ -1426,6 +1426,82 @@ main { margin-left: var(--sidebar-width); }
   }
 }
 
+
+
+/* FINALER BILDFIT: jedes Motiv vollständig anzeigen, nichts abschneiden */
+.page main.container .about-hero-logo {
+  min-height: 0;
+  padding: 18px;
+}
+.page main.container .about-hero-logo img {
+  width: 100%;
+  max-width: 430px;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+.page main.container .portrait-wrapper {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  max-width: 430px;
+  margin-inline: auto;
+  overflow: hidden;
+  background: #050505;
+}
+.page main.container .portrait-wrapper img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+.page main.container .story-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+  padding: 10px;
+  overflow: hidden;
+  background: #050505;
+}
+.page main.container .story-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+.page main.container img {
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+@media (max-width: 760px) {
+  .page main.container .about-hero-logo img {
+    max-height: 440px;
+  }
+  .page main.container .portrait-wrapper {
+    width: min(100%, 390px);
+    aspect-ratio: 2 / 3;
+  }
+  .page main.container .story-image {
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+    height: auto;
+    padding: 8px;
+  }
+  .page main.container .story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+  }
+}
+
 </style>
 
 <script type="application/ld+json">
