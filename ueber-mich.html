@@ -934,22 +934,6 @@ body:before, body:after { display:none; }
 .about-hero h1 { text-align:left; font-size:clamp(48px,6.5vw,82px); line-height:.96; letter-spacing:-.065em; }
 .about-hero h1:after { margin:20px 0 0; width:42px; }
 .about-hero .subtitle { margin:17px 0 0; text-align:left; font-size:16px; }
-.about-hero-photo {
-  width:100%;
-  aspect-ratio:4 / 3;
-  min-height:0;
-  overflow:hidden;
-  border:1px solid var(--line);
-  background:#101010;
-}
-.about-hero-photo img {
-  display:block;
-  width:100%;
-  height:100%;
-  aspect-ratio:4 / 3;
-  object-fit:cover;
-  object-position:center 35%;
-}
 .about-hero-logo { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:300px; border:1px solid var(--line); background:linear-gradient(145deg,#151515,#090909); }
 .about-hero-logo .logo { width:min(58%,230px); }
 .about-hero-logo span { margin-top:22px; color:#777; font-size:9px; font-weight:800; letter-spacing:.18em; }
@@ -959,8 +943,6 @@ body:before, body:after { display:none; }
 .personal-intro-with-portrait,.story {
   border-color:var(--line); background:#101010;
 }
-.personal-intro-with-portrait { grid-template-columns:1fr; }
-.personal-intro-content { max-width:900px; }
 .portrait-wrapper { border-radius:3px; border-color:rgba(255,140,0,.35); }
 .story { margin-bottom:16px; }
 .story-copy { padding:clamp(28px,4vw,48px); }
@@ -996,11 +978,11 @@ body:before, body:after { display:none; }
   .topline { height:43px; padding:0 20px; font-size:8px; }
   .container { width:92%; padding-top:25px; }
   .about-hero { grid-template-columns:1fr; gap:24px; padding:25px 0 38px; }
-  .about-hero-photo { width:100%; }
+  .about-hero-logo { min-height:230px; }
   .personal-intro-with-portrait { padding:24px 20px; }
   .story-grid { grid-template-columns:1fr; }
   .story.reverse .story-grid { direction:ltr; }
-  .story-image { min-height:0; aspect-ratio:4 / 3; }
+  .story-image { min-height:260px; }
   .stats { grid-template-columns:1fr; }
   .stat + .stat { border-left:0; border-top:1px solid var(--line); }
   .values { grid-template-columns:1fr; }
@@ -1329,7 +1311,7 @@ main { margin-left: var(--sidebar-width); }
   "name":"Jan Frey",
   "jobTitle":"Fußballtrainer und Gründer der Frey Football Academy",
   "url":"https://freyfootballacademy.com/ueber-mich.html",
-  "image":"https://freyfootballacademy.com/assets/jan-mainz-05.jpg",
+  "image":"https://freyfootballacademy.com/assets/jan-portrait.jpg",
   "worksFor":{
     "@type":"SportsActivityLocation",
     "name":"Frey Football Academy",
@@ -1396,8 +1378,9 @@ main { margin-left: var(--sidebar-width); }
       <h1 id="about-title">FUSSBALL IST<br>MEINE <span class="orange">PASSION.</span></h1>
       <p class="subtitle">Jan Frey · Gründer der Frey Football Academy</p>
     </div>
-    <div class="about-hero-photo">
-      <img src="assets/jan-mainz-05.jpg" alt="Jan Frey – Einblick in seine Zeit im Nachwuchsleistungszentrum von Mainz 05" loading="eager">
+    <div class="about-hero-logo">
+      <img src="assets/logo.png" alt="Frey Football Academy" class="logo">
+      <span>PLAYER DEVELOPMENT · RHEIN-MAIN</span>
     </div>
   </section>
 
@@ -1413,6 +1396,14 @@ main { margin-left: var(--sidebar-width); }
     class="personal-intro-with-portrait"
     aria-labelledby="jan-frey-intro"
   >
+
+    <div class="portrait-wrapper">
+      <img
+        src="assets/jan-portrait.jpg"
+        alt="Jan Frey – Gründer der Frey Football Academy"
+        loading="lazy"
+      >
+    </div>
 
     <div class="personal-intro-content">
 
@@ -1464,8 +1455,8 @@ main { margin-left: var(--sidebar-width); }
 
       <div class="story-image">
         <img
-          src="assets/jan-portrait.jpg"
-          alt="Jan Frey – Gründer der Frey Football Academy"
+          src="assets/jan-mainz-05.jpg"
+          alt="Jan Frey – Fußballtrainer mit Erfahrung im Nachwuchsleistungszentrum von Mainz 05"
           loading="lazy"
         >
       </div>
