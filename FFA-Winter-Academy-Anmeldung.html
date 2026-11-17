@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anmeldung | FFA Winter Academy 2026</title>
+<meta name="description" content="Melde dich jetzt für die FFA Winter Academy 2026 an. Wähle deine gewünschten Trainingstermine aus.">
+<meta name="theme-color" content="#080808">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<style>
+
+
+    :root {
+      --orange: #FF8C00;
+      --black: #080808;
+      --panel: #111111;
+      --panel-soft: #151515;
+      --white: #F7F7F5;
+      --muted: #A1A1A1;
+      --line: rgba(255,255,255,.11);
+      --sidebar-width: 248px;
+      --content-width: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--black);
+      color: var(--white);
+      font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 4px;
+    }
+
+    /* Fixed desktop navigation */
+    .sidebar {
+      position: fixed;
+      inset: 0 auto 0 0;
+      z-index: 30;
+      width: var(--sidebar-width);
+      display: flex;
+      flex-direction: column;
+      padding: 30px 22px 24px;
+      background: #050505;
+      border-right: 1px solid var(--line);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 2px 4px 36px;
+      text-decoration: none;
+    }
+    .brand img { width: 48px; height: 48px; object-fit: contain; }
+    .brand-copy {
+      font-size: 10px;
+      line-height: 1.5;
+      letter-spacing: .16em;
+      color: #D5D5D5;
+      font-weight: 800;
+    }
+    .brand-copy span { display: block; color: var(--orange); }
+    .nav-caption {
+      padding: 0 11px 12px;
+      color: #666;
+      font-size: 9px;
+      letter-spacing: .2em;
+      font-weight: 800;
+    }
+    .side-nav { display: grid; gap: 5px; }
+    .side-nav a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 46px;
+      padding: 0 12px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      color: #999;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 650;
+      transition: color .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .side-nav a:hover,
+    .side-nav a.active {
+      color: #fff;
+      background: rgba(255,140,0,.09);
+      border-color: rgba(255,140,0,.2);
+    }
+    .nav-symbol {
+      display: inline-grid;
+      place-items: center;
+      width: 22px;
+      color: var(--orange);
+      font-size: 16px;
+    }
+    .sidebar-bottom { margin-top: auto; }
+    .sidebar-note {
+      border-top: 1px solid var(--line);
+      padding: 17px 5px 14px;
+      color: #777;
+      font-size: 9px;
+      line-height: 1.7;
+      letter-spacing: .12em;
+    }
+    .sidebar-note strong { color: #ddd; display: block; font-size: 10px; }
+    .sidebar-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 14px;
+      background: var(--orange);
+      color: #090909;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 900;
+      border-radius: 6px;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .sidebar-cta:hover { transform: translateY(-2px); background: #FFA126; }
+    .sidebar-social {
+      display: block;
+      margin: 17px 5px 0;
+      color: #777;
+      text-decoration: none;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .14em;
+    }
+    .sidebar-social:hover { color: var(--orange); }
+
+    /* Main page frame */
+    .page {
+      margin-left: var(--sidebar-width);
+      min-height: 100vh;
+    }
+    .topline {
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(24px, 5vw, 76px);
+      border-bottom: 1px solid var(--line);
+      color: #858585;
+      font-size: 10px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .topline strong { color: #ddd; font-weight: 800; }
+    .topline a {
+      text-decoration: none;
+      color: #aaa;
+      transition: color .2s ease;
+    }
+    .topline a:hover { color: var(--orange); }
+    .container {
+      width: min(var(--content-width), calc(100% - 2 * clamp(24px, 5vw, 76px)));
+      margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 660px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(280px, .82fr);
+      align-items: center;
+      gap: clamp(30px, 5vw, 76px);
+      padding: 82px 0 76px;
+      isolation: isolate;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: -15%;
+      width: 70%;
+      height: 100%;
+      background: radial-gradient(ellipse at 60% 42%, rgba(255,140,0,.13), transparent 62%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 24px;
+      color: var(--orange);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 30px; height: 1px; background: var(--orange); }
+    h1 {
+      max-width: 780px;
+      margin: 0;
+      font-size: clamp(48px, 6.3vw, 88px);
+      line-height: .96;
+      letter-spacing: -.065em;
+      font-weight: 900;
+    }
+    h1 span { color: var(--orange); }
+    .hero-lead {
+      max-width: 620px;
+      margin: 27px 0 0;
+      color: #B1B1B1;
+      font-size: clamp(16px, 1.45vw, 19px);
+      line-height: 1.75;
+    }
+    .hero-lead strong { color: #fff; font-weight: 700; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 0 20px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .04em;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--orange); color: #080808; }
+    .button-primary:hover { background: #FFA126; }
+    .button-secondary { color: #eee; border-color: rgba(255,255,255,.2); background: rgba(255,255,255,.025); }
+    .button-secondary:hover { border-color: var(--orange); }
+
+    .hero-visual {
+      position: relative;
+      min-height: 430px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 4px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.06), transparent 55%),
+        #101010;
+    }
+    .hero-visual::before,
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(255,140,0,.18);
+      transform: rotate(-32deg);
+      pointer-events: none;
+    }
+    .hero-visual::before { width: 440px; height: 170px; }
+    .hero-visual::after { width: 440px; height: 170px; transform: rotate(-32deg) translateY(30px); opacity: .45; }
+    .hero-logo {
+      position: relative;
+      z-index: 1;
+      width: min(66%, 270px);
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 45px rgba(0,0,0,.6));
+    }
+    .visual-tag {
+      position: absolute;
+      z-index: 2;
+      left: 20px;
+      bottom: 19px;
+      color: #888;
+      font-size: 9px;
+      letter-spacing: .18em;
+      font-weight: 800;
+    }
+    .visual-index {
+      position: absolute;
+      z-index: 2;
+      right: 20px;
+      top: 18px;
+      color: var(--orange);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .15em;
+    }
+
+    /* Credibility strip */
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 105px;
+    }
+    .proof-item { padding: 24px 20px 24px 0; }
+    .proof-item + .proof-item { border-left: 1px solid var(--line); padding-left: 25px; }
+    .proof-item strong { display: block; color: #fff; font-size: 17px; font-weight: 900; }
+    .proof-item span { display: block; margin-top: 6px; color: #777; font-size: 10px; line-height: 1.5; }
+
+    /* Sections */
+    .section { margin: 0 0 110px; }
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 25px;
+      margin-bottom: 28px;
+    }
+    .section-kicker {
+      color: var(--orange);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .section-title {
+      margin: 10px 0 0;
+      font-size: clamp(31px, 4vw, 48px);
+      line-height: 1;
+      letter-spacing: -.05em;
+      font-weight: 900;
+    }
+    .section-intro {
+      max-width: 420px;
+      margin: 0;
+      color: #898989;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .development-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .development-card {
+      position: relative;
+      min-height: 225px;
+      padding: 26px 24px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, #151515, #0c0c0c);
+      transition: border-color .25s ease, transform .25s ease;
+    }
+    .development-card:hover { transform: translateY(-4px); border-color: rgba(255,140,0,.45); }
+    .card-number { color: var(--orange); font-size: 10px; font-weight: 900; letter-spacing: .15em; }
+    .card-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin: 25px 0 22px;
+      border: 1px solid rgba(255,140,0,.3);
+      color: var(--orange);
+      font-size: 19px;
+    }
+    .development-card h3 { margin: 0 0 9px; font-size: 18px; letter-spacing: -.02em; }
+    .development-card p { margin: 0; color: #888; font-size: 12px; line-height: 1.7; }
+
+    /* Academy introduction */
+    .academy-panel {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      border: 1px solid var(--line);
+      background: #101010;
+    }
+    .academy-copy { padding: clamp(28px, 4vw, 54px); }
+    .academy-copy h2 {
+      margin: 12px 0 20px;
+      max-width: 550px;
+      font-size: clamp(30px, 3.6vw, 45px);
+      line-height: 1.03;
+      letter-spacing: -.05em;
+    }
+    .academy-copy p { max-width: 650px; color: #999; font-size: 13px; line-height: 1.85; }
+    .academy-copy strong { color: #fff; }
+    .academy-aside {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 330px;
+      padding: clamp(28px, 4vw, 48px);
+      border-left: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 100% 0, rgba(255,140,0,.13), transparent 45%),
+        #0b0b0b;
+    }
+    .aside-symbol { color: rgba(255,140,0,.28); font-size: 92px; line-height: .8; font-weight: 900; }
+    .academy-aside h3 { margin: 30px 0 10px; font-size: 23px; letter-spacing: -.04em; }
+    .academy-aside p { margin: 0 0 23px; color: #888; font-size: 12px; line-height: 1.7; }
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      width: fit-content;
+      color: var(--orange);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .text-link:hover { color: #fff; }
+
+    /* Shop feature */
+    .shop-feature {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+      padding: clamp(28px, 4vw, 52px);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: #0d0d0d;
+    }
+    .shop-feature::before {
+      content: "FFA";
+      position: absolute;
+      right: 35%;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255,255,255,.025);
+      font-size: clamp(130px, 22vw, 300px);
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -.1em;
+      pointer-events: none;
+    }
+    .shop-copy, .shop-art { position: relative; z-index: 1; }
+    .shop-label { color: var(--orange); font-size: 9px; font-weight: 900; letter-spacing: .2em; }
+    .shop-copy h2 { margin: 15px 0; font-size: clamp(35px, 5vw, 62px); line-height: .95; letter-spacing: -.06em; }
+    .shop-copy h2 span { color: var(--orange); }
+    .shop-copy p { max-width: 470px; color: #999; font-size: 13px; line-height: 1.8; }
+    .shop-art {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 250px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,.13);
+      background: #000;
+    }
+    .shop-art img { display: block; width: 100%; max-width: 560px; height: auto; object-fit: contain; }
+
+    /* Quick links */
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .quick-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 22px 18px 22px 0;
+      color: #ddd;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 800;
+      transition: color .2s ease;
+    }
+    .quick-links a + a { border-left: 1px solid var(--line); padding-left: 20px; }
+    .quick-links a span { color: var(--orange); font-size: 17px; }
+    .quick-links a:hover { color: var(--orange); }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 25px 0 35px;
+      border-top: 1px solid var(--line);
+      color: #666;
+      font-size: 10px;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    footer a { color: #777; text-decoration: none; }
+    footer a:hover { color: var(--orange); }
+
+    /* Mobile header and layout */
+    .mobile-header { display: none; }
+    @media (max-width: 1050px) {
+      :root { --sidebar-width: 210px; }
+      .sidebar { padding-inline: 15px; }
+      .hero { min-height: 580px; gap: 28px; }
+      .hero-visual { min-height: 360px; }
+      .proof-item { padding-right: 12px; }
+      .proof-item + .proof-item { padding-left: 15px; }
+    }
+    @media (max-width: 760px) {
+      .sidebar { display: none; }
+      .page { margin-left: 0; }
+      .mobile-header {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 66px;
+        padding: 9px 20px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(5,5,5,.96);
+        backdrop-filter: blur(14px);
+      }
+      .mobile-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+      .mobile-brand img { width: 39px; height: 39px; object-fit: contain; }
+      .mobile-brand span { font-size: 9px; font-weight: 900; letter-spacing: .14em; }
+      .mobile-brand strong { color: var(--orange); }
+      .mobile-shop {
+        padding: 10px 12px;
+        border-radius: 4px;
+        background: var(--orange);
+        color: #080808;
+        text-decoration: none;
+        font-size: 10px;
+        font-weight: 900;
+      }
+      .topline { height: 43px; padding: 0 20px; font-size: 8px; }
+      .container { width: calc(100% - 40px); }
+      .hero { min-height: auto; grid-template-columns: 1fr; padding: 65px 0 50px; gap: 35px; }
+      h1 { font-size: clamp(47px, 12vw, 70px); }
+      .hero-visual { min-height: 280px; }
+      .hero-logo { width: min(52%, 210px); }
+      .proof-strip { grid-template-columns: repeat(2, 1fr); margin-bottom: 75px; }
+      .proof-item { padding: 18px 10px 18px 0; }
+      .proof-item:nth-child(3) { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+      .proof-item:nth-child(4) { border-top: 1px solid var(--line); }
+      .proof-item + .proof-item { padding-left: 14px; }
+      .proof-item:nth-child(3) { padding-left: 0; }
+      .section { margin-bottom: 78px; }
+      .section-heading { display: block; }
+      .section-intro { margin-top: 17px; }
+      .development-grid { grid-template-columns: 1fr; }
+      .development-card { min-height: 190px; }
+      .academy-panel { grid-template-columns: 1fr; }
+      .academy-aside { border-left: 0; border-top: 1px solid var(--line); min-height: 270px; }
+      .shop-feature { grid-template-columns: 1fr; gap: 25px; }
+      .shop-art { min-height: 190px; }
+      .quick-links { grid-template-columns: 1fr; }
+      .quick-links a { padding: 17px 0; }
+      .quick-links a + a { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; }
+      footer { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  
+
+    /* Individualtraining page */
+    .individual-main { padding-top: 62px; }
+    .individual-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      gap: 30px;
+      padding: 28px 0 42px;
+    }
+    .individual-hero .eyebrow { margin-bottom: 17px; }
+    .individual-hero h1 {
+      margin: 0;
+      max-width: 850px;
+      color: var(--white);
+      font-size: clamp(38px, 5.4vw, 68px);
+      line-height: .98;
+      letter-spacing: -.065em;
+      font-weight: 900;
+    }
+    .individual-hero h1 span { color: var(--orange); }
+    .individual-hero .intro {
+      max-width: 680px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+    .hero-index {
+      padding-bottom: 5px;
+      color: #555;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      white-space: nowrap;
+    }
+    .performance-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 760px;
+      margin: 0 0 30px;
+      padding: 17px 19px;
+      border: 1px solid rgba(255,140,0,.27);
+      border-radius: 7px;
+      background: linear-gradient(110deg, rgba(255,140,0,.09), rgba(255,255,255,.025));
+      color: var(--white);
+      text-decoration: none;
+      transition: border-color .2s ease, transform .2s ease, background .2s ease;
+    }
+    .performance-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,140,0,.55);
+      background: rgba(255,140,0,.09);
+    }
+    .performance-link-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      border-radius: 6px;
+      background: var(--orange);
+    }
+    .performance-link-text { display: flex; flex: 1; flex-direction: column; gap: 2px; }
+    .performance-link-text strong { font-size: 13px; font-weight: 900; }
+    .performance-link-text small { color: #999; font-size: 11px; }
+    .performance-link-arrow { color: var(--orange); font-size: 23px; }
+    #winter-form {
+      position: relative;
+      margin: 0 0 28px;
+      padding: clamp(22px, 4vw, 42px);
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: linear-gradient(145deg, #141414, #0c0c0c);
+      box-shadow: 0 24px 70px rgba(0,0,0,.28);
+    }
+    #winter-form .section { margin-top: 38px; }
+    #winter-form .section:first-of-type { margin-top: 0; }
+    #winter-form .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 22px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--line);
+      color: var(--white);
+      font-size: 17px;
+      font-weight: 850;
+      letter-spacing: -.02em;
+    }
+    #winter-form .section-title::before {
+      content: "";
+      width: 3px;
+      height: 21px;
+      flex: 0 0 3px;
+      background: var(--orange);
+    }
+    #winter-form .field { min-width: 0; margin: 0 0 19px; }
+    #winter-form .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    #winter-form label {
+      display: block;
+      margin: 0 0 8px;
+      color: #d5d5d5;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .025em;
+    }
+    #winter-form input:not([type="hidden"]):not([type="checkbox"]),
+    #winter-form select {
+      display: block;
+      width: 100%;
+      min-height: 49px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 5px;
+      outline: none;
+      background: #090909;
+      color: var(--white);
+      font: inherit;
+      font-size: 13px;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    #winter-form input::placeholder { color: #666; }
+    #winter-form input:focus,
+    #winter-form select:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255,140,0,.09);
+    }
+    #winter-form input[type="date"],
+    #winter-form input[type="time"] { color-scheme: dark; }
+    #winter-form select { cursor: pointer; }
+    #winter-form .info-box {
+      margin-top: 4px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--orange);
+      border-radius: 0 5px 5px 0;
+      background: rgba(255,140,0,.07);
+      color: #aaa;
+      font-size: 12px;
+      line-height: 1.75;
+    }
+    #winter-form .info-box strong { color: #eee; }
+    #winter-form .checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      margin-top: 26px;
+    }
+    #winter-form .checkbox input {
+      width: 17px;
+      height: 17px;
+      flex: 0 0 17px;
+      margin: 2px 0 0;
+      accent-color: var(--orange);
+    }
+    #winter-form .checkbox label {
+      margin: 0;
+      color: #999;
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+    #winter-form .checkbox a { color: var(--orange); text-decoration: none; }
+    #winter-form .checkbox a:hover { text-decoration: underline; }
+    #winter-form .submit {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 56px;
+      margin-top: 28px;
+      padding: 0 20px;
+      border: 0;
+      border-radius: 5px;
+      background: var(--orange);
+      color: #080808;
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .08em;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, opacity .2s ease;
+    }
+    #winter-form .submit::after { content: "↗"; font-size: 17px; }
+    #winter-form .submit:hover { transform: translateY(-2px); background: #FFA126; }
+    #winter-form .submit:disabled { opacity: .65; cursor: wait; transform: none; }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 3px 0 55px;
+      color: #999;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 800;
+      transition: color .2s ease;
+    }
+    .back-link:hover { color: var(--orange); }
+    @media (max-width: 760px) {
+      .individual-main { padding-top: 35px; }
+      .individual-hero { display: block; padding: 18px 0 30px; }
+      .individual-hero h1 { font-size: clamp(38px, 11vw, 54px); }
+      .individual-hero .intro { font-size: 13px; }
+      .hero-index { display: none; }
+      #winter-form { padding: 22px 17px; }
+      #winter-form .form-row { grid-template-columns: 1fr; gap: 0; }
+      #winter-form .section { margin-top: 30px; }
+      .performance-link { gap: 12px; padding: 14px; }
+      .performance-link-text strong { font-size: 12px; }
+      .performance-link-text small { font-size: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+
+  
+#winter-form .date-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#winter-form .date-option{display:flex;align-items:center;gap:12px;min-height:64px;margin:0;padding:14px 16px;border:1px solid rgba(255,255,255,.14);border-radius:5px;background:#090909;cursor:pointer;transition:border-color .2s ease,background .2s ease}
+#winter-form .date-option:has(input:checked){border-color:var(--orange);background:rgba(255,140,0,.09)}
+#winter-form .date-option input{width:18px;height:18px;flex:0 0 18px;margin:0;accent-color:var(--orange)}
+#winter-form .date-option span{display:block;color:#eee;font-size:13px;font-weight:800}
+#winter-form .date-option small{display:block;margin-top:4px;color:#888;font-size:10px;font-weight:500}
+#winter-form textarea{display:block;width:100%;min-height:90px;padding:12px 14px;border:1px solid rgba(255,255,255,.14);border-radius:5px;background:#090909;color:var(--white);font:inherit;font-size:13px;resize:vertical}
+#winter-form textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,140,0,.09)}
+@media(max-width:760px){#winter-form .date-options{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<aside class="sidebar" aria-label="Hauptnavigation">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Frey Football Academy Logo">
+      <span class="brand-copy">FREY FOOTBALL<span>ACADEMY</span></span>
+    </a>
+
+    <div class="nav-caption">NAVIGATION</div>
+    <nav class="side-nav">
+      <a href="index.html"><span class="nav-symbol">⌂</span> Startseite</a>
+      <a href="ueber-mich.html"><span class="nav-symbol">◎</span> Über mich</a>
+      <a href="leistungen.html"><span class="nav-symbol">↗</span> Trainingsangebote</a>
+      <a class="active" href="winter-academy.html"><span class="nav-symbol">❄</span> Winter Academy</a>
+      <a href="standorte.html"><span class="nav-symbol">⌖</span> Standorte</a>
+      <a href="https://frey-football-academy.fan12.de/" target="_blank" rel="noopener"><span class="nav-symbol">▣</span> FFA Shop ↗</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="sidebar-note">
+        <strong>FREY FOOTBALL ACADEMY</strong>
+        INDIVIDUELL · ZIELGERICHTET · NACHHALTIG
+      </div>
+      <a class="sidebar-cta" href="leistungen.html">Training anfragen <span>↗</span></a>
+      <a class="sidebar-social" href="https://www.instagram.com/ffa.footballacademy" target="_blank" rel="noopener">INSTAGRAM ↗</a>
+    </div>
+  </aside>
+<div class="mobile-header">
+    <a class="mobile-brand" href="index.html">
+      <img src="assets/logo.png" alt="">
+      <span>FREY FOOTBALL<br><strong>ACADEMY</strong></span>
+    </a>
+    <a class="mobile-shop" href="https://frey-football-academy.fan12.de/" target="_blank" rel="noopener">FFA SHOP ↗</a>
+  </div>
+<div class="page">
+  <div class="topline">
+    <span><strong>Frey Football Academy</strong> <span aria-hidden="true">/</span> Winter Academy 2026</span>
+    <a href="https://www.instagram.com/ffa.footballacademy" target="_blank" rel="noopener">Folge der FFA auf Instagram ↗</a>
+  </div>
+  <main class="container individual-main">
+    <section class="individual-hero" aria-labelledby="winter-title">
+      <div>
+        <div class="eyebrow">FFA Winter Academy · Anmeldung</div>
+        <h1 id="winter-title">WINTER <span>ACADEMY.</span></h1>
+        <p class="intro">Sichere dir deinen Platz für die FFA Winter Academy 2026. Wähle einfach alle Termine aus, an denen du teilnehmen möchtest. Mehrfachauswahl ist möglich.</p>
+      </div>
+      <div class="hero-index">FFA / WINTER 2026</div>
+    </section>
+
+    <form method="POST" action="https://formspree.io/f/maeoojvo" id="winter-form">
+      <input type="hidden" name="_subject" value="Neue Anmeldung – FFA Winter Academy 2026">
+
+      <div class="section">
+        <div class="section-title">Angaben zum Spieler</div>
+        <div class="form-row">
+          <div class="field">
+            <label for="vorname">Vorname *</label>
+            <input type="text" id="vorname" name="Vorname" placeholder="Vorname" autocomplete="given-name" required>
+          </div>
+          <div class="field">
+            <label for="nachname">Nachname *</label>
+            <input type="text" id="nachname" name="Nachname" placeholder="Nachname" autocomplete="family-name" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="jahrgang">Jahrgang *</label>
+            <select id="jahrgang" name="Jahrgang" required>
+              <option value="">Bitte Jahrgang auswählen</option>
+              <option value="2012">2012</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="verein">Verein</label>
+            <input type="text" id="verein" name="Verein" placeholder="Aktueller Verein">
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Gewünschte Trainingstermine *</div>
+        <p style="margin:-8px 0 18px;color:#999;font-size:12px;line-height:1.7">Bitte wähle alle Termine aus, an denen du teilnehmen möchtest. Mehrfachauswahl möglich.</p>
+        <div class="date-options">
+          <label class="date-option"><input type="checkbox" name="Gewünschte Termine[]" value="29.11.2026 (Sonntag)"><span>29.11.2026<small>Sonntag</small></span></label>
+          <label class="date-option"><input type="checkbox" name="Gewünschte Termine[]" value="06.12.2026 (Sonntag)"><span>06.12.2026<small>Sonntag</small></span></label>
+          <label class="date-option"><input type="checkbox" name="Gewünschte Termine[]" value="12.12.2026 (Samstag)"><span>12.12.2026<small>Samstag</small></span></label>
+          <label class="date-option"><input type="checkbox" name="Gewünschte Termine[]" value="20.12.2026 (Sonntag)"><span>20.12.2026<small>Sonntag</small></span></label>
+        </div>
+        <div class="info-box" style="margin-top:18px"><strong>Buchung:</strong> 25 € pro Einzeltermin oder 100 € für alle vier Einheiten. Die Trainingszeit richtet sich nach dem Jahrgang.</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Angaben zum Erziehungsberechtigten</div>
+        <div class="field">
+          <label for="erziehungsberechtigter">Vor- und Nachname des Erziehungsberechtigten *</label>
+          <input type="text" id="erziehungsberechtigter" name="Erziehungsberechtigter" placeholder="Vor- und Nachname" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="anschrift">Anschrift (Straße, Hausnummer, PLZ und Ort) *</label>
+          <textarea id="anschrift" name="Anschrift" placeholder="Straße und Hausnummer&#10;PLZ und Ort" autocomplete="street-address" required></textarea>
+        </div>
+      </div>
+
+      <div class="checkbox">
+        <input type="checkbox" id="datenschutz" name="Datenschutz bestätigt" value="Ja" required>
+        <label for="datenschutz">Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen und zur Kenntnis genommen. *</label>
+      </div>
+
+      <button type="submit" class="submit">JETZT VERBINDLICH ANMELDEN</button>
+    </form>
+
+    <a href="winter-academy.html" class="back-link">← Zurück zur Winter Academy</a>
+    <footer>
+      <span>© 2026 Frey Football Academy</span>
+      <div class="footer-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="https://www.instagram.com/ffa.footballacademy" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://frey-football-academy.fan12.de/" target="_blank" rel="noopener">FFA Shop</a>
+      </div>
+    </footer>
+  </main>
+</div>
+<script>
+const form = document.getElementById("winter-form");
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const selectedDates = form.querySelectorAll('input[name="Gewünschte Termine[]"]:checked');
+  if (!selectedDates.length) {
+    alert("Bitte wähle mindestens einen Trainingstermin aus.");
+    return;
+  }
+  const button = form.querySelector(".submit");
+  const originalText = button.textContent;
+  button.disabled = true;
+  button.textContent = "⏳ WIRD GESENDET ...";
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { "Accept": "application/json" }
+    });
+    if (response.ok) {
+      window.location.href = "anfrage-erfolgreich.html";
+      return;
+    }
+    throw new Error("Formular konnte nicht gesendet werden.");
+  } catch (error) {
+    alert("Die Anmeldung konnte gerade nicht gesendet werden. Bitte versuche es erneut.");
+    button.disabled = false;
+    button.textContent = originalText;
+  }
+});
+</script>
+</body>
+</html>
