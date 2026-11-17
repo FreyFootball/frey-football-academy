@@ -602,6 +602,105 @@
       .hero-portrait { transition: none; }
     }
 
+
+    /* Prominente Winter-Academy-Kampagne auf der Startseite */
+    .winter-promo {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr);
+      gap: 34px;
+      align-items: center;
+      margin: 0 0 88px;
+      padding: clamp(28px, 4vw, 48px);
+      overflow: hidden;
+      border: 1px solid rgba(255,140,0,.48);
+      background:
+        radial-gradient(ellipse at 100% 0, rgba(255,140,0,.2), transparent 48%),
+        linear-gradient(120deg, rgba(255,140,0,.09), #101010 62%);
+    }
+    .winter-promo::after {
+      content: "WINTER";
+      position: absolute;
+      right: 20px;
+      bottom: -35px;
+      color: rgba(255,255,255,.035);
+      font-size: clamp(80px, 13vw, 170px);
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: -.08em;
+      pointer-events: none;
+    }
+    .winter-promo-copy, .winter-promo-side { position: relative; z-index: 1; }
+    .winter-promo-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--orange);
+      font-size: 10px;
+      font-weight: 950;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+    .winter-promo-kicker::before { content: "❄"; font-size: 17px; }
+    .winter-promo h2 {
+      margin: 15px 0 12px;
+      font-size: clamp(36px, 5vw, 62px);
+      line-height: .94;
+      letter-spacing: -.065em;
+      font-weight: 950;
+    }
+    .winter-promo h2 span { color: var(--orange); }
+    .winter-promo-copy p {
+      max-width: 610px;
+      margin: 0;
+      color: #aaa;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .winter-promo-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 22px;
+    }
+    .winter-promo-facts span {
+      padding: 9px 11px;
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(0,0,0,.22);
+      color: #ddd;
+      font-size: 10px;
+      font-weight: 800;
+    }
+    .winter-promo-side {
+      padding: 23px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(5,5,5,.55);
+    }
+    .winter-promo-price {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      color: #aaa;
+      font-size: 11px;
+    }
+    .winter-promo-price strong { color: #fff; font-size: 15px; }
+    .winter-promo-side .button { width: 100%; margin-top: 18px; }
+    .winter-promo-deadline {
+      margin-top: 12px;
+      color: #888;
+      font-size: 9px;
+      text-align: center;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 760px) {
+      .winter-promo { grid-template-columns: 1fr; gap: 22px; margin-bottom: 70px; padding: 25px 21px; }
+      .winter-promo h2 { font-size: clamp(38px, 11vw, 54px); }
+      .winter-promo-side { padding: 19px; }
+    }
+
   </style>
 
   <script type="application/ld+json">
@@ -628,6 +727,7 @@
       <a class="active" href="index.html"><span class="nav-symbol">⌂</span> Startseite</a>
       <a href="ueber-mich.html"><span class="nav-symbol">◎</span> Über mich</a>
       <a href="leistungen.html"><span class="nav-symbol">↗</span> Trainingsangebote</a>
+      <a href="winter-academy.html"><span class="nav-symbol">❄</span> Winter Academy</a>
       <a href="standorte.html"><span class="nav-symbol">⌖</span> Standorte</a>
       <a href="https://frey-football-academy.fan12.de/" target="_blank" rel="noopener"><span class="nav-symbol">▣</span> FFA Shop ↗</a>
     </nav>
@@ -675,6 +775,32 @@
           <span class="visual-index">FFA / 01</span>
           <img class="hero-portrait" src="assets/jan-frey.png" alt="Jan Frey, Frey Football Academy">
           <span class="visual-tag">JAN FREY · GRÜNDER DER FFA</span>
+        </div>
+      </section>
+
+
+      <section class="winter-promo" aria-labelledby="winter-promo-title">
+        <div class="winter-promo-copy">
+          <div class="winter-promo-kicker">FFA SPECIAL · WINTER 2026</div>
+          <h2 id="winter-promo-title">DEIN WINTER.<br><span>DEIN NÄCHSTER STEP.</span></h2>
+          <p>
+            Nutze die Winterpause für deine Entwicklung: In der <strong>FFA Winter Academy 2026</strong>
+            erwarten dich vier intensive Trainingseinheiten mit individuellen Schwerpunkten –
+            von Technik und Ballkontrolle bis zum 1-gegen-1 unter Gegnerdruck.
+          </p>
+          <div class="winter-promo-facts">
+            <span>29.11. – 20.12.2026</span>
+            <span>Jahrgänge 2012–2017</span>
+            <span>Max. 6 Spieler pro Gruppe</span>
+            <span>SG-Sport-Arena · Partenheim</span>
+          </div>
+        </div>
+        <div class="winter-promo-side">
+          <div class="section-kicker">Sichere dir deinen Platz</div>
+          <div class="winter-promo-price"><span>Einzeltermin</span><strong>25 €</strong></div>
+          <div class="winter-promo-price"><span>Alle 4 Einheiten</span><strong>100 €</strong></div>
+          <a class="button button-primary" href="winter-academy.html">ALLE INFOS & ANMELDUNG <span>↗</span></a>
+          <div class="winter-promo-deadline">Anmeldeschluss: 26.11.2026</div>
         </div>
       </section>
 
