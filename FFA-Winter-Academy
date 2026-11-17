@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FFA Winter Academy 2026 | Frey Football Academy</title>
+  <meta name="description" content="Vier intensive Trainingseinheiten der FFA Winter Academy 2026 in der SG-Sport-Arena Partenheim. Individuelle Förderung für die Jahrgänge 2012 bis 2017.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://freyfootballacademy.com/winter-academy.html">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <meta name="theme-color" content="#080808">
+  <style>
+    :root {
+      --orange:#FF8C00; --black:#080808; --panel:#111; --panel-soft:#151515;
+      --white:#F7F7F5; --muted:#A1A1A1; --line:rgba(255,255,255,.11);
+      --sidebar-width:248px; --content-width:1240px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;background:var(--black);color:var(--white);font-family:Inter,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    a:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+    .sidebar{position:fixed;inset:0 auto 0 0;z-index:30;width:var(--sidebar-width);display:flex;flex-direction:column;padding:30px 22px 24px;background:#050505;border-right:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:12px;padding:2px 4px 36px;text-decoration:none}
+    .brand img{width:48px;height:48px;object-fit:contain}
+    .brand-copy{font-size:10px;line-height:1.5;letter-spacing:.16em;color:#D5D5D5;font-weight:800}
+    .brand-copy span{display:block;color:var(--orange)}
+    .nav-caption{padding:0 11px 12px;color:#666;font-size:9px;letter-spacing:.2em;font-weight:800}
+    .side-nav{display:grid;gap:5px}
+    .side-nav a{display:flex;align-items:center;gap:12px;min-height:46px;padding:0 12px;border:1px solid transparent;border-radius:8px;color:#999;text-decoration:none;font-size:12px;font-weight:650;transition:.2s}
+    .side-nav a:hover,.side-nav a.active{color:#fff;background:rgba(255,140,0,.09);border-color:rgba(255,140,0,.2)}
+    .nav-symbol{display:inline-grid;place-items:center;width:22px;color:var(--orange);font-size:16px}
+    .sidebar-bottom{margin-top:auto}
+    .sidebar-note{border-top:1px solid var(--line);padding:17px 5px 14px;color:#777;font-size:9px;line-height:1.7;letter-spacing:.12em}
+    .sidebar-note strong{color:#ddd;display:block;font-size:10px}
+    .sidebar-cta{display:flex;align-items:center;justify-content:space-between;padding:14px;background:var(--orange);color:#090909;text-decoration:none;font-size:11px;font-weight:900;border-radius:6px}
+    .sidebar-social{display:block;margin:17px 5px 0;color:#777;text-decoration:none;font-size:9px;font-weight:800;letter-spacing:.14em}
+    .sidebar-social:hover{color:var(--orange)}
+    .page{margin-left:var(--sidebar-width);min-height:100vh}
+    .topline{height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,5vw,76px);border-bottom:1px solid var(--line);color:#858585;font-size:10px;letter-spacing:.13em;text-transform:uppercase}
+    .topline strong{color:#ddd}
+    .topline a{text-decoration:none;color:#aaa}
+    .topline a:hover{color:var(--orange)}
+    .container{width:min(var(--content-width),calc(100% - 2 * clamp(24px,5vw,76px)));margin:0 auto;padding:54px 0 70px}
+    .hero{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(270px,.85fr);gap:48px;align-items:center;padding:42px 0 72px}
+    .hero:after{content:"";position:absolute;z-index:-1;right:0;top:0;width:55%;height:100%;background:radial-gradient(ellipse at center,rgba(255,140,0,.13),transparent 68%);pointer-events:none}
+    .eyebrow,.kicker{color:var(--orange);font-size:10px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}
+    h1{margin:18px 0 0;font-size:clamp(48px,6.4vw,86px);line-height:.94;letter-spacing:-.065em;font-weight:950}
+    h1 span{color:var(--orange)}
+    .lead{max-width:680px;margin:26px 0 0;color:#aaa;font-size:clamp(16px,1.5vw,19px);line-height:1.75}
+    .lead strong{color:#fff}
+    .hero-art{position:relative;min-height:330px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.055),transparent 55%),#101010;overflow:hidden}
+    .hero-art:before,.hero-art:after{content:"";position:absolute;width:360px;height:140px;border:1px solid rgba(255,140,0,.2);transform:rotate(-32deg)}
+    .hero-art:after{transform:rotate(-32deg) translateY(28px);opacity:.45}
+    .snow-mark{position:relative;z-index:1;font-size:clamp(100px,15vw,170px);line-height:1;color:#fff;text-shadow:0 0 55px rgba(255,140,0,.22)}
+    .hero-art-label{position:absolute;left:18px;bottom:17px;color:#777;font-size:9px;font-weight:800;letter-spacing:.18em}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:18px;min-height:50px;padding:0 20px;border:1px solid transparent;border-radius:5px;text-decoration:none;font-size:11px;font-weight:900;letter-spacing:.04em;transition:.2s}
+    .button:hover{transform:translateY(-2px)}
+    .button-primary{background:var(--orange);color:#080808}
+    .button-secondary{color:#eee;border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.025)}
+    .section{margin:0 0 76px}
+    .section-heading{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:24px}
+    .section-title{margin:9px 0 0;font-size:clamp(30px,4vw,46px);line-height:1;letter-spacing:-.05em;font-weight:900}
+    .section-intro{max-width:430px;margin:0;color:#888;font-size:13px;line-height:1.7}
+    .focus-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .focus-card{min-height:145px;padding:22px;border:1px solid var(--line);background:linear-gradient(145deg,#151515,#0c0c0c)}
+    .focus-card .num{color:var(--orange);font-size:10px;font-weight:900;letter-spacing:.15em}
+    .focus-card h3{margin:25px 0 0;font-size:16px;line-height:1.3}
+    .focus-card p{margin:8px 0 0;color:#777;font-size:11px;line-height:1.6}
+    .schedule-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .panel{border:1px solid var(--line);background:#101010;padding:27px}
+    .panel-label{color:var(--orange);font-size:9px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+    .dates{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:19px}
+    .date{padding:15px 16px;border:1px solid rgba(255,255,255,.09);background:#151515}
+    .date strong{display:block;font-size:22px;letter-spacing:-.04em}
+    .date span{display:block;margin-top:3px;color:#777;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+    .time-list{display:grid;gap:10px;margin-top:19px}
+    .time-row{display:grid;grid-template-columns:105px 1fr;gap:15px;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+    .time-row:last-child{border-bottom:0}
+    .time{color:var(--orange);font-size:17px;font-weight:900;white-space:nowrap}
+    .time-detail strong{display:block;font-size:13px}
+    .time-detail span{display:block;margin-top:3px;color:#777;font-size:11px}
+    .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .price-card{position:relative;padding:28px;border:1px solid var(--line);background:linear-gradient(145deg,#151515,#0c0c0c)}
+    .price-card.featured{border-color:rgba(255,140,0,.55);background:linear-gradient(145deg,rgba(255,140,0,.11),#101010 65%)}
+    .price-card .price-label{color:#888;font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+    .price-card .price{margin:12px 0 5px;font-size:clamp(38px,5vw,54px);font-weight:950;letter-spacing:-.06em}
+    .price-card .price span{font-size:15px;color:#999;letter-spacing:0}
+    .price-card p{margin:0;color:#888;font-size:12px;line-height:1.6}
+    .limit{display:flex;align-items:center;gap:14px;margin-top:15px;padding:18px 20px;border:1px solid rgba(255,140,0,.3);background:rgba(255,140,0,.07)}
+    .limit-icon{font-size:24px}
+    .limit strong{display:block;font-size:14px}
+    .limit span{display:block;margin-top:3px;color:#999;font-size:11px}
+    .location-panel{display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px;padding:28px;border:1px solid var(--line);background:#101010}
+    .location-panel h3{margin:8px 0 4px;font-size:23px}
+    .location-panel p{margin:0;color:#888;font-size:13px;line-height:1.7}
+    .location-icon{display:grid;place-items:center;width:68px;height:68px;border:1px solid rgba(255,140,0,.3);color:var(--orange);font-size:27px}
+    .deadline{margin-top:14px;padding:28px;border:1px solid rgba(255,140,0,.32);background:linear-gradient(110deg,rgba(255,140,0,.12),#101010 70%);display:flex;align-items:center;justify-content:space-between;gap:25px}
+    .deadline h2{margin:8px 0 0;font-size:clamp(22px,3vw,32px);letter-spacing:-.04em}
+    .deadline p{margin:6px 0 0;color:#aaa;font-size:12px}
+    .deadline .button{flex-shrink:0}
+    .footer{padding:25px 0 10px;border-top:1px solid var(--line);color:#666;font-size:11px;line-height:1.8}
+    .mobile-header{display:none}
+    @media(max-width:1100px){:root{--sidebar-width:220px}.sidebar{padding-inline:16px}.focus-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:760px){
+      .sidebar{display:none}.page{margin-left:0}
+      .mobile-header{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;min-height:66px;padding:9px 20px;border-bottom:1px solid var(--line);background:rgba(5,5,5,.97);backdrop-filter:blur(14px)}
+      .mobile-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+      .mobile-brand img{width:39px;height:39px;object-fit:contain}
+      .mobile-brand span{font-size:9px;font-weight:900;letter-spacing:.14em}
+      .mobile-brand strong{color:var(--orange)}
+      .mobile-shop{padding:10px 12px;border-radius:4px;background:var(--orange);color:#080808;text-decoration:none;font-size:10px;font-weight:900}
+      .topline{height:43px;padding:0 20px;font-size:8px}
+      .container{width:92%;padding:30px 0 50px}
+      .hero{grid-template-columns:1fr;gap:25px;padding:25px 0 55px}
+      .hero-art{min-height:230px}
+      .schedule-grid,.pricing-grid{grid-template-columns:1fr}
+      .section-heading{display:block}.section-intro{margin-top:13px}
+      .focus-grid{grid-template-columns:1fr 1fr}
+      .deadline{display:block}.deadline .button{margin-top:20px}
+      .location-panel{grid-template-columns:1fr auto}
+    }
+    @media(max-width:440px){.focus-grid{grid-template-columns:1fr}.dates{gap:7px}.date{padding:13px}.time-row{grid-template-columns:94px 1fr;gap:8px}.time{font-size:15px}.panel{padding:21px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <aside class="sidebar" aria-label="Hauptnavigation">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="Frey Football Academy Logo">
+      <span class="brand-copy">FREY FOOTBALL<span>ACADEMY</span></span>
+    </a>
+    <div class="nav-caption">NAVIGATION</div>
+    <nav class="side-nav">
+      <a href="index.html"><span class="nav-symbol">⌂</span> Startseite</a>
+      <a href="ueber-mich.html"><span class="nav-symbol">◎</span> Über mich</a>
+      <a href="leistungen.html"><span class="nav-symbol">↗</span> Trainingsangebote</a>
+      <a href="winter-academy.html" class="active"><span class="nav-symbol">❄</span> Winter Academy</a>
+      <a href="standorte.html"><span class="nav-symbol">⌖</span> Standorte</a>
+      <a href="https://frey-football-academy.fan12.de/" target="_blank" rel="noopener"><span class="nav-symbol">▣</span> FFA Shop ↗</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-note"><strong>FREY FOOTBALL ACADEMY</strong>INDIVIDUELL · ZIELGERICHTET · NACHHALTIG</div>
+      <a class="sidebar-cta" href="https://www.instagram.com/ffa.footballacademy/" target="_blank" rel="noopener">Jetzt anmelden <span>↗</span></a>
+      <a class="sidebar-social" href="https://www.instagram.com/ffa.footballacademy/" target="_blank" rel="noopener">INSTAGRAM ↗</a>
+    </div>
+  </aside>
+
+  <div class="mobile-header">
+    <a class="mobile-brand" href="index.html">
+      <img src="assets/logo.png" alt="">
+      <span>FREY FOOTBALL<br><strong>ACADEMY</strong></span>
+    </a>
+    <a class="mobile-shop" href="https://www.instagram.com/ffa.footballacademy/" target="_blank" rel="noopener">ANMELDEN ↗</a>
+  </div>
+
+  <div class="page">
+    <div class="topline">
+      <span><strong>Frey Football Academy</strong> / Winter Academy</span>
+      <a href="https://www.instagram.com/ffa.footballacademy/" target="_blank" rel="noopener">FFA auf Instagram ↗</a>
+    </div>
+
+    <main class="container">
+      <section class="hero">
+        <div>
+          <div class="eyebrow">SPECIAL TRAINING BLOCK · WINTER 2026</div>
+          <h1>FFA WINTER<br><span>ACADEMY.</span></h1>
+          <p class="lead">Der Winter ist die perfekte Zeit, um an deinem Spiel zu arbeiten. Im ersten Block der FFA Winter Academy erwarten dich <strong>vier intensive Trainingseinheiten</strong> mit individueller Förderung und gezielten Entwicklungsschwerpunkten.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://www.instagram.com/ffa.footballacademy/" target="_blank" rel="noopener">Per Direktnachricht anmelden ↗</a>
+            <a class="button button-secondary" href="#termine">Termine & Zeiten ansehen ↓</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Winter Academy">
+          <div class="snow-mark" aria-hidden="true">❄</div>
+          <div class="hero-art-label">TRAIN. DEVELOP. SUCCEED.</div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="training-title">
+        <div class="section-heading">
+          <div><div class="kicker">DER INHALT</div><h2 class="section-title" id="training-title">Das Training.</h2></div>
+          <p class="section-intro">Vier gezielte Schwerpunkte für mehr Qualität am Ball und bessere Entscheidungen auf dem Platz.</p>
+        </div>
+        <div class="focus-grid">
+          <article class="focus-card"><div class="num">01 / TECHNIK</div><h3>Technik & Ballkontrolle</h3></article>
+          <article class="focus-card"><div class="num">02 / DUELL</div><h3>1-gegen-1</h3></article>
+          <article class="focus-card"><div class="num">03 / SPIELNAH</div><h3>Spielen unter Gegnerdruck</h3></article>
+          <article class="focus-card"><div class="num">04 / KÖPFCHEN</div><h3>Entscheidungsverhalten</h3></article>
+        </div>
+      </section>
+
+      <section class="section" id="termine" aria-labelledby="dates-title">
+        <div class="section-heading">
+          <div><div class="kicker">DER ERSTE BLOCK</div><h2 class="section-title" id="dates-title">Vier Termine. Ein Ziel.</h2></div>
+          <p class="section-intro">Trainiere im Dezember gezielt weiter und nutze die Winterpause für deinen nächsten Entwicklungsschritt.</p>
+        </div>
+        <div class="schedule-grid">
+          <div class="panel">
+            <div class="panel-label">Trainingstage · 2026</div>
+            <div class="dates">
+              <div class="date"><strong>29.11.</strong><span>Sonntag</span></div>
+              <div class="date"><strong>06.12.</strong><span>Sonntag</span></div>
+              <div class="date"><strong>12.12.</strong><span>Samstag</span></div>
+              <div class="date"><strong>20.12.</strong><span>Sonntag</span></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-label">Trainingszeiten nach Jahrgang</div>
+            <div class="time-list">
+              <div class="time-row"><div class="time">10–11 Uhr</div><div class="time-detail"><strong>Jahrgänge 2016 & 2017</strong><span>60 Minuten Training</span></div></div>
+              <div class="time-row"><div class="time">12–13 Uhr</div><div class="time-detail"><strong>Jahrgänge 2014 & 2015</strong><span>60 Minuten Training</span></div></div>
+              <div class="time-row"><div class="time">14–15 Uhr</div><div class="time-detail"><strong>Jahrgänge 2012 & 2013</strong><span>60 Minuten Training</span></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="booking-title">
+        <div class="section-heading">
+          <div><div class="kicker">FLEXIBEL TRAINIEREN</div><h2 class="section-title" id="booking-title">Deine Buchungsoptionen.</h2></div>
+          <p class="section-intro">Du entscheidest, ob du einzelne Termine buchst oder beim gesamten Trainingsblock dabei bist.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card"><div class="price-label">Einzeltermin</div><div class="price">25 €</div><p>Pro Trainingseinheit – flexibel einzelne Termine auswählen.</p></article>
+          <article class="price-card featured"><div class="price-label">Kompletter Block · 4 Einheiten</div><div class="price">100 €</div><p>Alle vier Trainingseinheiten der FFA Winter Academy 2026.</p></article>
+        </div>
+        <div class="limit"><div class="limit-icon">👥</div><div><strong>Maximal 6 Spieler pro Gruppe</strong><span>Kleine Gruppen ermöglichen intensive Betreuung und individuelle Förderung.</span></div></div>
+      </section>
+
+      <section class="section" aria-labelledby="location-title">
+        <div class="section-heading">
+          <div><div class="kicker">DEIN TRAININGSORT</div><h2 class="section-title" id="location-title">Wir sehen uns auf dem Platz.</h2></div>
+        </div>
+        <div class="location-panel">
+          <div><div class="kicker">PARTENHEIM</div><h3>SG-Sport-Arena</h3><p>Am Sportplatz 2<br>55288 Partenheim</p></div>
+          <div class="location-icon" aria-hidden="true">⌖</div>
+        </div>
+        <div class="deadline">
+          <div><div class="kicker">ANMELDESCHLUSS · 26.11.2026</div><h2>Sichere dir deinen Platz.</h2><p>Anmeldung bis zum 26.11.2026 per Direktnachricht.</p></div>
+          <a class="button button-primary" href="https://www.instagram.com/ffa.footballacademy/" target="_blank" rel="noopener">Jetzt per DM anmelden ↗</a>
+        </div>
+      </section>
+
+      <footer class="footer">
+        Frey Football Academy · Train. Develop. Succeed.<br>
+        Fritz-Kohl-Str. 3c · 55122 Mainz · +49 173 3176916 · info@freyfootballacademy.com
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
