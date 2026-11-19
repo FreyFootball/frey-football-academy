@@ -845,6 +845,35 @@
       border-color: var(--orange); background: var(--orange); color: #080808;
     }
     #duo-form .player-option input:focus-visible + label { outline: 2px solid #fff; outline-offset: 3px; }
+
+    #duo-form .price-calculator {
+      margin-top: 16px; padding: 17px 18px;
+      border: 1px solid rgba(255,140,0,.32); border-radius: 6px;
+      background: linear-gradient(110deg, rgba(255,140,0,.10), rgba(255,255,255,.025));
+    }
+    #duo-form .price-calculator-label {
+      color: var(--orange); font-size: 9px; font-weight: 900;
+      letter-spacing: .16em; text-transform: uppercase;
+    }
+    #duo-form .price-calculator-main {
+      display: flex; align-items: baseline; justify-content: space-between;
+      gap: 15px; margin-top: 8px;
+    }
+    #duo-form .price-calculator-main strong {
+      color: #fff; font-size: clamp(25px, 3vw, 34px); font-weight: 950;
+      letter-spacing: -.04em; white-space: nowrap;
+    }
+    #duo-form .price-calculator-main span {
+      color: #bbb; font-size: 12px; text-align: right; line-height: 1.5;
+    }
+    #duo-form .price-calculator-total {
+      display: flex; justify-content: space-between; gap: 12px;
+      margin-top: 12px; padding-top: 11px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      color: #999; font-size: 11px;
+    }
+    #duo-form .price-calculator-total strong { color: var(--orange); font-size: 17px; }
+
     #duo-form .player-box {
       margin: 0 0 20px; padding: 23px;
       border: 1px solid rgba(255,255,255,.1); border-radius: 6px;
@@ -1073,11 +1102,21 @@
                 </div>
 
 
+                <div class="price-calculator" aria-live="polite" aria-atomic="true">
+                  <div class="price-calculator-label">Euer persönlicher Trainingspreis</div>
+                  <div class="price-calculator-main">
+                    <strong id="pricePerPlayer">50 €</strong>
+                    <span id="pricePerPlayerLabel">pro Spieler · bei 2 Teilnehmern</span>
+                  </div>
+                  <div class="price-calculator-total">
+                    <span>Gesamtpreis für die Trainingsgruppe</span>
+                    <strong id="groupTotal">100 €</strong>
+                  </div>
+                </div>
+
             </div>
 
-
         </div>
-
 
         <!-- ===============================================
              SPIELER 1
@@ -1983,6 +2022,16 @@ const player4Box =
     document.getElementById("player4Box");
 
 
+
+function updatePrice() {
+    const count = players4.checked ? 4 : (players3.checked ? 3 : 2);
+    const perPlayer = count === 2 ? 50 : (count === 3 ? 40 : 30);
+    const total = count * perPlayer;
+    document.getElementById("pricePerPlayer").textContent = perPlayer + " €";
+    document.getElementById("pricePerPlayerLabel").textContent = "pro Spieler · bei " + count + " Teilnehmern";
+    document.getElementById("groupTotal").textContent = total + " €";
+}
+
 function updatePlayers() {
 
     if (players2.checked) {
@@ -2023,6 +2072,7 @@ function updatePlayers() {
 
     }
 
+    updatePrice();
 }
 
 
