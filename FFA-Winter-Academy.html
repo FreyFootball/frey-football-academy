@@ -76,11 +76,12 @@
     .date strong{display:block;font-size:22px;letter-spacing:-.04em}
     .date span{display:block;margin-top:3px;color:#777;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
     .time-list{display:grid;gap:10px;margin-top:19px}
-    .time-row{display:grid;grid-template-columns:105px 1fr;gap:15px;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+    .time-row{display:grid;grid-template-columns:minmax(175px,.9fr) minmax(0,1.1fr);gap:16px;align-items:center;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.08)}
     .time-row:last-child{border-bottom:0}
-    .time{color:var(--orange);font-size:17px;font-weight:900;white-space:nowrap}
-    .time-detail strong{display:block;font-size:13px}
-    .time-detail span{display:block;margin-top:3px;color:#777;font-size:11px}
+    .time{color:var(--orange);font-size:clamp(14px,1.25vw,17px);font-weight:900;white-space:nowrap;line-height:1.25}
+    .time-detail{min-width:0}
+    .time-detail strong{display:block;font-size:13px;line-height:1.35;overflow-wrap:break-word}
+    .time-detail span{display:block;margin-top:4px;color:#777;font-size:11px;line-height:1.4}
     .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .price-card{position:relative;padding:28px;border:1px solid var(--line);background:linear-gradient(145deg,#151515,#0c0c0c)}
     .price-card.featured{border-color:rgba(255,140,0,.55);background:linear-gradient(145deg,rgba(255,140,0,.11),#101010 65%)}
@@ -121,7 +122,7 @@
       .deadline{display:block}.deadline .button{margin-top:20px}
       .location-panel{grid-template-columns:1fr auto}
     }
-    @media(max-width:440px){.focus-grid{grid-template-columns:1fr}.dates{gap:7px}.date{padding:13px}.time-row{grid-template-columns:94px 1fr;gap:8px}.time{font-size:15px}.panel{padding:21px}}
+    @media(max-width:560px){.focus-grid{grid-template-columns:1fr}.dates{gap:7px}.date{padding:13px}.time-row{grid-template-columns:1fr;gap:5px;padding:13px 0}.time{font-size:16px}.panel{padding:21px}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
   </style>
 </head>
