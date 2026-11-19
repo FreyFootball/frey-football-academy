@@ -781,6 +781,15 @@
 #winter-form .date-option .date-label small{display:block;margin-top:4px;color:#888;font-size:10px;font-weight:500}
 #winter-form .date-option .date-time{display:inline-flex;align-items:center;justify-content:center;margin-left:auto;padding:7px 9px;border:1px solid rgba(255,140,0,.28);border-radius:4px;background:rgba(255,140,0,.08);color:var(--orange);font-size:10px;font-weight:850;line-height:1.35;text-align:center;white-space:nowrap}
 #winter-form .date-option .date-time.is-empty{border-color:rgba(255,255,255,.1);background:rgba(255,255,255,.03);color:#777;font-weight:600}
+#winter-form .price-calculator{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:18px;padding:18px 20px;border:1px solid rgba(255,140,0,.28);border-radius:6px;background:linear-gradient(110deg,rgba(255,140,0,.10),rgba(255,255,255,.025))}
+#winter-form .price-copy{display:grid;gap:5px}
+#winter-form .price-copy strong{color:#eee;font-size:12px;font-weight:850}
+#winter-form .price-copy small{color:#999;font-size:11px;line-height:1.5}
+#winter-form .price-total{text-align:right;white-space:nowrap}
+#winter-form .price-total strong{display:block;color:var(--orange);font-size:30px;line-height:1;font-weight:950;letter-spacing:-.05em}
+#winter-form .price-total small{display:block;margin-top:6px;color:#888;font-size:10px}
+#winter-form .price-calculation{margin-top:8px;color:#888;font-size:10px;line-height:1.5}
+@media(max-width:480px){#winter-form .price-calculator{align-items:flex-start;padding:15px;gap:10px}#winter-form .price-total strong{font-size:25px}}
 #winter-form textarea{display:block;width:100%;min-height:90px;padding:12px 14px;border:1px solid rgba(255,255,255,.14);border-radius:5px;background:#090909;color:var(--white);font:inherit;font-size:13px;resize:vertical}
 #winter-form textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,140,0,.09)}
 @media(max-width:760px){#winter-form .date-options{grid-template-columns:1fr}}
@@ -881,7 +890,17 @@
           <label class="date-option"><input type="checkbox" name="Gewünschte Termine[]" value="12.12.2026 (Samstag)"><span class="date-label">12.12.2026<small>Samstag</small></span><span class="date-time" aria-live="polite">Jahrgang auswählen</span></label>
           <label class="date-option"><input type="checkbox" name="Gewünschte Termine[]" value="20.12.2026 (Sonntag)"><span class="date-label">20.12.2026<small>Sonntag</small></span><span class="date-time" aria-live="polite">Jahrgang auswählen</span></label>
         </div>
-        <div class="info-box" style="margin-top:18px"><strong>Buchung:</strong> 20 € pro Einzeltermin oder 70 € für alle vier Einheiten. Die Trainingszeit richtet sich nach dem Jahrgang.</div>
+        <div class="price-calculator" aria-live="polite">
+          <div class="price-copy">
+            <strong>DEIN TRAININGSBEITRAG</strong>
+            <small id="price-summary">Wähle deine gewünschten Einheiten aus.</small>
+            <div class="price-calculation" id="price-calculation">20 € pro Einheit · alle 4 Einheiten für nur 70 €</div>
+          </div>
+          <div class="price-total">
+            <strong id="price-total">0 €</strong>
+            <small>Gesamtbetrag</small>
+          </div>
+        </div>
       </div>
 
       <div class="section">
@@ -893,6 +912,10 @@
         <div class="field">
           <label for="anschrift">Anschrift (Straße, Hausnummer, PLZ und Ort) *</label>
           <textarea id="anschrift" name="Anschrift" placeholder="Straße und Hausnummer&#10;PLZ und Ort" autocomplete="street-address" required></textarea>
+        </div>
+        <div class="field">
+          <label for="bemerkungen">Bemerkungen (optional)</label>
+          <textarea id="bemerkungen" name="Bemerkungen" placeholder="Gibt es noch etwas, das ich wissen sollte?"></textarea>
         </div>
       </div>
 
@@ -941,6 +964,27 @@ function updateTrainingTimes() {
 
 yearSelect.addEventListener("change", updateTrainingTimes);
 updateTrainingTimes();
+
+const priceSummary = document.getElementById("price-summary");
+const priceTotal = document.getElementById("price-total");
+const priceCalculation = document.getElementById("price-calculation");
+
+function updatePrice() {
+  const selectedCount = form.querySelectorAll('input[name="Gewünschte Termine[]"]:checked').length;
+  const total = selectedCount === 4 ? 70 : selectedCount * 20;
+  priceTotal.textContent = total + " €";
+  priceSummary.textContent = selectedCount === 0
+    ? "Wähle deine gewünschten Einheiten aus."
+    : selectedCount + (selectedCount === 1 ? " Einheit ausgewählt" : " Einheiten ausgewählt");
+  priceCalculation.textContent = selectedCount === 4
+    ? "Alle 4 Einheiten · Vorteilspreis"
+    : selectedCount + " × 20 € pro Einheit";
+}
+
+form.querySelectorAll('input[name="Gewünschte Termine[]"]').forEach((checkbox) => {
+  checkbox.addEventListener("change", updatePrice);
+});
+updatePrice();
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
