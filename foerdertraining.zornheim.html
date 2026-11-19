@@ -774,6 +774,59 @@
 
     .foerder-main { padding-top: 48px; }
     .foerder-main .individual-hero { padding-bottom: 30px; }
+
+    .foerder-price {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 22px;
+      margin: -8px 0 30px;
+      padding: 22px 25px;
+      border: 1px solid rgba(255,140,0,.28);
+      border-radius: 8px;
+      background: linear-gradient(105deg, rgba(255,140,0,.10), rgba(255,255,255,.025));
+    }
+    .foerder-price-copy { min-width: 0; }
+    .foerder-price-kicker {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--orange);
+      font-size: 9px;
+      font-weight: 950;
+      letter-spacing: .17em;
+    }
+    .foerder-price-copy strong {
+      display: block;
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 850;
+    }
+    .foerder-price-copy p {
+      margin: 6px 0 0;
+      color: #999;
+      font-size: 11px;
+      line-height: 1.65;
+    }
+    .foerder-price-value {
+      display: flex;
+      align-items: baseline;
+      gap: 7px;
+      white-space: nowrap;
+      color: var(--white);
+    }
+    .foerder-price-value strong {
+      color: var(--orange);
+      font-size: clamp(34px, 4vw, 46px);
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: -.06em;
+    }
+    .foerder-price-value span {
+      color: #aaa;
+      font-size: 11px;
+      font-weight: 750;
+    }
+
     .schedule-panel {
       margin: 0 0 30px;
       padding: 25px;
@@ -914,6 +967,14 @@
       .foerder-main { padding-top: 35px; }
       .foerder-main .individual-hero { padding: 18px 0 25px; }
       .schedule-panel { padding: 18px; }
+      .foerder-price {
+        grid-template-columns: 1fr;
+        gap: 13px;
+        margin-top: -5px;
+        padding: 19px;
+      }
+      .foerder-price-value { justify-content: flex-start; }
+      .foerder-price-value strong { font-size: 40px; }
       .schedule-grid { grid-template-columns: 1fr; }
       .schedule-time { font-size: 23px; }
       #foerdertraining-form { padding: 22px 17px; }
@@ -997,6 +1058,17 @@
       </div>
     </section>
 
+    <section class="foerder-price" aria-label="Monatlicher Beitrag">
+      <div class="foerder-price-copy">
+        <span class="foerder-price-kicker">DEIN MONATLICHER BEITRAG</span>
+        <strong>Regelmäßiges Fördertraining. Nachhaltige Entwicklung.</strong>
+        <p>Das erste Training ist kostenlos und unverbindlich zum Kennenlernen. Erst danach beginnt die reguläre Teilnahme.</p>
+      </div>
+      <div class="foerder-price-value">
+        <strong>80 €</strong>
+        <span>/ Monat</span>
+      </div>
+    </section>
 
     <form
             method="POST"
