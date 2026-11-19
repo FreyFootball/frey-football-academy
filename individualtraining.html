@@ -619,6 +619,17 @@
     .performance-link-text strong { font-size: 13px; font-weight: 900; }
     .performance-link-text small { color: #999; font-size: 11px; }
     .performance-link-arrow { color: var(--orange); font-size: 23px; }
+    
+.training-price{max-width:760px;margin:0 0 28px;padding:19px 21px;border:1px solid rgba(255,140,0,.3);border-radius:7px;background:linear-gradient(110deg,rgba(255,140,0,.10),rgba(255,255,255,.025))}
+.training-price-kicker{margin-bottom:10px;color:var(--orange);font-size:9px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+.training-price-title{margin:0 0 12px;color:var(--white);font-size:16px;font-weight:850;letter-spacing:-.02em}
+.training-price-lines{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.training-price-line{padding:12px 13px;border:1px solid rgba(255,255,255,.09);background:rgba(0,0,0,.22)}
+.training-price-line span{display:block;color:#999;font-size:11px;line-height:1.5}
+.training-price-line strong{display:block;margin-top:3px;color:#fff;font-size:21px;font-weight:900}
+.training-price-note{margin:11px 0 0;color:#888;font-size:10px;line-height:1.6}
+@media(max-width:560px){.training-price{padding:16px}.training-price-lines{grid-template-columns:1fr}}
+
     #individualtraining-form {
       position: relative;
       margin: 0 0 28px;
@@ -834,6 +845,17 @@
       <span class="performance-link-arrow" aria-hidden="true">→</span>
     </a>
 
+    
+    <section class="training-price" aria-label="Preise für das Individualtraining">
+      <div class="training-price-kicker">DEIN WEG ZUM NÄCHSTEN LEVEL</div>
+      <h2 class="training-price-title">Dein Training. Dein nächster Entwicklungsschritt.</h2>
+      <div class="training-price-lines">
+        <div class="training-price-line"><span>1. Trainingseinheit inklusive Performance Check</span><strong>50 €</strong></div>
+        <div class="training-price-line"><span>Jede weitere Trainingseinheit</span><strong>75 €</strong></div>
+      </div>
+      
+    </section>
+
     <form
         method="POST"
         id="individualtraining-form"
@@ -936,6 +958,17 @@
 
             </div>
 
+
+
+            <div class="field">
+              <label for="starker-fuss">Starker Fuß *</label>
+              <select id="starker-fuss" name="Starker Fuß" required>
+                <option value="">Bitte auswählen</option>
+                <option value="Rechts">Rechts</option>
+                <option value="Links">Links</option>
+                <option value="Beidfüßig">Beidfüßig</option>
+              </select>
+            </div>
 
             <!-- SPIELNIVEAU -->
 
