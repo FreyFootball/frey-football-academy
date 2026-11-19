@@ -777,11 +777,10 @@
 #winter-form .date-option{display:flex;align-items:center;gap:12px;min-height:64px;margin:0;padding:14px 16px;border:1px solid rgba(255,255,255,.14);border-radius:5px;background:#090909;cursor:pointer;transition:border-color .2s ease,background .2s ease}
 #winter-form .date-option:has(input:checked){border-color:var(--orange);background:rgba(255,140,0,.09)}
 #winter-form .date-option input{width:18px;height:18px;flex:0 0 18px;margin:0;accent-color:var(--orange)}
-#winter-form .date-option > span{display:block;min-width:0;color:#eee;font-size:13px;font-weight:800}
-#winter-form .date-option > span > small{display:block;margin-top:4px;color:#888;font-size:10px;font-weight:500}
-#winter-form .date-option .date-schedule{display:grid;gap:5px;margin-top:10px;padding-top:9px;border-top:1px solid rgba(255,255,255,.1)}
-#winter-form .date-option .date-schedule span{display:block;color:#aaa;font-size:10px;font-weight:500;line-height:1.45}
-#winter-form .date-option .date-schedule strong{color:#eee;font-weight:800}
+#winter-form .date-option .date-label{display:block;min-width:0;color:#eee;font-size:13px;font-weight:800}
+#winter-form .date-option .date-label small{display:block;margin-top:4px;color:#888;font-size:10px;font-weight:500}
+#winter-form .date-option .date-time{display:inline-flex;align-items:center;justify-content:center;margin-left:auto;padding:7px 9px;border:1px solid rgba(255,140,0,.28);border-radius:4px;background:rgba(255,140,0,.08);color:var(--orange);font-size:10px;font-weight:850;line-height:1.35;text-align:center;white-space:nowrap}
+#winter-form .date-option .date-time.is-empty{border-color:rgba(255,255,255,.1);background:rgba(255,255,255,.03);color:#777;font-weight:600}
 #winter-form textarea{display:block;width:100%;min-height:90px;padding:12px 14px;border:1px solid rgba(255,255,255,.14);border-radius:5px;background:#090909;color:var(--white);font:inherit;font-size:13px;resize:vertical}
 #winter-form textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,140,0,.09)}
 @media(max-width:760px){#winter-form .date-options{grid-template-columns:1fr}}
@@ -877,30 +876,10 @@
         <div class="section-title">Gewünschte Trainingstermine *</div>
         <p style="margin:-8px 0 18px;color:#999;font-size:12px;line-height:1.7">Bitte wähle alle Termine aus, an denen du teilnehmen möchtest. Mehrfachauswahl möglich.</p>
         <div class="date-options">
-          <label class="date-option"><input type="checkbox" name="Gewünschte Termine[]" value="29.11.2026 (Sonntag)"><span>29.11.2026<small>Sonntag</small><div class="date-schedule">
-              <span><strong>10.00–11.00 Uhr</strong> · Jahrgänge 2016 &amp; 2017</span>
-              <span><strong>11.00–12.00 Uhr</strong> · Jahrgänge 2014 &amp; 2015</span>
-              <span><strong>12.30–13.30 Uhr</strong> · Jahrgänge 2012 &amp; 2013</span>
-              <span><strong>13.30–14.30 Uhr</strong> · Jahrgänge 2010 &amp; 2011</span>
-            </div></span></label>
-          <label class="date-option"><input type="checkbox" name="Gewünschte Termine[]" value="06.12.2026 (Sonntag)"><span>06.12.2026<small>Sonntag</small><div class="date-schedule">
-              <span><strong>10.00–11.00 Uhr</strong> · Jahrgänge 2016 &amp; 2017</span>
-              <span><strong>11.00–12.00 Uhr</strong> · Jahrgänge 2014 &amp; 2015</span>
-              <span><strong>12.30–13.30 Uhr</strong> · Jahrgänge 2012 &amp; 2013</span>
-              <span><strong>13.30–14.30 Uhr</strong> · Jahrgänge 2010 &amp; 2011</span>
-            </div></span></label>
-          <label class="date-option"><input type="checkbox" name="Gewünschte Termine[]" value="12.12.2026 (Samstag)"><span>12.12.2026<small>Samstag</small><div class="date-schedule">
-              <span><strong>10.00–11.00 Uhr</strong> · Jahrgänge 2016 &amp; 2017</span>
-              <span><strong>11.00–12.00 Uhr</strong> · Jahrgänge 2014 &amp; 2015</span>
-              <span><strong>12.30–13.30 Uhr</strong> · Jahrgänge 2012 &amp; 2013</span>
-              <span><strong>13.30–14.30 Uhr</strong> · Jahrgänge 2010 &amp; 2011</span>
-            </div></span></label>
-          <label class="date-option"><input type="checkbox" name="Gewünschte Termine[]" value="20.12.2026 (Sonntag)"><span>20.12.2026<small>Sonntag</small><div class="date-schedule">
-              <span><strong>10.00–11.00 Uhr</strong> · Jahrgänge 2016 &amp; 2017</span>
-              <span><strong>11.00–12.00 Uhr</strong> · Jahrgänge 2014 &amp; 2015</span>
-              <span><strong>12.30–13.30 Uhr</strong> · Jahrgänge 2012 &amp; 2013</span>
-              <span><strong>13.30–14.30 Uhr</strong> · Jahrgänge 2010 &amp; 2011</span>
-            </div></span></label>
+          <label class="date-option"><input type="checkbox" name="Gewünschte Termine[]" value="29.11.2026 (Sonntag)"><span class="date-label">29.11.2026<small>Sonntag</small></span><span class="date-time" aria-live="polite">Jahrgang auswählen</span></label>
+          <label class="date-option"><input type="checkbox" name="Gewünschte Termine[]" value="06.12.2026 (Sonntag)"><span class="date-label">06.12.2026<small>Sonntag</small></span><span class="date-time" aria-live="polite">Jahrgang auswählen</span></label>
+          <label class="date-option"><input type="checkbox" name="Gewünschte Termine[]" value="12.12.2026 (Samstag)"><span class="date-label">12.12.2026<small>Samstag</small></span><span class="date-time" aria-live="polite">Jahrgang auswählen</span></label>
+          <label class="date-option"><input type="checkbox" name="Gewünschte Termine[]" value="20.12.2026 (Sonntag)"><span class="date-label">20.12.2026<small>Sonntag</small></span><span class="date-time" aria-live="polite">Jahrgang auswählen</span></label>
         </div>
         <div class="info-box" style="margin-top:18px"><strong>Buchung:</strong> 20 € pro Einzeltermin oder 70 € für alle vier Einheiten. Die Trainingszeit richtet sich nach dem Jahrgang.</div>
       </div>
@@ -939,6 +918,30 @@
 </div>
 <script>
 const form = document.getElementById("winter-form");
+const yearSelect = document.getElementById("jahrgang");
+const trainingTimes = {
+  "2016": "10.00–11.00 Uhr",
+  "2017": "10.00–11.00 Uhr",
+  "2014": "11.00–12.00 Uhr",
+  "2015": "11.00–12.00 Uhr",
+  "2012": "12.30–13.30 Uhr",
+  "2013": "12.30–13.30 Uhr",
+  "2010": "13.30–14.30 Uhr",
+  "2011": "13.30–14.30 Uhr"
+};
+
+function updateTrainingTimes() {
+  const selectedYear = yearSelect.value;
+  const time = trainingTimes[selectedYear] || "";
+  form.querySelectorAll(".date-option .date-time").forEach((element) => {
+    element.textContent = time || "Jahrgang auswählen";
+    element.classList.toggle("is-empty", !time);
+  });
+}
+
+yearSelect.addEventListener("change", updateTrainingTimes);
+updateTrainingTimes();
+
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const selectedDates = form.querySelectorAll('input[name="Gewünschte Termine[]"]:checked');
