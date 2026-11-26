@@ -688,11 +688,7 @@ footer a:hover{color:var(--orange)}
 
         <div class="date-options">
 
-          <label class="date-option">
-            <input type="checkbox" name="Gewünschte Termine[]" value="29.11.2026 (Sonntag)">
-            <span class="date-label">29.11.2026<small>Sonntag</small></span>
-            <span class="date-time" aria-live="polite">Jahrgang auswählen</span>
-          </label>
+
 
           <label class="date-option">
             <input type="checkbox" name="Gewünschte Termine[]" value="06.12.2026 (Sonntag)">
@@ -720,7 +716,7 @@ footer a:hover{color:var(--orange)}
             <strong>VORAUSSICHTLICHER TRAININGSBEITRAG</strong>
             <small id="price-summary">Wähle deine gewünschten Einheiten aus.</small>
             <div class="price-calculation" id="price-calculation">
-              20 € pro Einheit · alle 4 Einheiten für nur 70 €
+              20 € pro Einheit · alle 3 Einheiten für nur 55 €
             </div>
           </div>
 
@@ -876,7 +872,7 @@ function updatePrice() {
     'input[name="Gewünschte Termine[]"]:checked'
   ).length;
 
-  const total = selectedCount === 4 ? 70 : selectedCount * 20;
+  const total = selectedCount === 3 ? 55 : selectedCount * 20;
 
   priceTotal.textContent = total + " €";
 
@@ -886,8 +882,8 @@ function updatePrice() {
       ? " Einheit ausgewählt"
       : " Einheiten ausgewählt");
 
-  priceCalculation.textContent = selectedCount === 4
-    ? "Alle 4 Einheiten · Vorteilspreis"
+  priceCalculation.textContent = selectedCount === 3
+    ? "Alle 3 Einheiten · Vorteilspreis"
     : selectedCount + " × 20 € pro Einheit";
 }
 
